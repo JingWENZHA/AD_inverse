@@ -1,0 +1,605 @@
+2022-10-03 11:17:48 log_path: logs/test20221002_5.txt
+2022-10-03 11:17:48 cuda is available: False
+2022-10-03 11:19:37 log_path: logs/test20221002_5.txt
+2022-10-03 11:19:37 cuda is available: False
+2022-10-03 11:19:38 using cpu
+2022-10-03 11:19:38 epoch = 1000
+2022-10-03 11:19:38 epoch_step = 200
+2022-10-03 11:19:38 model_name = SimpleNetworkAD
+2022-10-03 11:19:38 now_string = 2022-10-03-11-19-37
+2022-10-03 11:19:38 model_save_path_last = ./train/SimpleNetworkAD_1000_200_0.001_2022-10-03-11-19-37_last.pt
+2022-10-03 11:19:38 model_save_path_best = ./train/SimpleNetworkAD_1000_200_0.001_2022-10-03-11-19-37_best.pt
+2022-10-03 11:19:38 loss_save_path = ./loss/SimpleNetworkAD_1000_200_0.001_2022-10-03-11-19-37_loss_1000.npy
+2022-10-03 11:19:38 args = {'epoch': 1000, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 200, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 100, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-11-19-37'}
+2022-10-03 11:19:38 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 11:19:38 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 11:20:34 log_path: logs/test20221002_5.txt
+2022-10-03 11:20:34 cuda is available: False
+2022-10-03 11:20:35 using cpu
+2022-10-03 11:20:35 epoch = 100
+2022-10-03 11:20:35 epoch_step = 20
+2022-10-03 11:20:35 model_name = SimpleNetworkAD
+2022-10-03 11:20:35 now_string = 2022-10-03-11-20-34
+2022-10-03 11:20:35 model_save_path_last = ./train/SimpleNetworkAD_100_20_0.001_2022-10-03-11-20-34_last.pt
+2022-10-03 11:20:35 model_save_path_best = ./train/SimpleNetworkAD_100_20_0.001_2022-10-03-11-20-34_best.pt
+2022-10-03 11:20:35 loss_save_path = ./loss/SimpleNetworkAD_100_20_0.001_2022-10-03-11-20-34_loss_100.npy
+2022-10-03 11:20:35 args = {'epoch': 100, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 20, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 10, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-11-20-34'}
+2022-10-03 11:20:35 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 11:20:35 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 11:21:04 Testing & drawing...
+2022-10-03 11:22:04 log_path: logs/test20221002_5.txt
+2022-10-03 11:22:04 cuda is available: False
+2022-10-03 11:22:04 using cpu
+2022-10-03 11:22:04 epoch = 100
+2022-10-03 11:22:04 epoch_step = 20
+2022-10-03 11:22:04 model_name = SimpleNetworkAD
+2022-10-03 11:22:04 now_string = 2022-10-03-11-22-04
+2022-10-03 11:22:04 model_save_path_last = ./train/SimpleNetworkAD_100_20_0.001_2022-10-03-11-22-04_last.pt
+2022-10-03 11:22:04 model_save_path_best = ./train/SimpleNetworkAD_100_20_0.001_2022-10-03-11-22-04_best.pt
+2022-10-03 11:22:04 loss_save_path = ./loss/SimpleNetworkAD_100_20_0.001_2022-10-03-11-22-04_loss_100.npy
+2022-10-03 11:22:04 args = {'epoch': 100, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 20, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 10, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-11-22-04'}
+2022-10-03 11:22:04 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 11:22:04 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 11:22:31 Testing & drawing...
+2022-10-03 11:22:32 [Loss]
+2022-10-03 11:22:59 Epoch [00020/00100] Loss:173878.625000 Loss_1:14.586875 Loss_2:2.919956 Loss_3:173861.000000 Lr:0.000998 Time:55.458202s (0.92min in total, 3.70min remains)
+2022-10-03 11:35:53 log_path: logs/test20221002_5.txt
+2022-10-03 11:35:53 cuda is available: False
+2022-10-03 11:35:53 using cpu
+2022-10-03 11:35:53 epoch = 100
+2022-10-03 11:35:53 epoch_step = 20
+2022-10-03 11:35:53 model_name = SimpleNetworkAD
+2022-10-03 11:35:53 now_string = 2022-10-03-11-35-53
+2022-10-03 11:35:53 model_save_path_last = ./train/SimpleNetworkAD_100_20_0.001_2022-10-03-11-35-53_last.pt
+2022-10-03 11:35:53 model_save_path_best = ./train/SimpleNetworkAD_100_20_0.001_2022-10-03-11-35-53_best.pt
+2022-10-03 11:35:53 loss_save_path = ./loss/SimpleNetworkAD_100_20_0.001_2022-10-03-11-35-53_loss_100.npy
+2022-10-03 11:35:53 args = {'epoch': 100, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 20, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 10, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-11-35-53'}
+2022-10-03 11:35:53 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 11:35:53 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 11:36:20 Testing & drawing...
+2022-10-03 11:47:57 log_path: logs/test20221002_5.txt
+2022-10-03 11:47:57 cuda is available: False
+2022-10-03 11:47:58 using cpu
+2022-10-03 11:47:58 epoch = 100
+2022-10-03 11:47:58 epoch_step = 20
+2022-10-03 11:47:58 model_name = SimpleNetworkAD
+2022-10-03 11:47:58 now_string = 2022-10-03-11-47-57
+2022-10-03 11:47:58 model_save_path_last = ./train/SimpleNetworkAD_100_20_0.001_2022-10-03-11-47-57_last.pt
+2022-10-03 11:47:58 model_save_path_best = ./train/SimpleNetworkAD_100_20_0.001_2022-10-03-11-47-57_best.pt
+2022-10-03 11:47:58 loss_save_path = ./loss/SimpleNetworkAD_100_20_0.001_2022-10-03-11-47-57_loss_100.npy
+2022-10-03 11:47:58 args = {'epoch': 100, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 20, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 10, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-11-47-57'}
+2022-10-03 11:47:58 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 11:47:58 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 11:48:24 Testing & drawing...
+2022-10-03 11:50:04 log_path: logs/test20221002_5.txt
+2022-10-03 11:50:04 cuda is available: False
+2022-10-03 11:50:04 using cpu
+2022-10-03 11:50:04 epoch = 100
+2022-10-03 11:50:04 epoch_step = 20
+2022-10-03 11:50:04 model_name = SimpleNetworkAD
+2022-10-03 11:50:04 now_string = 2022-10-03-11-50-04
+2022-10-03 11:50:04 model_save_path_last = ./train/SimpleNetworkAD_100_20_0.001_2022-10-03-11-50-04_last.pt
+2022-10-03 11:50:04 model_save_path_best = ./train/SimpleNetworkAD_100_20_0.001_2022-10-03-11-50-04_best.pt
+2022-10-03 11:50:04 loss_save_path = ./loss/SimpleNetworkAD_100_20_0.001_2022-10-03-11-50-04_loss_100.npy
+2022-10-03 11:50:04 args = {'epoch': 100, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 20, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 10, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-11-50-04'}
+2022-10-03 11:50:04 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 11:50:04 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 11:50:31 Testing & drawing...
+2022-10-03 11:51:08 log_path: logs/test20221002_5.txt
+2022-10-03 11:51:08 cuda is available: False
+2022-10-03 11:51:08 using cpu
+2022-10-03 11:51:08 epoch = 100
+2022-10-03 11:51:08 epoch_step = 20
+2022-10-03 11:51:08 model_name = SimpleNetworkAD
+2022-10-03 11:51:08 now_string = 2022-10-03-11-51-08
+2022-10-03 11:51:08 model_save_path_last = ./train/SimpleNetworkAD_100_20_0.001_2022-10-03-11-51-08_last.pt
+2022-10-03 11:51:08 model_save_path_best = ./train/SimpleNetworkAD_100_20_0.001_2022-10-03-11-51-08_best.pt
+2022-10-03 11:51:08 loss_save_path = ./loss/SimpleNetworkAD_100_20_0.001_2022-10-03-11-51-08_loss_100.npy
+2022-10-03 11:51:08 args = {'epoch': 100, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 20, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 10, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-11-51-08'}
+2022-10-03 11:51:08 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 11:51:08 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 11:51:39 Testing & drawing...
+2022-10-03 11:53:41 log_path: logs/test20221002_5.txt
+2022-10-03 11:53:41 cuda is available: False
+2022-10-03 11:53:41 using cpu
+2022-10-03 11:53:41 epoch = 100
+2022-10-03 11:53:41 epoch_step = 20
+2022-10-03 11:53:41 model_name = SimpleNetworkAD
+2022-10-03 11:53:41 now_string = 2022-10-03-11-53-41
+2022-10-03 11:53:41 model_save_path_last = ./train/SimpleNetworkAD_100_20_0.001_2022-10-03-11-53-41_last.pt
+2022-10-03 11:53:41 model_save_path_best = ./train/SimpleNetworkAD_100_20_0.001_2022-10-03-11-53-41_best.pt
+2022-10-03 11:53:41 loss_save_path = ./loss/SimpleNetworkAD_100_20_0.001_2022-10-03-11-53-41_loss_100.npy
+2022-10-03 11:53:41 args = {'epoch': 100, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 20, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 10, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-11-53-41'}
+2022-10-03 11:53:41 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 11:53:41 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 11:54:08 Testing & drawing...
+2022-10-03 11:56:13 log_path: logs/test20221002_5.txt
+2022-10-03 11:56:13 cuda is available: False
+2022-10-03 11:56:13 using cpu
+2022-10-03 11:56:13 epoch = 60
+2022-10-03 11:56:13 epoch_step = 20
+2022-10-03 11:56:13 model_name = SimpleNetworkAD
+2022-10-03 11:56:13 now_string = 2022-10-03-11-56-13
+2022-10-03 11:56:13 model_save_path_last = ./train/SimpleNetworkAD_60_20_0.001_2022-10-03-11-56-13_last.pt
+2022-10-03 11:56:13 model_save_path_best = ./train/SimpleNetworkAD_60_20_0.001_2022-10-03-11-56-13_best.pt
+2022-10-03 11:56:13 loss_save_path = ./loss/SimpleNetworkAD_60_20_0.001_2022-10-03-11-56-13_loss_60.npy
+2022-10-03 11:56:13 args = {'epoch': 60, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 20, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 10, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-11-56-13'}
+2022-10-03 11:56:13 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 11:56:13 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 11:56:40 Testing & drawing...
+2022-10-03 11:57:16 log_path: logs/test20221002_5.txt
+2022-10-03 11:57:16 cuda is available: False
+2022-10-03 11:57:16 using cpu
+2022-10-03 11:57:16 epoch = 60
+2022-10-03 11:57:16 epoch_step = 20
+2022-10-03 11:57:16 model_name = SimpleNetworkAD
+2022-10-03 11:57:16 now_string = 2022-10-03-11-57-16
+2022-10-03 11:57:16 model_save_path_last = ./train/SimpleNetworkAD_60_20_0.001_2022-10-03-11-57-16_last.pt
+2022-10-03 11:57:16 model_save_path_best = ./train/SimpleNetworkAD_60_20_0.001_2022-10-03-11-57-16_best.pt
+2022-10-03 11:57:16 loss_save_path = ./loss/SimpleNetworkAD_60_20_0.001_2022-10-03-11-57-16_loss_60.npy
+2022-10-03 11:57:16 args = {'epoch': 60, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 20, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 10, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-11-57-16'}
+2022-10-03 11:57:16 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 11:57:16 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 11:57:44 Testing & drawing...
+2022-10-03 11:58:42 log_path: logs/test20221002_5.txt
+2022-10-03 11:58:42 cuda is available: False
+2022-10-03 11:58:43 using cpu
+2022-10-03 11:58:43 epoch = 30
+2022-10-03 11:58:43 epoch_step = 10
+2022-10-03 11:58:43 model_name = SimpleNetworkAD
+2022-10-03 11:58:43 now_string = 2022-10-03-11-58-42
+2022-10-03 11:58:43 model_save_path_last = ./train/SimpleNetworkAD_30_10_0.001_2022-10-03-11-58-42_last.pt
+2022-10-03 11:58:43 model_save_path_best = ./train/SimpleNetworkAD_30_10_0.001_2022-10-03-11-58-42_best.pt
+2022-10-03 11:58:43 loss_save_path = ./loss/SimpleNetworkAD_30_10_0.001_2022-10-03-11-58-42_loss_30.npy
+2022-10-03 11:58:43 args = {'epoch': 30, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 10, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 10, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-11-58-42'}
+2022-10-03 11:58:43 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 11:58:43 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 11:59:09 Epoch [00010/00030] Loss:1879639.125000 Loss_1:32.693810 Loss_2:1.746853 Loss_3:1879604.500000 Lr:0.000999 Time:25.776516s (0.43min in total, 0.86min remains)
+2022-10-03 11:59:09 True: 9.999999747378752e-05;  estimated: 0.48641693592071533
+2022-10-03 11:59:09 True: 0.0038999998942017555;  estimated: 0.7583581209182739
+2022-10-03 11:59:09 True: 0.002300000051036477;  estimated: 0.0785365030169487
+2022-10-03 11:59:09 True: 0.0012000000569969416;  estimated: 0.1220688447356224
+2022-10-03 11:59:09 True: 0.0012000000569969416;  estimated: 0.29752597212791443
+2022-10-03 12:00:15 log_path: logs/test20221002_5.txt
+2022-10-03 12:00:15 cuda is available: False
+2022-10-03 12:00:16 using cpu
+2022-10-03 12:00:16 epoch = 30
+2022-10-03 12:00:16 epoch_step = 10
+2022-10-03 12:00:16 model_name = SimpleNetworkAD
+2022-10-03 12:00:16 now_string = 2022-10-03-12-00-15
+2022-10-03 12:00:16 model_save_path_last = ./train/SimpleNetworkAD_30_10_0.001_2022-10-03-12-00-15_last.pt
+2022-10-03 12:00:16 model_save_path_best = ./train/SimpleNetworkAD_30_10_0.001_2022-10-03-12-00-15_best.pt
+2022-10-03 12:00:16 loss_save_path = ./loss/SimpleNetworkAD_30_10_0.001_2022-10-03-12-00-15_loss_30.npy
+2022-10-03 12:00:16 args = {'epoch': 30, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 10, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 10, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-12-00-15'}
+2022-10-03 12:00:16 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 12:00:16 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 12:00:43 Epoch [00010/00030] Loss:1879639.125000 Loss_1:32.693810 Loss_2:1.746853 Loss_3:1879604.500000 Lr:0.000999 Time:26.700845s (0.45min in total, 0.89min remains)
+2022-10-03 12:00:43 True: 9.999999747378752e-05;  estimated: 0.48641693592071533
+2022-10-03 12:00:43 True: 0.0038999998942017555;  estimated: 0.7583581209182739
+2022-10-03 12:00:43 True: 0.002300000051036477;  estimated: 0.0785365030169487
+2022-10-03 12:00:43 True: 0.0012000000569969416;  estimated: 0.1220688447356224
+2022-10-03 12:00:43 True: 0.0012000000569969416;  estimated: 0.29752597212791443
+2022-10-03 12:00:43 ----------------------------
+2022-10-03 12:00:43 Testing & drawing...
+2022-10-03 12:01:16 log_path: logs/test20221002_5.txt
+2022-10-03 12:01:16 cuda is available: False
+2022-10-03 12:01:16 using cpu
+2022-10-03 12:01:16 epoch = 30
+2022-10-03 12:01:16 epoch_step = 10
+2022-10-03 12:01:16 model_name = SimpleNetworkAD
+2022-10-03 12:01:16 now_string = 2022-10-03-12-01-16
+2022-10-03 12:01:16 model_save_path_last = ./train/SimpleNetworkAD_30_10_0.001_2022-10-03-12-01-16_last.pt
+2022-10-03 12:01:16 model_save_path_best = ./train/SimpleNetworkAD_30_10_0.001_2022-10-03-12-01-16_best.pt
+2022-10-03 12:01:16 loss_save_path = ./loss/SimpleNetworkAD_30_10_0.001_2022-10-03-12-01-16_loss_30.npy
+2022-10-03 12:01:16 args = {'epoch': 30, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 10, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 10, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-12-01-16'}
+2022-10-03 12:01:16 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 12:01:16 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 12:01:43 Epoch [00010/00030] Loss:1879639.125000 Loss_1:32.693810 Loss_2:1.746853 Loss_3:1879604.500000 Lr:0.000999 Time:26.833496s (0.45min in total, 0.89min remains)
+2022-10-03 12:01:43 True: 9.999999747378752e-05;  estimated: 0.48641693592071533
+2022-10-03 12:01:43 True: 0.0038999998942017555;  estimated: 0.7583581209182739
+2022-10-03 12:01:43 True: 0.002300000051036477;  estimated: 0.0785365030169487
+2022-10-03 12:01:43 True: 0.0012000000569969416;  estimated: 0.1220688447356224
+2022-10-03 12:01:43 True: 0.0012000000569969416;  estimated: 0.29752597212791443
+2022-10-03 12:01:43 ----------------------------
+2022-10-03 12:01:43 Testing & drawing...
+2022-10-03 12:03:24 log_path: logs/test20221002_5.txt
+2022-10-03 12:03:24 cuda is available: False
+2022-10-03 12:03:25 using cpu
+2022-10-03 12:03:25 epoch = 30
+2022-10-03 12:03:25 epoch_step = 10
+2022-10-03 12:03:25 model_name = SimpleNetworkAD
+2022-10-03 12:03:25 now_string = 2022-10-03-12-03-24
+2022-10-03 12:03:25 model_save_path_last = ./train/SimpleNetworkAD_30_10_0.001_2022-10-03-12-03-24_last.pt
+2022-10-03 12:03:25 model_save_path_best = ./train/SimpleNetworkAD_30_10_0.001_2022-10-03-12-03-24_best.pt
+2022-10-03 12:03:25 loss_save_path = ./loss/SimpleNetworkAD_30_10_0.001_2022-10-03-12-03-24_loss_30.npy
+2022-10-03 12:03:25 args = {'epoch': 30, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 10, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 10, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-12-03-24'}
+2022-10-03 12:03:25 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 12:03:25 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 12:03:53 Epoch [00010/00030] Loss:1879639.125000 Loss_1:32.693810 Loss_2:1.746853 Loss_3:1879604.500000 Lr:0.000999 Time:27.757445s (0.46min in total, 0.93min remains)
+2022-10-03 12:03:53 True: 9.999999747378752e-05;  estimated: 0.48641693592071533
+2022-10-03 12:03:53 True: 0.0038999998942017555;  estimated: 0.7583581209182739
+2022-10-03 12:03:53 True: 0.002300000051036477;  estimated: 0.0785365030169487
+2022-10-03 12:03:53 True: 0.0012000000569969416;  estimated: 0.1220688447356224
+2022-10-03 12:03:53 True: 0.0012000000569969416;  estimated: 0.29752597212791443
+2022-10-03 12:03:53 ----------------------------
+2022-10-03 12:03:53 Testing & drawing...
+2022-10-03 12:04:36 log_path: logs/test20221002_5.txt
+2022-10-03 12:04:36 cuda is available: False
+2022-10-03 12:04:37 using cpu
+2022-10-03 12:04:37 epoch = 30
+2022-10-03 12:04:37 epoch_step = 10
+2022-10-03 12:04:37 model_name = SimpleNetworkAD
+2022-10-03 12:04:37 now_string = 2022-10-03-12-04-36
+2022-10-03 12:04:37 model_save_path_last = ./train/SimpleNetworkAD_30_10_0.001_2022-10-03-12-04-36_last.pt
+2022-10-03 12:04:37 model_save_path_best = ./train/SimpleNetworkAD_30_10_0.001_2022-10-03-12-04-36_best.pt
+2022-10-03 12:04:37 loss_save_path = ./loss/SimpleNetworkAD_30_10_0.001_2022-10-03-12-04-36_loss_30.npy
+2022-10-03 12:04:37 args = {'epoch': 30, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 10, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 10, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-12-04-36'}
+2022-10-03 12:04:37 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 12:04:37 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 12:05:03 Epoch [00010/00030] Loss:1879639.125000 Loss_1:32.693810 Loss_2:1.746853 Loss_3:1879604.500000 Lr:0.000999 Time:26.470845s (0.44min in total, 0.88min remains)
+2022-10-03 12:05:03 True: 9.999999747378752e-05;  estimated: 0.48641693592071533
+2022-10-03 12:05:03 True: 0.0038999998942017555;  estimated: 0.7583581209182739
+2022-10-03 12:05:03 True: 0.002300000051036477;  estimated: 0.0785365030169487
+2022-10-03 12:05:03 True: 0.0012000000569969416;  estimated: 0.1220688447356224
+2022-10-03 12:05:03 True: 0.0012000000569969416;  estimated: 0.29752597212791443
+2022-10-03 12:05:03 ----------------------------
+2022-10-03 12:05:03 Testing & drawing...
+2022-10-03 12:06:30 log_path: logs/test20221002_5.txt
+2022-10-03 12:06:30 cuda is available: False
+2022-10-03 12:06:31 using cpu
+2022-10-03 12:06:31 epoch = 30
+2022-10-03 12:06:31 epoch_step = 10
+2022-10-03 12:06:31 model_name = SimpleNetworkAD
+2022-10-03 12:06:31 now_string = 2022-10-03-12-06-30
+2022-10-03 12:06:31 model_save_path_last = ./train/SimpleNetworkAD_30_10_0.001_2022-10-03-12-06-30_last.pt
+2022-10-03 12:06:31 model_save_path_best = ./train/SimpleNetworkAD_30_10_0.001_2022-10-03-12-06-30_best.pt
+2022-10-03 12:06:31 loss_save_path = ./loss/SimpleNetworkAD_30_10_0.001_2022-10-03-12-06-30_loss_30.npy
+2022-10-03 12:06:31 args = {'epoch': 30, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 10, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 10, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-12-06-30'}
+2022-10-03 12:06:31 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 12:06:31 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 12:06:58 Epoch [00010/00030] Loss:1879639.125000 Loss_1:32.693810 Loss_2:1.746853 Loss_3:1879604.500000 Lr:0.000999 Time:27.632769s (0.46min in total, 0.92min remains)
+2022-10-03 12:06:58 True: 9.999999747378752e-05;  estimated: 0.48641693592071533
+2022-10-03 12:06:58 True: 0.0038999998942017555;  estimated: 0.7583581209182739
+2022-10-03 12:06:58 True: 0.002300000051036477;  estimated: 0.0785365030169487
+2022-10-03 12:06:58 True: 0.0012000000569969416;  estimated: 0.1220688447356224
+2022-10-03 12:06:58 True: 0.0012000000569969416;  estimated: 0.29752597212791443
+2022-10-03 12:06:58 ----------------------------
+2022-10-03 12:06:59 Testing & drawing...
+2022-10-03 12:07:29 log_path: logs/test20221002_5.txt
+2022-10-03 12:07:29 cuda is available: False
+2022-10-03 12:07:30 using cpu
+2022-10-03 12:07:30 epoch = 30
+2022-10-03 12:07:30 epoch_step = 10
+2022-10-03 12:07:30 model_name = SimpleNetworkAD
+2022-10-03 12:07:30 now_string = 2022-10-03-12-07-29
+2022-10-03 12:07:30 model_save_path_last = ./train/SimpleNetworkAD_30_10_0.001_2022-10-03-12-07-29_last.pt
+2022-10-03 12:07:30 model_save_path_best = ./train/SimpleNetworkAD_30_10_0.001_2022-10-03-12-07-29_best.pt
+2022-10-03 12:07:30 loss_save_path = ./loss/SimpleNetworkAD_30_10_0.001_2022-10-03-12-07-29_loss_30.npy
+2022-10-03 12:07:30 args = {'epoch': 30, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 10, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 10, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-12-07-29'}
+2022-10-03 12:07:30 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 12:07:30 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 12:07:58 Epoch [00010/00030] Loss:1879639.125000 Loss_1:32.693810 Loss_2:1.746853 Loss_3:1879604.500000 Lr:0.000999 Time:28.642874s (0.48min in total, 0.95min remains)
+2022-10-03 12:07:58 True: 9.999999747378752e-05;  estimated: 0.48641693592071533
+2022-10-03 12:07:58 True: 0.0038999998942017555;  estimated: 0.7583581209182739
+2022-10-03 12:07:58 True: 0.002300000051036477;  estimated: 0.0785365030169487
+2022-10-03 12:07:58 True: 0.0012000000569969416;  estimated: 0.1220688447356224
+2022-10-03 12:07:58 True: 0.0012000000569969416;  estimated: 0.29752597212791443
+2022-10-03 12:07:58 ----------------------------
+2022-10-03 12:07:58 Testing & drawing...
+2022-10-03 12:08:10 log_path: logs/test20221002_5.txt
+2022-10-03 12:08:10 cuda is available: False
+2022-10-03 12:08:11 using cpu
+2022-10-03 12:08:11 epoch = 30
+2022-10-03 12:08:11 epoch_step = 10
+2022-10-03 12:08:11 model_name = SimpleNetworkAD
+2022-10-03 12:08:11 now_string = 2022-10-03-12-08-10
+2022-10-03 12:08:11 model_save_path_last = ./train/SimpleNetworkAD_30_10_0.001_2022-10-03-12-08-10_last.pt
+2022-10-03 12:08:11 model_save_path_best = ./train/SimpleNetworkAD_30_10_0.001_2022-10-03-12-08-10_best.pt
+2022-10-03 12:08:11 loss_save_path = ./loss/SimpleNetworkAD_30_10_0.001_2022-10-03-12-08-10_loss_30.npy
+2022-10-03 12:08:11 args = {'epoch': 30, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 10, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 10, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-12-08-10'}
+2022-10-03 12:08:11 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 12:08:11 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 12:08:37 Epoch [00010/00030] Loss:1879639.125000 Loss_1:32.693810 Loss_2:1.746853 Loss_3:1879604.500000 Lr:0.000999 Time:26.416474s (0.44min in total, 0.88min remains)
+2022-10-03 12:08:37 True: 9.999999747378752e-05;  estimated: 0.48641693592071533
+2022-10-03 12:08:37 True: 0.0038999998942017555;  estimated: 0.7583581209182739
+2022-10-03 12:08:37 True: 0.002300000051036477;  estimated: 0.0785365030169487
+2022-10-03 12:08:37 True: 0.0012000000569969416;  estimated: 0.1220688447356224
+2022-10-03 12:08:37 True: 0.0012000000569969416;  estimated: 0.29752597212791443
+2022-10-03 12:08:37 ----------------------------
+2022-10-03 12:08:37 Testing & drawing...
+2022-10-03 12:17:39 log_path: logs/test20221002_5.txt
+2022-10-03 12:17:39 cuda is available: False
+2022-10-03 12:17:39 using cpu
+2022-10-03 12:17:39 epoch = 10
+2022-10-03 12:17:39 epoch_step = 2
+2022-10-03 12:17:39 model_name = SimpleNetworkAD
+2022-10-03 12:17:39 now_string = 2022-10-03-12-17-39
+2022-10-03 12:17:39 model_save_path_last = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-17-39_last.pt
+2022-10-03 12:17:39 model_save_path_best = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-17-39_best.pt
+2022-10-03 12:17:39 loss_save_path = ./loss/SimpleNetworkAD_10_2_0.001_2022-10-03-12-17-39_loss_10.npy
+2022-10-03 12:17:39 args = {'epoch': 10, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 2, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 2, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-12-17-39'}
+2022-10-03 12:17:39 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 12:17:39 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 12:17:45 Epoch [00002/00010] Loss:7768876.500000 Loss_1:67.618355 Loss_2:1.514731 Loss_3:7768808.500000 Lr:0.001000 Time:5.443614s (0.09min in total, 0.36min remains)
+2022-10-03 12:17:45 True: 9.999999747378752e-05;  estimated: 0.49426376819610596
+2022-10-03 12:17:45 True: 0.0038999998942017555;  estimated: 0.7662279605865479
+2022-10-03 12:17:45 True: 0.002300000051036477;  estimated: 0.0864771157503128
+2022-10-03 12:17:45 True: 0.0012000000569969416;  estimated: 0.13003009557724
+2022-10-03 12:17:45 True: 0.0012000000569969416;  estimated: 0.3054221272468567
+2022-10-03 12:17:45 ----------------------------
+2022-10-03 12:17:45 Testing & drawing...
+2022-10-03 12:18:21 log_path: logs/test20221002_5.txt
+2022-10-03 12:18:21 cuda is available: False
+2022-10-03 12:18:22 using cpu
+2022-10-03 12:18:22 epoch = 10
+2022-10-03 12:18:22 epoch_step = 2
+2022-10-03 12:18:22 model_name = SimpleNetworkAD
+2022-10-03 12:18:22 now_string = 2022-10-03-12-18-21
+2022-10-03 12:18:22 model_save_path_last = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-18-21_last.pt
+2022-10-03 12:18:22 model_save_path_best = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-18-21_best.pt
+2022-10-03 12:18:22 loss_save_path = ./loss/SimpleNetworkAD_10_2_0.001_2022-10-03-12-18-21_loss_10.npy
+2022-10-03 12:18:22 args = {'epoch': 10, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 2, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 2, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-12-18-21'}
+2022-10-03 12:18:22 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 12:18:22 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 12:18:27 Epoch [00002/00010] Loss:7768876.500000 Loss_1:67.618355 Loss_2:1.514731 Loss_3:7768808.500000 Lr:0.001000 Time:5.164181s (0.09min in total, 0.34min remains)
+2022-10-03 12:18:27 True: 9.999999747378752e-05;  estimated: 0.49426376819610596
+2022-10-03 12:18:27 True: 0.0038999998942017555;  estimated: 0.7662279605865479
+2022-10-03 12:18:27 True: 0.002300000051036477;  estimated: 0.0864771157503128
+2022-10-03 12:18:27 True: 0.0012000000569969416;  estimated: 0.13003009557724
+2022-10-03 12:18:27 True: 0.0012000000569969416;  estimated: 0.3054221272468567
+2022-10-03 12:18:27 ----------------------------
+2022-10-03 12:18:27 Testing & drawing...
+2022-10-03 12:18:34 [Loss]
+2022-10-03 12:18:40 Epoch [00004/00010] Loss:5670932.000000 Loss_1:56.683155 Loss_2:1.297598 Loss_3:5670872.000000 Lr:0.001000 Time:13.288383s (0.31min in total, 0.46min remains)
+2022-10-03 12:18:40 True: 9.999999747378752e-05;  estimated: 0.4923020303249359
+2022-10-03 12:18:40 True: 0.0038999998942017555;  estimated: 0.7642611265182495
+2022-10-03 12:18:40 True: 0.002300000051036477;  estimated: 0.0844724103808403
+2022-10-03 12:18:40 True: 0.0012000000569969416;  estimated: 0.1280241757631302
+2022-10-03 12:18:40 True: 0.0012000000569969416;  estimated: 0.30341798067092896
+2022-10-03 12:18:40 ----------------------------
+2022-10-03 12:18:40 Testing & drawing...
+2022-10-03 12:18:48 [Loss]
+2022-10-03 12:18:53 Epoch [00006/00010] Loss:4030027.750000 Loss_1:47.267429 Loss_2:1.326292 Loss_3:4029978.500000 Lr:0.000999 Time:12.938040s (0.52min in total, 0.35min remains)
+2022-10-03 12:18:53 True: 9.999999747378752e-05;  estimated: 0.4903571605682373
+2022-10-03 12:18:53 True: 0.0038999998942017555;  estimated: 0.7623087167739868
+2022-10-03 12:18:53 True: 0.002300000051036477;  estimated: 0.08248541504144669
+2022-10-03 12:18:53 True: 0.0012000000569969416;  estimated: 0.12603197991847992
+2022-10-03 12:18:53 True: 0.0012000000569969416;  estimated: 0.30143797397613525
+2022-10-03 12:18:53 ----------------------------
+2022-10-03 12:18:53 Testing & drawing...
+2022-10-03 12:19:01 [Loss]
+2022-10-03 12:19:06 Epoch [00008/00010] Loss:2787881.000000 Loss_1:39.310318 Loss_2:1.499967 Loss_3:2787841.000000 Lr:0.000999 Time:12.685994s (0.74min in total, 0.18min remains)
+2022-10-03 12:19:06 True: 9.999999747378752e-05;  estimated: 0.48840245604515076
+2022-10-03 12:19:06 True: 0.0038999998942017555;  estimated: 0.760347306728363
+2022-10-03 12:19:06 True: 0.002300000051036477;  estimated: 0.08051558583974838
+2022-10-03 12:19:06 True: 0.0012000000569969416;  estimated: 0.12405558675527573
+2022-10-03 12:19:06 True: 0.0012000000569969416;  estimated: 0.2994841933250427
+2022-10-03 12:19:06 ----------------------------
+2022-10-03 12:19:06 Testing & drawing...
+2022-10-03 12:19:13 [Loss]
+2022-10-03 12:19:19 Epoch [00010/00010] Loss:1879639.125000 Loss_1:32.693810 Loss_2:1.746853 Loss_3:1879604.500000 Lr:0.000999 Time:12.777495s (0.95min in total, 0.00min remains)
+2022-10-03 12:19:19 True: 9.999999747378752e-05;  estimated: 0.48641693592071533
+2022-10-03 12:19:19 True: 0.0038999998942017555;  estimated: 0.7583581209182739
+2022-10-03 12:19:19 True: 0.002300000051036477;  estimated: 0.0785365030169487
+2022-10-03 12:19:19 True: 0.0012000000569969416;  estimated: 0.1220688447356224
+2022-10-03 12:19:19 True: 0.0012000000569969416;  estimated: 0.29752597212791443
+2022-10-03 12:19:19 ----------------------------
+2022-10-03 12:19:19 Testing & drawing...
+2022-10-03 12:19:26 [Loss]
+2022-10-03 12:22:26 log_path: logs/test20221002_5.txt
+2022-10-03 12:22:26 cuda is available: False
+2022-10-03 12:22:26 using cpu
+2022-10-03 12:22:26 epoch = 10
+2022-10-03 12:22:26 epoch_step = 2
+2022-10-03 12:22:26 model_name = SimpleNetworkAD
+2022-10-03 12:22:26 now_string = 2022-10-03-12-22-26
+2022-10-03 12:22:26 model_save_path_last = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-22-26_last.pt
+2022-10-03 12:22:26 model_save_path_best = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-22-26_best.pt
+2022-10-03 12:22:26 loss_save_path = ./loss/SimpleNetworkAD_10_2_0.001_2022-10-03-12-22-26_loss_10.npy
+2022-10-03 12:22:26 args = {'epoch': 10, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 2, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 2, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-12-22-26'}
+2022-10-03 12:22:26 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 12:22:27 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 12:22:32 Epoch [00002/00010] Loss:7768876.500000 Loss_1:67.618355 Loss_2:1.514731 Loss_3:7768808.500000 Lr:0.001000 Time:5.440767s (0.09min in total, 0.36min remains)
+2022-10-03 12:22:32 True: 9.999999747378752e-05;  estimated: 0.49426376819610596
+2022-10-03 12:22:32 True: 0.0038999998942017555;  estimated: 0.7662279605865479
+2022-10-03 12:22:32 True: 0.002300000051036477;  estimated: 0.0864771157503128
+2022-10-03 12:22:32 True: 0.0012000000569969416;  estimated: 0.13003009557724
+2022-10-03 12:22:32 True: 0.0012000000569969416;  estimated: 0.3054221272468567
+2022-10-03 12:22:32 ----------------------------
+2022-10-03 12:22:32 Testing & drawing...
+2022-10-03 12:23:29 log_path: logs/test20221002_5.txt
+2022-10-03 12:23:29 cuda is available: False
+2022-10-03 12:23:29 using cpu
+2022-10-03 12:23:29 epoch = 10
+2022-10-03 12:23:29 epoch_step = 2
+2022-10-03 12:23:29 model_name = SimpleNetworkAD
+2022-10-03 12:23:29 now_string = 2022-10-03-12-23-29
+2022-10-03 12:23:29 model_save_path_last = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-23-29_last.pt
+2022-10-03 12:23:29 model_save_path_best = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-23-29_best.pt
+2022-10-03 12:23:29 loss_save_path = ./loss/SimpleNetworkAD_10_2_0.001_2022-10-03-12-23-29_loss_10.npy
+2022-10-03 12:23:29 args = {'epoch': 10, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 2, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 2, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-12-23-29'}
+2022-10-03 12:23:29 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 12:23:29 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 12:23:35 Epoch [00002/00010] Loss:7768876.500000 Loss_1:67.618355 Loss_2:1.514731 Loss_3:7768808.500000 Lr:0.001000 Time:5.393397s (0.09min in total, 0.36min remains)
+2022-10-03 12:23:35 True: 9.999999747378752e-05;  estimated: 0.49426376819610596
+2022-10-03 12:23:35 True: 0.0038999998942017555;  estimated: 0.7662279605865479
+2022-10-03 12:23:35 True: 0.002300000051036477;  estimated: 0.0864771157503128
+2022-10-03 12:23:35 True: 0.0012000000569969416;  estimated: 0.13003009557724
+2022-10-03 12:23:35 True: 0.0012000000569969416;  estimated: 0.3054221272468567
+2022-10-03 12:23:35 ----------------------------
+2022-10-03 12:23:35 Testing & drawing...
+2022-10-03 12:24:16 log_path: logs/test20221002_5.txt
+2022-10-03 12:24:16 cuda is available: False
+2022-10-03 12:24:17 using cpu
+2022-10-03 12:24:17 epoch = 10
+2022-10-03 12:24:17 epoch_step = 2
+2022-10-03 12:24:17 model_name = SimpleNetworkAD
+2022-10-03 12:24:17 now_string = 2022-10-03-12-24-16
+2022-10-03 12:24:17 model_save_path_last = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-24-16_last.pt
+2022-10-03 12:24:17 model_save_path_best = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-24-16_best.pt
+2022-10-03 12:24:17 loss_save_path = ./loss/SimpleNetworkAD_10_2_0.001_2022-10-03-12-24-16_loss_10.npy
+2022-10-03 12:24:17 args = {'epoch': 10, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 2, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 2, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-12-24-16'}
+2022-10-03 12:24:17 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 12:24:17 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 12:24:23 Epoch [00002/00010] Loss:7768876.500000 Loss_1:67.618355 Loss_2:1.514731 Loss_3:7768808.500000 Lr:0.001000 Time:5.660350s (0.09min in total, 0.38min remains)
+2022-10-03 12:24:23 True: 9.999999747378752e-05;  estimated: 0.49426376819610596
+2022-10-03 12:24:23 True: 0.0038999998942017555;  estimated: 0.7662279605865479
+2022-10-03 12:24:23 True: 0.002300000051036477;  estimated: 0.0864771157503128
+2022-10-03 12:24:23 True: 0.0012000000569969416;  estimated: 0.13003009557724
+2022-10-03 12:24:23 True: 0.0012000000569969416;  estimated: 0.3054221272468567
+2022-10-03 12:24:23 ----------------------------
+2022-10-03 12:24:23 Testing & drawing...
+2022-10-03 12:25:27 log_path: logs/test20221002_5.txt
+2022-10-03 12:25:27 cuda is available: False
+2022-10-03 12:25:27 using cpu
+2022-10-03 12:25:27 epoch = 10
+2022-10-03 12:25:27 epoch_step = 2
+2022-10-03 12:25:27 model_name = SimpleNetworkAD
+2022-10-03 12:25:27 now_string = 2022-10-03-12-25-27
+2022-10-03 12:25:27 model_save_path_last = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-25-27_last.pt
+2022-10-03 12:25:27 model_save_path_best = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-25-27_best.pt
+2022-10-03 12:25:27 loss_save_path = ./loss/SimpleNetworkAD_10_2_0.001_2022-10-03-12-25-27_loss_10.npy
+2022-10-03 12:25:27 args = {'epoch': 10, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 2, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 2, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-12-25-27'}
+2022-10-03 12:25:27 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 12:25:27 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 12:25:32 Epoch [00002/00010] Loss:7768876.500000 Loss_1:67.618355 Loss_2:1.514731 Loss_3:7768808.500000 Lr:0.001000 Time:5.030913s (0.08min in total, 0.34min remains)
+2022-10-03 12:25:32 True: 9.999999747378752e-05;  estimated: 0.49426376819610596
+2022-10-03 12:25:32 True: 0.0038999998942017555;  estimated: 0.7662279605865479
+2022-10-03 12:25:32 True: 0.002300000051036477;  estimated: 0.0864771157503128
+2022-10-03 12:25:32 True: 0.0012000000569969416;  estimated: 0.13003009557724
+2022-10-03 12:25:32 True: 0.0012000000569969416;  estimated: 0.3054221272468567
+2022-10-03 12:25:32 ----------------------------
+2022-10-03 12:25:32 Testing & drawing...
+2022-10-03 12:29:50 log_path: logs/test20221002_5.txt
+2022-10-03 12:29:50 cuda is available: False
+2022-10-03 12:29:50 using cpu
+2022-10-03 12:29:50 epoch = 10
+2022-10-03 12:29:50 epoch_step = 2
+2022-10-03 12:29:50 model_name = SimpleNetworkAD
+2022-10-03 12:29:50 now_string = 2022-10-03-12-29-50
+2022-10-03 12:29:50 model_save_path_last = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-29-50_last.pt
+2022-10-03 12:29:50 model_save_path_best = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-29-50_best.pt
+2022-10-03 12:29:50 loss_save_path = ./loss/SimpleNetworkAD_10_2_0.001_2022-10-03-12-29-50_loss_10.npy
+2022-10-03 12:29:50 args = {'epoch': 10, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 2, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 2, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-12-29-50'}
+2022-10-03 12:29:50 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 12:29:50 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 12:29:56 Epoch [00002/00010] Loss:7768876.500000 Loss_1:67.618355 Loss_2:1.514731 Loss_3:7768808.500000 Lr:0.001000 Time:6.154983s (0.10min in total, 0.41min remains)
+2022-10-03 12:29:56 True: 9.999999747378752e-05;  estimated: 0.49426376819610596
+2022-10-03 12:29:56 True: 0.0038999998942017555;  estimated: 0.7662279605865479
+2022-10-03 12:29:56 True: 0.002300000051036477;  estimated: 0.0864771157503128
+2022-10-03 12:29:56 True: 0.0012000000569969416;  estimated: 0.13003009557724
+2022-10-03 12:29:56 True: 0.0012000000569969416;  estimated: 0.3054221272468567
+2022-10-03 12:29:56 ----------------------------
+2022-10-03 12:29:56 Testing & drawing...
+2022-10-03 12:32:56 log_path: logs/test20221002_5.txt
+2022-10-03 12:32:56 cuda is available: False
+2022-10-03 12:32:56 using cpu
+2022-10-03 12:32:56 epoch = 10
+2022-10-03 12:32:56 epoch_step = 2
+2022-10-03 12:32:56 model_name = SimpleNetworkAD
+2022-10-03 12:32:56 now_string = 2022-10-03-12-32-56
+2022-10-03 12:32:56 model_save_path_last = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-32-56_last.pt
+2022-10-03 12:32:56 model_save_path_best = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-32-56_best.pt
+2022-10-03 12:32:56 loss_save_path = ./loss/SimpleNetworkAD_10_2_0.001_2022-10-03-12-32-56_loss_10.npy
+2022-10-03 12:32:56 args = {'epoch': 10, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 2, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 2, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-12-32-56'}
+2022-10-03 12:32:56 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 12:32:56 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 12:33:02 Epoch [00002/00010] Loss:7768876.500000 Loss_1:67.618355 Loss_2:1.514731 Loss_3:7768808.500000 Lr:0.001000 Time:5.495756s (0.09min in total, 0.37min remains)
+2022-10-03 12:33:02 True: 9.999999747378752e-05;  estimated: 0.49426376819610596
+2022-10-03 12:33:02 True: 0.0038999998942017555;  estimated: 0.7662279605865479
+2022-10-03 12:33:02 True: 0.002300000051036477;  estimated: 0.0864771157503128
+2022-10-03 12:33:02 True: 0.0012000000569969416;  estimated: 0.13003009557724
+2022-10-03 12:33:02 True: 0.0012000000569969416;  estimated: 0.3054221272468567
+2022-10-03 12:33:02 ----------------------------
+2022-10-03 12:33:02 Testing & drawing...
+2022-10-03 12:33:31 log_path: logs/test20221002_5.txt
+2022-10-03 12:33:31 cuda is available: False
+2022-10-03 12:33:31 using cpu
+2022-10-03 12:33:31 epoch = 10
+2022-10-03 12:33:31 epoch_step = 2
+2022-10-03 12:33:31 model_name = SimpleNetworkAD
+2022-10-03 12:33:31 now_string = 2022-10-03-12-33-31
+2022-10-03 12:33:31 model_save_path_last = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-33-31_last.pt
+2022-10-03 12:33:31 model_save_path_best = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-33-31_best.pt
+2022-10-03 12:33:31 loss_save_path = ./loss/SimpleNetworkAD_10_2_0.001_2022-10-03-12-33-31_loss_10.npy
+2022-10-03 12:33:31 args = {'epoch': 10, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 2, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 2, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-12-33-31'}
+2022-10-03 12:33:31 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 12:33:32 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 12:33:37 Epoch [00002/00010] Loss:7768876.500000 Loss_1:67.618355 Loss_2:1.514731 Loss_3:7768808.500000 Lr:0.001000 Time:5.236599s (0.09min in total, 0.35min remains)
+2022-10-03 12:33:37 True: 9.999999747378752e-05;  estimated: 0.49426376819610596
+2022-10-03 12:33:37 True: 0.0038999998942017555;  estimated: 0.7662279605865479
+2022-10-03 12:33:37 True: 0.002300000051036477;  estimated: 0.0864771157503128
+2022-10-03 12:33:37 True: 0.0012000000569969416;  estimated: 0.13003009557724
+2022-10-03 12:33:37 True: 0.0012000000569969416;  estimated: 0.3054221272468567
+2022-10-03 12:33:37 ----------------------------
+2022-10-03 12:33:37 Testing & drawing...
+2022-10-03 12:34:34 log_path: logs/test20221002_5.txt
+2022-10-03 12:34:34 cuda is available: False
+2022-10-03 12:34:35 using cpu
+2022-10-03 12:34:35 epoch = 10
+2022-10-03 12:34:35 epoch_step = 2
+2022-10-03 12:34:35 model_name = SimpleNetworkAD
+2022-10-03 12:34:35 now_string = 2022-10-03-12-34-34
+2022-10-03 12:34:35 model_save_path_last = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-34-34_last.pt
+2022-10-03 12:34:35 model_save_path_best = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-34-34_best.pt
+2022-10-03 12:34:35 loss_save_path = ./loss/SimpleNetworkAD_10_2_0.001_2022-10-03-12-34-34_loss_10.npy
+2022-10-03 12:34:35 args = {'epoch': 10, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 2, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 2, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-12-34-34'}
+2022-10-03 12:34:35 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 12:34:35 --------------------------------------------------training start--------------------------------------------------
+2022-10-03 12:34:40 Epoch [00002/00010] Loss:7768876.500000 Loss_1:67.618355 Loss_2:1.514731 Loss_3:7768808.500000 Lr:0.001000 Time:5.336030s (0.09min in total, 0.36min remains)
+2022-10-03 12:34:40 True: 9.999999747378752e-05;  estimated: 0.49426376819610596
+2022-10-03 12:34:40 True: 0.0038999998942017555;  estimated: 0.7662279605865479
+2022-10-03 12:34:40 True: 0.002300000051036477;  estimated: 0.0864771157503128
+2022-10-03 12:34:40 True: 0.0012000000569969416;  estimated: 0.13003009557724
+2022-10-03 12:34:40 True: 0.0012000000569969416;  estimated: 0.3054221272468567
+2022-10-03 12:34:40 ----------------------------
+2022-10-03 12:34:40 Testing & drawing...
+2022-10-03 12:34:53 [Loss]
+2022-10-03 12:34:59 Epoch [00004/00010] Loss:5670932.000000 Loss_1:56.683155 Loss_2:1.297598 Loss_3:5670872.000000 Lr:0.001000 Time:18.682847s (0.40min in total, 0.60min remains)
+2022-10-03 12:34:59 True: 9.999999747378752e-05;  estimated: 0.4923020303249359
+2022-10-03 12:34:59 True: 0.0038999998942017555;  estimated: 0.7642611265182495
+2022-10-03 12:34:59 True: 0.002300000051036477;  estimated: 0.0844724103808403
+2022-10-03 12:34:59 True: 0.0012000000569969416;  estimated: 0.1280241757631302
+2022-10-03 12:34:59 True: 0.0012000000569969416;  estimated: 0.30341798067092896
+2022-10-03 12:34:59 ----------------------------
+2022-10-03 12:34:59 Testing & drawing...
+2022-10-03 12:35:11 [Loss]
+2022-10-03 12:35:17 Epoch [00006/00010] Loss:4030027.750000 Loss_1:47.267429 Loss_2:1.326292 Loss_3:4029978.500000 Lr:0.000999 Time:18.205003s (0.70min in total, 0.47min remains)
+2022-10-03 12:35:17 True: 9.999999747378752e-05;  estimated: 0.4903571605682373
+2022-10-03 12:35:17 True: 0.0038999998942017555;  estimated: 0.7623087167739868
+2022-10-03 12:35:17 True: 0.002300000051036477;  estimated: 0.08248541504144669
+2022-10-03 12:35:17 True: 0.0012000000569969416;  estimated: 0.12603197991847992
+2022-10-03 12:35:17 True: 0.0012000000569969416;  estimated: 0.30143797397613525
+2022-10-03 12:35:17 ----------------------------
+2022-10-03 12:35:17 Testing & drawing...
+2022-10-03 12:35:31 [Loss]
+2022-10-03 12:35:36 Epoch [00008/00010] Loss:2787881.000000 Loss_1:39.310318 Loss_2:1.499967 Loss_3:2787841.000000 Lr:0.000999 Time:19.157911s (1.02min in total, 0.26min remains)
+2022-10-03 12:35:36 True: 9.999999747378752e-05;  estimated: 0.48840245604515076
+2022-10-03 12:35:36 True: 0.0038999998942017555;  estimated: 0.760347306728363
+2022-10-03 12:35:36 True: 0.002300000051036477;  estimated: 0.08051558583974838
+2022-10-03 12:35:36 True: 0.0012000000569969416;  estimated: 0.12405558675527573
+2022-10-03 12:35:36 True: 0.0012000000569969416;  estimated: 0.2994841933250427
+2022-10-03 12:35:36 ----------------------------
+2022-10-03 12:35:36 Testing & drawing...
+2022-10-03 12:35:49 [Loss]
+2022-10-03 12:35:55 Epoch [00010/00010] Loss:1879639.125000 Loss_1:32.693810 Loss_2:1.746853 Loss_3:1879604.500000 Lr:0.000999 Time:18.709574s (1.34min in total, 0.00min remains)
+2022-10-03 12:35:55 True: 9.999999747378752e-05;  estimated: 0.48641693592071533
+2022-10-03 12:35:55 True: 0.0038999998942017555;  estimated: 0.7583581209182739
+2022-10-03 12:35:55 True: 0.002300000051036477;  estimated: 0.0785365030169487
+2022-10-03 12:35:55 True: 0.0012000000569969416;  estimated: 0.1220688447356224
+2022-10-03 12:35:55 True: 0.0012000000569969416;  estimated: 0.29752597212791443
+2022-10-03 12:35:55 ----------------------------
+2022-10-03 12:35:55 Testing & drawing...
+2022-10-03 12:38:06 log_path: logs/test20221002_5.txt
+2022-10-03 12:38:06 cuda is available: False
+2022-10-03 12:38:06 using cpu
+2022-10-03 12:38:06 epoch = 10
+2022-10-03 12:38:06 epoch_step = 2
+2022-10-03 12:38:06 model_name = SimpleNetworkAD
+2022-10-03 12:38:06 now_string = 2022-10-03-12-38-06
+2022-10-03 12:38:06 model_save_path_last = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-38-06_last.pt
+2022-10-03 12:38:06 model_save_path_best = ./train/SimpleNetworkAD_10_2_0.001_2022-10-03-12-38-06_best.pt
+2022-10-03 12:38:06 loss_save_path = ./loss/SimpleNetworkAD_10_2_0.001_2022-10-03-12-38-06_loss_10.npy
+2022-10-03 12:38:06 args = {'epoch': 10, 'log_path': 'logs/test20221002_5.txt', 'mode': 'origin', 'epoch_step': 2, 'name': 'test20221002', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 2, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-03-12-38-06'}
+2022-10-03 12:38:06 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-03 12:38:06 --------------------------------------------------training start--------------------------------------------------

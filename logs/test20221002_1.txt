@@ -1,0 +1,2 @@
+2022-10-02 21:47:42 log_path: logs/test20221002_1.txt
+2022-10-02 21:47:42 cuda is available: True

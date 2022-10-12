@@ -1,0 +1,105 @@
+2022-10-05 17:23:25 log_path: logs/test20221004_9.txt
+2022-10-05 17:23:25 cuda is available: True
+2022-10-05 17:23:25 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-05 17:23:30 using cuda
+2022-10-05 17:23:30 epoch = 200
+2022-10-05 17:23:30 epoch_step = 10
+2022-10-05 17:23:30 model_name = SimpleNetworkAD
+2022-10-05 17:23:30 now_string = 2022-10-05-17-23-25
+2022-10-05 17:23:30 model_save_path_last = ./train/SimpleNetworkAD_200_10_0.001_2022-10-05-17-23-25_last.pt
+2022-10-05 17:23:30 model_save_path_best = ./train/SimpleNetworkAD_200_10_0.001_2022-10-05-17-23-25_best.pt
+2022-10-05 17:23:30 loss_save_path = ./loss/SimpleNetworkAD_200_10_0.001_2022-10-05-17-23-25_loss_200.npy
+2022-10-05 17:23:30 args = {'epoch': 200, 'log_path': 'logs/test20221004_9.txt', 'mode': 'origin', 'epoch_step': 10, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '1-5', 'lr': 0.001, 'main_path': '.', 'save_step': 10, 'seed': 9, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-05-17-23-25'}
+2022-10-05 17:23:30 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-05 17:23:30 --------------------------------------------------training start--------------------------------------------------
+2022-10-05 17:23:59 Epoch [00010/00200] Loss:32.519859 Loss_1:30.745415 Loss_2:1.774442 Loss_3:0.000000 Lr:0.000999 Time:28.369317s (0.47min in total, 8.98min remains)
+2022-10-05 17:24:00 Testing & drawing...
+2022-10-05 17:24:00 Test: save figure in ./figure/SimpleNetworkAD_id=9_2022-10-05-17-23-25/
+2022-10-05 17:24:05 [Loss]
+2022-10-05 17:24:34 Epoch [00020/00200] Loss:11.848692 Loss_1:8.857855 Loss_2:2.990834 Loss_3:0.000000 Lr:0.000998 Time:34.697786s (1.05min in total, 9.46min remains)
+2022-10-05 17:24:34 Testing & drawing...
+2022-10-05 17:24:35 Test: save figure in ./figure/SimpleNetworkAD_id=9_2022-10-05-17-23-25/
+2022-10-05 17:24:40 [Loss]
+2022-10-05 17:25:08 Epoch [00030/00200] Loss:5.584303 Loss_1:2.291162 Loss_2:3.293142 Loss_3:0.000000 Lr:0.000997 Time:34.848480s (1.63min in total, 9.25min remains)
+2022-10-05 17:25:09 Testing & drawing...
+2022-10-05 17:25:10 Test: save figure in ./figure/SimpleNetworkAD_id=9_2022-10-05-17-23-25/
+2022-10-05 17:25:15 [Loss]
+2022-10-05 17:25:43 Epoch [00040/00200] Loss:3.924686 Loss_1:0.878716 Loss_2:3.045971 Loss_3:0.000000 Lr:0.000996 Time:35.025345s (2.22min in total, 8.86min remains)
+2022-10-05 17:25:44 Testing & drawing...
+2022-10-05 17:25:45 Test: save figure in ./figure/SimpleNetworkAD_id=9_2022-10-05-17-23-25/
+2022-10-05 17:25:50 [Loss]
+2022-10-05 17:26:18 Epoch [00050/00200] Loss:3.250140 Loss_1:0.515836 Loss_2:2.734305 Loss_3:0.000000 Lr:0.000995 Time:35.055588s (2.80min in total, 8.40min remains)
+2022-10-05 17:26:19 Testing & drawing...
+2022-10-05 17:26:20 Test: save figure in ./figure/SimpleNetworkAD_id=9_2022-10-05-17-23-25/
+2022-10-05 17:26:25 [Loss]
+2022-10-05 17:26:53 Epoch [00060/00200] Loss:2.852962 Loss_1:0.327808 Loss_2:2.525155 Loss_3:0.000000 Lr:0.000994 Time:34.831766s (3.38min in total, 7.89min remains)
+2022-10-05 17:26:54 Testing & drawing...
+2022-10-05 17:26:55 Test: save figure in ./figure/SimpleNetworkAD_id=9_2022-10-05-17-23-25/
+2022-10-05 17:27:00 [Loss]
+2022-10-05 17:27:28 Epoch [00070/00200] Loss:2.593089 Loss_1:0.233289 Loss_2:2.359799 Loss_3:0.000000 Lr:0.000993 Time:34.880830s (3.96min in total, 7.36min remains)
+2022-10-05 17:27:29 Testing & drawing...
+2022-10-05 17:27:30 Test: save figure in ./figure/SimpleNetworkAD_id=9_2022-10-05-17-23-25/
+2022-10-05 17:27:35 [Loss]
+2022-10-05 17:28:03 Epoch [00080/00200] Loss:27.116112 Loss_1:0.193804 Loss_2:2.201535 Loss_3:24.720741 Lr:0.000992 Time:34.921225s (4.54min in total, 6.82min remains)
+2022-10-05 17:28:04 Testing & drawing...
+2022-10-05 17:28:04 Test: save figure in ./figure/SimpleNetworkAD_id=9_2022-10-05-17-23-25/
+2022-10-05 17:28:09 [Loss]
+2022-10-05 17:28:38 Epoch [00090/00200] Loss:2.273678 Loss_1:0.175266 Loss_2:2.098413 Loss_3:0.000000 Lr:0.000991 Time:34.530740s (5.12min in total, 6.26min remains)
+2022-10-05 17:28:39 Testing & drawing...
+2022-10-05 17:28:39 Test: save figure in ./figure/SimpleNetworkAD_id=9_2022-10-05-17-23-25/
+2022-10-05 17:34:32 log_path: logs/test20221004_9.txt
+2022-10-05 17:34:32 cuda is available: True
+2022-10-05 17:34:32 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-05 17:34:38 using cuda
+2022-10-05 17:34:38 epoch = 200
+2022-10-05 17:34:38 epoch_step = 10
+2022-10-05 17:34:38 model_name = SimpleNetworkAD
+2022-10-05 17:34:38 now_string = 2022-10-05-17-34-32
+2022-10-05 17:34:38 model_save_path_last = ./train/SimpleNetworkAD_200_10_0.001_2022-10-05-17-34-32_last.pt
+2022-10-05 17:34:38 model_save_path_best = ./train/SimpleNetworkAD_200_10_0.001_2022-10-05-17-34-32_best.pt
+2022-10-05 17:34:38 loss_save_path = ./loss/SimpleNetworkAD_200_10_0.001_2022-10-05-17-34-32_loss_200.npy
+2022-10-05 17:34:38 args = {'epoch': 200, 'log_path': 'logs/test20221004_9.txt', 'mode': 'origin', 'epoch_step': 10, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '1-5', 'lr': 0.001, 'main_path': '.', 'save_step': 10, 'seed': 9, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-05-17-34-32'}
+2022-10-05 17:34:38 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-05 17:34:38 --------------------------------------------------training start--------------------------------------------------
+2022-10-05 17:35:07 Epoch [00010/00200] Loss:32.519859 Loss_1:30.745415 Loss_2:1.774442 Loss_3:0.000000 Lr:0.000999 Time:29.176244s (0.49min in total, 9.24min remains)
+2022-10-05 17:35:07 True: 9.999999747378752e-05;  estimated: 0.4864150583744049;   relative error: 4863.15087890625
+2022-10-05 17:35:07 True: 0.0038999998942017555;  estimated: 0.7583601474761963;   relative error: 193.45132446289062
+2022-10-05 17:35:07 True: 0.002300000051036477;  estimated: 0.07862907648086548;   relative error: 33.186553955078125
+2022-10-05 17:35:07 True: 0.0012000000569969416;  estimated: 0.12214624136686325;   relative error: 100.78852844238281
+2022-10-05 17:35:07 True: 0.0012000000569969416;  estimated: 0.29762589931488037;   relative error: 247.02157592773438
+2022-10-05 17:35:08 Testing & drawing...
+2022-10-05 17:35:09 Test: save figure in ./figure/SimpleNetworkAD_id=9_2022-10-05-17-34-32/
+2022-10-05 17:35:14 [Loss]
+2022-10-05 17:35:43 Epoch [00020/00200] Loss:11.848692 Loss_1:8.857855 Loss_2:2.990834 Loss_3:0.000000 Lr:0.000998 Time:35.734228s (1.08min in total, 9.74min remains)
+2022-10-05 17:35:43 True: 9.999999747378752e-05;  estimated: 0.47584858536720276;   relative error: 4757.486328125
+2022-10-05 17:35:43 True: 0.0038999998942017555;  estimated: 0.7478588223457336;   relative error: 190.75868225097656
+2022-10-05 17:35:43 True: 0.002300000051036477;  estimated: 0.06818085163831711;   relative error: 28.64384651184082
+2022-10-05 17:35:43 True: 0.0012000000569969416;  estimated: 0.11161862313747406;   relative error: 92.01551818847656
+2022-10-05 17:35:43 True: 0.0012000000569969416;  estimated: 0.28728875517845154;   relative error: 238.40728759765625
+2022-10-05 17:35:44 Testing & drawing...
+2022-10-05 17:35:45 Test: save figure in ./figure/SimpleNetworkAD_id=9_2022-10-05-17-34-32/
+2022-10-05 17:35:50 [Loss]
+2022-10-05 17:36:19 Epoch [00030/00200] Loss:5.584303 Loss_1:2.291162 Loss_2:3.293142 Loss_3:0.000000 Lr:0.000997 Time:35.893735s (1.68min in total, 9.52min remains)
+2022-10-05 17:36:19 True: 9.999999747378752e-05;  estimated: 0.464714378118515;   relative error: 4646.14404296875
+2022-10-05 17:36:19 True: 0.0038999998942017555;  estimated: 0.7369009852409363;   relative error: 187.948974609375
+2022-10-05 17:36:19 True: 0.002300000051036477;  estimated: 0.05601131543517113;   relative error: 23.352745056152344
+2022-10-05 17:36:19 True: 0.0012000000569969416;  estimated: 0.09944266825914383;   relative error: 81.86888885498047
+2022-10-05 17:36:19 True: 0.0012000000569969416;  estimated: 0.2751409709453583;   relative error: 228.2841339111328
+2022-10-05 17:36:20 Testing & drawing...
+2022-10-05 17:36:20 Test: save figure in ./figure/SimpleNetworkAD_id=9_2022-10-05-17-34-32/
+2022-10-05 17:36:26 [Loss]
+2022-10-05 17:36:55 Epoch [00040/00200] Loss:3.924686 Loss_1:0.878716 Loss_2:3.045971 Loss_3:0.000000 Lr:0.000996 Time:35.905032s (2.28min in total, 9.12min remains)
+2022-10-05 17:36:55 True: 9.999999747378752e-05;  estimated: 0.4538344442844391;   relative error: 4537.3447265625
+2022-10-05 17:36:55 True: 0.0038999998942017555;  estimated: 0.7262862324714661;   relative error: 185.2272491455078
+2022-10-05 17:36:55 True: 0.002300000051036477;  estimated: 0.04292090982198715;   relative error: 17.661264419555664
+2022-10-05 17:36:55 True: 0.0012000000569969416;  estimated: 0.0864594355225563;   relative error: 71.04953002929688
+2022-10-05 17:36:55 True: 0.0012000000569969416;  estimated: 0.2619028687477112;   relative error: 217.2523956298828
+2022-10-05 17:36:56 Testing & drawing...
+2022-10-05 17:36:56 Test: save figure in ./figure/SimpleNetworkAD_id=9_2022-10-05-17-34-32/
+2022-10-05 17:37:02 [Loss]

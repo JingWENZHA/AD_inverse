@@ -1,0 +1,35 @@
+2022-10-04 10:18:45 log_path: logs/test20221004_0.txt
+2022-10-04 10:18:45 cuda is available: True
+2022-10-04 10:18:45 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-04 10:18:49 using cuda
+2022-10-04 10:18:49 epoch = 20000
+2022-10-04 10:18:49 epoch_step = 2000
+2022-10-04 10:18:49 model_name = SimpleNetworkAD
+2022-10-04 10:18:49 now_string = 2022-10-04-10-18-45
+2022-10-04 10:18:49 model_save_path_last = ./train/SimpleNetworkAD_20000_2000_0.001_2022-10-04-10-18-45_last.pt
+2022-10-04 10:18:49 model_save_path_best = ./train/SimpleNetworkAD_20000_2000_0.001_2022-10-04-10-18-45_best.pt
+2022-10-04 10:18:49 loss_save_path = ./loss/SimpleNetworkAD_20000_2000_0.001_2022-10-04-10-18-45_loss_20000.npy
+2022-10-04 10:18:49 args = {'epoch': 20000, 'log_path': 'logs/test20221004_0.txt', 'mode': 'origin', 'epoch_step': 2000, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '1-5', 'lr': 0.001, 'main_path': '.', 'save_step': 5000, 'seed': 0, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-04-10-18-45'}
+2022-10-04 10:18:49 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-04 10:18:49 --------------------------------------------------training start--------------------------------------------------
+2022-10-04 11:48:17 Epoch [02000/20000] Loss:0.006848 Loss_1:0.000680 Loss_2:0.006167 Loss_3:0.000000 Lr:0.000833 Time:5367.851022s (89.46min in total, 805.18min remains)
+2022-10-04 13:17:47 Epoch [04000/20000] Loss:0.002398 Loss_1:0.000142 Loss_2:0.002256 Loss_3:0.000000 Lr:0.000714 Time:5370.443210s (178.97min in total, 715.89min remains)
+2022-10-04 14:01:20 Testing & drawing...
+2022-10-04 14:01:25 [Loss]
+2022-10-04 14:45:19 Epoch [06000/20000] Loss:0.000710 Loss_1:0.000081 Loss_2:0.000629 Loss_3:0.000000 Lr:0.000625 Time:5251.594358s (266.50min in total, 621.83min remains)
+2022-10-04 16:13:45 Epoch [08000/20000] Loss:0.000402 Loss_1:0.000070 Loss_2:0.000333 Loss_3:0.000000 Lr:0.000556 Time:5306.240375s (354.94min in total, 532.41min remains)
+2022-10-04 17:41:50 Epoch [10000/20000] Loss:0.000532 Loss_1:0.000075 Loss_2:0.000456 Loss_3:0.000000 Lr:0.000500 Time:5284.738894s (443.02min in total, 443.02min remains)
+2022-10-04 17:41:51 Testing & drawing...
+2022-10-04 17:41:56 [Loss]
+2022-10-04 19:10:06 Epoch [12000/20000] Loss:0.000725 Loss_1:0.000056 Loss_2:0.000669 Loss_3:0.000000 Lr:0.000455 Time:5295.449599s (531.27min in total, 354.18min remains)
+2022-10-04 20:38:03 Epoch [14000/20000] Loss:0.003801 Loss_1:0.000042 Loss_2:0.003759 Loss_3:0.000000 Lr:0.000417 Time:5277.383347s (619.23min in total, 265.38min remains)
+2022-10-04 21:22:06 Testing & drawing...
+2022-10-04 21:22:12 [Loss]
+2022-10-04 22:06:33 Epoch [16000/20000] Loss:0.000474 Loss_1:0.000042 Loss_2:0.000432 Loss_3:0.000000 Lr:0.000385 Time:5309.825925s (707.73min in total, 176.93min remains)
+2022-10-04 23:34:52 Epoch [18000/20000] Loss:0.002061 Loss_1:0.000021 Loss_2:0.002040 Loss_3:0.000000 Lr:0.000357 Time:5299.231981s (796.05min in total, 88.45min remains)
+2022-10-05 01:02:59 Epoch [20000/20000] Loss:0.000142 Loss_1:0.000021 Loss_2:0.000121 Loss_3:0.000000 Lr:0.000333 Time:5286.566461s (884.16min in total, 0.00min remains)
+2022-10-05 01:02:59 Testing & drawing...
+2022-10-05 01:03:06 [Loss]
