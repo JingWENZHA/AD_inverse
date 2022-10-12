@@ -405,7 +405,7 @@ def test_ad(model, args, config, now_string, param_ls,param_true ,show_flag=True
     t = model.x
     y = []
     for i in range(184):
-        print(model(t,i).shape)
+        # print(model(t,i).shape)
         y.append(model(t,i).cpu().detach().numpy())
     y = np.asarray(y)
         
@@ -513,11 +513,11 @@ if __name__ == "__main__":
     opt = parser.parse_args()
     opt.overall_start = get_now_string()
     
-    # opt.log_path = "{}/{}_{}.txt".format(opt.log_path, opt.name, opt.id)
+    opt.log_path = "{}/{}_{}.txt".format(opt.log_path, opt.name, opt.id)
     myprint("log_path: {}".format(opt.log_path), opt.log_path)
     myprint("cuda is available: {}".format(torch.cuda.is_available()), opt.log_path)
 
-    
+
     run_ad_truth(opt)
     
     
