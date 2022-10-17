@@ -33,7 +33,7 @@ def build_slurm(args):
             f.write(draft.format(
                 args.name,
                 args.python,
-                "{}/{}_{}.txt".format(args.log_path, args.name, one_id),
+                args.log_path,
                 args.mode,
                 args.lr,
                 args.epoch,
