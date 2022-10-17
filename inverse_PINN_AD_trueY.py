@@ -27,10 +27,19 @@ class GroundTruthAD:
     def __init__(self, t_max, length):
         # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         mat = scipy.io.loadmat('./Data/20220923YOUT.mat')
-        x = torch.tensor(mat['pred']).float()
+        # x = torch.tensor(mat['pred']).float()
         self.data = torch.tensor(mat['pred'][:,1:,:].reshape(184,1630,3)).float()
 
-        # myprint("------------------------------GROUND_TRUTH_AD--------------------------------------------", args.log_path)
+        mat = scipy.io.loadmat('./Data/data_20220915.mat')
+        # y_true = torch.tensor(mat['ptData_stacked_20220915']).float()
+
+
+
+        self.y_true = torch.tensor(mat['ptData_stacked_20220915'][:, :, :].reshape(184, 13, 3)).float()
+        self.y_true[self.y_true<0] = 0
+        self.y_true_month = torch.tensor(mat['ptMonth_stacked_20220915'][:, :].reshape(184, 13)).float()
+
+        # print("------------------------------GROUND_TRUTH_AD--------------------------------------------", args.log_path)
 
 
 class ConfigAD:
@@ -84,10 +93,12 @@ class SimpleNetworkAD(nn.Module):
         self.x, self.y0, self.t0 = None, None, None
         self.generate_x()
         # self.optimizer = optim.LBFGS(self.parameters(), lr=0.001, max_iter=5000, max_eval=None, tolerance_grad=1e-05, tolerance_change=1e-09, history_size=100, line_search_fn=None)
-        self.initial_start()
+        # self.initial_start()
         self.model_name = "SimpleNetworkAD"
         self.gt = GroundTruthAD(self.config.T, self.config.T_N)
         self.gt_data = self.gt.data.to(self.device)
+        self.gt_ytrue = self.gt.y_true.to(self.device)
+        self.gt_ytrue_month = self.gt.y_true_month.to(self.device)
         # self.gt_v = torch.tensor(self.gt.v).to(self.device)
 
 
@@ -96,26 +107,26 @@ class SimpleNetworkAD(nn.Module):
         parameters = torch.tensor(mat['parameters']).float().reshape(18).to(self.device)
 
         # Amyloid
-        self.k_a = parameters[0];
-        self.k_ta = parameters[1];
-        self.k_mt = parameters[2];
-        self.d_a = parameters[3];
-        self.theta = parameters[4];
+        self.k_a = parameters[0]
+        self.k_ta = parameters[1]
+        self.k_mt = parameters[2]
+        self.d_a = parameters[3]
+        self.theta = parameters[4]
         # Tau
-        self.k_t = parameters[5];
-        self.k_at = parameters[6];
-        self.k_ma = parameters[7];
-        self.d_t = parameters[8];
-        self.delta = parameters[9];
+        self.k_t = parameters[5]
+        self.k_at = parameters[6]
+        self.k_ma = parameters[7]
+        self.d_t = parameters[8]
+        self.delta = parameters[9]
         # Neurodegeneration
-        self.k_r = parameters[17];
-        self.k_tn = parameters[10];
-        self.k_mtn = parameters[11];
-        self.gamma = parameters[12];
-        self.k_an = parameters[13];
-        self.k_man = parameters[14];
-        self.beta = parameters[15];
-        self.k_atn = parameters[16];
+        self.k_r = parameters[17]
+        self.k_tn = parameters[10]
+        self.k_mtn = parameters[11]
+        self.gamma = parameters[12]
+        self.k_an = parameters[13]
+        self.k_man = parameters[14]
+        self.beta = parameters[15]
+        self.k_atn = parameters[16]
 
         self.Laplacian = torch.tensor(mat['avgNet']).float().to(self.device)[0:10, 0:10]
         self.r = torch.tensor(mat['avgNet']).float().to(self.device) #.reshape([1])
@@ -146,9 +157,9 @@ class SimpleNetworkAD(nn.Module):
         T_input = inputs
         N_input = inputs
         
-        A_output = [] 
-        T_output = []
-        N_output = []  
+        # A_output = []
+        # T_output = []
+        # N_output = []
         
         A_output = self.sequences_A[num_sub](A_input)
         T_output = self.sequences_T[num_sub](T_input)
@@ -167,12 +178,12 @@ class SimpleNetworkAD(nn.Module):
       
 
 
-
-    def initial_start(self):
-        # print("--------------------------------------------------call initial start x--------------------------------------------------")
-
-        mat = scipy.io.loadmat('./Data/20220923YOUT.mat')
-        # self.t0 = torch.tensor(np.asarray(np.asarray([[np.random.rand()] * 1630] * (self.config.Node)).reshape([1630,1]))).float().to(self.device)#
+    #
+    # def initial_start(self):
+    #     # print("--------------------------------------------------call initial start x--------------------------------------------------")
+    #
+    #     mat = scipy.io.loadmat('./Data/20220923YOUT.mat')
+    #     # self.t0 = torch.tensor(np.asarray(np.asarray([[np.random.rand()] * 1630] * (self.config.Node)).reshape([1630,1]))).float().to(self.device)#
         
         # print("initial start t0", self.t0.size())
         # # self.y0 = torch.tensor(mat['gt_data'][:,:,0]).reshape([184,3]).float().to(self.device)
@@ -187,6 +198,7 @@ class SimpleNetworkAD(nn.Module):
 
 
     def loss(self):
+        torch.autograd.set_detect_anomaly(True)
         # print("--------------------------------------------------call loss --------------------------------------------------")
         self.eval()
         all_loss, all_loss1, all_loss2, all_loss3 = torch.tensor([0.0]).to(self.device),torch.tensor([0.0]).to(self.device),torch.tensor([0.0]).to(self.device),torch.tensor([0.0]).to(self.device)
@@ -209,24 +221,64 @@ class SimpleNetworkAD(nn.Module):
             f_n = N_t - ((self.k3*torch.pow(T,self.gamma)) / (torch.pow((self.k_mtn),self.gamma) + torch.pow(T,self.gamma))+ 
                         (self.k4*torch.pow(A,self.beta)) / (torch.pow((self.k_man),self.beta) + torch.pow(A,self.beta))+ 
                         self.k5*A*T)
+
+
+
+            f_a = A_t - (self.k_a*A*(1 - A) + (self.k_ta*torch.pow(T,self.theta)) / (torch.pow((self.k_mt),self.theta) + torch.pow(T,self.theta))) #- self.config.d_a*torch.matmul(A,self.Laplacian))
+            f_t = T_t - (self.k_t*T*(1 - T) + (self.k_at*torch.pow(A,self.delta)) / (torch.pow((self.k_ma),self.delta) + torch.pow(A,self.delta))) #- self.config.d_t*torch.matmul(T,self.Laplacian))
+            f_n = N_t - ((self.k_tn*torch.pow(T,self.gamma)) / (torch.pow((self.k_mtn),self.gamma) + torch.pow(T,self.gamma))+
+                        (self.k_an*torch.pow(A,self.beta)) / (torch.pow((self.k_man),self.beta) + torch.pow(A,self.beta))+
+                        self.k_atn*A*T)
+
             f_y = torch.cat((f_a, f_t, f_n), 1)
+
+
+
             
 
             # print("--------------------------------------------------calculate gradient--------------------------------------------------")
 
             # L2 norm
             self.loss_norm = torch.nn.MSELoss().to(self.device)
-            zeros_1D = torch.tensor([[0.0]] * self.config.N).to(self.device)
+            # zeros_1D = torch.tensor([[0.0]] * self.config.N).to(self.device)
 
             zeros_2D = torch.tensor([[0.0 for i in range(self.config.Node )] for j in range( self.config.N )]).to(self.device)
             
             # print(y.shape, self.gt_data.shape)
             # print("loss-y",y.cpu().detach().numpy()[1, :],y.cpu().detach().numpy()[100, :],y.cpu().detach().numpy()[1000, :],y.cpu().detach().numpy()[1600, :])
             # print("loss-truey",self.gt_data[num_sub,1, :],self.gt_data[num_sub,100, :],self.gt_data[num_sub,1000, :],self.gt_data[num_sub,1600, :])
-            loss_1 = self.loss_norm(y[:self.config.truth_length, :], self.gt_data[num_sub,:self.config.truth_length,:])
+            # loss_1 = self.loss_norm(y[:self.config.truth_length, :], self.gt_data[num_sub,:self.config.truth_length,:])
+            # print("1",self.gt_ytrue)
 
-            
-            
+            check_point = (self.gt_ytrue_month[num_sub, :] / 0.1).int()-1
+            check_point[check_point<0] = 0
+            # print(check_point)
+            # print("2", y)
+            y_totrain = torch.index_select(y, 0, check_point)
+            # print("y_totrain", y_totrain.shape)
+            zeros_test = torch.zeros([13, 3]).to(self.device)
+            # print("test:", self.loss_norm(y_totrain, zeros_test))
+
+            # print(self.gt_ytrue[num_sub, :] == 0)
+            # y_totrain[self.gt_ytrue[num_sub, :] == 0] = 0
+            # print(self.gt_ytrue)
+
+            with torch.no_grad():
+                # self.gt_ytrue[self.gt_ytrue < 0] = 0
+                gt_ytrue_sub = self.gt_ytrue[num_sub, :, :]
+                # gt_ytrue_sub[gt_ytrue_sub == 0] = y_totrain[gt_ytrue_sub == 0]
+            # print()
+            # print("test:", self.loss_norm(y_totrain[gt_ytrue_sub != 0], gt_ytrue_sub[gt_ytrue_sub != 0] ))
+
+            # gt_ytrue_sub.requires_grad_()
+
+            # print("3", y_totrain)
+            # print("4", gt_ytrue_sub)
+            loss_1 = self.loss_norm(y_totrain[gt_ytrue_sub != 0], gt_ytrue_sub[gt_ytrue_sub != 0] )
+
+            # self.y_true = torch.tensor(mat['ptData_stacked_20220915'][:, 1:, :].reshape(184, 13, 3)).float()
+
+
             if self.config.loss2_partial_flag:
                 new_period = int(self.config.continue_period * self.config.T_all / self.config.T_unit)
                 loss_2 = self.loss_norm(f_y[-new_period:, :], zeros_2D[-new_period:, :])
@@ -235,7 +287,7 @@ class SimpleNetworkAD(nn.Module):
 
             loss_3 = self.loss_norm(torch.abs(y[:self.config.truth_length, :]-0.3), y[:self.config.truth_length, :]-0.3)*1e5
 
-            loss = (loss_1 + loss_2 + loss_3) # + loss_3)#+ loss_4 + loss_5) / 1e5
+            loss = loss_1 #+ loss_2 + loss_3) # + loss_3)#+ loss_4 + loss_5) / 1e5
             all_loss += loss
             all_loss1 += loss_1
             all_loss2 += loss_2
@@ -256,8 +308,8 @@ class SimpleNetworkAD(nn.Module):
 def get_now_string():
     return time.strftime("%Y-%m-%d-%H-%M-%S", time.localtime(time.time()))
 
+
 def train_ad(model, args, config, now_string):
-    # print("--------------------------------------------------call train AD--------------------------------------------------")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     # model = model_framework(config).to(device)
     model.train()
@@ -273,16 +325,16 @@ def train_ad(model, args, config, now_string):
     myprint("model_save_path_last = {}".format(model_save_path_last), args.log_path)
     myprint("model_save_path_best = {}".format(model_save_path_best), args.log_path)
     myprint("loss_save_path = {}".format(loss_save_path), args.log_path)
-    myprint("args = {}".format({item[0]: item[1] for item in args.__dict__.items() if item[0][0] != "_"}), args.log_path)
-    myprint("config = {}".format({item[0]: item[1] for item in config.__dict__.items() if item[0][0] != "_"}), args.log_path)
-    
-    
+    myprint("args = {}".format({item[0]: item[1] for item in args.__dict__.items() if item[0][0] != "_"}),
+            args.log_path)
+    myprint("config = {}".format({item[0]: item[1] for item in config.__dict__.items() if item[0][0] != "_"}),
+            args.log_path)
 
     # optimizer = optim.Adam(model.parameters(), lr=args.lr)
     initial_lr = args.lr
-    optimizer = optim.Adam(model.parameters(), lr = initial_lr)
+    optimizer = optim.Adam(model.parameters(), lr=initial_lr)
 
-    scheduler = optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda epoch: 1/(epoch/10000+1)) # decade
+    scheduler = optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda epoch: 1 / (epoch / 10000 + 1))  # decade
     # scheduler = CyclicLR(optimizer, base_lr=0.001, max_lr=0.01, step_size=10000) # cyclic
     epoch_step = args.epoch_step
     start_time = time.time()
@@ -290,22 +342,25 @@ def train_ad(model, args, config, now_string):
     best_loss = 999999
     now_time = 0
     loss_record = []
-    param_ka = []
-    
-    # myprint("--------------------------------------------------training start--------------------------------------------------", args.log_path)
+    param_ls = []
+    param_true = []
+
+    myprint(
+        "--------------------------------------------------training start--------------------------------------------------",
+        args.log_path)
 
     for epoch in range(1, args.epoch + 1):
         # print("in epoch ", epoch)
         optimizer.zero_grad()
         inputs = model.x
-        outputs = model(inputs,0)
+        outputs = model(inputs, 0)
         if config.only_truth_flag:
-          # print("--------------------------------------------------loss only ground truth--------------------------------------------------")
-          loss, loss_list, _ = model.loss_only_ground_truth()
+            # print("--------------------------------------------------loss only ground truth--------------------------------------------------")
+            loss, loss_list, _ = model.loss_only_ground_truth()
         else:
-          # print("--------------------------------------------------normal loss--------------------------------------------------")
-          loss, loss_list, _ = model.loss()
-        
+            # print("--------------------------------------------------normal loss--------------------------------------------------")
+            loss, loss_list, _ = model.loss()
+
         # loss_1, loss_2, loss_3 = loss_list[0], loss_list[1], loss_list[2]
         loss.backward()
         # print("loss backward")
@@ -314,18 +369,22 @@ def train_ad(model, args, config, now_string):
         optimizer.step()
         scheduler.step()
         loss_record.append(float(loss.item()))
-        param_ka.append(float(model.k5.item()))
+        param_ls.append([float(model.k1.item()), float(model.k2.item()), float(model.k3.item()), float(model.k4.item()),
+                         float(model.k5.item())])
+        param_true.append([model.k_a, model.k_t, model.k_tn, model.k_an, model.k_atn])
         if epoch % epoch_step == 0 or epoch == args.epoch:
             now_time = time.time()
+
             loss_print_part = " ".join(["Loss_{0:d}:{1:.6f}".format(i + 1, loss_part.item()) for i, loss_part in enumerate(loss_list)])
             myprint("Epoch [{0:05d}/{1:05d}] Loss:{2:.6f} {3} Lr:{4:.6f} Time:{5:.6f}s ({6:.2f}min in total, {7:.2f}min remains)".format(epoch, args.epoch, loss.item(), loss_print_part, optimizer.param_groups[0]["lr"], now_time - start_time, (now_time - start_time_0) / 60.0, (now_time - start_time_0) / 60.0 / epoch * (args.epoch - epoch)), args.log_path)
-            myprint("True: {};  estimated: {}".format(model.k_a, model.k1.item()), args.log_path)
-            myprint("True: {};  estimated: {}".format(model.k_t, model.k2.item()), args.log_path)
-            myprint("True: {};  estimated: {}".format(model.k_tn, model.k3.item()), args.log_path)
-            myprint("True: {};  estimated: {}".format(model.k_an, model.k4.item()), args.log_path)
-            myprint("True: {};  estimated: {}".format(model.k_atn, model.k5.item()), args.log_path)
+            # myprint("True: {};  estimated: {};   relative error: {}".format(model.k_a, model.k1.item(),abs(((model.k1.item() - model.k_a)/model.k_a))), args.log_path)
+            # myprint("True: {};  estimated: {};   relative error: {}".format(model.k_t, model.k2.item(), abs(((model.k2.item() - model.k_t)/model.k_t))), args.log_path)
+            # myprint("True: {};  estimated: {};   relative error: {}".format(model.k_tn, model.k3.item(),abs(((model.k3.item() - model.k_tn)/model.k_tn))), args.log_path)
+            # myprint("True: {};  estimated: {};   relative error: {}".format(model.k_an, model.k4.item(),abs(((model.k4.item() - model.k_an)/model.k_an))), args.log_path)
+            # myprint("True: {};  estimated: {};   relative error: {}".format(model.k_atn, model.k5.item(),abs(((model.k5.item() - model.k_atn)/model.k_atn))), args.log_path)
             # myprint("----------------------------", args.log_path)
             start_time = time.time()
+
             torch.save(
                 {
                     'epoch': args.epoch,
@@ -343,12 +402,12 @@ def train_ad(model, args, config, now_string):
                         'loss': loss.item()
                     }, model_save_path_best)
         if epoch % args.save_step == 0:
-            test_ad(model, args, config, now_string,param_ka, True, model.gt, None)
+            test_ad(model, args, config, now_string, param_ls, param_true, True, model.gt, None)
             myprint("[Loss]", args.log_path)
             draw_loss(np.asarray(loss_record), 1.0)
             np.save(loss_save_path, np.asarray(loss_record))
             # np.save(loss_save_path, np.asarray(loss_record))
-    
+
     best_loss = best_loss
     time_cost = (now_time - start_time_0) / 60.0
     loss_record = np.asarray(loss_record)
@@ -388,7 +447,7 @@ def draw_loss(loss_list, last_rate=1.0):
     )
 
 
-def test_ad(model, args, config, now_string, param_ka ,show_flag=True, gt=None, loss_2_details=None):
+def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=True, gt=None, loss_2_details=None):
     # print("--------------------------------------------------call test ad--------------------------------------------------")
     # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     # model = model_framework(config).to(device)
@@ -399,10 +458,10 @@ def test_ad(model, args, config, now_string, param_ka ,show_flag=True, gt=None, 
     t = model.x
     y = []
     for i in range(184):
-        print(model(t,i).shape)
-        y.append(model(t,i).cpu().detach().numpy())
+        # print(model(t,i).shape)
+        y.append(model(t, i).cpu().detach().numpy())
     y = np.asarray(y)
-        
+
     # y0_pred = model(model.t0)
     # myprint(t.shape,y.shape, args.log_path)
     x = [item[0] for item in model.decode_t(t).cpu().detach().numpy()]
@@ -411,31 +470,62 @@ def test_ad(model, args, config, now_string, param_ka ,show_flag=True, gt=None, 
     # ax1 = plt.subplot(1, 2, 1)
     print(t.shape)
     print(y.shape)
-    
-    colorlist = ['r', 'g','b']
+
+    figure_save_path_folder = f"{args.main_path}/figure/{model.model_name}_id={args.seed}_{args.overall_start}/"
+    myprint("Test: save figure in {}".format(figure_save_path_folder), args.log_path)
+    if not os.path.exists(figure_save_path_folder):
+        os.makedirs(figure_save_path_folder)
+
+    colorlist = ['r', 'g', 'b']
     labels = ["A", "T", "N"]
-    m = MultiSubplotDraw(row=1, col=3, fig_size=(120, 30), tight_layout_flag=True, show_flag=False, save_flag=True,
-                             save_path="{}/{}".format("figure", f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}.png"), save_dpi=100)
+
+    m = MultiSubplotDraw(row=3, col=3, fig_size=(39, 30), tight_layout_flag=True, show_flag=False, save_flag=True,
+                         save_path="{}/{}".format(figure_save_path_folder,
+                                                  f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}.png"),
+                         save_dpi=100)
     for i in range(3):
         m.add_subplot(
-            y_lists=[y[j, :, i].reshape(1630) for j in range(184)], # y_lists=[y[:,1:3]]
+            y_lists=[y[j, :, i].reshape(1630) for j in range(184)],  # y_lists=[y[:,1:3]]
             x_list=x,
-            color_list = colorlist[i] * 184,
-            line_style_list=["solid"]* 184,
+            color_list=colorlist[i] * 184,
+            line_style_list=["solid"] * 184,
             fig_title=labels[i],
-            )
+        )
+    param_ls = np.asarray(param_ls)
+    param_true = np.asarray(param_true)
+    labels = ["k_a", "k_t", "k_tn", "k_an", "k_atn"]
+    for i in range(len(param_ls[0])):
+        m.add_subplot(x_list=[j for j in range(param_ls.shape[0])], y_lists=[param_ls[:, i], param_true[:, i]],
+                      color_list=['b', 'black'], fig_title=labels[i], line_style_list=["solid", "dashed"],
+                      legend_list=["para_pred", "para_truth"])
+
+    error_ka = abs(((param_ls[:, 0] - param_true[:, 0]) / param_true[:, 0]))
+    error_kt = abs(((param_ls[:, 1] - param_true[:, 1]) / param_true[:, 1]))
+    error_ktn = abs(((param_ls[:, 2] - param_true[:, 2]) / param_true[:, 2]))
+    error_kan = abs(((param_ls[:, 3] - param_true[:, 3]) / param_true[:, 3]))
+    error_katn = abs(((param_ls[:, 4] - param_true[:, 4]) / param_true[:, 4]))
+
+    m.add_subplot(x_list=[j for j in range(param_ls.shape[0])],
+                  y_lists=[error_ka, error_kt, error_ktn, error_kan, error_katn], color_list=['b'] * 5,
+                  fig_title="relatve error", line_style_list=["solid"] * 5, legend_list=labels)
+
     m.draw()
 
+    pred_save_path_folder = f"{args.main_path}/saves/{model.model_name}_id={args.seed}_{args.overall_start}/"
+    myprint("Test: save pred in {}".format(pred_save_path_folder), args.log_path)
+    if not os.path.exists(pred_save_path_folder):
+        os.makedirs(pred_save_path_folder)
+    np.save("{}/{}".format(pred_save_path_folder,f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}"),y)
 
-   
-    
+
 
 class Args:
     epoch = 20000
     epoch_step = 2000
     lr = 0.003
     main_path = "."
-    save_step = 5000
+    save_step = 2000
+
 
 class TestArgs:
     epoch = 1
@@ -443,10 +533,12 @@ class TestArgs:
     lr = 0.03
     main_path = "."
     save_step = 1
-   
-   
+
+
 def run_ad_truth(opt):
-    myprint("\n--------------------------------------------------\n NEW RUN \n--------------------------------------------------", opt.log_path)
+    myprint(
+        "\n--------------------------------------------------\n NEW RUN \n--------------------------------------------------",
+        opt.log_path)
     args = opt
     args.main_path = "."
     if not os.path.exists("{}/train".format(args.main_path)):
@@ -460,19 +552,6 @@ def run_ad_truth(opt):
     config = ConfigAD()
     model = SimpleNetworkAD(config).to(device)
     model = train_ad(model, args, config, now_string)
-    
-    # print("weight1:", model.config.k_a.cpu().detach().numpy().flatten())
-
-    # print("----------------------------truth-----------------------------------------")
-    # print("--------------------------------------------------------------------------")
-
-    # mat = scipy.io.loadmat('./Data/20220822truth40.mat')
-    # x = torch.tensor(mat['YOUT']).float()
-    # plt.plot(x[:,0:10], 'b')
-    # plt.plot(x[:,10:20], 'g')
-    # plt.plot(x[:,20:30], 'y')
-    # plt.plot(x[:,30:40], 'c')
-    # plt.show()
 
     return model
 
@@ -494,12 +573,14 @@ if __name__ == "__main__":
     parser.add_argument("--sw_step", type=int, default=50000, help="sliding window step")
     opt = parser.parse_args()
     opt.overall_start = get_now_string()
-    
-    # opt.log_path = "{}/{}_{}.txt".format(opt.log_path, opt.name, opt.id)
+
+    opt.log_path = "{}/{}_{}.txt".format(opt.log_path, opt.name, opt.id)
     myprint("log_path: {}".format(opt.log_path), opt.log_path)
     myprint("cuda is available: {}".format(torch.cuda.is_available()), opt.log_path)
 
-    
     run_ad_truth(opt)
+
+
+
     
     
