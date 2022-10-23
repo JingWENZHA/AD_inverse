@@ -201,7 +201,7 @@ class SimpleNetworkAD(nn.Module):
         torch.autograd.set_detect_anomaly(True)
         # print("--------------------------------------------------call loss --------------------------------------------------")
         self.eval()
-        all_loss, all_loss1, all_loss2, all_loss3 = torch.tensor([0.0]).to(self.device),torch.tensor([0.0]).to(self.device),torch.tensor([0.0]).to(self.device),torch.tensor([0.0]).to(self.device)
+        all_loss, all_loss1, all_loss2, all_loss3, all_loss4 = torch.tensor([0.0]).to(self.device),torch.tensor([0.0]).to(self.device),torch.tensor([0.0]).to(self.device),torch.tensor([0.0]).to(self.device),torch.tensor([0.0]).to(self.device)
         for num_sub in range(184):
             y = self.forward(self.x)
             # print("output x" , self.x.size())
@@ -224,11 +224,11 @@ class SimpleNetworkAD(nn.Module):
 
 
 
-            f_a = A_t - (self.k_a*A*(1 - A) + (self.k_ta*torch.pow(T,self.theta)) / (torch.pow((self.k_mt),self.theta) + torch.pow(T,self.theta))) #- self.config.d_a*torch.matmul(A,self.Laplacian))
-            f_t = T_t - (self.k_t*T*(1 - T) + (self.k_at*torch.pow(A,self.delta)) / (torch.pow((self.k_ma),self.delta) + torch.pow(A,self.delta))) #- self.config.d_t*torch.matmul(T,self.Laplacian))
-            f_n = N_t - ((self.k_tn*torch.pow(T,self.gamma)) / (torch.pow((self.k_mtn),self.gamma) + torch.pow(T,self.gamma))+
-                        (self.k_an*torch.pow(A,self.beta)) / (torch.pow((self.k_man),self.beta) + torch.pow(A,self.beta))+
-                        self.k_atn*A*T)
+            # f_a = A_t - (self.k_a*A*(1 - A) + (self.k_ta*torch.pow(T,self.theta)) / (torch.pow((self.k_mt),self.theta) + torch.pow(T,self.theta))) #- self.config.d_a*torch.matmul(A,self.Laplacian))
+            # f_t = T_t - (self.k_t*T*(1 - T) + (self.k_at*torch.pow(A,self.delta)) / (torch.pow((self.k_ma),self.delta) + torch.pow(A,self.delta))) #- self.config.d_t*torch.matmul(T,self.Laplacian))
+            # f_n = N_t - ((self.k_tn*torch.pow(T,self.gamma)) / (torch.pow((self.k_mtn),self.gamma) + torch.pow(T,self.gamma))+
+            #             (self.k_an*torch.pow(A,self.beta)) / (torch.pow((self.k_man),self.beta) + torch.pow(A,self.beta))+
+            #             self.k_atn*A*T)
 
             f_y = torch.cat((f_a, f_t, f_n), 1)
 
@@ -285,13 +285,19 @@ class SimpleNetworkAD(nn.Module):
             else:
                 loss_2 = self.loss_norm(f_y, zeros_2D)  # + torch.var(torch.square(f_y))
 
-            loss_3 = self.loss_norm(torch.abs(y[:self.config.truth_length, :]-0.3), y[:self.config.truth_length, :]-0.3)*1e5
+            loss_3 = self.loss_norm(torch.abs(y), y)*1e5
 
-            loss = loss_1 #+ loss_2 + loss_3) # + loss_3)#+ loss_4 + loss_5) / 1e5
+            loss_4 = (self.loss_norm(torch.abs(self.k1), self.k1) + \
+                self.loss_norm(torch.abs(self.k2), self.k2) + \
+                self.loss_norm(torch.abs(self.k3), self.k3) +\
+                self.loss_norm(torch.abs(self.k4), self.k4) +\
+                self.loss_norm(torch.abs(self.k5), self.k5) ) *1e5
+
+            loss = loss_1 + loss_2 + loss_3 + loss_4 # + loss_3)#+ loss_4 + loss_5) / 1e5
             all_loss += loss
             all_loss1 += loss_1
             all_loss2 += loss_2
-            all_loss3 += loss_3
+            all_loss4 += loss_4
             
             
         self.train()
@@ -377,12 +383,12 @@ def train_ad(model, args, config, now_string):
 
             loss_print_part = " ".join(["Loss_{0:d}:{1:.6f}".format(i + 1, loss_part.item()) for i, loss_part in enumerate(loss_list)])
             myprint("Epoch [{0:05d}/{1:05d}] Loss:{2:.6f} {3} Lr:{4:.6f} Time:{5:.6f}s ({6:.2f}min in total, {7:.2f}min remains)".format(epoch, args.epoch, loss.item(), loss_print_part, optimizer.param_groups[0]["lr"], now_time - start_time, (now_time - start_time_0) / 60.0, (now_time - start_time_0) / 60.0 / epoch * (args.epoch - epoch)), args.log_path)
-            # myprint("True: {};  estimated: {};   relative error: {}".format(model.k_a, model.k1.item(),abs(((model.k1.item() - model.k_a)/model.k_a))), args.log_path)
-            # myprint("True: {};  estimated: {};   relative error: {}".format(model.k_t, model.k2.item(), abs(((model.k2.item() - model.k_t)/model.k_t))), args.log_path)
-            # myprint("True: {};  estimated: {};   relative error: {}".format(model.k_tn, model.k3.item(),abs(((model.k3.item() - model.k_tn)/model.k_tn))), args.log_path)
-            # myprint("True: {};  estimated: {};   relative error: {}".format(model.k_an, model.k4.item(),abs(((model.k4.item() - model.k_an)/model.k_an))), args.log_path)
-            # myprint("True: {};  estimated: {};   relative error: {}".format(model.k_atn, model.k5.item(),abs(((model.k5.item() - model.k_atn)/model.k_atn))), args.log_path)
-            # myprint("----------------------------", args.log_path)
+            myprint("True: {};  estimated: {};   relative error: {}".format(model.k_a, model.k1.item(),abs(((model.k1.item() - model.k_a)/model.k_a))), args.log_path)
+            myprint("True: {};  estimated: {};   relative error: {}".format(model.k_t, model.k2.item(), abs(((model.k2.item() - model.k_t)/model.k_t))), args.log_path)
+            myprint("True: {};  estimated: {};   relative error: {}".format(model.k_tn, model.k3.item(),abs(((model.k3.item() - model.k_tn)/model.k_tn))), args.log_path)
+            myprint("True: {};  estimated: {};   relative error: {}".format(model.k_an, model.k4.item(),abs(((model.k4.item() - model.k_an)/model.k_an))), args.log_path)
+            myprint("True: {};  estimated: {};   relative error: {}".format(model.k_atn, model.k5.item(),abs(((model.k5.item() - model.k_atn)/model.k_atn))), args.log_path)
+            myprint("----------------------------", args.log_path)
             start_time = time.time()
 
             torch.save(

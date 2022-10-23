@@ -16,7 +16,7 @@ draft = """#!/bin/bash -l
 
 echo $(pwd) > "jobs/pwd.txt"
 source /deac/csc/chenGrp/software/tensorflow/bin/activate
-python {1} --log_path {2} --mode {3} --lr {4} --epoch {5} --epoch_step {6} --save_step {7} --main_path {8} --seed {9} --sw {10} --sw_step {11}
+python {1} --name {0} --log_path {2} --mode {3} --lr {4} --epoch {5} --epoch_step {6} --save_step {7} --main_path {8} --seed {9} --sw {10} --sw_step {11} --id {9}
 """
 
 

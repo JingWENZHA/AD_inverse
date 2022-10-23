@@ -1,0 +1,297 @@
+2022-10-17 18:45:12 log_path: logs/test20221017_general_1-5.txt
+2022-10-17 18:45:12 cuda is available: True
+2022-10-17 18:45:12 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-17 18:45:15 using cuda
+2022-10-17 18:45:15 epoch = 20000
+2022-10-17 18:45:15 epoch_step = 100
+2022-10-17 18:45:15 model_name = SimpleNetworkAD
+2022-10-17 18:45:15 now_string = 2022-10-17-18-45-12
+2022-10-17 18:45:15 model_save_path_last = ./train/SimpleNetworkAD_20000_100_0.001_2022-10-17-18-45-12_last.pt
+2022-10-17 18:45:15 model_save_path_best = ./train/SimpleNetworkAD_20000_100_0.001_2022-10-17-18-45-12_best.pt
+2022-10-17 18:45:15 loss_save_path = ./loss/SimpleNetworkAD_20000_100_0.001_2022-10-17-18-45-12_loss_20000.npy
+2022-10-17 18:45:15 args = {'epoch': 20000, 'log_path': 'logs/test20221017_general_1-5.txt', 'mode': 'origin', 'epoch_step': 100, 'name': 'test20221017_general', 'python': 'ModelBYCC.py', 'id': '1-5', 'lr': 0.001, 'main_path': '.', 'save_step': 1000, 'seed': 0, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-17-18-45-12'}
+2022-10-17 18:45:15 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-17 18:45:15 --------------------------------------------------training start--------------------------------------------------
+2022-10-17 18:54:38 Epoch [00100/20000] Loss:6.362988 Loss_1:6.362988 Loss_2:0.000235 Loss_3:0.000000 Lr:0.000990 Time:562.942031s (9.38min in total, 1867.09min remains)
+2022-10-17 19:04:06 Epoch [00200/20000] Loss:6.353941 Loss_1:6.353941 Loss_2:0.000216 Loss_3:0.000000 Lr:0.000980 Time:568.485107s (18.86min in total, 1866.86min remains)
+2022-10-17 19:13:31 Epoch [00300/20000] Loss:6.348861 Loss_1:6.348861 Loss_2:0.000212 Loss_3:0.000000 Lr:0.000971 Time:564.579638s (28.27min in total, 1856.19min remains)
+2022-10-17 19:24:02 Epoch [00400/20000] Loss:6.343821 Loss_1:6.343821 Loss_2:0.000211 Loss_3:0.000000 Lr:0.000962 Time:630.956882s (38.78min in total, 1900.36min remains)
+2022-10-17 19:35:01 Epoch [00500/20000] Loss:6.338987 Loss_1:6.338987 Loss_2:0.000215 Loss_3:0.000000 Lr:0.000952 Time:658.954123s (49.77min in total, 1940.86min remains)
+2022-10-17 19:46:02 Epoch [00600/20000] Loss:6.334432 Loss_1:6.334432 Loss_2:0.000223 Loss_3:0.000000 Lr:0.000943 Time:661.490961s (60.79min in total, 1965.56min remains)
+2022-10-17 19:57:04 Epoch [00700/20000] Loss:6.330240 Loss_1:6.330240 Loss_2:0.000235 Loss_3:0.000000 Lr:0.000935 Time:661.253125s (71.81min in total, 1979.94min remains)
+2022-10-17 20:08:04 Epoch [00800/20000] Loss:6.326518 Loss_1:6.326518 Loss_2:0.000252 Loss_3:0.000000 Lr:0.000926 Time:660.394665s (82.82min in total, 1987.63min remains)
+2022-10-17 20:19:05 Epoch [00900/20000] Loss:6.323363 Loss_1:6.323363 Loss_2:0.000271 Loss_3:0.000000 Lr:0.000917 Time:660.575518s (93.83min in total, 1991.23min remains)
+2022-10-17 20:30:06 Epoch [01000/20000] Loss:6.320783 Loss_1:6.320783 Loss_2:0.000289 Loss_3:0.000000 Lr:0.000909 Time:661.524528s (104.85min in total, 1992.21min remains)
+2022-10-17 20:30:06 Testing & drawing...
+2022-10-17 20:30:07 Test: save figure in ./figure/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-17 20:30:13 Test: save pred in ./saves/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-17 20:30:13 [Loss]
+2022-10-17 20:41:12 Epoch [01100/20000] Loss:6.318703 Loss_1:6.318703 Loss_2:0.000304 Loss_3:0.000000 Lr:0.000901 Time:665.544898s (115.95min in total, 1992.16min remains)
+2022-10-17 20:52:12 Epoch [01200/20000] Loss:6.316998 Loss_1:6.316998 Loss_2:0.000314 Loss_3:0.000000 Lr:0.000893 Time:660.610023s (126.96min in total, 1988.97min remains)
+2022-10-17 21:03:13 Epoch [01300/20000] Loss:6.315557 Loss_1:6.315557 Loss_2:0.000320 Loss_3:0.000000 Lr:0.000885 Time:660.808095s (137.97min in total, 1984.64min remains)
+2022-10-17 21:14:13 Epoch [01400/20000] Loss:6.314318 Loss_1:6.314318 Loss_2:0.000324 Loss_3:0.000000 Lr:0.000877 Time:660.050234s (148.97min in total, 1979.18min remains)
+2022-10-17 21:25:15 Epoch [01500/20000] Loss:6.313224 Loss_1:6.313224 Loss_2:0.000325 Loss_3:0.000000 Lr:0.000870 Time:662.110403s (160.01min in total, 1973.40min remains)
+2022-10-17 21:36:14 Epoch [01600/20000] Loss:6.312261 Loss_1:6.312261 Loss_2:0.000324 Loss_3:0.000000 Lr:0.000862 Time:658.888930s (170.99min in total, 1966.35min remains)
+2022-10-17 21:47:15 Epoch [01700/20000] Loss:6.311404 Loss_1:6.311404 Loss_2:0.000324 Loss_3:0.000000 Lr:0.000855 Time:661.119528s (182.01min in total, 1959.24min remains)
+2022-10-17 21:58:17 Epoch [01800/20000] Loss:6.310628 Loss_1:6.310628 Loss_2:0.000324 Loss_3:0.000000 Lr:0.000847 Time:661.446853s (193.03min in total, 1951.75min remains)
+2022-10-17 22:09:18 Epoch [01900/20000] Loss:6.309907 Loss_1:6.309907 Loss_2:0.000323 Loss_3:0.000000 Lr:0.000840 Time:661.023244s (204.05min in total, 1943.82min remains)
+2022-10-17 22:20:17 Epoch [02000/20000] Loss:6.309225 Loss_1:6.309225 Loss_2:0.000323 Loss_3:0.000000 Lr:0.000833 Time:659.610286s (215.04min in total, 1935.36min remains)
+2022-10-17 22:20:17 Testing & drawing...
+2022-10-17 22:20:18 Test: save figure in ./figure/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-17 22:20:24 Test: save pred in ./saves/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-17 22:20:24 [Loss]
+2022-10-17 22:31:26 Epoch [02100/20000] Loss:6.308567 Loss_1:6.308567 Loss_2:0.000324 Loss_3:0.000000 Lr:0.000826 Time:668.984632s (226.19min in total, 1928.00min remains)
+2022-10-17 22:42:28 Epoch [02200/20000] Loss:6.307918 Loss_1:6.307918 Loss_2:0.000324 Loss_3:0.000000 Lr:0.000820 Time:661.284166s (237.21min in total, 1919.26min remains)
+2022-10-17 22:53:28 Epoch [02300/20000] Loss:6.307265 Loss_1:6.307265 Loss_2:0.000325 Loss_3:0.000000 Lr:0.000813 Time:660.781054s (248.22min in total, 1910.25min remains)
+2022-10-17 23:04:29 Epoch [02400/20000] Loss:6.306612 Loss_1:6.306612 Loss_2:0.000327 Loss_3:0.000000 Lr:0.000806 Time:660.438436s (259.23min in total, 1901.04min remains)
+2022-10-17 23:15:30 Epoch [02500/20000] Loss:6.305949 Loss_1:6.305949 Loss_2:0.000329 Loss_3:0.000000 Lr:0.000800 Time:660.698879s (270.24min in total, 1891.71min remains)
+2022-10-17 23:26:30 Epoch [02600/20000] Loss:6.305270 Loss_1:6.305270 Loss_2:0.000331 Loss_3:0.000000 Lr:0.000794 Time:660.649711s (281.25min in total, 1882.24min remains)
+2022-10-17 23:37:31 Epoch [02700/20000] Loss:6.304583 Loss_1:6.304583 Loss_2:0.000334 Loss_3:0.000000 Lr:0.000787 Time:661.073056s (292.27min in total, 1872.71min remains)
+2022-10-17 23:48:31 Epoch [02800/20000] Loss:6.303880 Loss_1:6.303880 Loss_2:0.000338 Loss_3:0.000000 Lr:0.000781 Time:660.081480s (303.27min in total, 1862.97min remains)
+2022-10-18 00:00:04 Epoch [02900/20000] Loss:6.303167 Loss_1:6.303167 Loss_2:0.000343 Loss_3:0.000000 Lr:0.000775 Time:692.436555s (314.81min in total, 1856.32min remains)
+2022-10-18 00:11:20 Epoch [03000/20000] Loss:6.302457 Loss_1:6.302457 Loss_2:0.000349 Loss_3:0.000000 Lr:0.000769 Time:676.437101s (326.09min in total, 1847.84min remains)
+2022-10-18 00:11:20 Testing & drawing...
+2022-10-18 00:11:21 Test: save figure in ./figure/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 00:11:27 Test: save pred in ./saves/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 00:11:27 [Loss]
+2022-10-18 00:22:28 Epoch [03100/20000] Loss:6.301764 Loss_1:6.301764 Loss_2:0.000357 Loss_3:0.000000 Lr:0.000763 Time:667.457656s (337.21min in total, 1838.36min remains)
+2022-10-18 00:33:29 Epoch [03200/20000] Loss:6.301106 Loss_1:6.301106 Loss_2:0.000368 Loss_3:0.000000 Lr:0.000758 Time:661.140229s (348.23min in total, 1828.22min remains)
+2022-10-18 00:44:27 Epoch [03300/20000] Loss:6.300491 Loss_1:6.300491 Loss_2:0.000381 Loss_3:0.000000 Lr:0.000752 Time:658.599881s (359.21min in total, 1817.81min remains)
+2022-10-18 00:55:30 Epoch [03400/20000] Loss:6.299934 Loss_1:6.299934 Loss_2:0.000397 Loss_3:0.000000 Lr:0.000746 Time:662.974569s (370.26min in total, 1807.73min remains)
+2022-10-18 01:06:29 Epoch [03500/20000] Loss:6.299437 Loss_1:6.299437 Loss_2:0.000414 Loss_3:0.000000 Lr:0.000741 Time:658.284539s (381.23min in total, 1797.23min remains)
+2022-10-18 01:17:30 Epoch [03600/20000] Loss:6.299006 Loss_1:6.299006 Loss_2:0.000434 Loss_3:0.000000 Lr:0.000735 Time:661.720153s (392.26min in total, 1786.96min remains)
+2022-10-18 01:28:32 Epoch [03700/20000] Loss:6.298635 Loss_1:6.298635 Loss_2:0.000454 Loss_3:0.000000 Lr:0.000730 Time:661.818710s (403.29min in total, 1776.65min remains)
+2022-10-18 01:39:32 Epoch [03800/20000] Loss:6.298323 Loss_1:6.298323 Loss_2:0.000475 Loss_3:0.000000 Lr:0.000725 Time:659.442613s (414.28min in total, 1766.14min remains)
+2022-10-18 01:50:33 Epoch [03900/20000] Loss:6.298054 Loss_1:6.298054 Loss_2:0.000496 Loss_3:0.000000 Lr:0.000719 Time:660.869232s (425.29min in total, 1755.70min remains)
+2022-10-18 02:01:33 Epoch [04000/20000] Loss:6.297822 Loss_1:6.297822 Loss_2:0.000517 Loss_3:0.000000 Lr:0.000714 Time:660.702706s (436.31min in total, 1745.23min remains)
+2022-10-18 02:01:33 Testing & drawing...
+2022-10-18 02:01:34 Test: save figure in ./figure/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 02:01:41 Test: save pred in ./saves/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 02:01:41 [Loss]
+2022-10-18 02:12:42 Epoch [04100/20000] Loss:6.297613 Loss_1:6.297613 Loss_2:0.000537 Loss_3:0.000000 Lr:0.000709 Time:668.609603s (447.45min in total, 1735.23min remains)
+2022-10-18 02:23:43 Epoch [04200/20000] Loss:6.297416 Loss_1:6.297416 Loss_2:0.000555 Loss_3:0.000000 Lr:0.000704 Time:660.721709s (458.46min in total, 1724.69min remains)
+2022-10-18 02:34:44 Epoch [04300/20000] Loss:6.297222 Loss_1:6.297222 Loss_2:0.000573 Loss_3:0.000000 Lr:0.000699 Time:661.046473s (469.48min in total, 1714.15min remains)
+2022-10-18 02:45:42 Epoch [04400/20000] Loss:6.297036 Loss_1:6.297036 Loss_2:0.000590 Loss_3:0.000000 Lr:0.000694 Time:658.476687s (480.45min in total, 1703.43min remains)
+2022-10-18 02:56:41 Epoch [04500/20000] Loss:6.296839 Loss_1:6.296839 Loss_2:0.000606 Loss_3:0.000000 Lr:0.000690 Time:659.118633s (491.44min in total, 1692.74min remains)
+2022-10-18 03:07:42 Epoch [04600/20000] Loss:6.296641 Loss_1:6.296641 Loss_2:0.000623 Loss_3:0.000000 Lr:0.000685 Time:661.198236s (502.46min in total, 1682.15min remains)
+2022-10-18 03:18:42 Epoch [04700/20000] Loss:6.296428 Loss_1:6.296428 Loss_2:0.000639 Loss_3:0.000000 Lr:0.000680 Time:659.076767s (513.44min in total, 1671.42min remains)
+2022-10-18 03:29:42 Epoch [04800/20000] Loss:6.296202 Loss_1:6.296202 Loss_2:0.000655 Loss_3:0.000000 Lr:0.000676 Time:660.217722s (524.45min in total, 1660.75min remains)
+2022-10-18 03:40:42 Epoch [04900/20000] Loss:6.295963 Loss_1:6.295963 Loss_2:0.000672 Loss_3:0.000000 Lr:0.000671 Time:660.503300s (535.46min in total, 1650.08min remains)
+2022-10-18 03:51:42 Epoch [05000/20000] Loss:6.295706 Loss_1:6.295706 Loss_2:0.000690 Loss_3:0.000000 Lr:0.000667 Time:659.273883s (546.44min in total, 1639.33min remains)
+2022-10-18 03:51:42 Testing & drawing...
+2022-10-18 03:51:43 Test: save figure in ./figure/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 03:51:49 Test: save pred in ./saves/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 03:51:49 [Loss]
+2022-10-18 04:02:50 Epoch [05100/20000] Loss:6.295417 Loss_1:6.295417 Loss_2:0.000708 Loss_3:0.000000 Lr:0.000662 Time:668.855437s (557.59min in total, 1629.04min remains)
+2022-10-18 04:13:52 Epoch [05200/20000] Loss:6.295088 Loss_1:6.295088 Loss_2:0.000727 Loss_3:0.000000 Lr:0.000658 Time:661.158024s (568.61min in total, 1618.36min remains)
+2022-10-18 04:24:54 Epoch [05300/20000] Loss:6.294691 Loss_1:6.294691 Loss_2:0.000746 Loss_3:0.000000 Lr:0.000654 Time:662.345006s (579.65min in total, 1607.71min remains)
+2022-10-18 04:35:52 Epoch [05400/20000] Loss:6.294188 Loss_1:6.294188 Loss_2:0.000765 Loss_3:0.000000 Lr:0.000649 Time:658.189202s (590.62min in total, 1596.86min remains)
+2022-10-18 04:46:55 Epoch [05500/20000] Loss:6.293502 Loss_1:6.293502 Loss_2:0.000785 Loss_3:0.000000 Lr:0.000645 Time:662.658127s (601.66min in total, 1586.21min remains)
+2022-10-18 04:57:56 Epoch [05600/20000] Loss:6.292506 Loss_1:6.292506 Loss_2:0.000806 Loss_3:0.000000 Lr:0.000641 Time:660.855751s (612.68min in total, 1575.46min remains)
+2022-10-18 05:08:57 Epoch [05700/20000] Loss:6.291099 Loss_1:6.291099 Loss_2:0.000830 Loss_3:0.000000 Lr:0.000637 Time:661.683383s (623.71min in total, 1564.74min remains)
+2022-10-18 05:19:59 Epoch [05800/20000] Loss:6.289396 Loss_1:6.289396 Loss_2:0.000858 Loss_3:0.000000 Lr:0.000633 Time:661.862038s (634.74min in total, 1554.01min remains)
+2022-10-18 05:31:00 Epoch [05900/20000] Loss:6.287871 Loss_1:6.287871 Loss_2:0.000890 Loss_3:0.000000 Lr:0.000629 Time:660.383624s (645.74min in total, 1543.22min remains)
+2022-10-18 05:42:02 Epoch [06000/20000] Loss:6.286883 Loss_1:6.286883 Loss_2:0.000927 Loss_3:0.000000 Lr:0.000625 Time:662.142225s (656.78min in total, 1532.49min remains)
+2022-10-18 05:42:02 Testing & drawing...
+2022-10-18 05:42:03 Test: save figure in ./figure/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 05:42:10 Test: save pred in ./saves/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 05:42:10 [Loss]
+2022-10-18 05:53:11 Epoch [06100/20000] Loss:6.286311 Loss_1:6.286311 Loss_2:0.000965 Loss_3:0.000000 Lr:0.000621 Time:669.000725s (667.93min in total, 1522.01min remains)
+2022-10-18 06:04:11 Epoch [06200/20000] Loss:6.285854 Loss_1:6.285854 Loss_2:0.001005 Loss_3:0.000000 Lr:0.000617 Time:660.016723s (678.93min in total, 1511.17min remains)
+2022-10-18 06:15:13 Epoch [06300/20000] Loss:6.285314 Loss_1:6.285314 Loss_2:0.001046 Loss_3:0.000000 Lr:0.000613 Time:662.019043s (689.96min in total, 1500.40min remains)
+2022-10-18 06:26:14 Epoch [06400/20000] Loss:6.284717 Loss_1:6.284717 Loss_2:0.001090 Loss_3:0.000000 Lr:0.000610 Time:660.909560s (700.98min in total, 1489.58min remains)
+2022-10-18 06:37:14 Epoch [06500/20000] Loss:6.283488 Loss_1:6.283488 Loss_2:0.001139 Loss_3:0.000000 Lr:0.000606 Time:660.421218s (711.99min in total, 1478.74min remains)
+2022-10-18 06:48:14 Epoch [06600/20000] Loss:6.282712 Loss_1:6.282712 Loss_2:0.001194 Loss_3:0.000000 Lr:0.000602 Time:660.314927s (722.99min in total, 1467.89min remains)
+2022-10-18 06:59:17 Epoch [06700/20000] Loss:6.280638 Loss_1:6.280638 Loss_2:0.001258 Loss_3:0.000000 Lr:0.000599 Time:662.462699s (734.03min in total, 1457.11min remains)
+2022-10-18 07:10:18 Epoch [06800/20000] Loss:6.279092 Loss_1:6.279092 Loss_2:0.001336 Loss_3:0.000000 Lr:0.000595 Time:661.402636s (745.06min in total, 1446.29min remains)
+2022-10-18 07:21:18 Epoch [06900/20000] Loss:6.277439 Loss_1:6.277439 Loss_2:0.001433 Loss_3:0.000000 Lr:0.000592 Time:659.977250s (756.06min in total, 1435.41min remains)
+2022-10-18 07:32:19 Epoch [07000/20000] Loss:6.275902 Loss_1:6.275902 Loss_2:0.001551 Loss_3:0.000000 Lr:0.000588 Time:660.772091s (767.07min in total, 1424.56min remains)
+2022-10-18 07:32:19 Testing & drawing...
+2022-10-18 07:32:20 Test: save figure in ./figure/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 07:32:28 Test: save pred in ./saves/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 07:32:28 [Loss]
+2022-10-18 07:43:28 Epoch [07100/20000] Loss:6.274670 Loss_1:6.274670 Loss_2:0.001687 Loss_3:0.000000 Lr:0.000585 Time:668.838470s (778.22min in total, 1413.94min remains)
+2022-10-18 07:54:30 Epoch [07200/20000] Loss:6.276189 Loss_1:6.276189 Loss_2:0.001849 Loss_3:0.000000 Lr:0.000581 Time:661.801152s (789.25min in total, 1403.11min remains)
+2022-10-18 08:05:31 Epoch [07300/20000] Loss:6.272612 Loss_1:6.272612 Loss_2:0.002024 Loss_3:0.000000 Lr:0.000578 Time:661.154733s (800.27min in total, 1392.24min remains)
+2022-10-18 08:16:34 Epoch [07400/20000] Loss:6.271928 Loss_1:6.271928 Loss_2:0.002215 Loss_3:0.000000 Lr:0.000575 Time:662.969002s (811.32min in total, 1381.43min remains)
+2022-10-18 08:27:35 Epoch [07500/20000] Loss:6.271208 Loss_1:6.271208 Loss_2:0.002428 Loss_3:0.000000 Lr:0.000571 Time:661.476167s (822.34min in total, 1370.57min remains)
+2022-10-18 08:38:36 Epoch [07600/20000] Loss:6.270710 Loss_1:6.270710 Loss_2:0.002644 Loss_3:0.000000 Lr:0.000568 Time:660.204970s (833.34min in total, 1359.67min remains)
+2022-10-18 08:49:37 Epoch [07700/20000] Loss:6.270231 Loss_1:6.270231 Loss_2:0.002883 Loss_3:0.000000 Lr:0.000565 Time:661.870208s (844.37min in total, 1348.81min remains)
+2022-10-18 09:00:41 Epoch [07800/20000] Loss:6.269864 Loss_1:6.269864 Loss_2:0.003120 Loss_3:0.000000 Lr:0.000562 Time:663.252271s (855.43min in total, 1337.98min remains)
+2022-10-18 09:11:43 Epoch [07900/20000] Loss:6.269467 Loss_1:6.269467 Loss_2:0.003380 Loss_3:0.000000 Lr:0.000559 Time:661.837413s (866.46min in total, 1327.11min remains)
+2022-10-18 09:22:44 Epoch [08000/20000] Loss:6.269088 Loss_1:6.269088 Loss_2:0.003656 Loss_3:0.000000 Lr:0.000556 Time:661.783243s (877.49min in total, 1316.23min remains)
+2022-10-18 09:22:44 Testing & drawing...
+2022-10-18 09:22:45 Test: save figure in ./figure/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 09:22:53 Test: save pred in ./saves/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 09:22:53 [Loss]
+2022-10-18 09:33:54 Epoch [08100/20000] Loss:6.268734 Loss_1:6.268734 Loss_2:0.003930 Loss_3:0.000000 Lr:0.000552 Time:669.720567s (888.65min in total, 1305.55min remains)
+2022-10-18 09:44:56 Epoch [08200/20000] Loss:6.268342 Loss_1:6.268342 Loss_2:0.004232 Loss_3:0.000000 Lr:0.000549 Time:661.474352s (899.68min in total, 1294.66min remains)
+2022-10-18 09:55:56 Epoch [08300/20000] Loss:6.268267 Loss_1:6.268267 Loss_2:0.004532 Loss_3:0.000000 Lr:0.000546 Time:660.499587s (910.68min in total, 1283.74min remains)
+2022-10-18 10:06:58 Epoch [08400/20000] Loss:6.267343 Loss_1:6.267343 Loss_2:0.004823 Loss_3:0.000000 Lr:0.000543 Time:661.573504s (921.71min in total, 1272.84min remains)
+2022-10-18 10:17:57 Epoch [08500/20000] Loss:6.266666 Loss_1:6.266666 Loss_2:0.005088 Loss_3:0.000000 Lr:0.000541 Time:659.299194s (932.70min in total, 1261.89min remains)
+2022-10-18 10:28:58 Epoch [08600/20000] Loss:6.265787 Loss_1:6.265787 Loss_2:0.005311 Loss_3:0.000000 Lr:0.000538 Time:660.946642s (943.72min in total, 1250.97min remains)
+2022-10-18 10:39:59 Epoch [08700/20000] Loss:6.264608 Loss_1:6.264608 Loss_2:0.005559 Loss_3:0.000000 Lr:0.000535 Time:661.067836s (954.73min in total, 1240.06min remains)
+2022-10-18 10:51:00 Epoch [08800/20000] Loss:6.263154 Loss_1:6.263154 Loss_2:0.005921 Loss_3:0.000000 Lr:0.000532 Time:661.170791s (965.75min in total, 1229.14min remains)
+2022-10-18 11:02:01 Epoch [08900/20000] Loss:6.261825 Loss_1:6.261825 Loss_2:0.006421 Loss_3:0.000000 Lr:0.000529 Time:660.770946s (976.77min in total, 1218.21min remains)
+2022-10-18 11:13:03 Epoch [09000/20000] Loss:6.260306 Loss_1:6.260306 Loss_2:0.006949 Loss_3:0.000000 Lr:0.000526 Time:661.670679s (987.79min in total, 1207.30min remains)
+2022-10-18 11:13:03 Testing & drawing...
+2022-10-18 11:13:04 Test: save figure in ./figure/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 11:13:12 Test: save pred in ./saves/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 11:13:12 [Loss]
+2022-10-18 11:24:11 Epoch [09100/20000] Loss:6.259748 Loss_1:6.259748 Loss_2:0.007167 Loss_3:0.000000 Lr:0.000524 Time:668.563383s (998.94min in total, 1196.53min remains)
+2022-10-18 11:35:11 Epoch [09200/20000] Loss:6.258246 Loss_1:6.258246 Loss_2:0.006971 Loss_3:0.000000 Lr:0.000521 Time:660.141866s (1009.94min in total, 1185.58min remains)
+2022-10-18 11:46:12 Epoch [09300/20000] Loss:6.257092 Loss_1:6.257092 Loss_2:0.006408 Loss_3:0.000000 Lr:0.000518 Time:660.276352s (1020.94min in total, 1174.63min remains)
+2022-10-18 11:57:13 Epoch [09400/20000] Loss:6.255601 Loss_1:6.255601 Loss_2:0.005620 Loss_3:0.000000 Lr:0.000515 Time:661.842298s (1031.97min in total, 1163.72min remains)
+2022-10-18 12:08:13 Epoch [09500/20000] Loss:6.253964 Loss_1:6.253964 Loss_2:0.004856 Loss_3:0.000000 Lr:0.000513 Time:660.104495s (1042.98min in total, 1152.76min remains)
+2022-10-18 12:19:13 Epoch [09600/20000] Loss:6.252542 Loss_1:6.252542 Loss_2:0.004380 Loss_3:0.000000 Lr:0.000510 Time:659.406362s (1053.97min in total, 1141.80min remains)
+2022-10-18 12:30:13 Epoch [09700/20000] Loss:6.248817 Loss_1:6.248817 Loss_2:0.004244 Loss_3:0.000000 Lr:0.000508 Time:660.102568s (1064.97min in total, 1130.84min remains)
+2022-10-18 12:41:15 Epoch [09800/20000] Loss:6.247308 Loss_1:6.247308 Loss_2:0.004244 Loss_3:0.000000 Lr:0.000505 Time:661.616731s (1075.99min in total, 1119.91min remains)
+2022-10-18 12:52:16 Epoch [09900/20000] Loss:6.246594 Loss_1:6.246594 Loss_2:0.004253 Loss_3:0.000000 Lr:0.000503 Time:660.945693s (1087.01min in total, 1108.97min remains)
+2022-10-18 13:03:17 Epoch [10000/20000] Loss:6.246273 Loss_1:6.246273 Loss_2:0.004275 Loss_3:0.000000 Lr:0.000500 Time:661.536603s (1098.04min in total, 1098.04min remains)
+2022-10-18 13:03:17 Testing & drawing...
+2022-10-18 13:03:18 Test: save figure in ./figure/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 13:03:27 Test: save pred in ./saves/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 13:03:27 [Loss]
+2022-10-18 13:14:27 Epoch [10100/20000] Loss:6.246885 Loss_1:6.246885 Loss_2:0.004286 Loss_3:0.000000 Lr:0.000498 Time:669.782517s (1109.20min in total, 1087.24min remains)
+2022-10-18 13:25:27 Epoch [10200/20000] Loss:6.245905 Loss_1:6.245905 Loss_2:0.004308 Loss_3:0.000000 Lr:0.000495 Time:660.210647s (1120.20min in total, 1076.27min remains)
+2022-10-18 13:36:30 Epoch [10300/20000] Loss:6.245736 Loss_1:6.245736 Loss_2:0.004336 Loss_3:0.000000 Lr:0.000493 Time:663.257308s (1131.26min in total, 1065.36min remains)
+2022-10-18 13:47:33 Epoch [10400/20000] Loss:6.245976 Loss_1:6.245976 Loss_2:0.004352 Loss_3:0.000000 Lr:0.000490 Time:662.699448s (1142.30min in total, 1054.43min remains)
+2022-10-18 13:58:36 Epoch [10500/20000] Loss:6.245413 Loss_1:6.245413 Loss_2:0.004380 Loss_3:0.000000 Lr:0.000488 Time:662.564912s (1153.35min in total, 1043.50min remains)
+2022-10-18 14:09:36 Epoch [10600/20000] Loss:6.245433 Loss_1:6.245433 Loss_2:0.004400 Loss_3:0.000000 Lr:0.000485 Time:660.052125s (1164.35min in total, 1032.53min remains)
+2022-10-18 14:20:37 Epoch [10700/20000] Loss:6.245082 Loss_1:6.245082 Loss_2:0.004428 Loss_3:0.000000 Lr:0.000483 Time:661.234671s (1175.37min in total, 1021.58min remains)
+2022-10-18 14:31:38 Epoch [10800/20000] Loss:6.250314 Loss_1:6.250314 Loss_2:0.004452 Loss_3:0.000000 Lr:0.000481 Time:660.760535s (1186.38min in total, 1010.62min remains)
+2022-10-18 14:42:38 Epoch [10900/20000] Loss:6.244901 Loss_1:6.244901 Loss_2:0.004478 Loss_3:0.000000 Lr:0.000478 Time:660.717035s (1197.39min in total, 999.66min remains)
+2022-10-18 14:53:40 Epoch [11000/20000] Loss:6.244550 Loss_1:6.244550 Loss_2:0.004509 Loss_3:0.000000 Lr:0.000476 Time:661.828944s (1208.42min in total, 988.71min remains)
+2022-10-18 14:53:40 Testing & drawing...
+2022-10-18 14:53:41 Test: save figure in ./figure/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 14:53:50 Test: save pred in ./saves/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 14:53:50 [Loss]
+2022-10-18 15:04:52 Epoch [11100/20000] Loss:6.244366 Loss_1:6.244366 Loss_2:0.004530 Loss_3:0.000000 Lr:0.000474 Time:671.308119s (1219.61min in total, 977.89min remains)
+2022-10-18 15:15:53 Epoch [11200/20000] Loss:6.244169 Loss_1:6.244169 Loss_2:0.004564 Loss_3:0.000000 Lr:0.000472 Time:660.932708s (1230.63min in total, 966.92min remains)
+2022-10-18 15:26:53 Epoch [11300/20000] Loss:6.245063 Loss_1:6.245063 Loss_2:0.004594 Loss_3:0.000000 Lr:0.000469 Time:660.725888s (1241.64min in total, 955.95min remains)
+2022-10-18 15:37:55 Epoch [11400/20000] Loss:6.243751 Loss_1:6.243751 Loss_2:0.004621 Loss_3:0.000000 Lr:0.000467 Time:662.175103s (1252.67min in total, 945.00min remains)
+2022-10-18 15:48:58 Epoch [11500/20000] Loss:6.243538 Loss_1:6.243538 Loss_2:0.004658 Loss_3:0.000000 Lr:0.000465 Time:662.084264s (1263.71min in total, 934.05min remains)
+2022-10-18 15:59:59 Epoch [11600/20000] Loss:6.243293 Loss_1:6.243293 Loss_2:0.004687 Loss_3:0.000000 Lr:0.000463 Time:661.124408s (1274.73min in total, 923.08min remains)
+2022-10-18 16:11:46 Epoch [11700/20000] Loss:6.243049 Loss_1:6.243049 Loss_2:0.004727 Loss_3:0.000000 Lr:0.000461 Time:706.908212s (1286.51min in total, 912.65min remains)
+2022-10-18 16:22:46 Epoch [11800/20000] Loss:6.242863 Loss_1:6.242863 Loss_2:0.004762 Loss_3:0.000000 Lr:0.000459 Time:660.876596s (1297.53min in total, 901.67min remains)
+2022-10-18 16:33:46 Epoch [11900/20000] Loss:6.242531 Loss_1:6.242531 Loss_2:0.004799 Loss_3:0.000000 Lr:0.000457 Time:659.588875s (1308.52min in total, 890.67min remains)
+2022-10-18 16:44:47 Epoch [12000/20000] Loss:6.242436 Loss_1:6.242436 Loss_2:0.004841 Loss_3:0.000000 Lr:0.000455 Time:661.055634s (1319.54min in total, 879.69min remains)
+2022-10-18 16:44:47 Testing & drawing...
+2022-10-18 16:44:48 Test: save figure in ./figure/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 16:44:57 Test: save pred in ./saves/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 16:44:57 [Loss]
+2022-10-18 16:55:58 Epoch [12100/20000] Loss:6.241974 Loss_1:6.241974 Loss_2:0.004877 Loss_3:0.000000 Lr:0.000452 Time:670.896482s (1330.72min in total, 868.82min remains)
+2022-10-18 17:07:00 Epoch [12200/20000] Loss:6.241675 Loss_1:6.241675 Loss_2:0.004924 Loss_3:0.000000 Lr:0.000450 Time:662.132590s (1341.75min in total, 857.84min remains)
+2022-10-18 17:18:00 Epoch [12300/20000] Loss:6.241398 Loss_1:6.241398 Loss_2:0.004960 Loss_3:0.000000 Lr:0.000448 Time:660.181658s (1352.76min in total, 846.85min remains)
+2022-10-18 17:29:01 Epoch [12400/20000] Loss:6.241065 Loss_1:6.241065 Loss_2:0.005011 Loss_3:0.000000 Lr:0.000446 Time:661.082063s (1363.77min in total, 835.86min remains)
+2022-10-18 17:40:02 Epoch [12500/20000] Loss:6.240831 Loss_1:6.240831 Loss_2:0.005061 Loss_3:0.000000 Lr:0.000444 Time:661.027083s (1374.79min in total, 824.88min remains)
+2022-10-18 17:51:03 Epoch [12600/20000] Loss:6.240430 Loss_1:6.240430 Loss_2:0.005098 Loss_3:0.000000 Lr:0.000442 Time:660.881990s (1385.81min in total, 813.89min remains)
+2022-10-18 18:02:05 Epoch [12700/20000] Loss:6.240106 Loss_1:6.240106 Loss_2:0.005150 Loss_3:0.000000 Lr:0.000441 Time:661.228917s (1396.83min in total, 802.90min remains)
+2022-10-18 18:13:05 Epoch [12800/20000] Loss:6.239775 Loss_1:6.239775 Loss_2:0.005207 Loss_3:0.000000 Lr:0.000439 Time:660.770330s (1407.84min in total, 791.91min remains)
+2022-10-18 18:24:07 Epoch [12900/20000] Loss:6.239583 Loss_1:6.239583 Loss_2:0.005252 Loss_3:0.000000 Lr:0.000437 Time:661.243977s (1418.86min in total, 780.92min remains)
+2022-10-18 18:35:08 Epoch [13000/20000] Loss:6.239088 Loss_1:6.239088 Loss_2:0.005308 Loss_3:0.000000 Lr:0.000435 Time:661.150126s (1429.88min in total, 769.94min remains)
+2022-10-18 18:35:08 Testing & drawing...
+2022-10-18 18:35:09 Test: save figure in ./figure/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 18:35:18 Test: save pred in ./saves/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 18:35:18 [Loss]
+2022-10-18 18:46:22 Epoch [13100/20000] Loss:6.238739 Loss_1:6.238739 Loss_2:0.005352 Loss_3:0.000000 Lr:0.000433 Time:674.090164s (1441.11min in total, 759.06min remains)
+2022-10-18 18:57:23 Epoch [13200/20000] Loss:6.238351 Loss_1:6.238351 Loss_2:0.005414 Loss_3:0.000000 Lr:0.000431 Time:661.038297s (1452.13min in total, 748.07min remains)
+2022-10-18 19:08:25 Epoch [13300/20000] Loss:6.238049 Loss_1:6.238049 Loss_2:0.005462 Loss_3:0.000000 Lr:0.000429 Time:662.597466s (1463.18min in total, 737.09min remains)
+2022-10-18 19:19:27 Epoch [13400/20000] Loss:6.237507 Loss_1:6.237507 Loss_2:0.005525 Loss_3:0.000000 Lr:0.000427 Time:661.624725s (1474.20min in total, 726.10min remains)
+2022-10-18 19:30:30 Epoch [13500/20000] Loss:6.238124 Loss_1:6.238124 Loss_2:0.005596 Loss_3:0.000000 Lr:0.000426 Time:662.418072s (1485.24min in total, 715.12min remains)
+2022-10-18 19:41:30 Epoch [13600/20000] Loss:6.236416 Loss_1:6.236416 Loss_2:0.005646 Loss_3:0.000000 Lr:0.000424 Time:660.719149s (1496.26min in total, 704.12min remains)
+2022-10-18 19:52:32 Epoch [13700/20000] Loss:6.235668 Loss_1:6.235668 Loss_2:0.005724 Loss_3:0.000000 Lr:0.000422 Time:662.063606s (1507.29min in total, 693.13min remains)
+2022-10-18 20:03:34 Epoch [13800/20000] Loss:6.235003 Loss_1:6.235003 Loss_2:0.005791 Loss_3:0.000000 Lr:0.000420 Time:661.803182s (1518.32min in total, 682.14min remains)
+2022-10-18 20:14:35 Epoch [13900/20000] Loss:6.233534 Loss_1:6.233534 Loss_2:0.005895 Loss_3:0.000000 Lr:0.000418 Time:660.397739s (1529.33min in total, 671.14min remains)
+2022-10-18 20:25:34 Epoch [14000/20000] Loss:6.231907 Loss_1:6.231907 Loss_2:0.006028 Loss_3:0.000000 Lr:0.000417 Time:659.670343s (1540.32min in total, 660.14min remains)
+2022-10-18 20:25:34 Testing & drawing...
+2022-10-18 20:25:35 Test: save figure in ./figure/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 20:25:45 Test: save pred in ./saves/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 20:25:45 [Loss]
+2022-10-18 20:36:46 Epoch [14100/20000] Loss:6.229926 Loss_1:6.229926 Loss_2:0.006183 Loss_3:0.000000 Lr:0.000415 Time:672.299314s (1551.53min in total, 649.22min remains)
+2022-10-18 20:47:47 Epoch [14200/20000] Loss:6.227588 Loss_1:6.227588 Loss_2:0.006409 Loss_3:0.000000 Lr:0.000413 Time:660.127281s (1562.53min in total, 638.22min remains)
+2022-10-18 20:58:47 Epoch [14300/20000] Loss:6.225574 Loss_1:6.225574 Loss_2:0.006719 Loss_3:0.000000 Lr:0.000412 Time:660.838262s (1573.54min in total, 627.22min remains)
+2022-10-18 21:09:48 Epoch [14400/20000] Loss:6.222072 Loss_1:6.222072 Loss_2:0.007088 Loss_3:0.000000 Lr:0.000410 Time:660.593312s (1584.55min in total, 616.21min remains)
+2022-10-18 21:20:49 Epoch [14500/20000] Loss:6.219103 Loss_1:6.219103 Loss_2:0.007584 Loss_3:0.000000 Lr:0.000408 Time:660.879699s (1595.57min in total, 605.22min remains)
+2022-10-18 21:31:52 Epoch [14600/20000] Loss:6.215968 Loss_1:6.215968 Loss_2:0.008183 Loss_3:0.000000 Lr:0.000407 Time:662.822262s (1606.61min in total, 594.23min remains)
+2022-10-18 21:42:53 Epoch [14700/20000] Loss:6.212971 Loss_1:6.212971 Loss_2:0.008906 Loss_3:0.000000 Lr:0.000405 Time:661.445429s (1617.64min in total, 583.23min remains)
+2022-10-18 21:53:55 Epoch [14800/20000] Loss:6.210257 Loss_1:6.210257 Loss_2:0.009724 Loss_3:0.000000 Lr:0.000403 Time:661.371248s (1628.66min in total, 572.23min remains)
+2022-10-18 22:04:56 Epoch [14900/20000] Loss:6.207727 Loss_1:6.207727 Loss_2:0.010633 Loss_3:0.000000 Lr:0.000402 Time:661.061009s (1639.68min in total, 561.23min remains)
+2022-10-18 22:15:56 Epoch [15000/20000] Loss:6.205654 Loss_1:6.205654 Loss_2:0.011610 Loss_3:0.000000 Lr:0.000400 Time:660.524219s (1650.69min in total, 550.23min remains)
+2022-10-18 22:15:56 Testing & drawing...
+2022-10-18 22:15:57 Test: save figure in ./figure/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 22:16:08 Test: save pred in ./saves/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-18 22:16:08 [Loss]
+2022-10-18 22:27:10 Epoch [15100/20000] Loss:6.204060 Loss_1:6.204060 Loss_2:0.012598 Loss_3:0.000000 Lr:0.000398 Time:673.892721s (1661.92min in total, 539.30min remains)
+2022-10-18 22:38:10 Epoch [15200/20000] Loss:6.202629 Loss_1:6.202629 Loss_2:0.013598 Loss_3:0.000000 Lr:0.000397 Time:659.968802s (1672.92min in total, 528.29min remains)
+2022-10-18 22:49:11 Epoch [15300/20000] Loss:6.202646 Loss_1:6.202646 Loss_2:0.014571 Loss_3:0.000000 Lr:0.000395 Time:661.390552s (1683.94min in total, 517.29min remains)
+2022-10-18 23:00:13 Epoch [15400/20000] Loss:6.200705 Loss_1:6.200705 Loss_2:0.015503 Loss_3:0.000000 Lr:0.000394 Time:661.123987s (1694.96min in total, 506.29min remains)
+2022-10-18 23:11:14 Epoch [15500/20000] Loss:6.200060 Loss_1:6.200060 Loss_2:0.016377 Loss_3:0.000000 Lr:0.000392 Time:661.122960s (1705.98min in total, 495.28min remains)
+2022-10-18 23:22:15 Epoch [15600/20000] Loss:6.199532 Loss_1:6.199532 Loss_2:0.017177 Loss_3:0.000000 Lr:0.000391 Time:661.024650s (1717.00min in total, 484.28min remains)
+2022-10-18 23:33:16 Epoch [15700/20000] Loss:6.199095 Loss_1:6.199095 Loss_2:0.017943 Loss_3:0.000000 Lr:0.000389 Time:661.436426s (1728.02min in total, 473.28min remains)
+2022-10-18 23:44:18 Epoch [15800/20000] Loss:6.200796 Loss_1:6.200796 Loss_2:0.018631 Loss_3:0.000000 Lr:0.000388 Time:661.636534s (1739.05min in total, 462.28min remains)
+2022-10-18 23:55:21 Epoch [15900/20000] Loss:6.198431 Loss_1:6.198431 Loss_2:0.019276 Loss_3:0.000000 Lr:0.000386 Time:662.934416s (1750.10min in total, 451.28min remains)
+2022-10-19 00:06:22 Epoch [16000/20000] Loss:6.198173 Loss_1:6.198173 Loss_2:0.019873 Loss_3:0.000000 Lr:0.000385 Time:661.078305s (1761.12min in total, 440.28min remains)
+2022-10-19 00:06:22 Testing & drawing...
+2022-10-19 00:06:23 Test: save figure in ./figure/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-19 00:06:34 Test: save pred in ./saves/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-19 00:06:34 [Loss]
+2022-10-19 00:17:35 Epoch [16100/20000] Loss:6.197962 Loss_1:6.197962 Loss_2:0.020405 Loss_3:0.000000 Lr:0.000383 Time:673.504008s (1772.34min in total, 429.32min remains)
+2022-10-19 00:29:22 Epoch [16200/20000] Loss:6.197766 Loss_1:6.197766 Loss_2:0.020919 Loss_3:0.000000 Lr:0.000382 Time:706.780172s (1784.12min in total, 418.50min remains)
+2022-10-19 00:40:24 Epoch [16300/20000] Loss:6.197574 Loss_1:6.197574 Loss_2:0.021376 Loss_3:0.000000 Lr:0.000380 Time:662.341765s (1795.16min in total, 407.49min remains)
+2022-10-19 00:51:26 Epoch [16400/20000] Loss:6.197413 Loss_1:6.197413 Loss_2:0.021792 Loss_3:0.000000 Lr:0.000379 Time:661.628456s (1806.19min in total, 396.48min remains)
+2022-10-19 01:02:28 Epoch [16500/20000] Loss:6.197267 Loss_1:6.197267 Loss_2:0.022179 Loss_3:0.000000 Lr:0.000377 Time:661.515196s (1817.21min in total, 385.47min remains)
+2022-10-19 01:13:31 Epoch [16600/20000] Loss:6.197240 Loss_1:6.197240 Loss_2:0.022530 Loss_3:0.000000 Lr:0.000376 Time:662.912729s (1828.26min in total, 374.46min remains)
+2022-10-19 01:24:32 Epoch [16700/20000] Loss:6.197093 Loss_1:6.197093 Loss_2:0.022839 Loss_3:0.000000 Lr:0.000375 Time:661.889405s (1839.29min in total, 363.45min remains)
+2022-10-19 01:37:02 Epoch [16800/20000] Loss:6.196880 Loss_1:6.196880 Loss_2:0.023138 Loss_3:0.000000 Lr:0.000373 Time:750.038087s (1851.79min in total, 352.72min remains)
+2022-10-19 01:48:52 Epoch [16900/20000] Loss:6.196812 Loss_1:6.196812 Loss_2:0.023387 Loss_3:0.000000 Lr:0.000372 Time:709.087934s (1863.61min in total, 341.85min remains)
+2022-10-19 01:59:54 Epoch [17000/20000] Loss:6.196649 Loss_1:6.196649 Loss_2:0.023617 Loss_3:0.000000 Lr:0.000370 Time:662.179188s (1874.65min in total, 330.82min remains)
+2022-10-19 01:59:54 Testing & drawing...
+2022-10-19 01:59:55 Test: save figure in ./figure/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-19 02:00:06 Test: save pred in ./saves/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-19 02:00:06 [Loss]
+2022-10-19 02:11:08 Epoch [17100/20000] Loss:6.196580 Loss_1:6.196580 Loss_2:0.023806 Loss_3:0.000000 Lr:0.000369 Time:673.860267s (1885.88min in total, 319.83min remains)
+2022-10-19 02:22:09 Epoch [17200/20000] Loss:6.196431 Loss_1:6.196431 Loss_2:0.023974 Loss_3:0.000000 Lr:0.000368 Time:661.203597s (1896.90min in total, 308.80min remains)
+2022-10-19 02:33:11 Epoch [17300/20000] Loss:6.196528 Loss_1:6.196528 Loss_2:0.024114 Loss_3:0.000000 Lr:0.000366 Time:662.213915s (1907.94min in total, 297.77min remains)
+2022-10-19 02:44:15 Epoch [17400/20000] Loss:6.196303 Loss_1:6.196303 Loss_2:0.024223 Loss_3:0.000000 Lr:0.000365 Time:663.568140s (1919.00min in total, 286.75min remains)
+2022-10-19 02:55:15 Epoch [17500/20000] Loss:6.196095 Loss_1:6.196095 Loss_2:0.024298 Loss_3:0.000000 Lr:0.000364 Time:660.825104s (1930.01min in total, 275.72min remains)
+2022-10-19 03:06:18 Epoch [17600/20000] Loss:6.195973 Loss_1:6.195973 Loss_2:0.024346 Loss_3:0.000000 Lr:0.000362 Time:662.310991s (1941.05min in total, 264.69min remains)
+2022-10-19 03:17:20 Epoch [17700/20000] Loss:6.195852 Loss_1:6.195852 Loss_2:0.024376 Loss_3:0.000000 Lr:0.000361 Time:661.776955s (1952.08min in total, 253.66min remains)
+2022-10-19 03:28:21 Epoch [17800/20000] Loss:6.195848 Loss_1:6.195848 Loss_2:0.024372 Loss_3:0.000000 Lr:0.000360 Time:661.175181s (1963.10min in total, 242.63min remains)
+2022-10-19 03:39:22 Epoch [17900/20000] Loss:6.195619 Loss_1:6.195619 Loss_2:0.024349 Loss_3:0.000000 Lr:0.000358 Time:661.175848s (1974.12min in total, 231.60min remains)
+2022-10-19 03:50:24 Epoch [18000/20000] Loss:6.195439 Loss_1:6.195439 Loss_2:0.024316 Loss_3:0.000000 Lr:0.000357 Time:662.496085s (1985.16min in total, 220.57min remains)
+2022-10-19 03:50:24 Testing & drawing...
+2022-10-19 03:50:25 Test: save figure in ./figure/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-19 03:50:37 Test: save pred in ./saves/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-19 03:50:37 [Loss]
+2022-10-19 04:01:39 Epoch [18100/20000] Loss:6.195289 Loss_1:6.195289 Loss_2:0.024251 Loss_3:0.000000 Lr:0.000356 Time:674.231899s (1996.40min in total, 209.57min remains)
+2022-10-19 04:12:39 Epoch [18200/20000] Loss:6.195138 Loss_1:6.195138 Loss_2:0.024169 Loss_3:0.000000 Lr:0.000355 Time:660.648667s (2007.41min in total, 198.53min remains)
+2022-10-19 04:23:40 Epoch [18300/20000] Loss:6.194925 Loss_1:6.194925 Loss_2:0.024079 Loss_3:0.000000 Lr:0.000353 Time:660.991211s (2018.42min in total, 187.50min remains)
+2022-10-19 04:34:41 Epoch [18400/20000] Loss:6.196012 Loss_1:6.196012 Loss_2:0.023956 Loss_3:0.000000 Lr:0.000352 Time:661.068639s (2029.44min in total, 176.47min remains)
+2022-10-19 04:45:43 Epoch [18500/20000] Loss:6.194472 Loss_1:6.194472 Loss_2:0.023845 Loss_3:0.000000 Lr:0.000351 Time:661.578492s (2040.47min in total, 165.44min remains)
+2022-10-19 04:56:44 Epoch [18600/20000] Loss:6.194201 Loss_1:6.194201 Loss_2:0.023712 Loss_3:0.000000 Lr:0.000350 Time:660.707279s (2051.48min in total, 154.41min remains)
+2022-10-19 05:07:45 Epoch [18700/20000] Loss:6.193923 Loss_1:6.193923 Loss_2:0.023573 Loss_3:0.000000 Lr:0.000348 Time:660.891150s (2062.49min in total, 143.38min remains)
+2022-10-19 05:18:47 Epoch [18800/20000] Loss:6.193503 Loss_1:6.193503 Loss_2:0.023439 Loss_3:0.000000 Lr:0.000347 Time:662.236434s (2073.53min in total, 132.35min remains)
+2022-10-19 05:29:48 Epoch [18900/20000] Loss:6.193618 Loss_1:6.193618 Loss_2:0.023316 Loss_3:0.000000 Lr:0.000346 Time:661.633659s (2084.56min in total, 121.32min remains)
+2022-10-19 05:40:49 Epoch [19000/20000] Loss:6.192459 Loss_1:6.192459 Loss_2:0.023194 Loss_3:0.000000 Lr:0.000345 Time:660.500311s (2095.57min in total, 110.29min remains)
+2022-10-19 05:40:49 Testing & drawing...
+2022-10-19 05:40:50 Test: save figure in ./figure/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-19 05:41:02 Test: save pred in ./saves/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-19 05:41:02 [Loss]
+2022-10-19 05:52:02 Epoch [19100/20000] Loss:6.191792 Loss_1:6.191792 Loss_2:0.023096 Loss_3:0.000000 Lr:0.000344 Time:673.491255s (2106.79min in total, 99.27min remains)
+2022-10-19 06:03:04 Epoch [19200/20000] Loss:6.190923 Loss_1:6.190923 Loss_2:0.023036 Loss_3:0.000000 Lr:0.000342 Time:661.298905s (2117.81min in total, 88.24min remains)
+2022-10-19 06:14:05 Epoch [19300/20000] Loss:6.189887 Loss_1:6.189887 Loss_2:0.023022 Loss_3:0.000000 Lr:0.000341 Time:661.379321s (2128.84min in total, 77.21min remains)
+2022-10-19 06:25:06 Epoch [19400/20000] Loss:6.188724 Loss_1:6.188724 Loss_2:0.023076 Loss_3:0.000000 Lr:0.000340 Time:661.161298s (2139.86min in total, 66.18min remains)
+2022-10-19 06:36:08 Epoch [19500/20000] Loss:6.187416 Loss_1:6.187416 Loss_2:0.023182 Loss_3:0.000000 Lr:0.000339 Time:661.778553s (2150.89min in total, 55.15min remains)
+2022-10-19 06:47:10 Epoch [19600/20000] Loss:6.186085 Loss_1:6.186085 Loss_2:0.023379 Loss_3:0.000000 Lr:0.000338 Time:662.197116s (2161.92min in total, 44.12min remains)
+2022-10-19 06:58:13 Epoch [19700/20000] Loss:6.184706 Loss_1:6.184706 Loss_2:0.023645 Loss_3:0.000000 Lr:0.000337 Time:663.069134s (2172.97min in total, 33.09min remains)
+2022-10-19 07:09:14 Epoch [19800/20000] Loss:6.183353 Loss_1:6.183353 Loss_2:0.024016 Loss_3:0.000000 Lr:0.000336 Time:660.580358s (2183.98min in total, 22.06min remains)
+2022-10-19 07:20:17 Epoch [19900/20000] Loss:6.182013 Loss_1:6.182013 Loss_2:0.024470 Loss_3:0.000000 Lr:0.000334 Time:663.013166s (2195.03min in total, 11.03min remains)
+2022-10-19 07:31:19 Epoch [20000/20000] Loss:6.180716 Loss_1:6.180716 Loss_2:0.025045 Loss_3:0.000000 Lr:0.000333 Time:661.825494s (2206.06min in total, 0.00min remains)
+2022-10-19 07:31:19 Testing & drawing...
+2022-10-19 07:31:20 Test: save figure in ./figure/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-19 07:31:32 Test: save pred in ./saves/SimpleNetworkAD_id=0_2022-10-17-18-45-12/
+2022-10-19 07:31:32 [Loss]

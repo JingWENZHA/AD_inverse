@@ -1,0 +1,51 @@
+2022-10-17 18:07:27 log_path: logs/test_1-5.txt
+2022-10-17 18:07:27 cuda is available: True
+2022-10-17 18:07:27 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-17 18:07:31 using cuda
+2022-10-17 18:07:31 epoch = 20000
+2022-10-17 18:07:31 epoch_step = 100
+2022-10-17 18:07:31 model_name = SimpleNetworkAD
+2022-10-17 18:07:31 now_string = 2022-10-17-18-07-27
+2022-10-17 18:07:31 model_save_path_last = ./train/SimpleNetworkAD_20000_100_0.001_2022-10-17-18-07-27_last.pt
+2022-10-17 18:07:31 model_save_path_best = ./train/SimpleNetworkAD_20000_100_0.001_2022-10-17-18-07-27_best.pt
+2022-10-17 18:07:31 loss_save_path = ./loss/SimpleNetworkAD_20000_100_0.001_2022-10-17-18-07-27_loss_20000.npy
+2022-10-17 18:07:31 args = {'epoch': 20000, 'log_path': 'logs/test_1-5.txt', 'mode': 'origin', 'epoch_step': 100, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '1-5', 'lr': 0.001, 'main_path': '.', 'save_step': 1000, 'seed': 0, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-17-18-07-27'}
+2022-10-17 18:07:31 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-17 18:07:31 --------------------------------------------------training start--------------------------------------------------
+2022-10-17 18:09:29 log_path: logs/test_1-5.txt
+2022-10-17 18:09:29 cuda is available: True
+2022-10-17 18:09:29 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-17 18:09:32 using cuda
+2022-10-17 18:09:32 epoch = 20000
+2022-10-17 18:09:32 epoch_step = 100
+2022-10-17 18:09:32 model_name = SimpleNetworkAD
+2022-10-17 18:09:32 now_string = 2022-10-17-18-09-29
+2022-10-17 18:09:32 model_save_path_last = ./train/SimpleNetworkAD_20000_100_0.001_2022-10-17-18-09-29_last.pt
+2022-10-17 18:09:32 model_save_path_best = ./train/SimpleNetworkAD_20000_100_0.001_2022-10-17-18-09-29_best.pt
+2022-10-17 18:09:32 loss_save_path = ./loss/SimpleNetworkAD_20000_100_0.001_2022-10-17-18-09-29_loss_20000.npy
+2022-10-17 18:09:32 args = {'epoch': 20000, 'log_path': 'logs/test_1-5.txt', 'mode': 'origin', 'epoch_step': 100, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '1-5', 'lr': 0.001, 'main_path': '.', 'save_step': 1000, 'seed': 0, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-17-18-09-29'}
+2022-10-17 18:09:32 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-17 18:09:32 --------------------------------------------------training start--------------------------------------------------
+2022-10-17 18:21:44 log_path: logs/test_1-5.txt
+2022-10-17 18:21:44 cuda is available: True
+2022-10-17 18:21:44 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-17 18:21:47 using cuda
+2022-10-17 18:21:47 epoch = 20000
+2022-10-17 18:21:47 epoch_step = 100
+2022-10-17 18:21:47 model_name = SimpleNetworkAD
+2022-10-17 18:21:47 now_string = 2022-10-17-18-21-44
+2022-10-17 18:21:47 model_save_path_last = ./train/SimpleNetworkAD_20000_100_0.001_2022-10-17-18-21-44_last.pt
+2022-10-17 18:21:47 model_save_path_best = ./train/SimpleNetworkAD_20000_100_0.001_2022-10-17-18-21-44_best.pt
+2022-10-17 18:21:47 loss_save_path = ./loss/SimpleNetworkAD_20000_100_0.001_2022-10-17-18-21-44_loss_20000.npy
+2022-10-17 18:21:47 args = {'epoch': 20000, 'log_path': 'logs/test_1-5.txt', 'mode': 'origin', 'epoch_step': 100, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '1-5', 'lr': 0.001, 'main_path': '.', 'save_step': 1000, 'seed': 0, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-17-18-21-44'}
+2022-10-17 18:21:47 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-17 18:21:47 --------------------------------------------------training start--------------------------------------------------

@@ -1,0 +1,1 @@
+slurmstepd: error: *** JOB 1811787 ON usb-gpu-01 CANCELLED AT 2022-10-19T19:16:44 DUE TO TIME LIMIT ***
