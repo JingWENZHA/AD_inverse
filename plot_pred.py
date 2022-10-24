@@ -26,30 +26,34 @@ from utils import *
 
 if __name__ == "__main__":
     main_path = "/Users/enze/Desktop/Zhang2022/AD_inverse"
-    folder_name = "SimpleNetworkAD_id=100_2022-10-23-21-41-43_sub=1"
-    file_name = "2022-10-23-21-47-22_SimpleNetworkAD_id=100_40000_0.001_2022-10-23-21-41-43.npy"
+
+
+    folder_name = "SimpleNetworkAD_id=1_2022-10-24-12-42-29_sub=9"
+    file_name = "2022-10-24-17-07-00_SimpleNetworkAD_id=1_40000_0.001_2022-10-24-12-42-29_pred.npy"
     ypred = np.load(os.path.join(main_path,"saves",folder_name,file_name))
 
     mat = scipy.io.loadmat('./Data/data_20220915.mat')
     y_true = torch.tensor(mat['ptData_stacked_20220915'][:, :, :].reshape(184, 13, 3)).float()
     y_true[y_true < 0] = 0
     y_true_month = torch.tensor(mat['ptMonth_stacked_20220915'][:, :].reshape(184, 13)).float()
-    print(ypred[:, 0])
+    # print(ypred[:, 0])
     for i in range(1):
         # print(y_true_month[i]/0.1)
         plt.figure(figsize=(8,6))
 
         plt.plot(range(1630), ypred[:, 0], 'r')
-        plt.plot(y_true_month[i+1] / 0.1, y_true[i+1, :, 0], 'ro')
+        plt.plot(y_true_month[i+1] / 0.1, y_true[i+9, :, 0], 'ro')
 
         plt.plot(range(1630), ypred[:, 1], 'g')
-        plt.plot(y_true_month[i+1] / 0.1, y_true[i+1, :, 1], 'gx')
+        plt.plot(y_true_month[i+1] / 0.1, y_true[i+9, :, 1], 'gx')
 
         plt.plot(range(1630), ypred[:, 2], 'b')
-        plt.plot(y_true_month[i+1] / 0.1, y_true[i+1, :, 2], 'bd')
+        plt.plot(y_true_month[i+1] / 0.1, y_true[i+9, :, 2], 'bd')
 
         plt.legend(["A_pred","A_true","T_pred","A_true","N_pred","N_true"])
 
+        plt.show()
+        plt.close()
 
         # plt.plot(range(1630), ypred[i,:,0],'r')
         # plt.plot(y_true_month[i]/0.1, y_true[i, :, 0], 'ro')
