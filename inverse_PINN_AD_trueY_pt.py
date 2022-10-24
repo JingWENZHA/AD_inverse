@@ -480,8 +480,8 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
     myprint("Test: save pred in {}".format(pred_save_path_folder), args.log_path)
     if not os.path.exists(pred_save_path_folder):
         os.makedirs(pred_save_path_folder)
-    np.save("{}/{}".format(pred_save_path_folder,f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}"),y,model.personalized_para)
-
+    np.save("{}/{}".format(pred_save_path_folder,f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_pred"),y)
+    np.save("{}/{}".format(pred_save_path_folder,f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_para"),model.personalized_para)
 
 
 class Args:
