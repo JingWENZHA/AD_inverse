@@ -444,7 +444,7 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
     colorlist = ['r', 'g', 'b']
     labels = ["A", "T", "N"]
 
-    m = MultiSubplotDraw(row=3, col=3, fig_size=(39, 30), tight_layout_flag=True, show_flag=False, save_flag=True,
+    m = MultiSubplotDraw(row=1, col=3, fig_size=(39, 10), tight_layout_flag=True, show_flag=False, save_flag=True,
                          save_path="{}/{}".format(figure_save_path_folder,
                                                   f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}.png"),
                          save_dpi=100)
@@ -516,7 +516,7 @@ def run_ad_truth(opt):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     models = []
-    for i in range(1):
+    for i in range(184):
         config = ConfigAD()
         model = SimpleNetworkAD(config,i+1).to(device)
         model = train_ad(model, args, config, now_string)
