@@ -379,9 +379,11 @@ def train_ad(model, args, config, now_string):
             myprint("NUM_SUB: {}; True parameter : {};".format(model.num_sub, model.true_para), args.log_path)
             myprint("NUM_SUB: {}; Personalized parameter estimation: {};".format(model.num_sub, model.personalized_para), args.log_path)
 
-
+        if epoch == args.epoch:
+            para_pred = model.personalized_para;
             # print(model.personalized_para)
             # np.save(loss_save_path, np.asarray(loss_record))
+
 
     best_loss = best_loss
     time_cost = (now_time - start_time_0) / 60.0
@@ -400,7 +402,7 @@ def train_ad(model, args, config, now_string):
     # print("%load_ext tensorboard")
     # print("%tensorboard --logdir={}".format(board_save_path.replace(" ", "\ ")))
     # # return [num_parameter, best_loss, time_cost, loss_record]
-    return model, res_dic
+    return model, res_dic, para_pred
 
 
 def draw_loss(loss_list, last_rate=1.0):
@@ -512,15 +514,24 @@ def run_ad_truth(opt):
         os.makedirs("{}/figure".format(args.main_path))
     if not os.path.exists("{}/loss".format(args.main_path)):
         os.makedirs("{}/loss".format(args.main_path))
+
+
     now_string = get_now_string()
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
+    personalized_para = [];
     models = []
-    for i in range(184):
+    for i in range(5):
         config = ConfigAD()
         model = SimpleNetworkAD(config,i+1).to(device)
-        model = train_ad(model, args, config, now_string)
+        model, tmp, para = train_ad(model, args, config, now_string)
+        personalized_para.append(para.cpu().detach().numpy());
         models.append(model)
+
+    print("{}/Personalized_para_pred/{}".format(args.main_path,
+                           f"{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_pred"));
+    np.save("{}/Personalized_para_pred/{}".format(args.main_path,
+                           f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_pred"),personalized_para)
+
     return model
 
 

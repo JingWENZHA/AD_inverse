@@ -27,7 +27,6 @@ from utils import *
 if __name__ == "__main__":
     main_path = "/Users/enze/Desktop/Zhang2022/AD_inverse"
 
-
     folder_name = "SimpleNetworkAD_id=1_2022-10-24-12-42-29_sub=9"
     file_name = "2022-10-24-17-07-00_SimpleNetworkAD_id=1_40000_0.001_2022-10-24-12-42-29_pred.npy"
     ypred = np.load(os.path.join(main_path,"saves",folder_name,file_name))
