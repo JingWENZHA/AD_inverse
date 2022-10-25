@@ -26,17 +26,9 @@ from utils import *
 class GroundTruthAD:
     def __init__(self, t_max, length):
         # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-        mat = scipy.io.loadmat('./Data/20220923YOUT.mat')
-        # x = torch.tensor(mat['pred']).float()
-        self.data = torch.tensor(mat['pred'][:,1:,:].reshape(184,1630,3)).float()
 
-        mat = scipy.io.loadmat('./Data/data_20220915.mat')
-        self.y_true = torch.tensor(mat['ptData_stacked_20220915'][:, :, :].reshape(184, 13, 3)).float()
-        self.y_true[self.y_true<0] = 0
-        self.y_true_month = torch.tensor(mat['ptMonth_stacked_20220915'][:, :].reshape(184, 13)).float()
-
-
-
+        self.y_true = torch.tensor([[1.724699342, 1.280493663, 2.862967753] [1.743231802, 1.293007944, 2.785592653] [1.756844593, 1.328899287,2.817748564] [1.795983261,1.387416558, 2.884389651] [1.918288236, 1.64447189,2.913796804]].reshape(5, 3)).float()
+        self.y_true_month = torch.tensor([0, 406, 812, 1218, 1630]).float()
         # print("------------------------------GROUND_TRUTH_AD--------------------------------------------", args.log_path)
 
 
@@ -125,27 +117,42 @@ class SimpleNetworkAD(nn.Module):
         self.k_man = parameters[14]
         self.beta = parameters[15]
         self.k_atn = parameters[16]
+        self.true_para = torch.tensor([self.k_a, self.k_ta, self.k_mt, self.d_a, self.theta,
+                                               self.k_t, self.k_at, self.k_ma, self.d_t, self.delta,
+                                               self.k_r, self.k_tn, self.k_mtn, self.gamma, self.k_an,
+                                               self.k_man, self.beta, self.k_atn])
 
         self.Laplacian = torch.tensor(mat['avgNet']).float().to(self.device)[0:10, 0:10]
         self.r = torch.tensor(mat['avgNet']).float().to(self.device) #.reshape([1])
 
-        self.k1 = nn.Parameter(torch.abs(torch.rand(1)))  #k_a
-        self.k2 = nn.Parameter(torch.abs(torch.rand(1))) #k_t
-        self.k3 = nn.Parameter(torch.abs(torch.rand(1))) #k_tn
-        self.k4 = nn.Parameter(torch.abs(torch.rand(1))) #k_an
-        self.k5 = nn.Parameter(torch.abs(torch.rand(1))) #k_atn
+        self.k_a_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_a
+        self.k_ta_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_a
+        self.k_mt_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_a
+        self.d_a_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_a
+
+        self.k_t_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_t
+        self.k_at_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_t
+        self.k_ma_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_t
+        self.d_t_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_t
+
+        self.k_tn_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_tn
+        self.k_an_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_an
+        self.k_atn_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_atn
+        self.k_mtn_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_atn
+        self.k_man_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_atn
+
+        self.personalized_para = torch.tensor([self.k_a_nn, self.k_ta_nn, self.k_mt_nn, self.d_a, self.theta,
+                                               self.k_t_nn, self.k_at_nn, self.k_ma_nn, self.d_t, self.delta,
+                                               self.k_r, self.k_tn_nn, self.k_mtn_nn, self.gamma, self.k_an_nn,
+                                               self.k_man_nn, self.beta, self.k_atn_nn])
 
         self.sig = nn.Tanh()
         self.network_unit = 20
 
         # Design A
-        A_blocks = block_design_a(self.network_unit, self.sig)  #for i in range(self.config.Node//3)
-        T_blocks = block_design_a(self.network_unit, self.sig) #for i in range(self.config.Node//3)
-        N_blocks = block_design_a(self.network_unit, self.sig)  #for i in range(self.config.Node//3)
-
-        self.sequences_A = nn.Sequential(*A_blocks)
-        self.sequences_T = nn.Sequential(*T_blocks)
-        self.sequences_N = nn.Sequential(*N_blocks)
+        self.sequences_A = nn.Sequential(block_design_a(self.network_unit, self.sig))
+        self.sequences_T = nn.Sequential(block_design_a(self.network_unit, self.sig))
+        self.sequences_N = nn.Sequential(block_design_a(self.network_unit, self.sig))
 
 
     def forward(self, inputs):
@@ -154,10 +161,7 @@ class SimpleNetworkAD(nn.Module):
         A_input = inputs
         T_input = inputs
         N_input = inputs
-        
-        # A_output = []
-        # T_output = []
-        # N_output = []
+
         
         A_output = self.sequences_A(A_input)
         T_output = self.sequences_T(T_input)
@@ -200,103 +204,104 @@ class SimpleNetworkAD(nn.Module):
         # print("--------------------------------------------------call loss --------------------------------------------------")
         self.eval()
         all_loss, all_loss1, all_loss2, all_loss3, all_loss4 = torch.tensor([0.0]).to(self.device),torch.tensor([0.0]).to(self.device),torch.tensor([0.0]).to(self.device),torch.tensor([0.0]).to(self.device),torch.tensor([0.0]).to(self.device)
-        for num_sub in range(184):
-            y = self.forward(self.x)
-            # print("output x" , self.x.size())
-            # print("output y" ,y.size())
-            A = y[:,0:1]
-            T = y[:,1:2]
-            N = y[:,2:3]
 
-            A_t = torch.gradient(A.reshape([self.config.T_N]), spacing=(self.decode_t(self.x).reshape([self.config.T_N]),))[0].reshape([self.config.T_N,1])
-            T_t = torch.gradient(T.reshape([self.config.T_N]), spacing=(self.decode_t(self.x).reshape([self.config.T_N]),))[0].reshape([self.config.T_N,1])
-            N_t = torch.gradient(N.reshape([self.config.T_N]), spacing=(self.decode_t(self.x).reshape([self.config.T_N]),))[0].reshape([self.config.T_N,1])
-            
-            # print("--------------------------------------------------call f_a --------------------------------------------------")
+        y = self.forward(self.x)
+        # print("output x" , self.x.size())
+        # print("output y" ,y.size())
+        A = y[:,0:1]
+        T = y[:,1:2]
+        N = y[:,2:3]
 
-            f_a = A_t - (self.k1*A*(1 - A) + (self.k_ta*torch.pow(T,self.theta)) / (torch.pow((self.k_mt),self.theta) + torch.pow(T,self.theta))) #- self.config.d_a*torch.matmul(A,self.Laplacian))
-            f_t = T_t - (self.k2*T*(1 - T) + (self.k_at*torch.pow(A,self.delta)) / (torch.pow((self.k_ma),self.delta) + torch.pow(A,self.delta))) #- self.config.d_t*torch.matmul(T,self.Laplacian))
-            f_n = N_t - ((self.k3*torch.pow(T,self.gamma)) / (torch.pow((self.k_mtn),self.gamma) + torch.pow(T,self.gamma))+ 
-                        (self.k4*torch.pow(A,self.beta)) / (torch.pow((self.k_man),self.beta) + torch.pow(A,self.beta))+ 
-                        self.k5*A*T)
+        A_t = torch.gradient(A.reshape([self.config.T_N]), spacing=(self.decode_t(self.x).reshape([self.config.T_N]),))[0].reshape([self.config.T_N,1])
+        T_t = torch.gradient(T.reshape([self.config.T_N]), spacing=(self.decode_t(self.x).reshape([self.config.T_N]),))[0].reshape([self.config.T_N,1])
+        N_t = torch.gradient(N.reshape([self.config.T_N]), spacing=(self.decode_t(self.x).reshape([self.config.T_N]),))[0].reshape([self.config.T_N,1])
+
+        # print("--------------------------------------------------call f_a --------------------------------------------------")
 
 
-
-            # f_a = A_t - (self.k_a*A*(1 - A) + (self.k_ta*torch.pow(T,self.theta)) / (torch.pow((self.k_mt),self.theta) + torch.pow(T,self.theta))) #- self.config.d_a*torch.matmul(A,self.Laplacian))
-            # f_t = T_t - (self.k_t*T*(1 - T) + (self.k_at*torch.pow(A,self.delta)) / (torch.pow((self.k_ma),self.delta) + torch.pow(A,self.delta))) #- self.config.d_t*torch.matmul(T,self.Laplacian))
-            # f_n = N_t - ((self.k_tn*torch.pow(T,self.gamma)) / (torch.pow((self.k_mtn),self.gamma) + torch.pow(T,self.gamma))+
-            #             (self.k_an*torch.pow(A,self.beta)) / (torch.pow((self.k_man),self.beta) + torch.pow(A,self.beta))+
-            #             self.k_atn*A*T)
-
-            f_y = torch.cat((f_a, f_t, f_n), 1)
+        f_a = A_t - (self.k_a_nn*A*(1 - A) + (self.k_ta_nn*torch.pow(T,self.theta)) / (torch.pow((self.k_mt_nn),self.theta) + torch.pow(T,self.theta))) #- self.config.d_a*torch.matmul(A,self.Laplacian))
+        f_t = T_t - (self.k_t_nn*T*(1 - T) + (self.k_at_nn*torch.pow(A,self.delta)) / (torch.pow((self.k_ma_nn),self.delta) + torch.pow(A,self.delta))) #- self.config.d_t*torch.matmul(T,self.Laplacian))
+        f_n = N_t - ((self.k_tn_nn*torch.pow(T,self.gamma)) / (torch.pow((self.k_mtn_nn),self.gamma) + torch.pow(T,self.gamma))+
+                    (self.k_an_nn*torch.pow(A,self.beta)) / (torch.pow((self.k_man_nn),self.beta) + torch.pow(A,self.beta))+
+                    self.k_atn_nn*A*T)
 
 
 
-            
 
-            # print("--------------------------------------------------calculate gradient--------------------------------------------------")
+        # f_a = A_t - (self.k_a*A*(1 - A) + (self.k_ta*torch.pow(T,self.theta)) / (torch.pow((self.k_mt),self.theta) + torch.pow(T,self.theta))) #- self.config.d_a*torch.matmul(A,self.Laplacian))
+        # f_t = T_t - (self.k_t*T*(1 - T) + (self.k_at*torch.pow(A,self.delta)) / (torch.pow((self.k_ma),self.delta) + torch.pow(A,self.delta))) #- self.config.d_t*torch.matmul(T,self.Laplacian))
+        # f_n = N_t - ((self.k_tn*torch.pow(T,self.gamma)) / (torch.pow((self.k_mtn),self.gamma) + torch.pow(T,self.gamma))+
+        #             (self.k_an*torch.pow(A,self.beta)) / (torch.pow((self.k_man),self.beta) + torch.pow(A,self.beta))+
+        #             self.k_atn*A*T)
 
-            # L2 norm
-            self.loss_norm = torch.nn.MSELoss().to(self.device)
-            # zeros_1D = torch.tensor([[0.0]] * self.config.N).to(self.device)
-
-            zeros_2D = torch.tensor([[0.0 for i in range(self.config.Node )] for j in range( self.config.N )]).to(self.device)
-            
-            # print(y.shape, self.gt_data.shape)
-            # print("loss-y",y.cpu().detach().numpy()[1, :],y.cpu().detach().numpy()[100, :],y.cpu().detach().numpy()[1000, :],y.cpu().detach().numpy()[1600, :])
-            # print("loss-truey",self.gt_data[num_sub,1, :],self.gt_data[num_sub,100, :],self.gt_data[num_sub,1000, :],self.gt_data[num_sub,1600, :])
-            # loss_1 = self.loss_norm(y[:self.config.truth_length, :], self.gt_data[num_sub,:self.config.truth_length,:])
-            # print("1",self.gt_ytrue)
-
-            check_point = (self.gt_ytrue_month[num_sub, :] / 0.1).int()-1
-            check_point[check_point<0] = 0
-            # print(check_point)
-            # print("2", y)
-            y_totrain = torch.index_select(y, 0, check_point)
-            # print("y_totrain", y_totrain.shape)
-            zeros_test = torch.zeros([13, 3]).to(self.device)
-            # print("test:", self.loss_norm(y_totrain, zeros_test))
-
-            # print(self.gt_ytrue[num_sub, :] == 0)
-            # y_totrain[self.gt_ytrue[num_sub, :] == 0] = 0
-            # print(self.gt_ytrue)
-
-            with torch.no_grad():
-                # self.gt_ytrue[self.gt_ytrue < 0] = 0
-                gt_ytrue_sub = self.gt_ytrue[num_sub, :, :]
-                # gt_ytrue_sub[gt_ytrue_sub == 0] = y_totrain[gt_ytrue_sub == 0]
-            # print()
-            # print("test:", self.loss_norm(y_totrain[gt_ytrue_sub != 0], gt_ytrue_sub[gt_ytrue_sub != 0] ))
-
-            # gt_ytrue_sub.requires_grad_()
-
-            # print("3", y_totrain)
-            # print("4", gt_ytrue_sub)
-            loss_1 = self.loss_norm(y_totrain[gt_ytrue_sub != 0], gt_ytrue_sub[gt_ytrue_sub != 0] )
-
-            # self.y_true = torch.tensor(mat['ptData_stacked_20220915'][:, 1:, :].reshape(184, 13, 3)).float()
+        f_y = torch.cat((f_a, f_t, f_n), 1)
 
 
-            if self.config.loss2_partial_flag:
-                new_period = int(self.config.continue_period * self.config.T_all / self.config.T_unit)
-                loss_2 = self.loss_norm(f_y[-new_period:, :], zeros_2D[-new_period:, :])
-            else:
-                loss_2 = self.loss_norm(f_y, zeros_2D)  # + torch.var(torch.square(f_y))
 
-            loss_3 = self.loss_norm(torch.abs(y), y)*1e5
 
-            loss_4 = (self.loss_norm(torch.abs(self.k1), self.k1) + \
-                self.loss_norm(torch.abs(self.k2), self.k2) + \
-                self.loss_norm(torch.abs(self.k3), self.k3) +\
-                self.loss_norm(torch.abs(self.k4), self.k4) +\
-                self.loss_norm(torch.abs(self.k5), self.k5) ) *1e5
 
-            loss = loss_1 + loss_2 + loss_3 + loss_4 # + loss_3)#+ loss_4 + loss_5) / 1e5
-            all_loss += loss
-            all_loss1 += loss_1
-            all_loss2 += loss_2
-            all_loss4 += loss_4
-            
+        # print("--------------------------------------------------calculate gradient--------------------------------------------------")
+
+        # L2 norm
+        self.loss_norm = torch.nn.MSELoss().to(self.device)
+        # zeros_1D = torch.tensor([[0.0]] * self.config.N).to(self.device)
+
+        zeros_2D = torch.tensor([[0.0 for i in range(self.config.Node )] for j in range( self.config.N )]).to(self.device)
+
+        # print(y.shape, self.gt_data.shape)
+        # print("loss-y",y.cpu().detach().numpy()[1, :],y.cpu().detach().numpy()[100, :],y.cpu().detach().numpy()[1000, :],y.cpu().detach().numpy()[1600, :])
+        # print("loss-truey",self.gt_data[num_sub,1, :],self.gt_data[num_sub,100, :],self.gt_data[num_sub,1000, :],self.gt_data[num_sub,1600, :])
+        # loss_1 = self.loss_norm(y[:self.config.truth_length, :], self.gt_data[num_sub,:self.config.truth_length,:])
+        # print("1",self.gt_ytrue)
+
+        # check_point = (self.gt_ytrue_month[num_sub, :] / 0.1).int()-1
+        # check_point[check_point<0] = 0
+        # print(check_point)
+        # print("2", y)
+        y_totrain = torch.index_select(y, 0, self.gt_ytrue_month)
+        # print("y_totrain", y_totrain.shape)
+        zeros_test = torch.zeros([13, 3]).to(self.device)
+        # print("test:", self.loss_norm(y_totrain, zeros_test))
+
+        # print(self.gt_ytrue[num_sub, :] == 0)
+        # y_totrain[self.gt_ytrue[num_sub, :] == 0] = 0
+        # print(self.gt_ytrue)
+
+        with torch.no_grad():
+            # self.gt_ytrue[self.gt_ytrue < 0] = 0
+            gt_ytrue_sub = self.gt_ytrue[:, :]
+            # gt_ytrue_sub[gt_ytrue_sub == 0] = y_totrain[gt_ytrue_sub == 0]
+        # print()
+        # print("test:", self.loss_norm(y_totrain[gt_ytrue_sub != 0], gt_ytrue_sub[gt_ytrue_sub != 0] ))
+
+        # gt_ytrue_sub.requires_grad_()
+
+        # print("3", y_totrain)
+        # print("4", gt_ytrue_sub)
+        loss_1 = self.loss_norm(y_totrain, self.gt_ytrue)
+
+        # self.y_true = torch.tensor(mat['ptData_stacked_20220915'][:, 1:, :].reshape(184, 13, 3)).float()
+
+
+        if self.config.loss2_partial_flag:
+            new_period = int(self.config.continue_period * self.config.T_all / self.config.T_unit)
+            loss_2 = self.loss_norm(f_y[-new_period:, :], zeros_2D[-new_period:, :])
+        else:
+            loss_2 = self.loss_norm(f_y, zeros_2D)  # + torch.var(torch.square(f_y))
+
+        loss_3 = self.loss_norm(torch.abs(y), y)*1e5
+
+        # loss_4 = (self.loss_norm(torch.abs(self.k1), self.k1) + \
+        #     self.loss_norm(torch.abs(self.k2), self.k2) + \
+        #     self.loss_norm(torch.abs(self.k3), self.k3) +\
+        #     self.loss_norm(torch.abs(self.k4), self.k4) +\
+        #     self.loss_norm(torch.abs(self.k5), self.k5) ) *1e5
+
+        loss = loss_1 + loss_2 + loss_3  # + loss_3)#+ loss_4 + loss_5) / 1e5
+        all_loss += loss
+        all_loss1 += loss_1
+        all_loss2 += loss_2
+
             
         self.train()
         return all_loss, [all_loss1, all_loss2, all_loss3], []
@@ -381,12 +386,6 @@ def train_ad(model, args, config, now_string):
 
             loss_print_part = " ".join(["Loss_{0:d}:{1:.6f}".format(i + 1, loss_part.item()) for i, loss_part in enumerate(loss_list)])
             myprint("Epoch [{0:05d}/{1:05d}] Loss:{2:.6f} {3} Lr:{4:.6f} Time:{5:.6f}s ({6:.2f}min in total, {7:.2f}min remains)".format(epoch, args.epoch, loss.item(), loss_print_part, optimizer.param_groups[0]["lr"], now_time - start_time, (now_time - start_time_0) / 60.0, (now_time - start_time_0) / 60.0 / epoch * (args.epoch - epoch)), args.log_path)
-            myprint("True: {};  estimated: {};   relative error: {}".format(model.k_a, model.k1.item(),abs(((model.k1.item() - model.k_a)/model.k_a))), args.log_path)
-            myprint("True: {};  estimated: {};   relative error: {}".format(model.k_t, model.k2.item(), abs(((model.k2.item() - model.k_t)/model.k_t))), args.log_path)
-            myprint("True: {};  estimated: {};   relative error: {}".format(model.k_tn, model.k3.item(),abs(((model.k3.item() - model.k_tn)/model.k_tn))), args.log_path)
-            myprint("True: {};  estimated: {};   relative error: {}".format(model.k_an, model.k4.item(),abs(((model.k4.item() - model.k_an)/model.k_an))), args.log_path)
-            myprint("True: {};  estimated: {};   relative error: {}".format(model.k_atn, model.k5.item(),abs(((model.k5.item() - model.k_atn)/model.k_atn))), args.log_path)
-            myprint("----------------------------", args.log_path)
             start_time = time.time()
 
             torch.save(

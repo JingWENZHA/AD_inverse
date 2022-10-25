@@ -155,11 +155,6 @@ class SimpleNetworkAD(nn.Module):
         self.sig = nn.Tanh()
         self.network_unit = 20
 
-        # Design A
-        A_blocks = [block_design_a(self.network_unit, self.sig) for i in range(184)] #for i in range(self.config.Node//3)
-        T_blocks = [block_design_a(self.network_unit, self.sig) for i in range(184)] #for i in range(self.config.Node//3)
-        N_blocks = [block_design_a(self.network_unit, self.sig) for i in range(184)] #for i in range(self.config.Node//3)
-
         self.sequences_A = nn.Sequential(block_design_a(self.network_unit, self.sig))
         self.sequences_T = nn.Sequential(block_design_a(self.network_unit, self.sig))
         self.sequences_N = nn.Sequential(block_design_a(self.network_unit, self.sig))
@@ -448,7 +443,7 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
 
     m = MultiSubplotDraw(row=1, col=3, fig_size=(39, 10), tight_layout_flag=True, show_flag=False, save_flag=True,
                          save_path="{}/{}".format(figure_save_path_folder,
-                                                  f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}.png"),
+                                                  f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_sub={model.num_sub}.png"),
                          save_dpi=100)
     for i in range(3):
         m.add_subplot(
@@ -456,7 +451,7 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
             x_list=x,
             color_list=colorlist[i] * 184,
             line_style_list=["solid"] * 184,
-            fig_title=labels[i],
+            fig_title= "num_sub = {}: {}".format(model.num_sub, labels[i]),
         )
     # param_ls = np.asarray(param_ls)
     # param_true = np.asarray(param_true)
