@@ -520,7 +520,7 @@ def run_ad_truth(opt):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     personalized_para = [];
     models = []
-    for i in range(5):
+    for i in range(184):
         config = ConfigAD()
         model = SimpleNetworkAD(config,i+1).to(device)
         model, tmp, para = train_ad(model, args, config, now_string)
