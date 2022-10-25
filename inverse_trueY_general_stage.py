@@ -27,8 +27,10 @@ class GroundTruthAD:
     def __init__(self, t_max, length):
         # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-        self.y_true = torch.tensor([[1.724699342, 1.280493663, 2.862967753] [1.743231802, 1.293007944, 2.785592653] [1.756844593, 1.328899287,2.817748564] [1.795983261,1.387416558, 2.884389651] [1.918288236, 1.64447189,2.913796804]].reshape(5, 3)).float()
-        self.y_true_month = torch.tensor([0, 406, 812, 1218, 1630]).float()
+        self.y_true = torch.tensor([[1.724699342, 1.280493663, 2.862967753],[1.743231802, 1.293007944, 2.785592653],[
+                                    1.756844593, 1.328899287, 2.817748564],[1.795983261, 1.387416558, 2.884389651],[
+                                    1.918288236, 1.64447189, 2.913796804]]).float()
+        self.y_true_month = torch.tensor([0, 406, 812, 1218, 1629])
         # print("------------------------------GROUND_TRUTH_AD--------------------------------------------", args.log_path)
 
 
@@ -86,7 +88,6 @@ class SimpleNetworkAD(nn.Module):
         # self.initial_start()
         self.model_name = "SimpleNetworkAD"
         self.gt = GroundTruthAD(self.config.T, self.config.T_N)
-        self.gt_data = self.gt.data.to(self.device)
         self.gt_ytrue = self.gt.y_true.to(self.device)
         self.gt_ytrue_month = self.gt.y_true_month.to(self.device)
         # self.gt_v = torch.tensor(self.gt.v).to(self.device)
@@ -141,7 +142,7 @@ class SimpleNetworkAD(nn.Module):
         self.k_mtn_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_atn
         self.k_man_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_atn
 
-        self.personalized_para = torch.tensor([self.k_a_nn, self.k_ta_nn, self.k_mt_nn, self.d_a, self.theta,
+        self.general_para = torch.tensor([self.k_a_nn, self.k_ta_nn, self.k_mt_nn, self.d_a, self.theta,
                                                self.k_t_nn, self.k_at_nn, self.k_ma_nn, self.d_t, self.delta,
                                                self.k_r, self.k_tn_nn, self.k_mtn_nn, self.gamma, self.k_an_nn,
                                                self.k_man_nn, self.beta, self.k_atn_nn])
@@ -378,9 +379,7 @@ def train_ad(model, args, config, now_string):
         optimizer.step()
         scheduler.step()
         loss_record.append(float(loss.item()))
-        param_ls.append([float(model.k1.item()), float(model.k2.item()), float(model.k3.item()), float(model.k4.item()),
-                         float(model.k5.item())])
-        param_true.append([model.k_a, model.k_t, model.k_tn, model.k_an, model.k_atn])
+
         if epoch % epoch_step == 0 or epoch == args.epoch:
             now_time = time.time()
 
@@ -405,8 +404,11 @@ def train_ad(model, args, config, now_string):
                         'loss': loss.item()
                     }, model_save_path_best)
         if epoch % args.save_step == 0:
-            test_ad(model, args, config, now_string, param_ls, param_true, True, model.gt, None)
+            test_ad(model, args, config, now_string, model.general_para, model.true_para, True, model.gt, None)
             myprint("[Loss]", args.log_path)
+            myprint("True parameter : {};".format( model.true_para), args.log_path)
+            myprint("Personalized parameter estimation: {};".format(model.general_para),args.log_path)
+
             draw_loss(np.asarray(loss_record), 1.0)
             np.save(loss_save_path, np.asarray(loss_record))
             # np.save(loss_save_path, np.asarray(loss_record))
@@ -424,10 +426,6 @@ def train_ad(model, args, config, now_string):
         "best_loss": best_loss,
         "loss_record": loss_record
     }
-    # print("tensor board path: {}".format(board_save_path))
-    # print("%load_ext tensorboard")
-    # print("%tensorboard --logdir={}".format(board_save_path.replace(" ", "\ ")))
-    # # return [num_parameter, best_loss, time_cost, loss_record]
     return model, res_dic
 
 
@@ -449,30 +447,19 @@ def draw_loss(loss_list, last_rate=1.0):
         save_path=None
     )
 
-
 def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=True, gt=None, loss_2_details=None):
     # print("--------------------------------------------------call test ad--------------------------------------------------")
-    # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    # model = model_framework(config).to(device)
-    # model_save_path = f"{args.main_path}train/{model.model_name}_{args.epoch}_{args.epoch_step}_{args.lr}_{now_string}_last.pt"
-    # model.load_state_dict(torch.load(model_save_path, map_location=device)["model_state_dict"])
     model.eval()
     myprint("Testing & drawing...", args.log_path)
     t = model.x
     y = []
-    for i in range(184):
-        # print(model(t,i).shape)
-        y.append(model(t).cpu().detach().numpy())
+    # for i in range(184):
+    # print(model(t,i).shape)
+    y.append(model(t).cpu().detach().numpy())
     y = np.asarray(y)
+    y = y.reshape([1630, 3])
 
-    # y0_pred = model(model.t0)
-    # myprint(t.shape,y.shape, args.log_path)
     x = [item[0] for item in model.decode_t(t).cpu().detach().numpy()]
-
-    # plt.figure(figsize=(16,6))
-    # ax1 = plt.subplot(1, 2, 1)
-    print(t.shape)
-    print(y.shape)
 
     figure_save_path_folder = f"{args.main_path}/figure/{model.model_name}_id={args.seed}_{args.overall_start}/"
     myprint("Test: save figure in {}".format(figure_save_path_folder), args.log_path)
@@ -482,44 +469,48 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
     colorlist = ['r', 'g', 'b']
     labels = ["A", "T", "N"]
 
-    m = MultiSubplotDraw(row=3, col=3, fig_size=(39, 30), tight_layout_flag=True, show_flag=False, save_flag=True,
+    m = MultiSubplotDraw(row=1, col=3, fig_size=(39, 10), tight_layout_flag=True, show_flag=False, save_flag=True,
                          save_path="{}/{}".format(figure_save_path_folder,
-                                                  f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}.png"),
+                                                  f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_general.png"),
                          save_dpi=100)
     for i in range(3):
         m.add_subplot(
-            y_lists=[y[j, :, i].reshape(1630) for j in range(184)],  # y_lists=[y[:,1:3]]
+            y_lists=[y[:, i].reshape(1630)],  # y_lists=[y[:,1:3]]
             x_list=x,
-            color_list=colorlist[i] * 184,
-            line_style_list=["solid"] * 184,
+            color_list=colorlist[i],
+            line_style_list=["solid"],
             fig_title=labels[i],
         )
-    param_ls = np.asarray(param_ls)
-    param_true = np.asarray(param_true)
-    labels = ["k_a", "k_t", "k_tn", "k_an", "k_atn"]
-    for i in range(len(param_ls[0])):
-        m.add_subplot(x_list=[j for j in range(param_ls.shape[0])], y_lists=[param_ls[:, i], param_true[:, i]],
-                      color_list=['b', 'black'], fig_title=labels[i], line_style_list=["solid", "dashed"],
-                      legend_list=["para_pred", "para_truth"])
-
-    error_ka = abs(((param_ls[:, 0] - param_true[:, 0]) / param_true[:, 0]))
-    error_kt = abs(((param_ls[:, 1] - param_true[:, 1]) / param_true[:, 1]))
-    error_ktn = abs(((param_ls[:, 2] - param_true[:, 2]) / param_true[:, 2]))
-    error_kan = abs(((param_ls[:, 3] - param_true[:, 3]) / param_true[:, 3]))
-    error_katn = abs(((param_ls[:, 4] - param_true[:, 4]) / param_true[:, 4]))
-
-    m.add_subplot(x_list=[j for j in range(param_ls.shape[0])],
-                  y_lists=[error_ka, error_kt, error_ktn, error_kan, error_katn], color_list=['b'] * 5,
-                  fig_title="relatve error", line_style_list=["solid"] * 5, legend_list=labels)
+    # param_ls = np.asarray(param_ls)
+    # param_true = np.asarray(param_true)
+    # labels = ["k_a", "k_t", "k_tn", "k_an", "k_atn"]
+    # for i in range(len(param_ls[0])):
+    #     m.add_subplot(x_list=[j for j in range(param_ls.shape[0])], y_lists=[param_ls[:, i], param_true[:, i]],
+    #                   color_list=['b', 'black'], fig_title=labels[i], line_style_list=["solid", "dashed"],
+    #                   legend_list=["para_pred", "para_truth"])
+    #
+    # error_ka = abs(((param_ls[:, 0] - param_true[:, 0]) / param_true[:, 0]))
+    # error_kt = abs(((param_ls[:, 1] - param_true[:, 1]) / param_true[:, 1]))
+    # error_ktn = abs(((param_ls[:, 2] - param_true[:, 2]) / param_true[:, 2]))
+    # error_kan = abs(((param_ls[:, 3] - param_true[:, 3]) / param_true[:, 3]))
+    # error_katn = abs(((param_ls[:, 4] - param_true[:, 4]) / param_true[:, 4]))
+    #
+    # m.add_subplot(x_list=[j for j in range(param_ls.shape[0])],
+    #               y_lists=[error_ka, error_kt, error_ktn, error_kan, error_katn], color_list=['b'] * 5,
+    #               fig_title="relatve error", line_style_list=["solid"] * 5, legend_list=labels)
 
     m.draw()
 
-    pred_save_path_folder = f"{args.main_path}/saves/{model.model_name}_id={args.seed}_{args.overall_start}/"
+    pred_save_path_folder = f"{args.main_path}/saves/{model.model_name}_id={args.seed}_{args.overall_start}_general/"
     myprint("Test: save pred in {}".format(pred_save_path_folder), args.log_path)
     if not os.path.exists(pred_save_path_folder):
         os.makedirs(pred_save_path_folder)
-    np.save("{}/{}".format(pred_save_path_folder,f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}"),y)
-
+    np.save("{}/{}".format(pred_save_path_folder,
+                           f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_general_pred"),
+            y)
+    np.save("{}/{}".format(pred_save_path_folder,
+                           f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_general_para"),
+            model.general_para)
 
 
 class Args:
