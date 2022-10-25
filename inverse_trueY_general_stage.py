@@ -468,19 +468,24 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
 
     colorlist = ['r', 'g', 'b']
     labels = ["A", "T", "N"]
+    colorlist_scatter = ['ro', 'go', 'bo']
 
     m = MultiSubplotDraw(row=1, col=3, fig_size=(39, 10), tight_layout_flag=True, show_flag=False, save_flag=True,
                          save_path="{}/{}".format(figure_save_path_folder,
                                                   f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_general.png"),
                          save_dpi=100)
     for i in range(3):
-        m.add_subplot(
+        ax = m.add_subplot(
             y_lists=[y[:, i].reshape(1630)],  # y_lists=[y[:,1:3]]
             x_list=x,
             color_list=colorlist[i],
             line_style_list=["solid"],
             fig_title=labels[i],
         )
+
+        ax.scatter(x = model.gt_ytrue_month/10, y = model.gt_ytrue[:,i], color = colorlist[i], marker = 'x', s = 100)
+
+
     # param_ls = np.asarray(param_ls)
     # param_true = np.asarray(param_true)
     # labels = ["k_a", "k_t", "k_tn", "k_an", "k_atn"]

@@ -446,13 +446,16 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
                                                   f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_sub={model.num_sub}.png"),
                          save_dpi=100)
     for i in range(3):
-        m.add_subplot(
-            y_lists=[y[:, i].reshape(1630) for j in range(184)],  # y_lists=[y[:,1:3]]
-            x_list=x,
-            color_list=colorlist[i] * 184,
-            line_style_list=["solid"] * 184,
-            fig_title= "num_sub = {}: {}".format(model.num_sub, labels[i]),
-        )
+        ax =m.add_subplot(
+                y_lists=[y[:, i].reshape(1630) for j in range(184)],  # y_lists=[y[:,1:3]]
+                x_list=x,
+                color_list=colorlist[i] * 184,
+                line_style_list=["solid"] * 184,
+                fig_title= "num_sub = {}: {}".format(model.num_sub, labels[i]),
+            )
+
+        ax.scatter(x = model.gt_ytrue_month, y = model.gt_ytrue[:,i], color = colorlist[i], marker = 'x', s = 100)
+
     # param_ls = np.asarray(param_ls)
     # param_true = np.asarray(param_true)
     # labels = ["k_a", "k_t", "k_tn", "k_an", "k_atn"]

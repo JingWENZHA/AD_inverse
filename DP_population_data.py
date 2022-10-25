@@ -9,9 +9,10 @@ import os
 from data_prepare_const import *
 
 
-x = np.load("/Users/enze/Desktop/Zhang2022/AD_inverse/Data/2022-10-23-22-37-26_SimpleNetworkAD_id=1_40000_0.001_2022-10-23-22-07-34.npy")
+x = np.load("/Users/enze/Desktop/Zhang2022/AD_inverse/saves/SimpleNetworkAD_id=100_2022-10-25-12-28-40_general/2022-10-25-12-39-48_SimpleNetworkAD_id=100_40000_0.001_2022-10-25-12-28-40_general_para.npy")
 
 print(x.shape)
+print(x)
 
 
 # def one_time_deal_PET(data_path_list=None):
