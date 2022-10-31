@@ -257,12 +257,17 @@ class SimpleNetworkAD(nn.Module):
             loss_2 = self.loss_norm(f_y, zeros_2D)  # + torch.var(torch.square(f_y))
 
         loss_3 = self.loss_norm(torch.abs(y[:self.config.truth_length, :]), y[:self.config.truth_length, :])*1e5
+        # print(y.shape)
+        # print(torch.diff(y, dim=0).shape)
+        # print(torch.diff(y, dim=0)[:,1:10])
+        loss_4 = self.loss_norm(torch.diff(y, dim=0), abs(torch.diff(y, dim=0)))*1e8
+        # print(loss_4)
 
-        loss = loss_1 + loss_2 + loss_3 # + loss_3)#+ loss_4 + loss_5) / 1e5
+        loss = loss_1 + loss_2 + loss_3 +loss_4 # + loss_3)#+ loss_4 + loss_5) / 1e5
         all_loss += loss
         all_loss1 += loss_1
         all_loss2 += loss_2
-        all_loss3 += loss_3
+        all_loss3 += loss_4
             
             
         self.train()

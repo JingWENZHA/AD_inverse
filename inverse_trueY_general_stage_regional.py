@@ -31,7 +31,7 @@ class GroundTruthAD:
         #                             1.756844593, 1.328899287, 2.817748564],[1.795983261, 1.387416558, 2.884389651],[
         #                             1.918288236, 1.64447189, 2.913796804]]).float()
         mat = scipy.io.loadmat('./Data/label_nodal_avg_20221030.mat')
-        print("wtf")
+        # print("wtf")
 
         self.y_true = torch.tensor(mat['label_nodal_avg'].reshape(5,480)).float()
 

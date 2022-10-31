@@ -37,9 +37,9 @@ para_inv_general = [6.6269e-03, 3.7163e-05, 1.6436e+00,
                     6.3800e-03, 9.2555e-04, 2.7111e-02,
                     8.2317e-03, 4.3212e+00, 6.5799e-03,
                     3.7411e+00, 9.2219e-05]
-para_label = ["k_a", "k_ta", "k_mt", "d_a",
-            "k_t", "k_at", "k_ma", "d_t",
-            "k_r", "k_tn", "k_mtn",  "k_an",
+para_label = ["k_a", "k_ta", "k_mt",# "d_a",
+            "k_t", "k_at", "k_ma", #"d_t",
+            "k_tn", "k_mtn",  "k_an",
             "k_man",  "k_atn"]
 
 plt.figure(figsize=(8, 6))
