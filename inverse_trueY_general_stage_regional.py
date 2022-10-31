@@ -19,8 +19,9 @@ from torch.backends import cudnn
 from scipy.integrate import odeint
 import pickle
 import scipy.io
-
+import pylab 
 from utils import *
+import matplotlib.colors as mcolors
 
 
 class GroundTruthAD:
@@ -142,13 +143,14 @@ class SimpleNetworkAD(nn.Module):
         self.true_para = torch.tensor([self.k_a, self.k_ta, self.k_mt,
                                        self.k_t, self.k_at, self.k_ma,
                                        self.k_tn, self.k_mtn, self.k_an,
-                                       self.k_man, self.k_atn])
+                                       self.k_man, self.k_atn,
+                                       self.d_a, self.d_t])
 
         self.Laplacian = torch.tensor(mat['avgNet']).float().to(self.device)[0:160, 0:160]
         # self.r = torch.tensor(mat['avgNet']).float().to(self.device) #.reshape([1])
 
 
-        self.general_para = nn.Parameter(torch.abs(torch.rand(11)))
+        self.general_para = nn.Parameter(torch.abs(torch.rand(13)))
 
         # [self.k_a_nn, self.k_ta_nn, self.k_mt_nn, self.d_a,
         #   self.k_t_nn, self.k_at_nn, self.k_ma_nn, self.d_t,
@@ -278,9 +280,9 @@ class SimpleNetworkAD(nn.Module):
         #                                 self.k_man, self.k_atn])
 
         f_a = A_t - (self.general_para[0] * A * (1 - A) + (self.general_para[1] * torch.pow(T, self.theta)) / (
-                    torch.pow((self.general_para[2]), self.theta) + torch.pow(T,self.theta)) - self.d_a*torch.matmul(A,self.Laplacian))
+                    torch.pow((self.general_para[2]), self.theta) + torch.pow(T,self.theta)) - self.general_para[11]*torch.matmul(A,self.Laplacian))
         f_t = T_t - (self.general_para[3] * T * (1 - T) + (self.general_para[4] * torch.pow(A, self.delta)) / (
-                    torch.pow((self.general_para[5]), self.delta) + torch.pow(A, self.delta)) - self.d_t*torch.matmul(T,self.Laplacian))
+                    torch.pow((self.general_para[5]), self.delta) + torch.pow(A, self.delta)) - self.general_para[12]*torch.matmul(T,self.Laplacian))
         f_n = N_t - ((self.general_para[6] * torch.pow(T, self.gamma)) / (torch.pow((self.general_para[7]), self.gamma) + torch.pow(T, self.gamma)) +
                      (self.general_para[8] * torch.pow(A, self.beta)) / (torch.pow((self.general_para[9]), self.beta) + torch.pow(A, self.beta)) +
                      self.general_para[10] * A * T)
@@ -499,7 +501,10 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
     labels = ["A", "T", "N"]
     colorlist_scatter = ['ro', 'go', 'bo']
 
-    m = MultiSubplotDraw(row=1, col=3, fig_size=(39, 10), tight_layout_flag=True, show_flag=False, save_flag=True,
+    mat = scipy.io.loadmat('./Data/20220923YOUT.mat')
+    Laplacian = mat['avgNet'][0:160, 0:160]
+
+    m = MultiSubplotDraw(row=3, col=3, fig_size=(39, 30), tight_layout_flag=True, show_flag=False, save_flag=True,
                          save_path="{}/{}".format(figure_save_path_folder,
                                                   f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_general.png"),
                          save_dpi=100)
@@ -514,28 +519,65 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
             fig_title=labels[i],
         )
 
-        ax.scatter(x=model.gt_ytrue_month / 10, y=model.gt_ytrue[:, i], color=colorlist[i], marker='x', s=100)
+        ax.scatter(x = (model.gt_ytrue_month.cpu().detach().numpy())/10, y = model.gt_ytrue[:,i].cpu().detach().numpy(), color = colorlist[i], marker = 'x', s = 100)
 
-    # param_ls = np.asarray(param_ls)
-    # param_true = np.asarray(param_true)
-    # labels = ["k_a", "k_t", "k_tn", "k_an", "k_atn"]
-    # for i in range(len(param_ls[0])):
-    #     m.add_subplot(x_list=[j for j in range(param_ls.shape[0])], y_lists=[param_ls[:, i], param_true[:, i]],
-    #                   color_list=['b', 'black'], fig_title=labels[i], line_style_list=["solid", "dashed"],
-    #                   legend_list=["para_pred", "para_truth"])
-    #
-    # error_ka = abs(((param_ls[:, 0] - param_true[:, 0]) / param_true[:, 0]))
-    # error_kt = abs(((param_ls[:, 1] - param_true[:, 1]) / param_true[:, 1]))
-    # error_ktn = abs(((param_ls[:, 2] - param_true[:, 2]) / param_true[:, 2]))
-    # error_kan = abs(((param_ls[:, 3] - param_true[:, 3]) / param_true[:, 3]))
-    # error_katn = abs(((param_ls[:, 4] - param_true[:, 4]) / param_true[:, 4]))
-    #
-    # m.add_subplot(x_list=[j for j in range(param_ls.shape[0])],
-    #               y_lists=[error_ka, error_kt, error_ktn, error_kan, error_katn], color_list=['b'] * 5,
-    #               fig_title="relatve error", line_style_list=["solid"] * 5, legend_list=labels)
+    param_ls = model.general_para.cpu().detach().numpy()
+    param_true = model.true_para.cpu().detach().numpy()
+    param_ls.reshape(13)
+    param_true.reshape(13)
+
+    A = y[:, 0:160]
+    T = y[:, 160:320]
+    N = y[:, 320:480]
+
+    A_TonA = (param_ls[1] * np.power(T, 2)) / (np.power((param_ls[2]), 2) + np.power(T, 2))
+    T_AonT = (param_ls[4] * np.power(A, 2)) / (np.power((param_ls[5]), 2) + np.power(A, 2))
+    N_AonN = (param_ls[8] * np.power(A, 2)) / (np.power((param_ls[9]), 2) + np.power(A, 2))
+    N_TonN = (param_ls[6] * np.power(T, 2)) / (np.power((param_ls[7]), 2) + np.power(T, 2))
+    N_ATonN = param_ls[10] * A * T
+
+    print(A.shape, Laplacian.shape)
+    A_diff = param_ls[11]*np.matmul(A,Laplacian)
+    T_diff = param_ls[12] * np.matmul(T, Laplacian)
+
+    A_prod = param_ls[0] * A * (1 - A)
+    T_prod = param_ls[3] * T * (1 - T)
+
+    # matlab
+    A_TonA_matlab = (param_true[1] * np.power(T, 2)) / (np.power((param_true[2]), 2) + np.power(T, 2))
+    T_AonT_matlab = (param_true[4] * np.power(A, 2)) / (np.power((param_true[5]), 2) + np.power(A, 2))
+    N_AonN_matlab = (param_true[8] * np.power(A, 2)) / (np.power((param_true[9]), 2) + np.power(A, 2))
+    N_TonN_matlab = (param_true[6] * np.power(T, 2)) / (np.power((param_true[7]), 2) + np.power(T, 2))
+    N_ATonN_matlab = param_true[10] * A * T
+
+    A_prod_matlab = param_true[0] * A * (1 - A)
+    T_prod_matlab = param_true[3] * T * (1 - T)
+
+    A_diff_matlab = param_true[11] * np.matmul(A, Laplacian)
+    T_diff_matlab = param_true[12] * np.matmul(T, Laplacian)
+
+
+    m.add_subplot(x_list=x, y_lists=[A_TonA, A_prod, A_diff, A_TonA_matlab, A_prod_matlab, A_diff_matlab],
+                  color_list=['b', 'r', 'g','lightskyblue', 'lightcoral', 'darkseagreen'], fig_title="Euqation A",
+                  line_style_list=["solid", "solid","solid", "dashed", "dashed", "dashed"], line_width=1)
+
+    m.add_subplot(x_list=x, y_lists=[T_AonT, T_prod, T_diff, T_AonT_matlab, T_prod_matlab, T_diff_matlab],
+                  color_list=['b', 'r', 'g', 'lightskyblue', 'lightcoral', 'darkseagreen'], fig_title="Euqation T",
+                  line_style_list=["solid", "solid", "solid", "dashed","dashed", "dashed"], line_width=1)
+
+    m.add_subplot(x_list=x, y_lists=[N_AonN, N_AonN_matlab],
+                  color_list=['b', 'b'], fig_title="Euqation N part 1",
+                  line_style_list=["solid", "dashed"], line_width=1)
+
+    m.add_subplot(x_list=x, y_lists=[N_TonN, N_TonN_matlab],
+                  color_list=['b', 'b'], fig_title="Euqation N part 2",
+                  line_style_list=["solid", "dashed"],line_width=1)
+
+    m.add_subplot(x_list=x, y_lists=[N_ATonN, N_ATonN_matlab],
+                  color_list=['b', 'b'], fig_title="Euqation N part 3",
+                  line_style_list=["solid", "dashed"], line_width=1)
 
     m.draw()
-
     pred_save_path_folder = f"{args.main_path}/saves/{model.model_name}_id={args.seed}_{args.overall_start}_general/"
     myprint("Test: save pred in {}".format(pred_save_path_folder), args.log_path)
     if not os.path.exists(pred_save_path_folder):

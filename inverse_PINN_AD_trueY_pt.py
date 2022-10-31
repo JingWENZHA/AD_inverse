@@ -457,8 +457,6 @@ def test_ad(model, args, config, now_string, show_flag=True, gt=None, loss_2_det
     T = y[:, 1:2]
     N = y[:, 2:3]
 
-    print(type(param_ls[0]) )
-
 
     A_TonA = (param_ls[1] * np.power(T, 2)) / (np.power((param_ls[2]), 2) + np.power(T,2))
     T_AonT = (param_ls[4] * np.power(A, 2)) / (np.power((param_ls[5]), 2) + np.power(A,2))

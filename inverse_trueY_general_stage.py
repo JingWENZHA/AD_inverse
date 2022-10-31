@@ -494,7 +494,7 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
     labels = ["A", "T", "N"]
     colorlist_scatter = ['ro', 'go', 'bo']
 
-    m = MultiSubplotDraw(row=1, col=3, fig_size=(39, 10), tight_layout_flag=True, show_flag=False, save_flag=True,
+    m = MultiSubplotDraw(row=3, col=3, fig_size=(39, 30), tight_layout_flag=True, show_flag=False, save_flag=True,
                          save_path="{}/{}".format(figure_save_path_folder,
                                                   f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_general.png"),
                          save_dpi=100)
@@ -512,24 +512,58 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
 
         ax.scatter(x = (model.gt_ytrue_month.cpu().detach().numpy())/10, y = model.gt_ytrue[:,i].cpu().detach().numpy(), color = colorlist[i], marker = 'x', s = 100)
 
+    param_ls = model.general_para.cpu().detach().numpy()
+    param_true = model.true_para.cpu().detach().numpy()
+    param_ls.reshape(11)
+    param_true.reshape(11)
 
-    # param_ls = np.asarray(param_ls)
-    # param_true = np.asarray(param_true)
-    # labels = ["k_a", "k_t", "k_tn", "k_an", "k_atn"]
-    # for i in range(len(param_ls[0])):
-    #     m.add_subplot(x_list=[j for j in range(param_ls.shape[0])], y_lists=[param_ls[:, i], param_true[:, i]],
-    #                   color_list=['b', 'black'], fig_title=labels[i], line_style_list=["solid", "dashed"],
-    #                   legend_list=["para_pred", "para_truth"])
-    #
-    # error_ka = abs(((param_ls[:, 0] - param_true[:, 0]) / param_true[:, 0]))
-    # error_kt = abs(((param_ls[:, 1] - param_true[:, 1]) / param_true[:, 1]))
-    # error_ktn = abs(((param_ls[:, 2] - param_true[:, 2]) / param_true[:, 2]))
-    # error_kan = abs(((param_ls[:, 3] - param_true[:, 3]) / param_true[:, 3]))
-    # error_katn = abs(((param_ls[:, 4] - param_true[:, 4]) / param_true[:, 4]))
-    #
-    # m.add_subplot(x_list=[j for j in range(param_ls.shape[0])],
-    #               y_lists=[error_ka, error_kt, error_ktn, error_kan, error_katn], color_list=['b'] * 5,
-    #               fig_title="relatve error", line_style_list=["solid"] * 5, legend_list=labels)
+    A = y[:, 0:1]
+    T = y[:, 1:2]
+    N = y[:, 2:3]
+
+    A_TonA = (param_ls[1] * np.power(T, 2)) / (np.power((param_ls[2]), 2) + np.power(T, 2))
+    T_AonT = (param_ls[4] * np.power(A, 2)) / (np.power((param_ls[5]), 2) + np.power(A, 2))
+    N_AonN = (param_ls[8] * np.power(A, 2)) / (np.power((param_ls[9]), 2) + np.power(A, 2))
+    N_TonN = (param_ls[6] * np.power(T, 2)) / (np.power((param_ls[7]), 2) + np.power(T, 2))
+    N_ATonN = param_ls[10] * A * T
+
+    A_prod = param_ls[0] * A * (1 - A)
+    T_prod = param_ls[3] * T * (1 - T)
+
+    # matlab
+    A_TonA_matlab = (param_true[1] * np.power(T, 2)) / (np.power((param_true[2]), 2) + np.power(T, 2))
+    T_AonT_matlab = (param_true[4] * np.power(A, 2)) / (np.power((param_true[5]), 2) + np.power(A, 2))
+    N_AonN_matlab = (param_true[8] * np.power(A, 2)) / (np.power((param_true[9]), 2) + np.power(A, 2))
+    N_TonN_matlab = (param_true[6] * np.power(T, 2)) / (np.power((param_true[7]), 2) + np.power(T, 2))
+    N_ATonN_matlab = param_true[10] * A * T
+
+    A_prod_matlab = param_true[0] * A * (1 - A)
+    T_prod_matlab = param_true[3] * T * (1 - T)
+
+    m.add_subplot(x_list=x, y_lists=[A_TonA, A_prod, A_TonA_matlab, A_prod_matlab],
+                  color_list=['b', 'r', 'b', 'r'], fig_title="Euqation A",
+                  line_style_list=["solid", "solid", "dashed", "dashed"],
+                  legend_list=["A_TonA", "A_prod", "A_TonA_matlab", "A_prod_matlab"], line_width=6)
+
+    m.add_subplot(x_list=x, y_lists=[T_AonT, T_prod, T_AonT_matlab, T_prod_matlab],
+                  color_list=['b', 'r', 'b', 'r'], fig_title="Euqation T",
+                  line_style_list=["solid", "solid", "dashed", "dashed"],
+                  legend_list=["T_AonT", "T_prod", "T_AonT_matlab", "T_prod_matlab"], line_width=6)
+
+    m.add_subplot(x_list=x, y_lists=[N_AonN, N_AonN_matlab],
+                  color_list=['b', 'b'], fig_title="Euqation N part 1",
+                  line_style_list=["solid", "dashed"],
+                  legend_list=["N_AonN", "N_AonN_matlab"], line_width=6)
+
+    m.add_subplot(x_list=x, y_lists=[N_TonN, N_TonN_matlab],
+                  color_list=['b', 'b'], fig_title="Euqation N part 2",
+                  line_style_list=["solid", "dashed"],
+                  legend_list=["N_TonN", "N_TonN_matlab"], line_width=6)
+
+    m.add_subplot(x_list=x, y_lists=[N_ATonN, N_ATonN_matlab],
+                  color_list=['b', 'b'], fig_title="Euqation N part 3",
+                  line_style_list=["solid", "dashed"],
+                  legend_list=["N_ATonN", "N_ATonN_matlab"], line_width=6)
 
     m.draw()
 
