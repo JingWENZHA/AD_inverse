@@ -445,7 +445,7 @@ def test_ad(model, args, config, now_string, show_flag=True, gt=None, loss_2_det
                 fig_title= "num_sub = {}: {}".format(model.num_sub, labels[i]),
             )
 
-        ax.scatter(x = model.gt_ytrue_month, y = model.gt_ytrue[:,i], color = colorlist[i], marker = 'x', s = 400, linewidths= 6)
+        ax.scatter(x = model.gt_ytrue_month.cpu().detach().numpy(), y = model.gt_ytrue[:,i].cpu().detach().numpy(), color = colorlist[i], marker = 'x', s = 400, linewidths= 6)
     param_ls = model.personalized_para.cpu().detach().numpy()
     param_true = model.true_para.cpu().detach().numpy()
     param_ls.reshape(11)
