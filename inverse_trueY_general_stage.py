@@ -503,11 +503,14 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
             y_lists=[y[:, i].reshape(5000)],  # y_lists=[y[:,1:3]]
             x_list=x,
             color_list=colorlist[i],
+            line_width=6,
             line_style_list=["solid"],
             fig_title=labels[i],
         )
 
-        ax.scatter(x = model.gt_ytrue_month/10, y = model.gt_ytrue[:,i], color = colorlist[i], marker = 'x', s = 100)
+
+
+        ax.scatter(x = (model.gt_ytrue_month.cpu().detach().numpy())/10, y = model.gt_ytrue[:,i].cpu().detach().numpy(), color = colorlist[i], marker = 'x', s = 100)
 
 
     # param_ls = np.asarray(param_ls)
