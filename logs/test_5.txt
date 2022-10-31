@@ -1275,3 +1275,304 @@
 2022-10-25 15:30:18 Epoch [00004/00004] Loss:4983.136230 Loss_1:0.511967 Loss_2:0.053792 Loss_3:4982.570312 Lr:0.001000 Time:0.019561s (0.01min in total, 0.00min remains)
 2022-10-25 15:30:18 Testing & drawing...
 2022-10-25 15:30:18 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-25-15-30-08/
+2022-10-26 12:57:37 log_path: logs/test_5.txt
+2022-10-26 12:57:37 cuda is available: False
+2022-10-26 12:57:37 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-26 12:57:37 using cpu
+2022-10-26 12:57:37 epoch = 4
+2022-10-26 12:57:37 epoch_step = 1
+2022-10-26 12:57:37 model_name = SimpleNetworkAD
+2022-10-26 12:57:37 now_string = 2022-10-26-12-57-37
+2022-10-26 12:57:37 model_save_path_last = ./train/SimpleNetworkAD_4_1_0.001_2022-10-26-12-57-37_last.pt
+2022-10-26 12:57:37 model_save_path_best = ./train/SimpleNetworkAD_4_1_0.001_2022-10-26-12-57-37_best.pt
+2022-10-26 12:57:37 loss_save_path = ./loss/SimpleNetworkAD_4_1_0.001_2022-10-26-12-57-37_loss_4.npy
+2022-10-26 12:57:37 args = {'epoch': 4, 'log_path': 'logs/test_5.txt', 'mode': 'origin', 'epoch_step': 1, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 2, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-26-12-57-37'}
+2022-10-26 12:57:37 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-26 12:57:37 --------------------------------------------------training start--------------------------------------------------
+2022-10-26 12:57:37 NUM_SUB: 1;----------------------------
+2022-10-26 12:57:37 Epoch [00001/00004] Loss:10582.706055 Loss_1:0.288838 Loss_2:0.065863 Loss_3:10582.351562 Lr:0.001000 Time:0.074069s (0.00min in total, 0.00min remains)
+2022-10-26 12:57:37 NUM_SUB: 1;----------------------------
+2022-10-26 12:57:37 Epoch [00002/00004] Loss:8392.052734 Loss_1:0.273848 Loss_2:0.007849 Loss_3:8391.771484 Lr:0.001000 Time:0.023021s (0.00min in total, 0.00min remains)
+2022-10-26 12:57:37 Testing & drawing...
+2022-10-26 12:57:37 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-26-12-57-37/
+2022-10-26 12:57:38 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-26-12-57-37_sub=1/
+2022-10-26 12:57:38 [Loss]
+2022-10-26 12:57:38 NUM_SUB: 1; True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 6.0000e-02, 2.0000e+00, 3.9000e-03,
+        1.1000e-03, 1.0000e-03, 6.0000e-02, 2.0000e+00, 5.0000e-04, 2.3000e-03,
+        1.0000e+00, 2.0000e+00, 1.2000e-03, 8.2400e-01, 2.0000e+00, 1.2000e-03]);
+2022-10-26 12:57:38 NUM_SUB: 1; Personalized parameter estimation: tensor([4.9626e-01, 7.6822e-01, 8.8477e-02, 6.0000e-02, 2.0000e+00, 3.0742e-01,
+        6.3408e-01, 4.9009e-01, 6.0000e-02, 2.0000e+00, 5.0000e-04, 4.5563e-01,
+        4.0172e-01, 2.0000e+00, 6.3231e-01, 2.2326e-02, 2.0000e+00, 3.4889e-01]);
+2022-10-26 12:57:38 NUM_SUB: 1;----------------------------
+2022-10-26 12:57:38 Epoch [00003/00004] Loss:6563.923340 Loss_1:0.252958 Loss_2:0.010843 Loss_3:6563.659668 Lr:0.001000 Time:1.023677s (0.02min in total, 0.01min remains)
+2022-10-26 12:57:38 NUM_SUB: 1;----------------------------
+2022-10-26 12:57:38 Epoch [00004/00004] Loss:4982.858887 Loss_1:0.234905 Loss_2:0.053745 Loss_3:4982.570312 Lr:0.001000 Time:0.022224s (0.02min in total, 0.00min remains)
+2022-10-26 12:57:38 Testing & drawing...
+2022-10-26 12:57:38 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-26-12-57-37/
+2022-10-26 12:57:39 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-26-12-57-37_sub=1/
+2022-10-26 12:57:39 [Loss]
+2022-10-26 12:57:39 NUM_SUB: 1; True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 6.0000e-02, 2.0000e+00, 3.9000e-03,
+        1.1000e-03, 1.0000e-03, 6.0000e-02, 2.0000e+00, 5.0000e-04, 2.3000e-03,
+        1.0000e+00, 2.0000e+00, 1.2000e-03, 8.2400e-01, 2.0000e+00, 1.2000e-03]);
+2022-10-26 12:57:39 NUM_SUB: 1; Personalized parameter estimation: tensor([4.9626e-01, 7.6822e-01, 8.8477e-02, 6.0000e-02, 2.0000e+00, 3.0742e-01,
+        6.3408e-01, 4.9009e-01, 6.0000e-02, 2.0000e+00, 5.0000e-04, 4.5563e-01,
+        4.0172e-01, 2.0000e+00, 6.3231e-01, 2.2326e-02, 2.0000e+00, 3.4889e-01]);
+2022-10-26 12:57:39 using cpu
+2022-10-26 12:57:39 epoch = 4
+2022-10-26 12:57:39 epoch_step = 1
+2022-10-26 12:57:39 model_name = SimpleNetworkAD
+2022-10-26 12:57:39 now_string = 2022-10-26-12-57-37
+2022-10-26 12:57:39 model_save_path_last = ./train/SimpleNetworkAD_4_1_0.001_2022-10-26-12-57-37_last.pt
+2022-10-26 12:57:39 model_save_path_best = ./train/SimpleNetworkAD_4_1_0.001_2022-10-26-12-57-37_best.pt
+2022-10-26 12:57:39 loss_save_path = ./loss/SimpleNetworkAD_4_1_0.001_2022-10-26-12-57-37_loss_4.npy
+2022-10-26 12:57:39 args = {'epoch': 4, 'log_path': 'logs/test_5.txt', 'mode': 'origin', 'epoch_step': 1, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 2, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-26-12-57-37'}
+2022-10-26 12:57:39 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-26 12:57:39 --------------------------------------------------training start--------------------------------------------------
+2022-10-26 12:57:39 NUM_SUB: 2;----------------------------
+2022-10-26 12:57:39 Epoch [00001/00004] Loss:10582.736328 Loss_1:0.319003 Loss_2:0.065863 Loss_3:10582.351562 Lr:0.001000 Time:0.019500s (0.00min in total, 0.00min remains)
+2022-10-26 12:57:39 NUM_SUB: 2;----------------------------
+2022-10-26 12:57:39 Epoch [00002/00004] Loss:8391.975586 Loss_1:0.305751 Loss_2:0.007962 Loss_3:8391.662109 Lr:0.001000 Time:0.020634s (0.00min in total, 0.00min remains)
+2022-10-26 12:57:39 Testing & drawing...
+2022-10-26 12:57:39 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-26-12-57-37/
+2022-10-26 12:57:40 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-26-12-57-37_sub=2/
+2022-10-26 12:57:40 [Loss]
+2022-10-26 12:57:40 NUM_SUB: 2; True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 6.0000e-02, 2.0000e+00, 3.9000e-03,
+        1.1000e-03, 1.0000e-03, 6.0000e-02, 2.0000e+00, 5.0000e-04, 2.3000e-03,
+        1.0000e+00, 2.0000e+00, 1.2000e-03, 8.2400e-01, 2.0000e+00, 1.2000e-03]);
+2022-10-26 12:57:40 NUM_SUB: 2; Personalized parameter estimation: tensor([4.9626e-01, 7.6822e-01, 8.8477e-02, 6.0000e-02, 2.0000e+00, 3.0742e-01,
+        6.3408e-01, 4.9009e-01, 6.0000e-02, 2.0000e+00, 5.0000e-04, 4.5563e-01,
+        4.0172e-01, 2.0000e+00, 6.3231e-01, 2.2326e-02, 2.0000e+00, 3.4889e-01]);
+2022-10-26 12:57:40 NUM_SUB: 2;----------------------------
+2022-10-26 12:57:40 Epoch [00003/00004] Loss:6563.956543 Loss_1:0.284432 Loss_2:0.011265 Loss_3:6563.660645 Lr:0.001000 Time:0.802352s (0.01min in total, 0.00min remains)
+2022-10-26 12:57:40 NUM_SUB: 2;----------------------------
+2022-10-26 12:57:40 Epoch [00004/00004] Loss:4982.891602 Loss_1:0.266831 Loss_2:0.054561 Loss_3:4982.570312 Lr:0.001000 Time:0.019518s (0.01min in total, 0.00min remains)
+2022-10-26 12:57:40 Testing & drawing...
+2022-10-26 12:57:40 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-26-12-57-37/
+2022-10-26 12:57:41 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-26-12-57-37_sub=2/
+2022-10-26 12:57:41 [Loss]
+2022-10-26 12:57:41 NUM_SUB: 2; True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 6.0000e-02, 2.0000e+00, 3.9000e-03,
+        1.1000e-03, 1.0000e-03, 6.0000e-02, 2.0000e+00, 5.0000e-04, 2.3000e-03,
+        1.0000e+00, 2.0000e+00, 1.2000e-03, 8.2400e-01, 2.0000e+00, 1.2000e-03]);
+2022-10-26 12:57:41 NUM_SUB: 2; Personalized parameter estimation: tensor([4.9626e-01, 7.6822e-01, 8.8477e-02, 6.0000e-02, 2.0000e+00, 3.0742e-01,
+        6.3408e-01, 4.9009e-01, 6.0000e-02, 2.0000e+00, 5.0000e-04, 4.5563e-01,
+        4.0172e-01, 2.0000e+00, 6.3231e-01, 2.2326e-02, 2.0000e+00, 3.4889e-01]);
+2022-10-26 12:57:41 using cpu
+2022-10-26 12:57:41 epoch = 4
+2022-10-26 12:57:41 epoch_step = 1
+2022-10-26 12:57:41 model_name = SimpleNetworkAD
+2022-10-26 12:57:41 now_string = 2022-10-26-12-57-37
+2022-10-26 12:57:41 model_save_path_last = ./train/SimpleNetworkAD_4_1_0.001_2022-10-26-12-57-37_last.pt
+2022-10-26 12:57:41 model_save_path_best = ./train/SimpleNetworkAD_4_1_0.001_2022-10-26-12-57-37_best.pt
+2022-10-26 12:57:41 loss_save_path = ./loss/SimpleNetworkAD_4_1_0.001_2022-10-26-12-57-37_loss_4.npy
+2022-10-26 12:57:41 args = {'epoch': 4, 'log_path': 'logs/test_5.txt', 'mode': 'origin', 'epoch_step': 1, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 2, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-26-12-57-37'}
+2022-10-26 12:57:41 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-26 12:57:41 --------------------------------------------------training start--------------------------------------------------
+2022-10-26 12:57:41 NUM_SUB: 3;----------------------------
+2022-10-26 12:57:41 Epoch [00001/00004] Loss:10582.835938 Loss_1:0.418507 Loss_2:0.065863 Loss_3:10582.351562 Lr:0.001000 Time:0.019589s (0.00min in total, 0.00min remains)
+2022-10-26 12:57:41 NUM_SUB: 3;----------------------------
+2022-10-26 12:57:41 Epoch [00002/00004] Loss:8392.072266 Loss_1:0.402158 Loss_2:0.007954 Loss_3:8391.662109 Lr:0.001000 Time:0.021003s (0.00min in total, 0.00min remains)
+2022-10-26 12:57:41 Testing & drawing...
+2022-10-26 12:57:41 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-26-12-57-37/
+2022-10-26 12:57:42 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-26-12-57-37_sub=3/
+2022-10-26 12:57:42 [Loss]
+2022-10-26 12:57:42 NUM_SUB: 3; True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 6.0000e-02, 2.0000e+00, 3.9000e-03,
+        1.1000e-03, 1.0000e-03, 6.0000e-02, 2.0000e+00, 5.0000e-04, 2.3000e-03,
+        1.0000e+00, 2.0000e+00, 1.2000e-03, 8.2400e-01, 2.0000e+00, 1.2000e-03]);
+2022-10-26 12:57:42 NUM_SUB: 3; Personalized parameter estimation: tensor([4.9626e-01, 7.6822e-01, 8.8477e-02, 6.0000e-02, 2.0000e+00, 3.0742e-01,
+        6.3408e-01, 4.9009e-01, 6.0000e-02, 2.0000e+00, 5.0000e-04, 4.5563e-01,
+        4.0172e-01, 2.0000e+00, 6.3231e-01, 2.2326e-02, 2.0000e+00, 3.4889e-01]);
+2022-10-26 12:57:42 NUM_SUB: 3;----------------------------
+2022-10-26 12:57:42 Epoch [00003/00004] Loss:6564.049316 Loss_1:0.378614 Loss_2:0.011236 Loss_3:6563.659668 Lr:0.001000 Time:0.801935s (0.01min in total, 0.00min remains)
+2022-10-26 12:57:42 NUM_SUB: 3;----------------------------
+2022-10-26 12:57:42 Epoch [00004/00004] Loss:4982.983887 Loss_1:0.359007 Loss_2:0.054494 Loss_3:4982.570312 Lr:0.001000 Time:0.019704s (0.01min in total, 0.00min remains)
+2022-10-26 12:57:42 Testing & drawing...
+2022-10-26 12:57:42 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-26-12-57-37/
+2022-10-26 12:57:42 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-26-12-57-37_sub=3/
+2022-10-26 12:57:42 [Loss]
+2022-10-26 12:57:43 NUM_SUB: 3; True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 6.0000e-02, 2.0000e+00, 3.9000e-03,
+        1.1000e-03, 1.0000e-03, 6.0000e-02, 2.0000e+00, 5.0000e-04, 2.3000e-03,
+        1.0000e+00, 2.0000e+00, 1.2000e-03, 8.2400e-01, 2.0000e+00, 1.2000e-03]);
+2022-10-26 12:57:43 NUM_SUB: 3; Personalized parameter estimation: tensor([4.9626e-01, 7.6822e-01, 8.8477e-02, 6.0000e-02, 2.0000e+00, 3.0742e-01,
+        6.3408e-01, 4.9009e-01, 6.0000e-02, 2.0000e+00, 5.0000e-04, 4.5563e-01,
+        4.0172e-01, 2.0000e+00, 6.3231e-01, 2.2326e-02, 2.0000e+00, 3.4889e-01]);
+2022-10-26 12:57:43 using cpu
+2022-10-26 12:57:43 epoch = 4
+2022-10-26 12:57:43 epoch_step = 1
+2022-10-26 12:57:43 model_name = SimpleNetworkAD
+2022-10-26 12:57:43 now_string = 2022-10-26-12-57-37
+2022-10-26 12:57:43 model_save_path_last = ./train/SimpleNetworkAD_4_1_0.001_2022-10-26-12-57-37_last.pt
+2022-10-26 12:57:43 model_save_path_best = ./train/SimpleNetworkAD_4_1_0.001_2022-10-26-12-57-37_best.pt
+2022-10-26 12:57:43 loss_save_path = ./loss/SimpleNetworkAD_4_1_0.001_2022-10-26-12-57-37_loss_4.npy
+2022-10-26 12:57:43 args = {'epoch': 4, 'log_path': 'logs/test_5.txt', 'mode': 'origin', 'epoch_step': 1, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 2, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-26-12-57-37'}
+2022-10-26 12:57:43 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-26 12:57:43 --------------------------------------------------training start--------------------------------------------------
+2022-10-26 12:57:43 NUM_SUB: 4;----------------------------
+2022-10-26 12:57:43 Epoch [00001/00004] Loss:10582.687500 Loss_1:0.269851 Loss_2:0.065863 Loss_3:10582.351562 Lr:0.001000 Time:0.020057s (0.00min in total, 0.00min remains)
+2022-10-26 12:57:43 NUM_SUB: 4;----------------------------
+2022-10-26 12:57:43 Epoch [00002/00004] Loss:8392.043945 Loss_1:0.253931 Loss_2:0.007794 Loss_3:8391.782227 Lr:0.001000 Time:0.021646s (0.00min in total, 0.00min remains)
+2022-10-26 12:57:43 Testing & drawing...
+2022-10-26 12:57:43 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-26-12-57-37/
+2022-10-26 12:58:09 log_path: logs/test_5.txt
+2022-10-26 12:58:09 cuda is available: False
+2022-10-26 12:58:09 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-26 12:58:09 using cpu
+2022-10-26 12:58:09 epoch = 4
+2022-10-26 12:58:09 epoch_step = 1
+2022-10-26 12:58:09 model_name = SimpleNetworkAD
+2022-10-26 12:58:09 now_string = 2022-10-26-12-58-09
+2022-10-26 12:58:09 model_save_path_last = ./train/SimpleNetworkAD_4_1_0.001_2022-10-26-12-58-09_last.pt
+2022-10-26 12:58:09 model_save_path_best = ./train/SimpleNetworkAD_4_1_0.001_2022-10-26-12-58-09_best.pt
+2022-10-26 12:58:09 loss_save_path = ./loss/SimpleNetworkAD_4_1_0.001_2022-10-26-12-58-09_loss_4.npy
+2022-10-26 12:58:09 args = {'epoch': 4, 'log_path': 'logs/test_5.txt', 'mode': 'origin', 'epoch_step': 1, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 2, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-26-12-58-09'}
+2022-10-26 12:58:09 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-26 12:58:09 --------------------------------------------------training start--------------------------------------------------
+2022-10-26 12:58:09 Epoch [00001/00004] Loss:1578.698853 Loss_1:0.435831 Loss_2:0.063236 Loss_3:1578.199829 Lr:0.001000 Time:0.023117s (0.00min in total, 0.00min remains)
+2022-10-26 12:58:09 Epoch [00002/00004] Loss:740.268982 Loss_1:0.422518 Loss_2:0.044608 Loss_3:739.801880 Lr:0.001000 Time:0.019411s (0.00min in total, 0.00min remains)
+2022-10-26 12:58:09 Testing & drawing...
+2022-10-26 12:58:09 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-26-12-58-09/
+2022-10-26 12:58:09 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-26-12-58-09_general/
+2022-10-26 12:58:09 [Loss]
+2022-10-26 12:58:09 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-26 12:58:09 General parameter estimation: Parameter containing:
+tensor([0.4982, 0.7662, 0.0905, 0.1301, 0.3055, 0.6360, 0.4882, 0.8984, 0.4538,
+        0.6342, 0.3508], requires_grad=True);
+2022-10-26 12:58:09 Epoch [00003/00004] Loss:262.727753 Loss_1:0.410976 Loss_2:0.030297 Loss_3:262.286469 Lr:0.001000 Time:0.589613s (0.01min in total, 0.00min remains)
+2022-10-26 12:58:09 Epoch [00004/00004] Loss:45.901196 Loss_1:0.384290 Loss_2:0.041481 Loss_3:45.475426 Lr:0.001000 Time:0.046790s (0.01min in total, 0.00min remains)
+2022-10-26 12:58:09 Testing & drawing...
+2022-10-26 12:58:09 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-26-12-58-09/
+2022-10-26 12:58:10 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-26-12-58-09_general/
+2022-10-26 12:58:10 [Loss]
+2022-10-26 12:58:10 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-26 12:58:10 General parameter estimation: Parameter containing:
+tensor([0.4997, 0.7644, 0.0924, 0.1283, 0.3042, 0.6373, 0.4866, 0.8999, 0.4525,
+        0.6354, 0.3521], requires_grad=True);
+2022-10-27 11:15:00 log_path: logs/test_5.txt
+2022-10-27 11:15:00 cuda is available: False
+2022-10-27 11:15:00 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-27 11:15:00 using cpu
+2022-10-27 11:15:00 epoch = 4
+2022-10-27 11:15:00 epoch_step = 1
+2022-10-27 11:15:00 model_name = SimpleNetworkAD
+2022-10-27 11:15:00 now_string = 2022-10-27-11-15-00
+2022-10-27 11:15:00 model_save_path_last = ./train/SimpleNetworkAD_4_1_0.001_2022-10-27-11-15-00_last.pt
+2022-10-27 11:15:00 model_save_path_best = ./train/SimpleNetworkAD_4_1_0.001_2022-10-27-11-15-00_best.pt
+2022-10-27 11:15:00 loss_save_path = ./loss/SimpleNetworkAD_4_1_0.001_2022-10-27-11-15-00_loss_4.npy
+2022-10-27 11:15:00 args = {'epoch': 4, 'log_path': 'logs/test_5.txt', 'mode': 'origin', 'epoch_step': 1, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 2, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-27-11-15-00'}
+2022-10-27 11:15:00 config = {'T_all': 500.0, 'T': 500.0, 'T_unit': 0.1, 'T_N': 5000, 'N': 5000, 'Node': 3, 'ub': 500.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 5000, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-27 11:15:00 --------------------------------------------------training start--------------------------------------------------
+2022-10-27 11:15:00 Epoch [00001/00004] Loss:1579.117310 Loss_1:0.379916 Loss_2:0.063133 Loss_3:1578.674316 Lr:0.001000 Time:0.063976s (0.00min in total, 0.00min remains)
+2022-10-27 11:15:00 Epoch [00002/00004] Loss:740.439758 Loss_1:0.370266 Loss_2:0.045073 Loss_3:740.024414 Lr:0.001000 Time:0.032128s (0.00min in total, 0.00min remains)
+2022-10-27 11:15:00 Testing & drawing...
+2022-10-27 11:15:00 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-27-11-15-00/
+2022-10-27 11:15:01 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-27-11-15-00_general/
+2022-10-27 11:15:01 [Loss]
+2022-10-27 11:15:01 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-27 11:15:01 General parameter estimation: Parameter containing:
+tensor([0.4982, 0.7662, 0.0905, 0.1301, 0.3056, 0.6360, 0.4882, 0.8984, 0.4538,
+        0.6342, 0.3508], requires_grad=True);
+2022-10-27 11:15:01 Epoch [00003/00004] Loss:266.569702 Loss_1:0.362830 Loss_2:0.031137 Loss_3:266.175751 Lr:0.001000 Time:0.675158s (0.01min in total, 0.00min remains)
+2022-10-27 11:15:01 Epoch [00004/00004] Loss:45.881481 Loss_1:0.343250 Loss_2:0.041913 Loss_3:45.496319 Lr:0.001000 Time:0.032310s (0.01min in total, 0.00min remains)
+2022-10-27 11:15:01 Testing & drawing...
+2022-10-27 11:15:01 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-27-11-15-00/
+2022-10-27 11:15:02 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-27-11-15-00_general/
+2022-10-27 11:15:02 [Loss]
+2022-10-27 11:15:02 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-27 11:15:02 General parameter estimation: Parameter containing:
+tensor([0.4997, 0.7644, 0.0924, 0.1283, 0.3043, 0.6373, 0.4866, 0.9000, 0.4525,
+        0.6354, 0.3521], requires_grad=True);
+2022-10-30 23:42:48 log_path: logs/test_5.txt
+2022-10-30 23:42:48 cuda is available: False
+2022-10-30 23:42:48 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-30 23:43:20 log_path: logs/test_5.txt
+2022-10-30 23:43:20 cuda is available: False
+2022-10-30 23:43:20 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-30 23:43:36 log_path: logs/test_5.txt
+2022-10-30 23:43:36 cuda is available: False
+2022-10-30 23:43:36 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-30 23:43:57 log_path: logs/test_5.txt
+2022-10-30 23:43:57 cuda is available: False
+2022-10-30 23:43:57 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-30 23:44:25 log_path: logs/test_5.txt
+2022-10-30 23:44:25 cuda is available: False
+2022-10-30 23:44:25 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-30 23:46:10 log_path: logs/test_5.txt
+2022-10-30 23:46:10 cuda is available: False
+2022-10-30 23:46:10 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-30 23:46:32 log_path: logs/test_5.txt
+2022-10-30 23:46:32 cuda is available: False
+2022-10-30 23:46:32 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-30 23:46:58 log_path: logs/test_5.txt
+2022-10-30 23:46:58 cuda is available: False
+2022-10-30 23:46:58 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-30 23:48:39 log_path: logs/test_5.txt
+2022-10-30 23:48:39 cuda is available: False
+2022-10-30 23:48:39 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-30 23:48:47 log_path: logs/test_5.txt
+2022-10-30 23:48:47 cuda is available: False
+2022-10-30 23:48:47 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-30 23:49:07 log_path: logs/test_5.txt
+2022-10-30 23:49:07 cuda is available: False
+2022-10-30 23:49:07 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-30 23:49:29 log_path: logs/test_5.txt
+2022-10-30 23:49:29 cuda is available: False
+2022-10-30 23:49:29 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-30 23:49:29 using cpu
+2022-10-30 23:49:29 epoch = 4
+2022-10-30 23:49:29 epoch_step = 1
+2022-10-30 23:49:29 model_name = SimpleNetworkAD
+2022-10-30 23:49:29 now_string = 2022-10-30-23-49-29
+2022-10-30 23:49:29 model_save_path_last = ./train/SimpleNetworkAD_4_1_0.001_2022-10-30-23-49-29_last.pt
+2022-10-30 23:49:29 model_save_path_best = ./train/SimpleNetworkAD_4_1_0.001_2022-10-30-23-49-29_best.pt
+2022-10-30 23:49:29 loss_save_path = ./loss/SimpleNetworkAD_4_1_0.001_2022-10-30-23-49-29_loss_4.npy
+2022-10-30 23:49:29 args = {'epoch': 4, 'log_path': 'logs/test_5.txt', 'mode': 'origin', 'epoch_step': 1, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '5', 'lr': 0.001, 'main_path': '.', 'save_step': 2, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-30-23-49-29'}
+2022-10-30 23:49:29 config = {'T_all': 500.0, 'T': 500.0, 'T_unit': 0.1, 'T_N': 5000, 'N': 5000, 'Node': 3, 'ub': 500.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 5000, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-30 23:49:29 --------------------------------------------------training start--------------------------------------------------

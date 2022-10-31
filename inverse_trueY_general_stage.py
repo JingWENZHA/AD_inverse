@@ -27,9 +27,30 @@ class GroundTruthAD:
     def __init__(self, t_max, length):
         # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-        self.y_true = torch.tensor([[1.724699342, 1.280493663, 2.862967753],[1.743231802, 1.293007944, 2.785592653],[
-                                    1.756844593, 1.328899287, 2.817748564],[1.795983261, 1.387416558, 2.884389651],[
-                                    1.918288236, 1.64447189, 2.913796804]]).float()
+        # self.y_true = torch.tensor([[1.724699342, 1.280493663, 2.862967753],[1.743231802, 1.293007944, 2.785592653],[
+        #                             1.756844593, 1.328899287, 2.817748564],[1.795983261, 1.387416558, 2.884389651],[
+        #                             1.918288236, 1.64447189, 2.913796804]]).float()
+
+
+
+        self.y_true = torch.tensor([[1.724699342, 1.280493663, 1.828603319], [1.743231802, 1.293007944, 1.851228219], [
+            1.756844593, 1.328899287, 1.88338413], [1.795983261, 1.387416558, 1.950025217], [
+                                        1.918288236, 1.64447189, 1.97943237]]).float()
+
+        Amax = 2.3473
+        Amin = 1.1658
+        Nmax = 2.0049
+        Nmin = 1.6222
+        Tmax = 1.6819
+        Tmin = 0.8740
+
+        scale_arr = np.array([[Amax, Amin], [Tmax, Tmin], [Nmax, Nmin]])
+
+        for i in range(3):
+            self.y_true[:,i] = (self.y_true[:,i] - scale_arr[i,1])/(scale_arr[i,0] - scale_arr[i,1])
+
+        print("self.y_true: {} \n".format(self.y_true))
+
         self.y_true_month = torch.tensor([0, 406, 812, 1218, 1629])
         # print("------------------------------GROUND_TRUTH_AD--------------------------------------------", args.log_path)
 
@@ -37,8 +58,8 @@ class GroundTruthAD:
 class ConfigAD:
     def __init__(self):
         # myprint("--------------------------------------------------call init--------------------------------------------------", args.log_path)
-        self.T_all = 163.0
-        self.T = 163.0 
+        self.T_all = 500.0
+        self.T = 500.0
         self.T_unit = 0.1
         self.T_N = int(self.T / self.T_unit)
         self.N = int(self.T / self.T_unit) #184 #int(self.T / self.T_unit)
@@ -118,34 +139,41 @@ class SimpleNetworkAD(nn.Module):
         self.k_man = parameters[14]
         self.beta = parameters[15]
         self.k_atn = parameters[16]
-        self.true_para = torch.tensor([self.k_a, self.k_ta, self.k_mt, self.d_a, self.theta,
-                                               self.k_t, self.k_at, self.k_ma, self.d_t, self.delta,
-                                               self.k_r, self.k_tn, self.k_mtn, self.gamma, self.k_an,
-                                               self.k_man, self.beta, self.k_atn])
+        self.true_para = torch.tensor([self.k_a, self.k_ta, self.k_mt,
+                                        self.k_t, self.k_at, self.k_ma,
+                                        self.k_tn, self.k_mtn,self.k_an,
+                                        self.k_man, self.k_atn])
 
-        self.Laplacian = torch.tensor(mat['avgNet']).float().to(self.device)[0:10, 0:10]
-        self.r = torch.tensor(mat['avgNet']).float().to(self.device) #.reshape([1])
+        # self.Laplacian = torch.tensor(mat['avgNet']).float().to(self.device)[0:10, 0:10]
+        # self.r = torch.tensor(mat['avgNet']).float().to(self.device) #.reshape([1])
+        #
+        # self.k_a_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_a
+        # self.k_ta_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_a
+        # self.k_mt_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_a
+        # self.d_a_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_a
+        #
+        # self.k_t_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_t
+        # self.k_at_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_t
+        # self.k_ma_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_t
+        # self.d_t_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_t
+        #
+        # self.k_tn_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_tn
+        # self.k_an_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_an
+        # self.k_atn_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_atn
+        # self.k_mtn_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_atn
+        # self.k_man_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_atn
 
-        self.k_a_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_a
-        self.k_ta_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_a
-        self.k_mt_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_a
-        self.d_a_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_a
+        self.general_para = nn.Parameter(torch.abs(torch.rand(11)))
 
-        self.k_t_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_t
-        self.k_at_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_t
-        self.k_ma_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_t
-        self.d_t_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_t
+        # [self.k_a_nn, self.k_ta_nn, self.k_mt_nn,
+        #   self.k_t_nn, self.k_at_nn, self.k_ma_nn,
+        #   self.k_tn_nn, self.k_mtn_nn, self.k_an_nn,
+        #   self.k_man_nn, self.k_atn_nn]
 
-        self.k_tn_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_tn
-        self.k_an_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_an
-        self.k_atn_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_atn
-        self.k_mtn_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_atn
-        self.k_man_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_atn
-
-        self.general_para = torch.tensor([self.k_a_nn, self.k_ta_nn, self.k_mt_nn, self.d_a, self.theta,
-                                               self.k_t_nn, self.k_at_nn, self.k_ma_nn, self.d_t, self.delta,
-                                               self.k_r, self.k_tn_nn, self.k_mtn_nn, self.gamma, self.k_an_nn,
-                                               self.k_man_nn, self.beta, self.k_atn_nn])
+        # [self.k_a_nn, self.k_ta_nn, self.k_mt_nn, self.d_a, self.theta,
+        #                                        self.k_t_nn, self.k_at_nn, self.k_ma_nn, self.d_t, self.delta,
+        #                                        self.k_r, self.k_tn_nn, self.k_mtn_nn, self.gamma, self.k_an_nn,
+        #                                        self.k_man_nn, self.beta, self.k_atn_nn]
 
         self.sig = nn.Tanh()
         self.network_unit = 20
@@ -181,16 +209,6 @@ class SimpleNetworkAD(nn.Module):
       
 
 
-    #
-    # def initial_start(self):
-    #     # print("--------------------------------------------------call initial start x--------------------------------------------------")
-    #
-    #     mat = scipy.io.loadmat('./Data/20220923YOUT.mat')
-    #     # self.t0 = torch.tensor(np.asarray(np.asarray([[np.random.rand()] * 1630] * (self.config.Node)).reshape([1630,1]))).float().to(self.device)#
-        
-        # print("initial start t0", self.t0.size())
-        # # self.y0 = torch.tensor(mat['gt_data'][:,:,0]).reshape([184,3]).float().to(self.device)
-        # print("initial start y0", self.t0.size())
 
 
     def encode_t(self, num):
@@ -220,12 +238,22 @@ class SimpleNetworkAD(nn.Module):
         # print("--------------------------------------------------call f_a --------------------------------------------------")
 
 
-        f_a = A_t - (self.k_a_nn*A*(1 - A) + (self.k_ta_nn*torch.pow(T,self.theta)) / (torch.pow((self.k_mt_nn),self.theta) + torch.pow(T,self.theta))) #- self.config.d_a*torch.matmul(A,self.Laplacian))
-        f_t = T_t - (self.k_t_nn*T*(1 - T) + (self.k_at_nn*torch.pow(A,self.delta)) / (torch.pow((self.k_ma_nn),self.delta) + torch.pow(A,self.delta))) #- self.config.d_t*torch.matmul(T,self.Laplacian))
-        f_n = N_t - ((self.k_tn_nn*torch.pow(T,self.gamma)) / (torch.pow((self.k_mtn_nn),self.gamma) + torch.pow(T,self.gamma))+
-                    (self.k_an_nn*torch.pow(A,self.beta)) / (torch.pow((self.k_man_nn),self.beta) + torch.pow(A,self.beta))+
-                    self.k_atn_nn*A*T)
+        # f_a = A_t - (self.k_a_nn*A*(1 - A) + (self.k_ta_nn*torch.pow(T,self.theta)) / (torch.pow((self.k_mt_nn),self.theta) + torch.pow(T,self.theta))) #- self.config.d_a*torch.matmul(A,self.Laplacian))
+        # f_t = T_t - (self.k_t_nn*T*(1 - T) + (self.k_at_nn*torch.pow(A,self.delta)) / (torch.pow((self.k_ma_nn),self.delta) + torch.pow(A,self.delta))) #- self.config.d_t*torch.matmul(T,self.Laplacian))
+        # f_n = N_t - ((self.k_tn_nn*torch.pow(T,self.gamma)) / (torch.pow((self.k_mtn_nn),self.gamma) + torch.pow(T,self.gamma))+
+        #             (self.k_an_nn*torch.pow(A,self.beta)) / (torch.pow((self.k_man_nn),self.beta) + torch.pow(A,self.beta))+
+        #             self.k_atn_nn*A*T)
 
+        # self.true_para = torch.tensor([self.k_a, self.k_ta, self.k_mt,
+        #                                 self.k_t, self.k_at, self.k_ma,
+        #                                 self.k_tn, self.k_mtn,self.k_an,
+        #                                 self.k_man, self.k_atn])
+
+        f_a = A_t - (self.general_para[0]*A*(1 - A) + (self.general_para[1]*torch.pow(T,self.theta)) / (torch.pow((self.general_para[2]),self.theta) + torch.pow(T,self.theta))) #- self.config.d_a*torch.matmul(A,self.Laplacian))
+        f_t = T_t - (self.general_para[3]*T*(1 - T) + (self.general_para[4]*torch.pow(A,self.delta)) / (torch.pow((self.general_para[5]),self.delta) + torch.pow(A,self.delta))) #- self.config.d_t*torch.matmul(T,self.Laplacian))
+        f_n = N_t - ((self.general_para[6]*torch.pow(T,self.gamma)) / (torch.pow((self.general_para[7]),self.gamma) + torch.pow(T,self.gamma))+
+                    (self.general_para[8]*torch.pow(A,self.beta)) / (torch.pow((self.general_para[9]),self.beta) + torch.pow(A,self.beta))+
+                    self.general_para[10]*A*T)
 
 
 
@@ -268,14 +296,6 @@ class SimpleNetworkAD(nn.Module):
         # y_totrain[self.gt_ytrue[num_sub, :] == 0] = 0
         # print(self.gt_ytrue)
 
-        with torch.no_grad():
-            # self.gt_ytrue[self.gt_ytrue < 0] = 0
-            gt_ytrue_sub = self.gt_ytrue[:, :]
-            # gt_ytrue_sub[gt_ytrue_sub == 0] = y_totrain[gt_ytrue_sub == 0]
-        # print()
-        # print("test:", self.loss_norm(y_totrain[gt_ytrue_sub != 0], gt_ytrue_sub[gt_ytrue_sub != 0] ))
-
-        # gt_ytrue_sub.requires_grad_()
 
         # print("3", y_totrain)
         # print("4", gt_ytrue_sub)
@@ -292,20 +312,24 @@ class SimpleNetworkAD(nn.Module):
 
         loss_3 = self.loss_norm(torch.abs(y), y)*1e5
 
+        loss_4 = self.loss_norm(torch.abs(self.general_para), self.general_para) * 1e5
+
         # loss_4 = (self.loss_norm(torch.abs(self.k1), self.k1) + \
         #     self.loss_norm(torch.abs(self.k2), self.k2) + \
         #     self.loss_norm(torch.abs(self.k3), self.k3) +\
         #     self.loss_norm(torch.abs(self.k4), self.k4) +\
         #     self.loss_norm(torch.abs(self.k5), self.k5) ) *1e5
 
-        loss = loss_1 + loss_2 + loss_3  # + loss_3)#+ loss_4 + loss_5) / 1e5
+        loss = loss_1 + loss_2 + loss_3 + loss_4  # + loss_3)#+ loss_4 + loss_5) / 1e5
         all_loss += loss
         all_loss1 += loss_1
         all_loss2 += loss_2
+        all_loss4 += loss_4
+        all_loss4 += loss_3
 
             
         self.train()
-        return all_loss, [all_loss1, all_loss2, all_loss3], []
+        return all_loss, [all_loss1, all_loss2, all_loss4], []
           
     @staticmethod
     def setup_seed(seed):
@@ -407,7 +431,7 @@ def train_ad(model, args, config, now_string):
             test_ad(model, args, config, now_string, model.general_para, model.true_para, True, model.gt, None)
             myprint("[Loss]", args.log_path)
             myprint("True parameter : {};".format( model.true_para), args.log_path)
-            myprint("Personalized parameter estimation: {};".format(model.general_para),args.log_path)
+            myprint("General parameter estimation: {};".format(model.general_para),args.log_path)
 
             draw_loss(np.asarray(loss_record), 1.0)
             np.save(loss_save_path, np.asarray(loss_record))
@@ -457,7 +481,7 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
     # print(model(t,i).shape)
     y.append(model(t).cpu().detach().numpy())
     y = np.asarray(y)
-    y = y.reshape([1630, 3])
+    y = y.reshape([5000, 3])
 
     x = [item[0] for item in model.decode_t(t).cpu().detach().numpy()]
 
@@ -476,7 +500,7 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
                          save_dpi=100)
     for i in range(3):
         ax = m.add_subplot(
-            y_lists=[y[:, i].reshape(1630)],  # y_lists=[y[:,1:3]]
+            y_lists=[y[:, i].reshape(5000)],  # y_lists=[y[:,1:3]]
             x_list=x,
             color_list=colorlist[i],
             line_style_list=["solid"],
@@ -515,7 +539,7 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
             y)
     np.save("{}/{}".format(pred_save_path_folder,
                            f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_general_para"),
-            model.general_para)
+            model.general_para.cpu().detach().numpy())
 
 
 class Args:
