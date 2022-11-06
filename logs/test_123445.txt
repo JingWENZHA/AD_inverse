@@ -1,0 +1,518 @@
+2022-10-31 19:33:25 log_path: logs/test_123445.txt
+2022-10-31 19:33:25 cuda is available: False
+2022-10-31 19:33:25 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-31 19:33:25 using cpu
+2022-10-31 19:33:25 epoch = 40000
+2022-10-31 19:33:25 epoch_step = 1000
+2022-10-31 19:33:25 model_name = SimpleNetworkAD
+2022-10-31 19:33:25 now_string = 2022-10-31-19-33-25
+2022-10-31 19:33:25 model_save_path_last = ./train/SimpleNetworkAD_40000_1000_0.001_2022-10-31-19-33-25_last.pt
+2022-10-31 19:33:25 model_save_path_best = ./train/SimpleNetworkAD_40000_1000_0.001_2022-10-31-19-33-25_best.pt
+2022-10-31 19:33:25 loss_save_path = ./loss/SimpleNetworkAD_40000_1000_0.001_2022-10-31-19-33-25_loss_40000.npy
+2022-10-31 19:33:25 args = {'epoch': 40000, 'log_path': 'logs/test_123445.txt', 'mode': 'origin', 'epoch_step': 1000, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '123445', 'lr': 0.001, 'main_path': '.', 'save_step': 2000, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-31-19-33-25'}
+2022-10-31 19:33:25 config = {'T_all': 500.0, 'T': 500.0, 'T_unit': 0.1, 'T_N': 5000, 'N': 5000, 'Node': 3, 'ub': 500.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 5000, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-31 19:33:25 --------------------------------------------------training start--------------------------------------------------
+2022-10-31 19:33:54 Epoch [01000/40000] Loss:0.150423 Loss_1:0.144524 Loss_2:0.005898 Loss_3:0.000000 Lr:0.000909 Time:28.896149s (0.48min in total, 18.78min remains)
+2022-10-31 19:34:22 Epoch [02000/40000] Loss:0.080452 Loss_1:0.080403 Loss_2:0.000049 Loss_3:0.000000 Lr:0.000833 Time:28.599998s (0.96min in total, 18.21min remains)
+2022-10-31 19:34:22 Testing & drawing...
+2022-10-31 19:34:22 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-19-33-25/
+2022-10-31 19:34:24 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-19-33-25_general/
+2022-10-31 19:34:24 [Loss]
+2022-10-31 19:34:24 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 19:34:24 General parameter estimation: Parameter containing:
+tensor([0.0210, 0.0095, 0.4359, 0.0119, 0.0207, 0.8675, 0.0220, 1.2305, 0.0236,
+        0.9016, 0.0186], requires_grad=True);
+2022-10-31 19:34:52 Epoch [03000/40000] Loss:0.050401 Loss_1:0.050252 Loss_2:0.000149 Loss_3:0.000000 Lr:0.000769 Time:29.919956s (1.46min in total, 17.97min remains)
+2022-10-31 19:35:20 Epoch [04000/40000] Loss:0.033975 Loss_1:0.033787 Loss_2:0.000187 Loss_3:0.000000 Lr:0.000714 Time:28.364739s (1.93min in total, 17.37min remains)
+2022-10-31 19:35:20 Testing & drawing...
+2022-10-31 19:35:20 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-19-33-25/
+2022-10-31 19:35:22 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-19-33-25_general/
+2022-10-31 19:35:22 [Loss]
+2022-10-31 19:35:22 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 19:35:22 General parameter estimation: Parameter containing:
+tensor([0.0210, 0.0245, 0.4426, 0.0119, 0.0207, 1.0407, 0.0220, 1.5257, 0.0236,
+        1.0179, 0.0186], requires_grad=True);
+2022-10-31 19:35:50 Epoch [05000/40000] Loss:0.019955 Loss_1:0.019733 Loss_2:0.000222 Loss_3:0.000000 Lr:0.000667 Time:29.597717s (2.42min in total, 16.96min remains)
+2022-10-31 19:36:18 Epoch [06000/40000] Loss:0.010880 Loss_1:0.010645 Loss_2:0.000235 Loss_3:0.000000 Lr:0.000625 Time:28.400415s (2.90min in total, 16.41min remains)
+2022-10-31 19:36:18 Testing & drawing...
+2022-10-31 19:36:18 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-19-33-25/
+2022-10-31 19:36:20 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-19-33-25_general/
+2022-10-31 19:36:20 [Loss]
+2022-10-31 19:36:20 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 19:36:20 General parameter estimation: Parameter containing:
+tensor([0.0210, 0.0245, 0.4584, 0.0119, 0.0207, 1.2661, 0.0220, 2.1521, 0.0236,
+        1.3635, 0.0186], requires_grad=True);
+2022-10-31 19:36:48 Epoch [07000/40000] Loss:0.006105 Loss_1:0.005867 Loss_2:0.000237 Loss_3:0.000000 Lr:0.000588 Time:29.643037s (3.39min in total, 15.98min remains)
+2022-10-31 19:37:17 Epoch [08000/40000] Loss:0.003008 Loss_1:0.002775 Loss_2:0.000232 Loss_3:0.000000 Lr:0.000556 Time:28.421646s (3.86min in total, 15.46min remains)
+2022-10-31 19:37:17 Testing & drawing...
+2022-10-31 19:37:17 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-19-33-25/
+2022-10-31 19:37:18 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-19-33-25_general/
+2022-10-31 19:37:18 [Loss]
+2022-10-31 19:37:18 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 19:37:18 General parameter estimation: Parameter containing:
+tensor([0.0210, 0.0245, 0.4933, 0.0119, 0.0207, 1.5298, 0.0220, 2.8184, 0.0236,
+        1.8561, 0.0186], requires_grad=True);
+2022-10-31 19:37:46 Epoch [09000/40000] Loss:0.001891 Loss_1:0.001665 Loss_2:0.000226 Loss_3:0.000000 Lr:0.000526 Time:29.713142s (4.36min in total, 15.02min remains)
+2022-10-31 19:38:15 Epoch [10000/40000] Loss:0.001627 Loss_1:0.001410 Loss_2:0.000217 Loss_3:0.000000 Lr:0.000500 Time:28.488909s (4.83min in total, 14.50min remains)
+2022-10-31 19:38:15 Testing & drawing...
+2022-10-31 19:38:15 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-19-33-25/
+2022-10-31 19:38:16 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-19-33-25_general/
+2022-10-31 19:38:16 [Loss]
+2022-10-31 19:38:16 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 19:38:16 General parameter estimation: Parameter containing:
+tensor([0.0210, 0.0244, 0.5692, 0.0119, 0.0207, 1.5553, 0.0220, 3.4871, 0.0236,
+        2.3487, 0.0186], requires_grad=True);
+2022-10-31 19:38:44 Epoch [11000/40000] Loss:0.001339 Loss_1:0.001138 Loss_2:0.000201 Loss_3:0.000000 Lr:0.000476 Time:29.713196s (5.33min in total, 14.05min remains)
+2022-10-31 19:39:13 Epoch [12000/40000] Loss:0.001028 Loss_1:0.000851 Loss_2:0.000177 Loss_3:0.000000 Lr:0.000455 Time:28.502317s (5.80min in total, 13.54min remains)
+2022-10-31 19:39:13 Testing & drawing...
+2022-10-31 19:39:13 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-19-33-25/
+2022-10-31 19:39:14 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-19-33-25_general/
+2022-10-31 19:39:14 [Loss]
+2022-10-31 19:39:14 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 19:39:14 General parameter estimation: Parameter containing:
+tensor([0.0210, 0.0242, 0.7274, 0.0119, 0.0207, 1.6826, 0.0220, 4.1510, 0.0235,
+        2.9244, 0.0186], requires_grad=True);
+2022-10-31 19:39:43 Epoch [13000/40000] Loss:0.000781 Loss_1:0.000634 Loss_2:0.000148 Loss_3:0.000000 Lr:0.000435 Time:29.684484s (6.30min in total, 13.08min remains)
+2022-10-31 19:40:11 Epoch [14000/40000] Loss:0.000665 Loss_1:0.000548 Loss_2:0.000117 Loss_3:0.000000 Lr:0.000417 Time:28.521750s (6.77min in total, 12.58min remains)
+2022-10-31 19:40:11 Testing & drawing...
+2022-10-31 19:40:11 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-19-33-25/
+2022-10-31 19:40:12 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-19-33-25_general/
+2022-10-31 19:40:12 [Loss]
+2022-10-31 19:40:12 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 19:40:12 General parameter estimation: Parameter containing:
+tensor([0.0210, 0.0240, 0.9894, 0.0119, 0.0207, 2.4597, 0.0220, 4.7528, 0.0235,
+        3.5771, 0.0185], requires_grad=True);
+2022-10-31 19:40:41 Epoch [15000/40000] Loss:0.000600 Loss_1:0.000509 Loss_2:0.000090 Loss_3:0.000000 Lr:0.000400 Time:29.755094s (7.27min in total, 12.12min remains)
+2022-10-31 19:41:09 Epoch [16000/40000] Loss:0.000532 Loss_1:0.000463 Loss_2:0.000069 Loss_3:0.000000 Lr:0.000385 Time:28.482537s (7.75min in total, 11.62min remains)
+2022-10-31 19:41:09 Testing & drawing...
+2022-10-31 19:41:09 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-19-33-25/
+2022-10-31 19:41:11 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-19-33-25_general/
+2022-10-31 19:41:11 [Loss]
+2022-10-31 19:41:11 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 19:41:11 General parameter estimation: Parameter containing:
+tensor([0.0209, 0.0237, 1.2903, 0.0119, 0.0207, 3.2550, 0.0220, 5.2586, 0.0235,
+        4.1623, 0.0185], requires_grad=True);
+2022-10-31 19:41:39 Epoch [17000/40000] Loss:0.000472 Loss_1:0.000420 Loss_2:0.000053 Loss_3:0.000000 Lr:0.000370 Time:29.789078s (8.24min in total, 11.15min remains)
+2022-10-31 19:42:08 Epoch [18000/40000] Loss:0.000426 Loss_1:0.000386 Loss_2:0.000040 Loss_3:0.000000 Lr:0.000357 Time:28.481238s (8.72min in total, 10.65min remains)
+2022-10-31 19:42:08 Testing & drawing...
+2022-10-31 19:42:08 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-19-33-25/
+2022-10-31 19:42:09 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-19-33-25_general/
+2022-10-31 19:42:09 [Loss]
+2022-10-31 19:42:09 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 19:42:09 General parameter estimation: Parameter containing:
+tensor([0.0209, 0.0234, 1.5618, 0.0119, 0.0206, 3.9798, 0.0220, 5.6624, 0.0234,
+        4.6602, 0.0184], requires_grad=True);
+2022-10-31 19:42:38 Epoch [19000/40000] Loss:0.000368 Loss_1:0.000335 Loss_2:0.000033 Loss_3:0.000000 Lr:0.000345 Time:29.911829s (9.22min in total, 10.19min remains)
+2022-10-31 19:43:06 Epoch [20000/40000] Loss:0.000264 Loss_1:0.000235 Loss_2:0.000030 Loss_3:0.000000 Lr:0.000333 Time:28.512719s (9.69min in total, 9.69min remains)
+2022-10-31 19:43:06 Testing & drawing...
+2022-10-31 19:43:06 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-19-33-25/
+2022-10-31 19:43:07 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-19-33-25_general/
+2022-10-31 19:43:07 [Loss]
+2022-10-31 19:43:07 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 19:43:07 General parameter estimation: Parameter containing:
+tensor([0.0208, 0.0231, 1.7914, 0.0116, 0.0206, 4.6370, 0.0220, 6.0181, 0.0233,
+        5.1312, 0.0182], requires_grad=True);
+2022-10-31 19:43:36 Epoch [21000/40000] Loss:0.000145 Loss_1:0.000115 Loss_2:0.000030 Loss_3:0.000000 Lr:0.000323 Time:29.910643s (10.19min in total, 9.22min remains)
+2022-10-31 19:44:04 Epoch [22000/40000] Loss:0.000091 Loss_1:0.000060 Loss_2:0.000032 Loss_3:0.000000 Lr:0.000313 Time:28.512115s (10.66min in total, 8.73min remains)
+2022-10-31 19:44:04 Testing & drawing...
+2022-10-31 19:44:05 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-19-33-25/
+2022-10-31 19:44:06 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-19-33-25_general/
+2022-10-31 19:44:06 [Loss]
+2022-10-31 19:44:06 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 19:44:06 General parameter estimation: Parameter containing:
+tensor([0.0207, 0.0228, 2.0078, 0.0111, 0.0205, 5.2776, 0.0220, 6.5001, 0.0230,
+        5.7910, 0.0177], requires_grad=True);
+2022-10-31 19:44:35 Epoch [23000/40000] Loss:0.000041 Loss_1:0.000011 Loss_2:0.000030 Loss_3:0.000000 Lr:0.000303 Time:30.540014s (11.17min in total, 8.26min remains)
+2022-10-31 19:45:04 Epoch [24000/40000] Loss:0.000033 Loss_1:0.000008 Loss_2:0.000026 Loss_3:0.000000 Lr:0.000294 Time:28.679873s (11.65min in total, 7.77min remains)
+2022-10-31 19:45:04 Testing & drawing...
+2022-10-31 19:45:04 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-19-33-25/
+2022-10-31 19:45:05 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-19-33-25_general/
+2022-10-31 19:45:05 [Loss]
+2022-10-31 19:45:05 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 19:45:05 General parameter estimation: Parameter containing:
+tensor([0.0206, 0.0223, 2.2478, 0.0099, 0.0203, 5.7964, 0.0219, 6.9713, 0.0222,
+        6.3238, 0.0163], requires_grad=True);
+2022-10-31 19:45:34 Epoch [25000/40000] Loss:0.000026 Loss_1:0.000004 Loss_2:0.000022 Loss_3:0.000000 Lr:0.000286 Time:29.948872s (12.15min in total, 7.29min remains)
+2022-10-31 19:46:02 Epoch [26000/40000] Loss:0.000020 Loss_1:0.000002 Loss_2:0.000018 Loss_3:0.000000 Lr:0.000278 Time:28.492293s (12.63min in total, 6.80min remains)
+2022-10-31 19:46:02 Testing & drawing...
+2022-10-31 19:46:02 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-19-33-25/
+2022-10-31 19:46:03 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-19-33-25_general/
+2022-10-31 19:46:03 [Loss]
+2022-10-31 19:46:03 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 19:46:03 General parameter estimation: Parameter containing:
+tensor([2.0151e-02, 2.1478e-02, 2.5254e+00, 7.1249e-03, 1.9891e-02, 6.2453e+00,
+        2.1906e-02, 7.3631e+00, 2.0794e-02, 6.7333e+00, 1.3806e-02],
+       requires_grad=True);
+2022-10-31 19:46:32 Epoch [27000/40000] Loss:0.000015 Loss_1:0.000000 Loss_2:0.000014 Loss_3:0.000000 Lr:0.000270 Time:29.981916s (13.12min in total, 6.32min remains)
+2022-10-31 19:47:01 Epoch [28000/40000] Loss:0.000011 Loss_1:0.000000 Loss_2:0.000011 Loss_3:0.000000 Lr:0.000263 Time:28.558423s (13.60min in total, 5.83min remains)
+2022-10-31 19:47:01 Testing & drawing...
+2022-10-31 19:47:01 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-19-33-25/
+2022-10-31 19:47:02 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-19-33-25_general/
+2022-10-31 19:47:02 [Loss]
+2022-10-31 19:47:02 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 19:47:02 General parameter estimation: Parameter containing:
+tensor([1.9245e-02, 2.0127e-02, 2.8321e+00, 2.2400e-03, 1.9194e-02, 6.6306e+00,
+        2.1847e-02, 7.6864e+00, 1.8890e-02, 7.0508e+00, 9.8769e-03],
+       requires_grad=True);
+2022-10-31 19:47:31 Epoch [29000/40000] Loss:0.000011 Loss_1:0.000000 Loss_2:0.000011 Loss_3:0.000000 Lr:0.000256 Time:29.996430s (14.10min in total, 5.35min remains)
+2022-10-31 19:47:59 Epoch [30000/40000] Loss:0.000009 Loss_1:0.000000 Loss_2:0.000009 Loss_3:0.000000 Lr:0.000250 Time:28.491165s (14.58min in total, 4.86min remains)
+2022-10-31 19:47:59 Testing & drawing...
+2022-10-31 19:47:59 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-19-33-25/
+2022-10-31 19:48:00 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-19-33-25_general/
+2022-10-31 19:48:00 [Loss]
+2022-10-31 19:48:00 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 19:48:00 General parameter estimation: Parameter containing:
+tensor([1.7276e-02, 1.7843e-02, 3.1353e+00, 8.1924e-03, 1.7485e-02, 7.0557e+00,
+        2.1779e-02, 7.9186e+00, 1.6656e-02, 7.2819e+00, 4.8778e-03],
+       requires_grad=True);
+2022-10-31 19:48:29 Epoch [31000/40000] Loss:0.000008 Loss_1:0.000001 Loss_2:0.000007 Loss_3:0.000000 Lr:0.000244 Time:29.881658s (15.07min in total, 4.38min remains)
+2022-10-31 19:48:58 Epoch [32000/40000] Loss:0.000006 Loss_1:0.000000 Loss_2:0.000005 Loss_3:0.000000 Lr:0.000238 Time:28.685714s (15.55min in total, 3.89min remains)
+2022-10-31 19:48:58 Testing & drawing...
+2022-10-31 19:48:58 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-19-33-25/
+2022-10-31 19:48:59 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-19-33-25_general/
+2022-10-31 19:48:59 [Loss]
+2022-10-31 19:48:59 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 19:48:59 General parameter estimation: Parameter containing:
+tensor([1.3555e-02, 1.4386e-02, 3.3943e+00, 8.1912e-03, 1.3565e-02, 7.4227e+00,
+        2.1757e-02, 7.9754e+00, 1.4924e-02, 7.4038e+00, 1.5505e-03],
+       requires_grad=True);
+2022-10-31 19:49:28 Epoch [33000/40000] Loss:0.000004 Loss_1:0.000000 Loss_2:0.000004 Loss_3:0.000000 Lr:0.000233 Time:29.905079s (16.05min in total, 3.40min remains)
+2022-10-31 19:49:56 Epoch [34000/40000] Loss:0.000003 Loss_1:0.000000 Loss_2:0.000003 Loss_3:0.000000 Lr:0.000227 Time:28.687579s (16.53min in total, 2.92min remains)
+2022-10-31 19:49:56 Testing & drawing...
+2022-10-31 19:49:56 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-19-33-25/
+2022-10-31 19:49:58 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-19-33-25_general/
+2022-10-31 19:49:58 [Loss]
+2022-10-31 19:49:58 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 19:49:58 General parameter estimation: Parameter containing:
+tensor([8.7852e-03, 1.0383e-02, 3.5679e+00, 8.1909e-03, 9.5019e-03, 7.5983e+00,
+        2.1812e-02, 7.8953e+00, 1.3930e-02, 7.4511e+00, 1.0385e-03],
+       requires_grad=True);
+2022-10-31 19:50:26 Epoch [35000/40000] Loss:0.000003 Loss_1:0.000000 Loss_2:0.000003 Loss_3:0.000000 Lr:0.000222 Time:29.858594s (17.03min in total, 2.43min remains)
+2022-10-31 19:50:55 Epoch [36000/40000] Loss:0.000003 Loss_1:0.000000 Loss_2:0.000003 Loss_3:0.000000 Lr:0.000217 Time:28.710764s (17.50min in total, 1.94min remains)
+2022-10-31 19:50:55 Testing & drawing...
+2022-10-31 19:50:55 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-19-33-25/
+2022-10-31 19:50:56 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-19-33-25_general/
+2022-10-31 19:50:56 [Loss]
+2022-10-31 19:50:56 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 19:50:56 General parameter estimation: Parameter containing:
+tensor([5.7848e-03, 7.9028e-03, 3.6373e+00, 8.1909e-03, 6.8088e-03, 7.6620e+00,
+        2.1934e-02, 7.8047e+00, 1.2670e-02, 7.4855e+00, 1.0694e-03],
+       requires_grad=True);
+2022-10-31 19:51:25 Epoch [37000/40000] Loss:0.000003 Loss_1:0.000000 Loss_2:0.000003 Loss_3:0.000000 Lr:0.000213 Time:29.923948s (18.00min in total, 1.46min remains)
+2022-10-31 19:51:54 Epoch [38000/40000] Loss:0.000003 Loss_1:0.000000 Loss_2:0.000003 Loss_3:0.000000 Lr:0.000208 Time:28.695683s (18.48min in total, 0.97min remains)
+2022-10-31 19:51:54 Testing & drawing...
+2022-10-31 19:51:54 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-19-33-25/
+2022-10-31 19:51:55 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-19-33-25_general/
+2022-10-31 19:51:55 [Loss]
+2022-10-31 19:51:55 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 19:51:55 General parameter estimation: Parameter containing:
+tensor([5.1052e-03, 5.0293e-03, 3.6815e+00, 8.1912e-03, 6.9347e-03, 7.6618e+00,
+        2.2145e-02, 7.7358e+00, 1.0911e-02, 7.5070e+00, 1.1690e-03],
+       requires_grad=True);
+2022-10-31 19:52:23 Epoch [39000/40000] Loss:0.000003 Loss_1:0.000000 Loss_2:0.000002 Loss_3:0.000000 Lr:0.000204 Time:29.900440s (18.98min in total, 0.49min remains)
+2022-10-31 19:52:52 Epoch [40000/40000] Loss:0.000002 Loss_1:0.000000 Loss_2:0.000002 Loss_3:0.000000 Lr:0.000200 Time:28.714745s (19.46min in total, 0.00min remains)
+2022-10-31 19:52:52 Testing & drawing...
+2022-10-31 19:52:52 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-19-33-25/
+2022-10-31 19:52:53 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-19-33-25_general/
+2022-10-31 19:52:53 [Loss]
+2022-10-31 19:52:53 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 19:52:53 General parameter estimation: Parameter containing:
+tensor([4.9444e-03, 2.4020e-03, 3.6982e+00, 8.1932e-03, 1.2533e-02, 7.6058e+00,
+        2.2463e-02, 7.6906e+00, 8.8708e-03, 7.5156e+00, 1.2852e-03],
+       requires_grad=True);
+2022-10-31 21:16:46 log_path: logs/test_123445.txt
+2022-10-31 21:16:46 cuda is available: False
+2022-10-31 21:16:46 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-31 21:16:47 using cpu
+2022-10-31 21:16:47 epoch = 40000
+2022-10-31 21:16:47 epoch_step = 1000
+2022-10-31 21:16:47 model_name = SimpleNetworkAD
+2022-10-31 21:16:47 now_string = 2022-10-31-21-16-46
+2022-10-31 21:16:47 model_save_path_last = ./train/SimpleNetworkAD_40000_1000_0.001_2022-10-31-21-16-46_last.pt
+2022-10-31 21:16:47 model_save_path_best = ./train/SimpleNetworkAD_40000_1000_0.001_2022-10-31-21-16-46_best.pt
+2022-10-31 21:16:47 loss_save_path = ./loss/SimpleNetworkAD_40000_1000_0.001_2022-10-31-21-16-46_loss_40000.npy
+2022-10-31 21:16:47 args = {'epoch': 40000, 'log_path': 'logs/test_123445.txt', 'mode': 'origin', 'epoch_step': 1000, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '123445', 'lr': 0.001, 'main_path': '.', 'save_step': 2000, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-31-21-16-46'}
+2022-10-31 21:16:47 config = {'T_all': 500.0, 'T': 500.0, 'T_unit': 0.1, 'T_N': 5000, 'N': 5000, 'Node': 3, 'ub': 500.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 5000, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-31 21:16:47 --------------------------------------------------training start--------------------------------------------------
+2022-10-31 21:17:17 Epoch [01000/40000] Loss:0.150423 Loss_1:0.144524 Loss_2:0.005898 Loss_3:0.000000 Lr:0.000909 Time:30.694485s (0.51min in total, 19.95min remains)
+2022-10-31 21:17:47 Epoch [02000/40000] Loss:0.080452 Loss_1:0.080403 Loss_2:0.000049 Loss_3:0.000000 Lr:0.000833 Time:30.184100s (1.01min in total, 19.28min remains)
+2022-10-31 21:17:47 Testing & drawing...
+2022-10-31 21:17:47 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-21-16-46/
+2022-10-31 21:17:49 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-21-16-46_general/
+2022-10-31 21:17:49 [Loss]
+2022-10-31 21:17:49 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 21:17:49 General parameter estimation: Parameter containing:
+tensor([0.0210, 0.0095, 0.4359, 0.0119, 0.0207, 0.8675, 0.0220, 1.2305, 0.0236,
+        0.9016, 0.0186], requires_grad=True);
+2022-10-31 21:28:57 log_path: logs/test_123445.txt
+2022-10-31 21:28:57 cuda is available: False
+2022-10-31 21:28:57 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-10-31 21:28:57 using cpu
+2022-10-31 21:28:57 epoch = 40000
+2022-10-31 21:28:57 epoch_step = 1000
+2022-10-31 21:28:57 model_name = SimpleNetworkAD
+2022-10-31 21:28:57 now_string = 2022-10-31-21-28-57
+2022-10-31 21:28:57 model_save_path_last = ./train/SimpleNetworkAD_40000_1000_0.001_2022-10-31-21-28-57_last.pt
+2022-10-31 21:28:57 model_save_path_best = ./train/SimpleNetworkAD_40000_1000_0.001_2022-10-31-21-28-57_best.pt
+2022-10-31 21:28:57 loss_save_path = ./loss/SimpleNetworkAD_40000_1000_0.001_2022-10-31-21-28-57_loss_40000.npy
+2022-10-31 21:28:57 args = {'epoch': 40000, 'log_path': 'logs/test_123445.txt', 'mode': 'origin', 'epoch_step': 1000, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '123445', 'lr': 0.001, 'main_path': '.', 'save_step': 2000, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-10-31-21-28-57'}
+2022-10-31 21:28:57 config = {'T_all': 500.0, 'T': 500.0, 'T_unit': 0.1, 'T_N': 5000, 'N': 5000, 'Node': 3, 'ub': 500.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 5000, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-10-31 21:28:57 --------------------------------------------------training start--------------------------------------------------
+2022-10-31 21:29:28 Epoch [01000/40000] Loss:0.150423 Loss_1:0.144524 Loss_2:0.005898 Loss_3:0.000000 Lr:0.000909 Time:30.905761s (0.52min in total, 20.09min remains)
+2022-10-31 21:29:59 Epoch [02000/40000] Loss:0.080452 Loss_1:0.080403 Loss_2:0.000049 Loss_3:0.000000 Lr:0.000833 Time:30.347574s (1.02min in total, 19.40min remains)
+2022-10-31 21:29:59 Testing & drawing...
+2022-10-31 21:29:59 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-21-28-57/
+2022-10-31 21:30:00 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-21-28-57_general/
+2022-10-31 21:30:00 [Loss]
+2022-10-31 21:30:00 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 21:30:00 General parameter estimation: Parameter containing:
+tensor([0.0210, 0.0095, 0.4359, 0.0119, 0.0207, 0.8675, 0.0220, 1.2305, 0.0236,
+        0.9016, 0.0186], requires_grad=True);
+2022-10-31 21:30:30 Epoch [03000/40000] Loss:0.050401 Loss_1:0.050252 Loss_2:0.000149 Loss_3:0.000000 Lr:0.000769 Time:31.075944s (1.54min in total, 18.98min remains)
+2022-10-31 21:31:00 Epoch [04000/40000] Loss:0.033975 Loss_1:0.033787 Loss_2:0.000187 Loss_3:0.000000 Lr:0.000714 Time:30.229037s (2.04min in total, 18.38min remains)
+2022-10-31 21:31:00 Testing & drawing...
+2022-10-31 21:31:00 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-21-28-57/
+2022-10-31 21:31:01 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-21-28-57_general/
+2022-10-31 21:31:01 [Loss]
+2022-10-31 21:31:01 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 21:31:01 General parameter estimation: Parameter containing:
+tensor([0.0210, 0.0245, 0.4426, 0.0119, 0.0207, 1.0407, 0.0220, 1.5257, 0.0236,
+        1.0179, 0.0186], requires_grad=True);
+2022-10-31 21:31:31 Epoch [05000/40000] Loss:0.019955 Loss_1:0.019733 Loss_2:0.000222 Loss_3:0.000000 Lr:0.000667 Time:31.018443s (2.56min in total, 17.92min remains)
+2022-10-31 21:32:01 Epoch [06000/40000] Loss:0.010880 Loss_1:0.010645 Loss_2:0.000235 Loss_3:0.000000 Lr:0.000625 Time:30.257478s (3.06min in total, 17.36min remains)
+2022-10-31 21:32:01 Testing & drawing...
+2022-10-31 21:32:01 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-21-28-57/
+2022-10-31 21:32:02 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-21-28-57_general/
+2022-10-31 21:32:02 [Loss]
+2022-10-31 21:32:02 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 21:32:02 General parameter estimation: Parameter containing:
+tensor([0.0210, 0.0245, 0.4584, 0.0119, 0.0207, 1.2661, 0.0220, 2.1521, 0.0236,
+        1.3635, 0.0186], requires_grad=True);
+2022-10-31 21:32:32 Epoch [07000/40000] Loss:0.006105 Loss_1:0.005867 Loss_2:0.000237 Loss_3:0.000000 Lr:0.000588 Time:31.003124s (3.58min in total, 16.88min remains)
+2022-10-31 21:33:02 Epoch [08000/40000] Loss:0.003008 Loss_1:0.002775 Loss_2:0.000232 Loss_3:0.000000 Lr:0.000556 Time:30.229291s (4.08min in total, 16.34min remains)
+2022-10-31 21:33:02 Testing & drawing...
+2022-10-31 21:33:02 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-21-28-57/
+2022-10-31 21:33:03 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-21-28-57_general/
+2022-10-31 21:33:03 [Loss]
+2022-10-31 21:33:03 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 21:33:03 General parameter estimation: Parameter containing:
+tensor([0.0210, 0.0245, 0.4933, 0.0119, 0.0207, 1.5298, 0.0220, 2.8184, 0.0236,
+        1.8561, 0.0186], requires_grad=True);
+2022-10-31 21:33:33 Epoch [09000/40000] Loss:0.001891 Loss_1:0.001665 Loss_2:0.000226 Loss_3:0.000000 Lr:0.000526 Time:30.974993s (4.60min in total, 15.85min remains)
+2022-10-31 21:34:04 Epoch [10000/40000] Loss:0.001627 Loss_1:0.001410 Loss_2:0.000217 Loss_3:0.000000 Lr:0.000500 Time:30.219961s (5.10min in total, 15.31min remains)
+2022-10-31 21:34:04 Testing & drawing...
+2022-10-31 21:34:04 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-21-28-57/
+2022-10-31 21:34:04 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-21-28-57_general/
+2022-10-31 21:34:04 [Loss]
+2022-10-31 21:34:04 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 21:34:04 General parameter estimation: Parameter containing:
+tensor([0.0210, 0.0244, 0.5692, 0.0119, 0.0207, 1.5553, 0.0220, 3.4871, 0.0236,
+        2.3487, 0.0186], requires_grad=True);
+2022-10-31 21:34:35 Epoch [11000/40000] Loss:0.001339 Loss_1:0.001138 Loss_2:0.000201 Loss_3:0.000000 Lr:0.000476 Time:31.018992s (5.62min in total, 14.82min remains)
+2022-10-31 21:35:05 Epoch [12000/40000] Loss:0.001028 Loss_1:0.000851 Loss_2:0.000177 Loss_3:0.000000 Lr:0.000455 Time:30.119026s (6.12min in total, 14.29min remains)
+2022-10-31 21:35:05 Testing & drawing...
+2022-10-31 21:35:05 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-21-28-57/
+2022-10-31 21:35:06 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-21-28-57_general/
+2022-10-31 21:35:06 [Loss]
+2022-10-31 21:35:06 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 21:35:06 General parameter estimation: Parameter containing:
+tensor([0.0210, 0.0242, 0.7274, 0.0119, 0.0207, 1.6826, 0.0220, 4.1510, 0.0235,
+        2.9244, 0.0186], requires_grad=True);
+2022-10-31 21:35:36 Epoch [13000/40000] Loss:0.000781 Loss_1:0.000634 Loss_2:0.000148 Loss_3:0.000000 Lr:0.000435 Time:31.130504s (6.64min in total, 13.80min remains)
+2022-10-31 21:36:06 Epoch [14000/40000] Loss:0.000665 Loss_1:0.000548 Loss_2:0.000117 Loss_3:0.000000 Lr:0.000417 Time:30.037822s (7.14min in total, 13.27min remains)
+2022-10-31 21:36:06 Testing & drawing...
+2022-10-31 21:36:06 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-21-28-57/
+2022-10-31 21:36:07 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-21-28-57_general/
+2022-10-31 21:36:07 [Loss]
+2022-10-31 21:36:07 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 21:36:07 General parameter estimation: Parameter containing:
+tensor([0.0210, 0.0240, 0.9894, 0.0119, 0.0207, 2.4597, 0.0220, 4.7528, 0.0235,
+        3.5771, 0.0185], requires_grad=True);
+2022-10-31 21:36:37 Epoch [15000/40000] Loss:0.000600 Loss_1:0.000509 Loss_2:0.000090 Loss_3:0.000000 Lr:0.000400 Time:31.249430s (7.66min in total, 12.77min remains)
+2022-10-31 21:37:07 Epoch [16000/40000] Loss:0.000532 Loss_1:0.000463 Loss_2:0.000069 Loss_3:0.000000 Lr:0.000385 Time:30.107744s (8.17min in total, 12.25min remains)
+2022-10-31 21:37:07 Testing & drawing...
+2022-10-31 21:37:07 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-21-28-57/
+2022-10-31 21:37:08 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-21-28-57_general/
+2022-10-31 21:37:08 [Loss]
+2022-10-31 21:37:08 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 21:37:08 General parameter estimation: Parameter containing:
+tensor([0.0209, 0.0237, 1.2903, 0.0119, 0.0207, 3.2550, 0.0220, 5.2586, 0.0235,
+        4.1623, 0.0185], requires_grad=True);
+2022-10-31 21:37:38 Epoch [17000/40000] Loss:0.000472 Loss_1:0.000420 Loss_2:0.000053 Loss_3:0.000000 Lr:0.000370 Time:31.260105s (8.69min in total, 11.75min remains)
+2022-10-31 21:38:09 Epoch [18000/40000] Loss:0.000426 Loss_1:0.000386 Loss_2:0.000040 Loss_3:0.000000 Lr:0.000357 Time:30.120532s (9.19min in total, 11.23min remains)
+2022-10-31 21:38:09 Testing & drawing...
+2022-10-31 21:38:09 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-21-28-57/
+2022-10-31 21:38:09 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-21-28-57_general/
+2022-10-31 21:38:09 [Loss]
+2022-10-31 21:38:09 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 21:38:09 General parameter estimation: Parameter containing:
+tensor([0.0209, 0.0234, 1.5618, 0.0119, 0.0206, 3.9798, 0.0220, 5.6624, 0.0234,
+        4.6602, 0.0184], requires_grad=True);
+2022-10-31 21:38:40 Epoch [19000/40000] Loss:0.000368 Loss_1:0.000335 Loss_2:0.000033 Loss_3:0.000000 Lr:0.000345 Time:31.304709s (9.71min in total, 10.73min remains)
+2022-10-31 21:39:10 Epoch [20000/40000] Loss:0.000264 Loss_1:0.000235 Loss_2:0.000030 Loss_3:0.000000 Lr:0.000333 Time:30.142168s (10.21min in total, 10.21min remains)
+2022-10-31 21:39:10 Testing & drawing...
+2022-10-31 21:39:10 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-21-28-57/
+2022-10-31 21:39:11 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-21-28-57_general/
+2022-10-31 21:39:11 [Loss]
+2022-10-31 21:39:11 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 21:39:11 General parameter estimation: Parameter containing:
+tensor([0.0208, 0.0231, 1.7914, 0.0116, 0.0206, 4.6370, 0.0220, 6.0181, 0.0233,
+        5.1312, 0.0182], requires_grad=True);
+2022-10-31 21:39:42 Epoch [21000/40000] Loss:0.000145 Loss_1:0.000115 Loss_2:0.000030 Loss_3:0.000000 Lr:0.000323 Time:31.746587s (10.74min in total, 9.72min remains)
+2022-10-31 21:40:12 Epoch [22000/40000] Loss:0.000091 Loss_1:0.000060 Loss_2:0.000032 Loss_3:0.000000 Lr:0.000313 Time:30.303113s (11.25min in total, 9.20min remains)
+2022-10-31 21:40:12 Testing & drawing...
+2022-10-31 21:40:12 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-21-28-57/
+2022-10-31 21:40:13 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-21-28-57_general/
+2022-10-31 21:40:13 [Loss]
+2022-10-31 21:40:13 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 21:40:13 General parameter estimation: Parameter containing:
+tensor([0.0207, 0.0228, 2.0078, 0.0111, 0.0205, 5.2776, 0.0220, 6.5001, 0.0230,
+        5.7910, 0.0177], requires_grad=True);
+2022-10-31 21:40:44 Epoch [23000/40000] Loss:0.000041 Loss_1:0.000011 Loss_2:0.000030 Loss_3:0.000000 Lr:0.000303 Time:31.462558s (11.77min in total, 8.70min remains)
+2022-10-31 21:41:14 Epoch [24000/40000] Loss:0.000033 Loss_1:0.000008 Loss_2:0.000026 Loss_3:0.000000 Lr:0.000294 Time:30.348155s (12.28min in total, 8.18min remains)
+2022-10-31 21:41:14 Testing & drawing...
+2022-10-31 21:41:14 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-21-28-57/
+2022-10-31 21:41:15 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-21-28-57_general/
+2022-10-31 21:41:15 [Loss]
+2022-10-31 21:41:15 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 21:41:15 General parameter estimation: Parameter containing:
+tensor([0.0206, 0.0223, 2.2478, 0.0099, 0.0203, 5.7964, 0.0219, 6.9713, 0.0222,
+        6.3238, 0.0163], requires_grad=True);
+2022-10-31 21:41:45 Epoch [25000/40000] Loss:0.000026 Loss_1:0.000004 Loss_2:0.000022 Loss_3:0.000000 Lr:0.000286 Time:31.515912s (12.80min in total, 7.68min remains)
+2022-10-31 21:42:16 Epoch [26000/40000] Loss:0.000020 Loss_1:0.000002 Loss_2:0.000018 Loss_3:0.000000 Lr:0.000278 Time:30.281820s (13.31min in total, 7.17min remains)
+2022-10-31 21:42:16 Testing & drawing...
+2022-10-31 21:42:16 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-21-28-57/
+2022-10-31 21:42:17 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-21-28-57_general/
+2022-10-31 21:42:17 [Loss]
+2022-10-31 21:42:17 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 21:42:17 General parameter estimation: Parameter containing:
+tensor([2.0151e-02, 2.1478e-02, 2.5254e+00, 7.1249e-03, 1.9891e-02, 6.2453e+00,
+        2.1906e-02, 7.3631e+00, 2.0794e-02, 6.7333e+00, 1.3806e-02],
+       requires_grad=True);
+2022-10-31 21:42:47 Epoch [27000/40000] Loss:0.000015 Loss_1:0.000000 Loss_2:0.000014 Loss_3:0.000000 Lr:0.000270 Time:31.486286s (13.83min in total, 6.66min remains)
+2022-10-31 21:43:18 Epoch [28000/40000] Loss:0.000011 Loss_1:0.000000 Loss_2:0.000011 Loss_3:0.000000 Lr:0.000263 Time:30.379939s (14.34min in total, 6.14min remains)
+2022-10-31 21:43:18 Testing & drawing...
+2022-10-31 21:43:18 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-21-28-57/
+2022-10-31 21:43:18 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-21-28-57_general/
+2022-10-31 21:43:18 [Loss]
+2022-10-31 21:43:18 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 21:43:18 General parameter estimation: Parameter containing:
+tensor([1.9245e-02, 2.0127e-02, 2.8321e+00, 2.2400e-03, 1.9194e-02, 6.6306e+00,
+        2.1847e-02, 7.6864e+00, 1.8890e-02, 7.0508e+00, 9.8769e-03],
+       requires_grad=True);
+2022-10-31 21:43:49 Epoch [29000/40000] Loss:0.000011 Loss_1:0.000000 Loss_2:0.000011 Loss_3:0.000000 Lr:0.000256 Time:31.504812s (14.86min in total, 5.64min remains)
+2022-10-31 21:44:19 Epoch [30000/40000] Loss:0.000009 Loss_1:0.000000 Loss_2:0.000009 Loss_3:0.000000 Lr:0.000250 Time:30.414353s (15.37min in total, 5.12min remains)
+2022-10-31 21:44:19 Testing & drawing...
+2022-10-31 21:44:19 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-21-28-57/
+2022-10-31 21:44:20 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-21-28-57_general/
+2022-10-31 21:44:20 [Loss]
+2022-10-31 21:44:20 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 21:44:20 General parameter estimation: Parameter containing:
+tensor([1.7276e-02, 1.7843e-02, 3.1353e+00, 8.1924e-03, 1.7485e-02, 7.0557e+00,
+        2.1779e-02, 7.9186e+00, 1.6656e-02, 7.2819e+00, 4.8778e-03],
+       requires_grad=True);
+2022-10-31 21:44:51 Epoch [31000/40000] Loss:0.000008 Loss_1:0.000001 Loss_2:0.000007 Loss_3:0.000000 Lr:0.000244 Time:31.602905s (15.90min in total, 4.62min remains)
+2022-10-31 21:45:22 Epoch [32000/40000] Loss:0.000006 Loss_1:0.000000 Loss_2:0.000005 Loss_3:0.000000 Lr:0.000238 Time:30.427526s (16.40min in total, 4.10min remains)
+2022-10-31 21:45:22 Testing & drawing...
+2022-10-31 21:45:22 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-21-28-57/
+2022-10-31 21:45:22 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-21-28-57_general/
+2022-10-31 21:45:22 [Loss]
+2022-10-31 21:45:22 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 21:45:22 General parameter estimation: Parameter containing:
+tensor([1.3555e-02, 1.4386e-02, 3.3943e+00, 8.1912e-03, 1.3565e-02, 7.4227e+00,
+        2.1757e-02, 7.9754e+00, 1.4924e-02, 7.4038e+00, 1.5505e-03],
+       requires_grad=True);
+2022-10-31 21:45:53 Epoch [33000/40000] Loss:0.000004 Loss_1:0.000000 Loss_2:0.000004 Loss_3:0.000000 Lr:0.000233 Time:31.587288s (16.93min in total, 3.59min remains)
+2022-10-31 21:46:24 Epoch [34000/40000] Loss:0.000003 Loss_1:0.000000 Loss_2:0.000003 Loss_3:0.000000 Lr:0.000227 Time:30.470883s (17.44min in total, 3.08min remains)
+2022-10-31 21:46:24 Testing & drawing...
+2022-10-31 21:46:24 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-21-28-57/
+2022-10-31 21:46:24 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-21-28-57_general/
+2022-10-31 21:46:24 [Loss]
+2022-10-31 21:46:24 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 21:46:24 General parameter estimation: Parameter containing:
+tensor([8.7852e-03, 1.0383e-02, 3.5679e+00, 8.1909e-03, 9.5019e-03, 7.5983e+00,
+        2.1812e-02, 7.8953e+00, 1.3930e-02, 7.4511e+00, 1.0385e-03],
+       requires_grad=True);
+2022-10-31 21:46:55 Epoch [35000/40000] Loss:0.000003 Loss_1:0.000000 Loss_2:0.000003 Loss_3:0.000000 Lr:0.000222 Time:31.712592s (17.97min in total, 2.57min remains)
+2022-10-31 21:47:26 Epoch [36000/40000] Loss:0.000003 Loss_1:0.000000 Loss_2:0.000003 Loss_3:0.000000 Lr:0.000217 Time:30.513878s (18.48min in total, 2.05min remains)
+2022-10-31 21:47:26 Testing & drawing...
+2022-10-31 21:47:26 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-21-28-57/
+2022-10-31 21:47:27 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-21-28-57_general/
+2022-10-31 21:47:27 [Loss]
+2022-10-31 21:47:27 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 21:47:27 General parameter estimation: Parameter containing:
+tensor([5.7848e-03, 7.9028e-03, 3.6373e+00, 8.1909e-03, 6.8088e-03, 7.6620e+00,
+        2.1934e-02, 7.8047e+00, 1.2670e-02, 7.4855e+00, 1.0694e-03],
+       requires_grad=True);
+2022-10-31 21:47:58 Epoch [37000/40000] Loss:0.000003 Loss_1:0.000000 Loss_2:0.000003 Loss_3:0.000000 Lr:0.000213 Time:31.732403s (19.00min in total, 1.54min remains)
+2022-10-31 21:48:28 Epoch [38000/40000] Loss:0.000003 Loss_1:0.000000 Loss_2:0.000003 Loss_3:0.000000 Lr:0.000208 Time:30.506774s (19.51min in total, 1.03min remains)
+2022-10-31 21:48:28 Testing & drawing...
+2022-10-31 21:48:28 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-21-28-57/
+2022-10-31 21:48:29 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-21-28-57_general/
+2022-10-31 21:48:29 [Loss]
+2022-10-31 21:48:29 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 21:48:29 General parameter estimation: Parameter containing:
+tensor([5.1052e-03, 5.0293e-03, 3.6815e+00, 8.1912e-03, 6.9347e-03, 7.6618e+00,
+        2.2145e-02, 7.7358e+00, 1.0911e-02, 7.5070e+00, 1.1690e-03],
+       requires_grad=True);
+2022-10-31 21:49:00 Epoch [39000/40000] Loss:0.000003 Loss_1:0.000000 Loss_2:0.000002 Loss_3:0.000000 Lr:0.000204 Time:31.779727s (20.04min in total, 0.51min remains)
+2022-10-31 21:49:30 Epoch [40000/40000] Loss:0.000002 Loss_1:0.000000 Loss_2:0.000002 Loss_3:0.000000 Lr:0.000200 Time:30.629861s (20.55min in total, 0.00min remains)
+2022-10-31 21:49:30 Testing & drawing...
+2022-10-31 21:49:30 Test: save figure in ./figure/SimpleNetworkAD_id=100_2022-10-31-21-28-57/
+2022-10-31 21:49:31 Test: save pred in ./saves/SimpleNetworkAD_id=100_2022-10-31-21-28-57_general/
+2022-10-31 21:49:31 [Loss]
+2022-10-31 21:49:31 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-10-31 21:49:31 General parameter estimation: Parameter containing:
+tensor([4.9444e-03, 2.4020e-03, 3.6982e+00, 8.1932e-03, 1.2533e-02, 7.6058e+00,
+        2.2463e-02, 7.6906e+00, 8.8708e-03, 7.5156e+00, 1.2852e-03],
+       requires_grad=True);

@@ -141,29 +141,10 @@ class SimpleNetworkAD(nn.Module):
         self.k_atn = parameters[16]
         self.true_para = torch.tensor([self.k_a, self.k_ta, self.k_mt,
                                         self.k_t, self.k_at, self.k_ma,
-                                        self.k_tn, self.k_mtn,self.k_an,
-                                        self.k_man, self.k_atn])
+                                        self.k_tn, self.k_an, self.k_atn])
 
-        # self.Laplacian = torch.tensor(mat['avgNet']).float().to(self.device)[0:10, 0:10]
-        # self.r = torch.tensor(mat['avgNet']).float().to(self.device) #.reshape([1])
-        #
-        # self.k_a_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_a
-        # self.k_ta_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_a
-        # self.k_mt_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_a
-        # self.d_a_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_a
-        #
-        # self.k_t_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_t
-        # self.k_at_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_t
-        # self.k_ma_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_t
-        # self.d_t_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_t
-        #
-        # self.k_tn_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_tn
-        # self.k_an_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_an
-        # self.k_atn_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_atn
-        # self.k_mtn_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_atn
-        # self.k_man_nn = nn.Parameter(torch.abs(torch.rand(1)))  # k_atn
 
-        self.general_para = nn.Parameter(torch.abs(torch.rand(11)))
+        self.general_para = nn.Parameter(torch.abs(torch.rand(9)))
 
         # [self.k_a_nn, self.k_ta_nn, self.k_mt_nn,
         #   self.k_t_nn, self.k_at_nn, self.k_ma_nn,
@@ -251,18 +232,7 @@ class SimpleNetworkAD(nn.Module):
 
         f_a = A_t - (self.general_para[0]*A*(1 - A) + (self.general_para[1]*torch.pow(T,self.theta)) / (torch.pow((self.general_para[2]),self.theta) + torch.pow(T,self.theta))) #- self.config.d_a*torch.matmul(A,self.Laplacian))
         f_t = T_t - (self.general_para[3]*T*(1 - T) + (self.general_para[4]*torch.pow(A,self.delta)) / (torch.pow((self.general_para[5]),self.delta) + torch.pow(A,self.delta))) #- self.config.d_t*torch.matmul(T,self.Laplacian))
-        f_n = N_t - ((self.general_para[6]*torch.pow(T,self.gamma)) / (torch.pow((self.general_para[7]),self.gamma) + torch.pow(T,self.gamma))+
-                    (self.general_para[8]*torch.pow(A,self.beta)) / (torch.pow((self.general_para[9]),self.beta) + torch.pow(A,self.beta)) #+self.general_para[10]*A*T
-                    )
-
-        # f_n = N_t - ((self.general_para[6] * torch.pow(T, self.gamma)) / (
-        #             torch.pow((self.general_para[7]), self.gamma) + torch.pow(T, self.gamma)) +
-        #              (self.general_para[8] * torch.pow(A, self.beta)) / (
-        #                          torch.pow((self.general_para[9]), self.beta) + torch.pow(A, self.beta))
-        #              # +self.general_para[10]*A*T
-        #              )
-
-
+        f_n = N_t - (self.general_para[6]*T+ self.general_para[7]*A +self.general_para[8]*A*T)
 
         # f_a = A_t - (self.k_a*A*(1 - A) + (self.k_ta*torch.pow(T,self.theta)) / (torch.pow((self.k_mt),self.theta) + torch.pow(T,self.theta))) #- self.config.d_a*torch.matmul(A,self.Laplacian))
         # f_t = T_t - (self.k_t*T*(1 - T) + (self.k_at*torch.pow(A,self.delta)) / (torch.pow((self.k_ma),self.delta) + torch.pow(A,self.delta))) #- self.config.d_t*torch.matmul(T,self.Laplacian))
@@ -284,16 +254,6 @@ class SimpleNetworkAD(nn.Module):
 
         zeros_2D = torch.tensor([[0.0 for i in range(self.config.Node )] for j in range( self.config.N )]).to(self.device)
 
-        # print(y.shape, self.gt_data.shape)
-        # print("loss-y",y.cpu().detach().numpy()[1, :],y.cpu().detach().numpy()[100, :],y.cpu().detach().numpy()[1000, :],y.cpu().detach().numpy()[1600, :])
-        # print("loss-truey",self.gt_data[num_sub,1, :],self.gt_data[num_sub,100, :],self.gt_data[num_sub,1000, :],self.gt_data[num_sub,1600, :])
-        # loss_1 = self.loss_norm(y[:self.config.truth_length, :], self.gt_data[num_sub,:self.config.truth_length,:])
-        # print("1",self.gt_ytrue)
-
-        # check_point = (self.gt_ytrue_month[num_sub, :] / 0.1).int()-1
-        # check_point[check_point<0] = 0
-        # print(check_point)
-        # print("2", y)
         y_totrain = torch.index_select(y, 0, self.gt_ytrue_month)
         # print("y_totrain", y_totrain.shape)
         zeros_test = torch.zeros([13, 3]).to(self.device)
@@ -320,6 +280,7 @@ class SimpleNetworkAD(nn.Module):
         loss_3 = self.loss_norm(torch.abs(y), y)*1e5
 
         loss_4 = self.loss_norm(torch.abs(self.general_para), self.general_para) * 1e10
+        loss_5 = self.loss_norm(torch.diff(y, dim=0), abs(torch.diff(y, dim=0)))*1e8
 
         # loss_4 = (self.loss_norm(torch.abs(self.k1), self.k1) + \
         #     self.loss_norm(torch.abs(self.k2), self.k2) + \
@@ -327,12 +288,12 @@ class SimpleNetworkAD(nn.Module):
         #     self.loss_norm(torch.abs(self.k4), self.k4) +\
         #     self.loss_norm(torch.abs(self.k5), self.k5) ) *1e5
 
-        loss = loss_1 + loss_2 + loss_3 + loss_4  # + loss_3)#+ loss_4 + loss_5) / 1e5
+        loss = loss_1 + loss_2 + loss_3 + loss_4 + loss_5  # + loss_3)#+ loss_4 + loss_5) / 1e5
         all_loss += loss
         all_loss1 += loss_1
         all_loss2 += loss_2
         all_loss4 += loss_4
-        all_loss4 += loss_3
+        all_loss4 += loss_5
 
             
         self.train()
@@ -523,8 +484,6 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
 
     param_ls = model.general_para.cpu().detach().numpy()
     param_true = model.true_para.cpu().detach().numpy()
-    param_ls.reshape(11)
-    param_true.reshape(11)
 
     A = y[:, 0:1]
     T = y[:, 1:2]
@@ -532,9 +491,9 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
 
     A_TonA = (param_ls[1] * np.power(T, 2)) / (np.power((param_ls[2]), 2) + np.power(T, 2))
     T_AonT = (param_ls[4] * np.power(A, 2)) / (np.power((param_ls[5]), 2) + np.power(A, 2))
-    N_AonN = (param_ls[8] * np.power(A, 2)) / (np.power((param_ls[9]), 2) + np.power(A, 2))
-    N_TonN = (param_ls[6] * np.power(T, 2)) / (np.power((param_ls[7]), 2) + np.power(T, 2))
-    N_ATonN = param_ls[10] * A * T
+    N_AonN = param_ls[7]* A
+    N_TonN = param_ls[6] * T
+    N_ATonN = param_ls[8] * A * T
 
     A_prod = param_ls[0] * A * (1 - A)
     T_prod = param_ls[3] * T * (1 - T)
@@ -542,9 +501,9 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
     # matlab
     A_TonA_matlab = (param_true[1] * np.power(T, 2)) / (np.power((param_true[2]), 2) + np.power(T, 2))
     T_AonT_matlab = (param_true[4] * np.power(A, 2)) / (np.power((param_true[5]), 2) + np.power(A, 2))
-    N_AonN_matlab = (param_true[8] * np.power(A, 2)) / (np.power((param_true[9]), 2) + np.power(A, 2))
-    N_TonN_matlab = (param_true[6] * np.power(T, 2)) / (np.power((param_true[7]), 2) + np.power(T, 2))
-    N_ATonN_matlab = param_true[10] * A * T
+    N_AonN_matlab = param_true[7]* A
+    N_TonN_matlab = param_true[6] *T
+    N_ATonN_matlab = param_true[8] * A * T
 
     A_prod_matlab = param_true[0] * A * (1 - A)
     T_prod_matlab = param_true[3] * T * (1 - T)
@@ -558,19 +517,19 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
     y_label_size=20, fig_x_label = "time",
     fig_y_label = "influence")
 
-    m.add_subplot(x_list=x, y_lists=[T_AonT, T_prod, T_AonT_matlab, T_prod_matlab],
-                  color_list=['b', 'r', 'b', 'r'], fig_title="Euqation T",
-                  line_style_list=["solid", "solid", "dashed", "dashed"],
-                  legend_list=["T_AonT", "T_prod", "T_AonT_matlab", "T_prod_matlab"], line_width=6, fig_title_size=40,x_label_size=20,
-    y_label_size=20, fig_x_label = "time",
-    fig_y_label = "influence")
-
-    # m.add_subplot(x_list=x, y_lists=[N_AonN,N_TonN, N_ATonN,N_AonN_matlab,N_TonN_matlab,N_ATonN_matlab],
-    #               color_list=['b', 'r', 'g', 'b', 'r', 'g'], fig_title="Euqation N",
-    #               line_style_list=["solid","solid", "solid", "dashed", "dashed", "dashed"],
-    #               legend_list=["N_AonN","N_TonN", "N_ATonN", "N_AonN_matlab","N_TonN_matlab","N_ATonN_matlab" ], line_width=6, fig_title_size=40,x_label_size=20,
+    # m.add_subplot(x_list=x, y_lists=[T_AonT, T_prod, T_AonT_matlab, T_prod_matlab],
+    #               color_list=['b', 'r', 'b', 'r'], fig_title="Euqation T",
+    #               line_style_list=["solid", "solid", "dashed", "dashed"],
+    #               legend_list=["T_AonT", "T_prod", "T_AonT_matlab", "T_prod_matlab"], line_width=6, fig_title_size=40,x_label_size=20,
     # y_label_size=20, fig_x_label = "time",
     # fig_y_label = "influence")
+
+    m.add_subplot(x_list=x, y_lists=[N_AonN,N_TonN, N_ATonN,N_AonN_matlab,N_TonN_matlab,N_ATonN_matlab],
+                  color_list=['b', 'r', 'g', 'b', 'r', 'g'], fig_title="Euqation N (linear)",
+                  line_style_list=["solid","solid", "solid", "dashed", "dashed", "dashed"],
+                  legend_list=["N_AonN","N_TonN", "N_ATonN", "N_AonN_matlab","N_TonN_matlab","N_ATonN_matlab" ], line_width=6, fig_title_size=40,x_label_size=20,
+    y_label_size=20, fig_x_label = "time",
+    fig_y_label = "influence")
 
     m.add_subplot(x_list=x, y_lists=[N_AonN, N_TonN, N_AonN_matlab, N_TonN_matlab],
                   color_list=['b', 'r', 'b', 'r'], fig_title="Euqation N",
