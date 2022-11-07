@@ -517,12 +517,12 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
     y_label_size=20, fig_x_label = "time",
     fig_y_label = "influence")
 
-    # m.add_subplot(x_list=x, y_lists=[T_AonT, T_prod, T_AonT_matlab, T_prod_matlab],
-    #               color_list=['b', 'r', 'b', 'r'], fig_title="Euqation T",
-    #               line_style_list=["solid", "solid", "dashed", "dashed"],
-    #               legend_list=["T_AonT", "T_prod", "T_AonT_matlab", "T_prod_matlab"], line_width=6, fig_title_size=40,x_label_size=20,
-    # y_label_size=20, fig_x_label = "time",
-    # fig_y_label = "influence")
+    m.add_subplot(x_list=x, y_lists=[T_AonT, T_prod, T_AonT_matlab, T_prod_matlab],
+                  color_list=['b', 'r', 'b', 'r'], fig_title="Euqation T",
+                  line_style_list=["solid", "solid", "dashed", "dashed"],
+                  legend_list=["T_AonT", "T_prod", "T_AonT_matlab", "T_prod_matlab"], line_width=6, fig_title_size=40,x_label_size=20,
+    y_label_size=20, fig_x_label = "time",
+    fig_y_label = "influence")
 
     m.add_subplot(x_list=x, y_lists=[N_AonN,N_TonN, N_ATonN,N_AonN_matlab,N_TonN_matlab,N_ATonN_matlab],
                   color_list=['b', 'r', 'g', 'b', 'r', 'g'], fig_title="Euqation N (linear)",
@@ -531,13 +531,13 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
     y_label_size=20, fig_x_label = "time",
     fig_y_label = "influence")
 
-    m.add_subplot(x_list=x, y_lists=[N_AonN, N_TonN, N_AonN_matlab, N_TonN_matlab],
-                  color_list=['b', 'r', 'b', 'r'], fig_title="Euqation N",
-                  line_style_list=["solid", "solid", "dashed", "dashed"],
-                  legend_list=["N_AonN", "N_TonN", "N_AonN_matlab", "N_TonN_matlab"],
-                  line_width=6, fig_title_size=40, x_label_size=20,
-                  y_label_size=20, fig_x_label="time",
-                  fig_y_label="influence")
+    # m.add_subplot(x_list=x, y_lists=[N_AonN, N_TonN, N_AonN_matlab, N_TonN_matlab],
+    #               color_list=['b', 'r', 'b', 'r'], fig_title="Euqation N",
+    #               line_style_list=["solid", "solid", "dashed", "dashed"],
+    #               legend_list=["N_AonN", "N_TonN", "N_AonN_matlab", "N_TonN_matlab"],
+    #               line_width=6, fig_title_size=40, x_label_size=20,
+    #               y_label_size=20, fig_x_label="time",
+    #               fig_y_label="influence")
 
     # m.add_subplot(x_list=x, y_lists=[N_TonN, N_TonN_matlab],
     #               color_list=['b', 'b'], fig_title="Euqation N part 2",

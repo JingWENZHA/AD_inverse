@@ -1,0 +1,237 @@
+2022-11-06 22:09:50 log_path: logs/linatat_54321.txt
+2022-11-06 22:09:50 cuda is available: False
+2022-11-06 22:09:50 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-11-06 22:09:50 using cpu
+2022-11-06 22:09:50 epoch = 40000
+2022-11-06 22:09:50 epoch_step = 1000
+2022-11-06 22:09:50 model_name = SimpleNetworkAD
+2022-11-06 22:09:50 now_string = 2022-11-06-22-09-50
+2022-11-06 22:09:50 model_save_path_last = ./train/linatat_40000_1000_0.001_2022-11-06-22-09-50_last.pt
+2022-11-06 22:09:50 model_save_path_best = ./train/linatat_40000_1000_0.001_2022-11-06-22-09-50_best.pt
+2022-11-06 22:09:50 loss_save_path = ./loss/linatat_40000_1000_0.001_2022-11-06-22-09-50_loss_40000.npy
+2022-11-06 22:09:50 args = {'epoch': 40000, 'log_path': 'logs/linatat_54321.txt', 'mode': 'origin', 'epoch_step': 1000, 'name': 'linatat', 'python': 'ModelBYCC.py', 'id': '54321', 'lr': 0.001, 'main_path': '.', 'save_step': 2000, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-11-06-22-09-50'}
+2022-11-06 22:09:50 config = {'T_all': 500.0, 'T': 500.0, 'T_unit': 0.1, 'T_N': 5000, 'N': 5000, 'Node': 3, 'ub': 500.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 5000, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-11-06 22:09:50 --------------------------------------------------training start--------------------------------------------------
+2022-11-06 22:10:19 Epoch [01000/40000] Loss:0.225288 Loss_1:0.219318 Loss_2:0.004530 Loss_3:0.001440 Lr:0.000909 Time:29.357664s (0.49min in total, 19.08min remains)
+2022-11-06 22:10:49 Epoch [02000/40000] Loss:0.185551 Loss_1:0.183214 Loss_2:0.000975 Loss_3:0.001362 Lr:0.000833 Time:29.177717s (0.98min in total, 18.54min remains)
+2022-11-06 22:10:49 Testing & drawing...
+2022-11-06 22:10:49 Test: save figure in ./figure/linatat_id=100_2022-11-06-22-09-50/
+2022-11-06 22:10:50 Test: save pred in ./saves/linatat_id=100_2022-11-06-22-09-50_general/
+2022-11-06 22:10:50 [Loss]
+2022-11-06 22:10:50 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.2000e-03, 1.2000e-03]);
+2022-11-06 22:10:50 General parameter estimation: Parameter containing:
+tensor([0.0215, 0.1849, 0.4624, 0.0116, 0.0210, 0.8851, 0.0202, 0.0245, 0.0193],
+       requires_grad=True);
+2022-11-06 22:11:18 Epoch [03000/40000] Loss:0.148794 Loss_1:0.147183 Loss_2:0.000312 Loss_3:0.001299 Lr:0.000769 Time:29.965126s (1.48min in total, 18.19min remains)
+2022-11-06 22:11:47 Epoch [04000/40000] Loss:0.118340 Loss_1:0.116441 Loss_2:0.000287 Loss_3:0.001613 Lr:0.000714 Time:28.841505s (1.96min in total, 17.60min remains)
+2022-11-06 22:11:47 Testing & drawing...
+2022-11-06 22:11:47 Test: save figure in ./figure/linatat_id=100_2022-11-06-22-09-50/
+2022-11-06 22:11:48 Test: save pred in ./saves/linatat_id=100_2022-11-06-22-09-50_general/
+2022-11-06 22:11:48 [Loss]
+2022-11-06 22:11:48 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.2000e-03, 1.2000e-03]);
+2022-11-06 22:11:48 General parameter estimation: Parameter containing:
+tensor([0.0215, 0.0229, 0.4838, 0.0116, 0.0210, 1.4012, 0.0202, 0.0245, 0.0193],
+       requires_grad=True);
+2022-11-06 22:12:17 Epoch [05000/40000] Loss:0.077301 Loss_1:0.075274 Loss_2:0.000356 Loss_3:0.001672 Lr:0.000667 Time:29.925430s (2.45min in total, 17.18min remains)
+2022-11-06 22:12:46 Epoch [06000/40000] Loss:0.032803 Loss_1:0.031281 Loss_2:0.000451 Loss_3:0.001071 Lr:0.000625 Time:28.998127s (2.94min in total, 16.65min remains)
+2022-11-06 22:12:46 Testing & drawing...
+2022-11-06 22:12:46 Test: save figure in ./figure/linatat_id=100_2022-11-06-22-09-50/
+2022-11-06 22:12:47 Test: save pred in ./saves/linatat_id=100_2022-11-06-22-09-50_general/
+2022-11-06 22:12:47 [Loss]
+2022-11-06 22:12:47 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.2000e-03, 1.2000e-03]);
+2022-11-06 22:12:47 General parameter estimation: Parameter containing:
+tensor([0.0215, 0.0229, 0.4966, 0.0116, 0.0210, 1.8626, 0.0202, 0.0245, 0.0193],
+       requires_grad=True);
+2022-11-06 22:13:17 Epoch [07000/40000] Loss:0.011691 Loss_1:0.010912 Loss_2:0.000539 Loss_3:0.000239 Lr:0.000588 Time:30.387523s (3.44min in total, 16.24min remains)
+2022-11-06 22:13:46 Epoch [08000/40000] Loss:0.008771 Loss_1:0.008186 Loss_2:0.000581 Loss_3:0.000004 Lr:0.000556 Time:28.960693s (3.93min in total, 15.71min remains)
+2022-11-06 22:13:46 Testing & drawing...
+2022-11-06 22:13:46 Test: save figure in ./figure/linatat_id=100_2022-11-06-22-09-50/
+2022-11-06 22:13:47 Test: save pred in ./saves/linatat_id=100_2022-11-06-22-09-50_general/
+2022-11-06 22:13:47 [Loss]
+2022-11-06 22:13:47 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.2000e-03, 1.2000e-03]);
+2022-11-06 22:13:47 General parameter estimation: Parameter containing:
+tensor([0.0215, 0.0228, 0.5306, 0.0116, 0.0210, 2.2878, 0.0202, 0.0245, 0.0193],
+       requires_grad=True);
+2022-11-06 22:14:16 Epoch [09000/40000] Loss:0.007618 Loss_1:0.007025 Loss_2:0.000593 Loss_3:0.000000 Lr:0.000526 Time:29.975029s (4.43min in total, 15.25min remains)
+2022-11-06 22:14:45 Epoch [10000/40000] Loss:0.006134 Loss_1:0.005527 Loss_2:0.000607 Loss_3:0.000000 Lr:0.000500 Time:29.033654s (4.91min in total, 14.73min remains)
+2022-11-06 22:14:45 Testing & drawing...
+2022-11-06 22:14:45 Test: save figure in ./figure/linatat_id=100_2022-11-06-22-09-50/
+2022-11-06 22:14:46 Test: save pred in ./saves/linatat_id=100_2022-11-06-22-09-50_general/
+2022-11-06 22:14:46 [Loss]
+2022-11-06 22:14:46 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.2000e-03, 1.2000e-03]);
+2022-11-06 22:14:46 General parameter estimation: Parameter containing:
+tensor([0.0215, 0.0225, 0.6040, 0.0116, 0.0210, 2.6992, 0.0202, 0.0245, 0.0193],
+       requires_grad=True);
+2022-11-06 22:15:14 Epoch [11000/40000] Loss:0.004875 Loss_1:0.004237 Loss_2:0.000637 Loss_3:0.000000 Lr:0.000476 Time:29.743068s (5.41min in total, 14.25min remains)
+2022-11-06 22:15:43 Epoch [12000/40000] Loss:0.004280 Loss_1:0.003606 Loss_2:0.000673 Loss_3:0.000000 Lr:0.000455 Time:28.937227s (5.89min in total, 13.74min remains)
+2022-11-06 22:15:43 Testing & drawing...
+2022-11-06 22:15:43 Test: save figure in ./figure/linatat_id=100_2022-11-06-22-09-50/
+2022-11-06 22:15:44 Test: save pred in ./saves/linatat_id=100_2022-11-06-22-09-50_general/
+2022-11-06 22:15:44 [Loss]
+2022-11-06 22:15:44 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.2000e-03, 1.2000e-03]);
+2022-11-06 22:15:44 General parameter estimation: Parameter containing:
+tensor([0.0215, 0.0220, 0.7439, 0.0116, 0.0210, 3.0219, 0.0201, 0.0243, 0.0193],
+       requires_grad=True);
+2022-11-06 22:16:13 Epoch [13000/40000] Loss:0.004034 Loss_1:0.003347 Loss_2:0.000687 Loss_3:0.000000 Lr:0.000435 Time:29.968791s (6.39min in total, 13.27min remains)
+2022-11-06 22:16:42 Epoch [14000/40000] Loss:0.003716 Loss_1:0.003011 Loss_2:0.000705 Loss_3:0.000000 Lr:0.000417 Time:28.790663s (6.87min in total, 12.75min remains)
+2022-11-06 22:16:42 Testing & drawing...
+2022-11-06 22:16:42 Test: save figure in ./figure/linatat_id=100_2022-11-06-22-09-50/
+2022-11-06 22:16:43 Test: save pred in ./saves/linatat_id=100_2022-11-06-22-09-50_general/
+2022-11-06 22:16:43 [Loss]
+2022-11-06 22:16:43 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.2000e-03, 1.2000e-03]);
+2022-11-06 22:16:43 General parameter estimation: Parameter containing:
+tensor([0.0214, 0.0209, 0.9671, 0.0116, 0.0210, 3.1147, 0.0200, 0.0241, 0.0192],
+       requires_grad=True);
+2022-11-06 22:17:12 Epoch [15000/40000] Loss:0.003218 Loss_1:0.002471 Loss_2:0.000747 Loss_3:0.000000 Lr:0.000400 Time:29.475320s (7.36min in total, 12.27min remains)
+2022-11-06 22:17:40 Epoch [16000/40000] Loss:0.002495 Loss_1:0.001693 Loss_2:0.000801 Loss_3:0.000000 Lr:0.000385 Time:28.612546s (7.84min in total, 11.75min remains)
+2022-11-06 22:17:40 Testing & drawing...
+2022-11-06 22:17:40 Test: save figure in ./figure/linatat_id=100_2022-11-06-22-09-50/
+2022-11-06 22:17:41 Test: save pred in ./saves/linatat_id=100_2022-11-06-22-09-50_general/
+2022-11-06 22:17:41 [Loss]
+2022-11-06 22:17:41 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.2000e-03, 1.2000e-03]);
+2022-11-06 22:17:41 General parameter estimation: Parameter containing:
+tensor([0.0213, 0.0191, 1.2581, 0.0116, 0.0210, 2.3244, 0.0197, 0.0232, 0.0190],
+       requires_grad=True);
+2022-11-06 22:18:10 Epoch [17000/40000] Loss:0.001826 Loss_1:0.000977 Loss_2:0.000844 Loss_3:0.000005 Lr:0.000370 Time:29.792497s (8.33min in total, 11.27min remains)
+2022-11-06 22:18:39 Epoch [18000/40000] Loss:0.001255 Loss_1:0.000488 Loss_2:0.000765 Loss_3:0.000002 Lr:0.000357 Time:29.024594s (8.82min in total, 10.78min remains)
+2022-11-06 22:18:39 Testing & drawing...
+2022-11-06 22:18:39 Test: save figure in ./figure/linatat_id=100_2022-11-06-22-09-50/
+2022-11-06 22:18:40 Test: save pred in ./saves/linatat_id=100_2022-11-06-22-09-50_general/
+2022-11-06 22:18:40 [Loss]
+2022-11-06 22:18:40 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.2000e-03, 1.2000e-03]);
+2022-11-06 22:18:40 General parameter estimation: Parameter containing:
+tensor([0.0211, 0.0160, 1.5821, 0.0116, 0.0211, 1.3655, 0.0186, 0.0211, 0.0184],
+       requires_grad=True);
+2022-11-06 22:19:09 Epoch [19000/40000] Loss:0.000879 Loss_1:0.000280 Loss_2:0.000598 Loss_3:0.000001 Lr:0.000345 Time:30.018501s (9.32min in total, 10.30min remains)
+2022-11-06 22:19:38 Epoch [20000/40000] Loss:0.000578 Loss_1:0.000121 Loss_2:0.000457 Loss_3:0.000000 Lr:0.000333 Time:29.059717s (9.80min in total, 9.80min remains)
+2022-11-06 22:19:38 Testing & drawing...
+2022-11-06 22:19:38 Test: save figure in ./figure/linatat_id=100_2022-11-06-22-09-50/
+2022-11-06 22:19:39 Test: save pred in ./saves/linatat_id=100_2022-11-06-22-09-50_general/
+2022-11-06 22:19:39 [Loss]
+2022-11-06 22:19:39 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.2000e-03, 1.2000e-03]);
+2022-11-06 22:19:39 General parameter estimation: Parameter containing:
+tensor([0.0208, 0.0118, 1.8609, 0.0116, 0.0210, 1.9327, 0.0166, 0.0164, 0.0172],
+       requires_grad=True);
+2022-11-06 22:20:08 Epoch [21000/40000] Loss:0.000376 Loss_1:0.000046 Loss_2:0.000330 Loss_3:0.000000 Lr:0.000323 Time:30.123761s (10.30min in total, 9.32min remains)
+2022-11-06 22:20:37 Epoch [22000/40000] Loss:0.000236 Loss_1:0.000017 Loss_2:0.000218 Loss_3:0.000000 Lr:0.000313 Time:29.090520s (10.79min in total, 8.83min remains)
+2022-11-06 22:20:37 Testing & drawing...
+2022-11-06 22:20:37 Test: save figure in ./figure/linatat_id=100_2022-11-06-22-09-50/
+2022-11-06 22:20:38 Test: save pred in ./saves/linatat_id=100_2022-11-06-22-09-50_general/
+2022-11-06 22:20:38 [Loss]
+2022-11-06 22:20:38 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.2000e-03, 1.2000e-03]);
+2022-11-06 22:20:38 General parameter estimation: Parameter containing:
+tensor([0.0201, 0.0066, 2.0671, 0.0116, 0.0210, 2.4642, 0.0133, 0.0078, 0.0152],
+       requires_grad=True);
+2022-11-06 22:21:07 Epoch [23000/40000] Loss:0.000127 Loss_1:0.000010 Loss_2:0.000118 Loss_3:0.000000 Lr:0.000303 Time:29.904101s (11.29min in total, 8.34min remains)
+2022-11-06 22:21:36 Epoch [24000/40000] Loss:0.000131 Loss_1:0.000008 Loss_2:0.000123 Loss_3:0.000000 Lr:0.000294 Time:28.763914s (11.77min in total, 7.84min remains)
+2022-11-06 22:21:36 Testing & drawing...
+2022-11-06 22:21:36 Test: save figure in ./figure/linatat_id=100_2022-11-06-22-09-50/
+2022-11-06 22:21:37 Test: save pred in ./saves/linatat_id=100_2022-11-06-22-09-50_general/
+2022-11-06 22:21:37 [Loss]
+2022-11-06 22:21:37 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.2000e-03, 1.2000e-03]);
+2022-11-06 22:21:37 General parameter estimation: Parameter containing:
+tensor([0.0185, 0.0095, 2.2440, 0.0116, 0.0210, 2.8342, 0.0077, 0.0095, 0.0119],
+       requires_grad=True);
+2022-11-06 22:22:06 Epoch [25000/40000] Loss:0.000072 Loss_1:0.000006 Loss_2:0.000065 Loss_3:0.000000 Lr:0.000286 Time:30.209158s (12.27min in total, 7.36min remains)
+2022-11-06 22:22:35 Epoch [26000/40000] Loss:0.000093 Loss_1:0.000003 Loss_2:0.000090 Loss_3:0.000000 Lr:0.000278 Time:29.166405s (12.76min in total, 6.87min remains)
+2022-11-06 22:22:35 Testing & drawing...
+2022-11-06 22:22:35 Test: save figure in ./figure/linatat_id=100_2022-11-06-22-09-50/
+2022-11-06 22:22:36 Test: save pred in ./saves/linatat_id=100_2022-11-06-22-09-50_general/
+2022-11-06 22:22:36 [Loss]
+2022-11-06 22:22:36 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.2000e-03, 1.2000e-03]);
+2022-11-06 22:22:36 General parameter estimation: Parameter containing:
+tensor([0.0146, 0.0095, 2.6484, 0.0115, 0.0209, 3.1800, 0.0089, 0.0095, 0.0065],
+       requires_grad=True);
+2022-11-06 22:23:05 Epoch [27000/40000] Loss:0.000055 Loss_1:0.000000 Loss_2:0.000055 Loss_3:0.000000 Lr:0.000270 Time:30.010689s (13.26min in total, 6.38min remains)
+2022-11-06 22:23:34 Epoch [28000/40000] Loss:0.000082 Loss_1:0.000000 Loss_2:0.000082 Loss_3:0.000000 Lr:0.000263 Time:29.001068s (13.74min in total, 5.89min remains)
+2022-11-06 22:23:34 Testing & drawing...
+2022-11-06 22:23:34 Test: save figure in ./figure/linatat_id=100_2022-11-06-22-09-50/
+2022-11-06 22:23:35 Test: save pred in ./saves/linatat_id=100_2022-11-06-22-09-50_general/
+2022-11-06 22:23:35 [Loss]
+2022-11-06 22:23:35 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.2000e-03, 1.2000e-03]);
+2022-11-06 22:23:35 General parameter estimation: Parameter containing:
+tensor([0.0078, 0.0095, 2.9703, 0.0112, 0.0208, 3.5515, 0.0089, 0.0094, 0.0085],
+       requires_grad=True);
+2022-11-06 22:24:04 Epoch [29000/40000] Loss:0.000072 Loss_1:0.000000 Loss_2:0.000071 Loss_3:0.000000 Lr:0.000256 Time:30.170965s (14.24min in total, 5.40min remains)
+2022-11-06 22:24:34 Epoch [30000/40000] Loss:0.000062 Loss_1:0.000000 Loss_2:0.000061 Loss_3:0.000000 Lr:0.000250 Time:29.217240s (14.73min in total, 4.91min remains)
+2022-11-06 22:24:34 Testing & drawing...
+2022-11-06 22:24:34 Test: save figure in ./figure/linatat_id=100_2022-11-06-22-09-50/
+2022-11-06 22:24:35 Test: save pred in ./saves/linatat_id=100_2022-11-06-22-09-50_general/
+2022-11-06 22:24:35 [Loss]
+2022-11-06 22:24:35 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.2000e-03, 1.2000e-03]);
+2022-11-06 22:24:35 General parameter estimation: Parameter containing:
+tensor([9.5977e-04, 9.4517e-03, 3.1827e+00, 1.0736e-02, 2.0616e-02, 3.9002e+00,
+        8.8429e-03, 9.1179e-03, 8.5343e-03], requires_grad=True);
+2022-11-06 22:25:04 Epoch [31000/40000] Loss:0.000055 Loss_1:0.000000 Loss_2:0.000055 Loss_3:0.000000 Lr:0.000244 Time:30.228979s (15.23min in total, 4.42min remains)
+2022-11-06 22:25:33 Epoch [32000/40000] Loss:0.000048 Loss_1:0.000001 Loss_2:0.000047 Loss_3:0.000000 Lr:0.000238 Time:29.230445s (15.72min in total, 3.93min remains)
+2022-11-06 22:25:33 Testing & drawing...
+2022-11-06 22:25:33 Test: save figure in ./figure/linatat_id=100_2022-11-06-22-09-50/
+2022-11-06 22:25:34 Test: save pred in ./saves/linatat_id=100_2022-11-06-22-09-50_general/
+2022-11-06 22:25:34 [Loss]
+2022-11-06 22:25:34 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.2000e-03, 1.2000e-03]);
+2022-11-06 22:25:34 General parameter estimation: Parameter containing:
+tensor([0.0078, 0.0094, 3.5601, 0.0098, 0.0203, 4.2073, 0.0088, 0.0085, 0.0085],
+       requires_grad=True);
+2022-11-06 22:26:03 Epoch [33000/40000] Loss:0.000041 Loss_1:0.000001 Loss_2:0.000040 Loss_3:0.000000 Lr:0.000233 Time:30.226758s (16.22min in total, 3.44min remains)
+2022-11-06 22:26:33 Epoch [34000/40000] Loss:0.000033 Loss_1:0.000001 Loss_2:0.000033 Loss_3:0.000000 Lr:0.000227 Time:29.238464s (16.71min in total, 2.95min remains)
+2022-11-06 22:26:33 Testing & drawing...
+2022-11-06 22:26:33 Test: save figure in ./figure/linatat_id=100_2022-11-06-22-09-50/
+2022-11-06 22:26:34 Test: save pred in ./saves/linatat_id=100_2022-11-06-22-09-50_general/
+2022-11-06 22:26:34 [Loss]
+2022-11-06 22:26:34 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.2000e-03, 1.2000e-03]);
+2022-11-06 22:26:34 General parameter estimation: Parameter containing:
+tensor([0.0075, 0.0094, 3.9411, 0.0086, 0.0198, 4.4553, 0.0087, 0.0073, 0.0085],
+       requires_grad=True);
+2022-11-06 22:27:03 Epoch [35000/40000] Loss:0.000027 Loss_1:0.000001 Loss_2:0.000026 Loss_3:0.000000 Lr:0.000222 Time:30.673782s (17.22min in total, 2.46min remains)
+2022-11-06 22:27:33 Epoch [36000/40000] Loss:0.000020 Loss_1:0.000001 Loss_2:0.000019 Loss_3:0.000000 Lr:0.000217 Time:29.253419s (17.71min in total, 1.97min remains)
+2022-11-06 22:27:33 Testing & drawing...
+2022-11-06 22:27:33 Test: save figure in ./figure/linatat_id=100_2022-11-06-22-09-50/
+2022-11-06 22:27:34 Test: save pred in ./saves/linatat_id=100_2022-11-06-22-09-50_general/
+2022-11-06 22:27:34 [Loss]
+2022-11-06 22:27:34 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.2000e-03, 1.2000e-03]);
+2022-11-06 22:27:34 General parameter estimation: Parameter containing:
+tensor([0.0070, 0.0094, 4.2937, 0.0080, 0.0192, 4.6358, 0.0085, 0.0048, 0.0084],
+       requires_grad=True);
+2022-11-06 22:28:03 Epoch [37000/40000] Loss:0.000014 Loss_1:0.000000 Loss_2:0.000014 Loss_3:0.000000 Lr:0.000213 Time:30.201838s (18.21min in total, 1.48min remains)
+2022-11-06 22:28:32 Epoch [38000/40000] Loss:0.000010 Loss_1:0.000000 Loss_2:0.000009 Loss_3:0.000000 Lr:0.000208 Time:29.329066s (18.70min in total, 0.98min remains)
+2022-11-06 22:28:32 Testing & drawing...
+2022-11-06 22:28:32 Test: save figure in ./figure/linatat_id=100_2022-11-06-22-09-50/
+2022-11-06 22:28:33 Test: save pred in ./saves/linatat_id=100_2022-11-06-22-09-50_general/
+2022-11-06 22:28:33 [Loss]
+2022-11-06 22:28:33 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.2000e-03, 1.2000e-03]);
+2022-11-06 22:28:33 General parameter estimation: Parameter containing:
+tensor([5.8110e-03, 9.4187e-03, 4.6199e+00, 8.2472e-03, 1.8482e-02, 4.7583e+00,
+        8.1719e-03, 9.0798e-04, 8.3263e-03], requires_grad=True);
+2022-11-06 22:29:02 Epoch [39000/40000] Loss:0.000018 Loss_1:0.000000 Loss_2:0.000018 Loss_3:0.000000 Lr:0.000204 Time:30.192426s (19.21min in total, 0.49min remains)
+2022-11-06 22:29:31 Epoch [40000/40000] Loss:0.000015 Loss_1:0.000001 Loss_2:0.000015 Loss_3:0.000000 Lr:0.000200 Time:28.501845s (19.68min in total, 0.00min remains)
+2022-11-06 22:29:31 Testing & drawing...
+2022-11-06 22:29:31 Test: save figure in ./figure/linatat_id=100_2022-11-06-22-09-50/
+2022-11-06 22:29:32 Test: save pred in ./saves/linatat_id=100_2022-11-06-22-09-50_general/
+2022-11-06 22:29:32 [Loss]
+2022-11-06 22:29:32 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.2000e-03, 1.2000e-03]);
+2022-11-06 22:29:32 General parameter estimation: Parameter containing:
+tensor([3.6396e-03, 9.3892e-03, 4.8984e+00, 8.3685e-03, 1.7191e-02, 4.8577e+00,
+        7.2182e-03, 6.5359e-03, 8.0333e-03], requires_grad=True);

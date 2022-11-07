@@ -847,3 +847,222 @@ tensor([0.4973, 0.7672, 0.0895, 0.1330, 0.3084, 0.6331, 0.4911, 0.8974, 0.4546,
 2022-11-06 10:03:24 General parameter estimation: Parameter containing:
 tensor([0.4982, 0.7663, 0.0904, 0.1340, 0.3094, 0.6322, 0.4918, 0.8969, 0.4540,
         0.6340, 0.3509, 0.4036, 0.0243], requires_grad=True);
+2022-11-06 23:42:28 log_path: logs/test_2222.txt
+2022-11-06 23:42:28 cuda is available: False
+2022-11-06 23:42:28 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-11-06 23:42:29 using cpu
+2022-11-06 23:42:29 epoch = 2
+2022-11-06 23:42:29 epoch_step = 1
+2022-11-06 23:42:29 model_name = test
+2022-11-06 23:42:29 now_string = 2022-11-06-23-42-28
+2022-11-06 23:42:29 model_save_path_last = ./train/test_2_1_0.001_2022-11-06-23-42-28_last.pt
+2022-11-06 23:42:29 model_save_path_best = ./train/test_2_1_0.001_2022-11-06-23-42-28_best.pt
+2022-11-06 23:42:29 loss_save_path = ./loss/test_2_1_0.001_2022-11-06-23-42-28_loss_2.npy
+2022-11-06 23:42:29 args = {'epoch': 2, 'log_path': 'logs/test_2222.txt', 'mode': 'origin', 'epoch_step': 1, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '2222', 'lr': 0.001, 'main_path': '.', 'save_step': 1, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-11-06-23-42-28'}
+2022-11-06 23:42:29 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 480, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-11-06 23:42:29 --------------------------------------------------training start--------------------------------------------------
+2022-11-06 23:44:50 log_path: logs/test_2222.txt
+2022-11-06 23:44:50 cuda is available: False
+2022-11-06 23:44:50 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-11-06 23:44:51 using cpu
+2022-11-06 23:44:51 epoch = 2
+2022-11-06 23:44:51 epoch_step = 1
+2022-11-06 23:44:51 model_name = test
+2022-11-06 23:44:51 now_string = 2022-11-06-23-44-50
+2022-11-06 23:44:51 model_save_path_last = ./train/test_2_1_0.001_2022-11-06-23-44-50_last.pt
+2022-11-06 23:44:51 model_save_path_best = ./train/test_2_1_0.001_2022-11-06-23-44-50_best.pt
+2022-11-06 23:44:51 loss_save_path = ./loss/test_2_1_0.001_2022-11-06-23-44-50_loss_2.npy
+2022-11-06 23:44:51 args = {'epoch': 2, 'log_path': 'logs/test_2222.txt', 'mode': 'origin', 'epoch_step': 1, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '2222', 'lr': 0.001, 'main_path': '.', 'save_step': 1, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-11-06-23-44-50'}
+2022-11-06 23:44:51 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 480, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-11-06 23:44:51 --------------------------------------------------training start--------------------------------------------------
+2022-11-06 23:44:53 Epoch [00001/00002] Loss:7360.901367 Loss_1:0.343842 Loss_2:24.838770 Loss_3:7335.718750 Lr:0.001000 Time:2.301670s (0.04min in total, 0.04min remains)
+2022-11-06 23:44:53 Testing & drawing...
+2022-11-06 23:44:54 Test: save figure in ./figure/test_id=100_2022-11-06-23-44-50/
+2022-11-06 23:44:56 Test: save pred in ./saves/test_id=100_2022-11-06-23-44-50_general/
+2022-11-06 23:44:56 [Loss]
+2022-11-06 23:44:56 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03, 6.0000e-02,
+        6.0000e-02]);
+2022-11-06 23:44:56 General parameter estimation: Parameter containing:
+tensor([0.4973, 0.7672, 0.0895, 0.1330, 0.3084, 0.6331, 0.4911, 0.8974, 0.4546,
+        0.6333, 0.3499, 0.4027, 0.0233], requires_grad=True);
+2022-11-06 23:44:58 Epoch [00002/00002] Loss:5751.265625 Loss_1:0.324638 Loss_2:20.151134 Loss_3:5730.790039 Lr:0.001000 Time:5.277765s (0.13min in total, 0.00min remains)
+2022-11-06 23:44:59 Testing & drawing...
+2022-11-06 23:44:59 Test: save figure in ./figure/test_id=100_2022-11-06-23-44-50/
+2022-11-06 23:45:01 Test: save pred in ./saves/test_id=100_2022-11-06-23-44-50_general/
+2022-11-06 23:45:01 [Loss]
+2022-11-06 23:45:01 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03, 6.0000e-02,
+        6.0000e-02]);
+2022-11-06 23:45:01 General parameter estimation: Parameter containing:
+tensor([0.4982, 0.7663, 0.0904, 0.1340, 0.3094, 0.6322, 0.4918, 0.8969, 0.4540,
+        0.6340, 0.3509, 0.4036, 0.0243], requires_grad=True);
+2022-11-06 23:47:02 log_path: logs/test_2222.txt
+2022-11-06 23:47:02 cuda is available: False
+2022-11-06 23:47:02 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-11-06 23:47:02 using cpu
+2022-11-06 23:47:02 epoch = 2
+2022-11-06 23:47:02 epoch_step = 1
+2022-11-06 23:47:02 model_name = test
+2022-11-06 23:47:02 now_string = 2022-11-06-23-47-02
+2022-11-06 23:47:02 model_save_path_last = ./train/test_2_1_0.001_2022-11-06-23-47-02_last.pt
+2022-11-06 23:47:02 model_save_path_best = ./train/test_2_1_0.001_2022-11-06-23-47-02_best.pt
+2022-11-06 23:47:02 loss_save_path = ./loss/test_2_1_0.001_2022-11-06-23-47-02_loss_2.npy
+2022-11-06 23:47:02 args = {'epoch': 2, 'log_path': 'logs/test_2222.txt', 'mode': 'origin', 'epoch_step': 1, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '2222', 'lr': 0.001, 'main_path': '.', 'save_step': 1, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-11-06-23-47-02'}
+2022-11-06 23:47:02 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 480, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-11-06 23:47:02 --------------------------------------------------training start--------------------------------------------------
+2022-11-06 23:48:44 log_path: logs/test_2222.txt
+2022-11-06 23:48:44 cuda is available: False
+2022-11-06 23:48:44 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-11-06 23:48:45 using cpu
+2022-11-06 23:48:45 epoch = 2
+2022-11-06 23:48:45 epoch_step = 1
+2022-11-06 23:48:45 model_name = test
+2022-11-06 23:48:45 now_string = 2022-11-06-23-48-44
+2022-11-06 23:48:45 model_save_path_last = ./train/test_2_1_0.001_2022-11-06-23-48-44_last.pt
+2022-11-06 23:48:45 model_save_path_best = ./train/test_2_1_0.001_2022-11-06-23-48-44_best.pt
+2022-11-06 23:48:45 loss_save_path = ./loss/test_2_1_0.001_2022-11-06-23-48-44_loss_2.npy
+2022-11-06 23:48:45 args = {'epoch': 2, 'log_path': 'logs/test_2222.txt', 'mode': 'origin', 'epoch_step': 1, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '2222', 'lr': 0.001, 'main_path': '.', 'save_step': 1, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-11-06-23-48-44'}
+2022-11-06 23:48:45 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 480, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-11-06 23:48:45 --------------------------------------------------training start--------------------------------------------------
+2022-11-06 23:50:09 log_path: logs/test_2222.txt
+2022-11-06 23:50:09 cuda is available: False
+2022-11-06 23:50:09 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-11-06 23:50:09 using cpu
+2022-11-06 23:50:09 epoch = 2
+2022-11-06 23:50:09 epoch_step = 1
+2022-11-06 23:50:09 model_name = test
+2022-11-06 23:50:09 now_string = 2022-11-06-23-50-09
+2022-11-06 23:50:09 model_save_path_last = ./train/test_2_1_0.001_2022-11-06-23-50-09_last.pt
+2022-11-06 23:50:09 model_save_path_best = ./train/test_2_1_0.001_2022-11-06-23-50-09_best.pt
+2022-11-06 23:50:09 loss_save_path = ./loss/test_2_1_0.001_2022-11-06-23-50-09_loss_2.npy
+2022-11-06 23:50:09 args = {'epoch': 2, 'log_path': 'logs/test_2222.txt', 'mode': 'origin', 'epoch_step': 1, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '2222', 'lr': 0.001, 'main_path': '.', 'save_step': 1, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-11-06-23-50-09'}
+2022-11-06 23:50:09 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 480, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-11-06 23:50:09 --------------------------------------------------training start--------------------------------------------------
+2022-11-06 23:50:12 Epoch [00001/00002] Loss:6930.368164 Loss_1:0.338129 Loss_2:26.426832 Loss_3:6903.603027 Lr:0.001000 Time:2.385098s (0.04min in total, 0.04min remains)
+2022-11-06 23:50:12 Testing & drawing...
+2022-11-06 23:50:12 Test: save figure in ./figure/test_id=100_2022-11-06-23-50-09/
+2022-11-06 23:50:14 Test: save pred in ./saves/test_id=100_2022-11-06-23-50-09_general/
+2022-11-06 23:50:14 [Loss]
+2022-11-06 23:50:14 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03, 6.0000e-02,
+        6.0000e-02]);
+2022-11-06 23:50:14 General parameter estimation: Parameter containing:
+tensor([[0.4953, 0.7692, 0.0875,  ..., 0.1097, 0.3933, 0.2963],
+        [0.4027, 0.4028, 0.0503,  ..., 0.5059, 0.7077, 0.5402],
+        [0.5428, 0.5614, 0.1079,  ..., 0.7323, 0.2158, 0.7395],
+        ...,
+        [0.2372, 0.9109, 0.7655,  ..., 0.4131, 0.3255, 0.7785],
+        [0.2510, 0.5779, 0.2168,  ..., 0.6449, 0.6977, 0.8789],
+        [0.3476, 0.2176, 0.4599,  ..., 0.2423, 0.6081, 0.2692]],
+       requires_grad=True);
+2022-11-06 23:50:17 Epoch [00002/00002] Loss:5367.388672 Loss_1:0.318817 Loss_2:21.549477 Loss_3:5345.520508 Lr:0.001000 Time:5.444712s (0.13min in total, 0.00min remains)
+2022-11-06 23:50:17 Testing & drawing...
+2022-11-06 23:50:18 Test: save figure in ./figure/test_id=100_2022-11-06-23-50-09/
+2022-11-06 23:51:37 log_path: logs/test_2222.txt
+2022-11-06 23:51:37 cuda is available: False
+2022-11-06 23:51:37 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-11-06 23:51:37 using cpu
+2022-11-06 23:51:37 epoch = 2
+2022-11-06 23:51:37 epoch_step = 1
+2022-11-06 23:51:37 model_name = test
+2022-11-06 23:51:37 now_string = 2022-11-06-23-51-37
+2022-11-06 23:51:37 model_save_path_last = ./train/test_2_1_0.001_2022-11-06-23-51-37_last.pt
+2022-11-06 23:51:37 model_save_path_best = ./train/test_2_1_0.001_2022-11-06-23-51-37_best.pt
+2022-11-06 23:51:37 loss_save_path = ./loss/test_2_1_0.001_2022-11-06-23-51-37_loss_2.npy
+2022-11-06 23:51:37 args = {'epoch': 2, 'log_path': 'logs/test_2222.txt', 'mode': 'origin', 'epoch_step': 1, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '2222', 'lr': 0.001, 'main_path': '.', 'save_step': 1, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-11-06-23-51-37'}
+2022-11-06 23:51:37 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 480, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-11-06 23:51:37 --------------------------------------------------training start--------------------------------------------------
+2022-11-06 23:51:40 Epoch [00001/00002] Loss:6930.368164 Loss_1:0.338129 Loss_2:26.426832 Loss_3:6903.603027 Lr:0.001000 Time:2.434978s (0.04min in total, 0.04min remains)
+2022-11-06 23:51:40 Testing & drawing...
+2022-11-06 23:51:41 Test: save figure in ./figure/test_id=100_2022-11-06-23-51-37/
+2022-11-06 23:51:43 Test: save pred in ./saves/test_id=100_2022-11-06-23-51-37_general/
+2022-11-06 23:51:43 [Loss]
+2022-11-06 23:51:43 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03, 6.0000e-02,
+        6.0000e-02]);
+2022-11-06 23:51:43 avg General parameter estimation: 0.49933308362960815;
+2022-11-06 23:51:45 Epoch [00002/00002] Loss:5367.388672 Loss_1:0.318817 Loss_2:21.549477 Loss_3:5345.520508 Lr:0.001000 Time:5.474781s (0.13min in total, 0.00min remains)
+2022-11-06 23:51:46 Testing & drawing...
+2022-11-06 23:51:46 Test: save figure in ./figure/test_id=100_2022-11-06-23-51-37/
+2022-11-06 23:52:21 log_path: logs/test_2222.txt
+2022-11-06 23:52:21 cuda is available: False
+2022-11-06 23:52:21 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-11-06 23:52:21 using cpu
+2022-11-06 23:52:21 epoch = 2
+2022-11-06 23:52:21 epoch_step = 1
+2022-11-06 23:52:21 model_name = test
+2022-11-06 23:52:21 now_string = 2022-11-06-23-52-21
+2022-11-06 23:52:21 model_save_path_last = ./train/test_2_1_0.001_2022-11-06-23-52-21_last.pt
+2022-11-06 23:52:21 model_save_path_best = ./train/test_2_1_0.001_2022-11-06-23-52-21_best.pt
+2022-11-06 23:52:21 loss_save_path = ./loss/test_2_1_0.001_2022-11-06-23-52-21_loss_2.npy
+2022-11-06 23:52:21 args = {'epoch': 2, 'log_path': 'logs/test_2222.txt', 'mode': 'origin', 'epoch_step': 1, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '2222', 'lr': 0.001, 'main_path': '.', 'save_step': 1, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-11-06-23-52-21'}
+2022-11-06 23:52:21 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 480, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-11-06 23:52:21 --------------------------------------------------training start--------------------------------------------------
+2022-11-06 23:52:23 Epoch [00001/00002] Loss:6930.368164 Loss_1:0.338129 Loss_2:26.426832 Loss_3:6903.603027 Lr:0.001000 Time:2.435926s (0.04min in total, 0.04min remains)
+2022-11-06 23:52:24 Testing & drawing...
+2022-11-06 23:52:24 Test: save figure in ./figure/test_id=100_2022-11-06-23-52-21/
+2022-11-06 23:52:26 Test: save pred in ./saves/test_id=100_2022-11-06-23-52-21_general/
+2022-11-06 23:52:26 [Loss]
+2022-11-06 23:52:26 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03, 6.0000e-02,
+        6.0000e-02]);
+2022-11-06 23:52:26 avg General parameter estimation: torch.Size([13, 160]);
+2022-11-06 23:52:42 log_path: logs/test_2222.txt
+2022-11-06 23:52:42 cuda is available: False
+2022-11-06 23:52:42 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-11-06 23:52:42 using cpu
+2022-11-06 23:52:42 epoch = 2
+2022-11-06 23:52:42 epoch_step = 1
+2022-11-06 23:52:42 model_name = test
+2022-11-06 23:52:42 now_string = 2022-11-06-23-52-42
+2022-11-06 23:52:42 model_save_path_last = ./train/test_2_1_0.001_2022-11-06-23-52-42_last.pt
+2022-11-06 23:52:42 model_save_path_best = ./train/test_2_1_0.001_2022-11-06-23-52-42_best.pt
+2022-11-06 23:52:42 loss_save_path = ./loss/test_2_1_0.001_2022-11-06-23-52-42_loss_2.npy
+2022-11-06 23:52:42 args = {'epoch': 2, 'log_path': 'logs/test_2222.txt', 'mode': 'origin', 'epoch_step': 1, 'name': 'test', 'python': 'ModelBYCC.py', 'id': '2222', 'lr': 0.001, 'main_path': '.', 'save_step': 1, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-11-06-23-52-42'}
+2022-11-06 23:52:42 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 480, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-11-06 23:52:42 --------------------------------------------------training start--------------------------------------------------
+2022-11-06 23:52:44 Epoch [00001/00002] Loss:6930.368164 Loss_1:0.338129 Loss_2:26.426832 Loss_3:6903.603027 Lr:0.001000 Time:2.409613s (0.04min in total, 0.04min remains)
+2022-11-06 23:52:45 Testing & drawing...
+2022-11-06 23:52:45 Test: save figure in ./figure/test_id=100_2022-11-06-23-52-42/
+2022-11-06 23:52:47 Test: save pred in ./saves/test_id=100_2022-11-06-23-52-42_general/
+2022-11-06 23:52:47 [Loss]
+2022-11-06 23:52:47 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03, 6.0000e-02,
+        6.0000e-02]);
+2022-11-06 23:52:47 avg General parameter estimation: tensor([0.4758, 0.4789, 0.5262, 0.5010, 0.5024, 0.5194, 0.4807, 0.4775, 0.5065,
+        0.4896, 0.5135, 0.5177, 0.5021], grad_fn=<MeanBackward1>);
+2022-11-06 23:52:50 Epoch [00002/00002] Loss:5367.388672 Loss_1:0.318817 Loss_2:21.549477 Loss_3:5345.520508 Lr:0.001000 Time:5.411702s (0.13min in total, 0.00min remains)
+2022-11-06 23:52:50 Testing & drawing...
+2022-11-06 23:52:51 Test: save figure in ./figure/test_id=100_2022-11-06-23-52-42/
+2022-11-06 23:52:53 Test: save pred in ./saves/test_id=100_2022-11-06-23-52-42_general/
+2022-11-06 23:52:53 [Loss]
+2022-11-06 23:52:53 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03, 6.0000e-02,
+        6.0000e-02]);
+2022-11-06 23:52:53 avg General parameter estimation: tensor([0.4758, 0.4789, 0.5262, 0.5011, 0.5023, 0.5194, 0.4807, 0.4775, 0.5066,
+        0.4896, 0.5135, 0.5177, 0.5021], grad_fn=<MeanBackward1>);
