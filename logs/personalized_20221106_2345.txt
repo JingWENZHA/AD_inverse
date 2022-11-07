@@ -1,0 +1,182 @@
+2022-11-07 00:29:20 log_path: logs/personalized_20221106_2345.txt
+2022-11-07 00:29:20 cuda is available: False
+2022-11-07 00:29:20 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-11-07 00:29:20 using cpu
+2022-11-07 00:29:20 epoch = 30000
+2022-11-07 00:29:20 epoch_step = 1000
+2022-11-07 00:29:20 model_name = SimpleNetworkAD
+2022-11-07 00:29:20 now_string = 2022-11-07-00-29-20
+2022-11-07 00:29:20 model_save_path_last = ./train/personalized_20221106_30000_1000_0.001_2022-11-07-00-29-20_last.pt
+2022-11-07 00:29:20 model_save_path_best = ./train/personalized_20221106_30000_1000_0.001_2022-11-07-00-29-20_best.pt
+2022-11-07 00:29:20 loss_save_path = ./loss/personalized_20221106_30000_1000_0.001_2022-11-07-00-29-20_loss_30000.npy
+2022-11-07 00:29:20 args = {'epoch': 30000, 'log_path': 'logs/personalized_20221106_2345.txt', 'mode': 'origin', 'epoch_step': 1000, 'name': 'personalized_20221106', 'python': 'ModelBYCC.py', 'id': '2345', 'lr': 0.001, 'main_path': '.', 'save_step': 3000, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-11-07-00-29-20'}
+2022-11-07 00:29:20 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-11-07 00:29:20 --------------------------------------------------training start--------------------------------------------------
+2022-11-07 00:29:38 NUM_SUB: 26;----------------------------
+2022-11-07 00:29:38 Epoch [01000/30000] Loss:0.198647 Loss_1:0.196133 Loss_2:0.000609 Loss_3:0.001905 Lr:0.000909 Time:17.792316s (0.30min in total, 8.60min remains)
+2022-11-07 00:29:55 NUM_SUB: 26;----------------------------
+2022-11-07 00:29:55 Epoch [02000/30000] Loss:0.146550 Loss_1:0.145559 Loss_2:0.000001 Loss_3:0.000990 Lr:0.000833 Time:17.651331s (0.59min in total, 8.27min remains)
+2022-11-07 00:30:13 NUM_SUB: 26;----------------------------
+2022-11-07 00:30:13 Epoch [03000/30000] Loss:0.083750 Loss_1:0.083379 Loss_2:0.000001 Loss_3:0.000369 Lr:0.000769 Time:17.341079s (0.88min in total, 7.92min remains)
+2022-11-07 00:30:13 Testing & drawing...
+2022-11-07 00:30:13 Test: save figure in ./figure/personalized_20221106_id=100_2022-11-07-00-29-20/
+2022-11-07 00:30:14 Test: save pred in ./saves/personalized_20221106_id=100_2022-11-07-00-29-20_sub=26/
+2022-11-07 00:30:14 [Loss]
+2022-11-07 00:30:14 NUM_SUB: 26; True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-07 00:30:14 NUM_SUB: 26; Personalized parameter estimation: Parameter containing:
+tensor([-0.3027,  0.0745,  0.4051,  0.0216, -0.0276,  0.8083,  0.0679,  1.1574,
+         0.0967,  0.8725, -0.1431], requires_grad=True);
+2022-11-07 00:30:31 NUM_SUB: 26;----------------------------
+2022-11-07 00:30:31 Epoch [04000/30000] Loss:0.056776 Loss_1:0.056579 Loss_2:0.000003 Loss_3:0.000195 Lr:0.000714 Time:18.866070s (1.19min in total, 7.76min remains)
+2022-11-07 00:30:49 NUM_SUB: 26;----------------------------
+2022-11-07 00:30:49 Epoch [05000/30000] Loss:0.030099 Loss_1:0.029979 Loss_2:0.000005 Loss_3:0.000115 Lr:0.000667 Time:17.124148s (1.48min in total, 7.40min remains)
+2022-11-07 00:31:06 NUM_SUB: 26;----------------------------
+2022-11-07 00:31:06 Epoch [06000/30000] Loss:0.007317 Loss_1:0.007263 Loss_2:0.000008 Loss_3:0.000046 Lr:0.000625 Time:17.663234s (1.77min in total, 7.10min remains)
+2022-11-07 00:31:06 Testing & drawing...
+2022-11-07 00:31:06 Test: save figure in ./figure/personalized_20221106_id=100_2022-11-07-00-29-20/
+2022-11-07 00:31:08 Test: save pred in ./saves/personalized_20221106_id=100_2022-11-07-00-29-20_sub=26/
+2022-11-07 00:31:08 [Loss]
+2022-11-07 00:31:08 NUM_SUB: 26; True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-07 00:31:08 NUM_SUB: 26; Personalized parameter estimation: Parameter containing:
+tensor([-0.2656,  0.0860,  0.4017,  0.0312, -0.0129,  0.8093,  0.1065,  1.1583,
+         0.0705,  0.8783, -0.1160], requires_grad=True);
+2022-11-07 00:31:25 NUM_SUB: 26;----------------------------
+2022-11-07 00:31:25 Epoch [07000/30000] Loss:0.000517 Loss_1:0.000502 Loss_2:0.000010 Loss_3:0.000005 Lr:0.000588 Time:18.820432s (2.09min in total, 6.86min remains)
+2022-11-07 00:31:42 NUM_SUB: 26;----------------------------
+2022-11-07 00:31:42 Epoch [08000/30000] Loss:0.000094 Loss_1:0.000086 Loss_2:0.000008 Loss_3:0.000000 Lr:0.000556 Time:17.175697s (2.37min in total, 6.53min remains)
+2022-11-07 00:32:00 NUM_SUB: 26;----------------------------
+2022-11-07 00:32:00 Epoch [09000/30000] Loss:0.000042 Loss_1:0.000037 Loss_2:0.000004 Loss_3:0.000000 Lr:0.000526 Time:17.937856s (2.67min in total, 6.24min remains)
+2022-11-07 00:32:00 Testing & drawing...
+2022-11-07 00:32:00 Test: save figure in ./figure/personalized_20221106_id=100_2022-11-07-00-29-20/
+2022-11-07 00:32:01 Test: save pred in ./saves/personalized_20221106_id=100_2022-11-07-00-29-20_sub=26/
+2022-11-07 00:32:01 [Loss]
+2022-11-07 00:32:01 NUM_SUB: 26; True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-07 00:32:01 NUM_SUB: 26; Personalized parameter estimation: Parameter containing:
+tensor([-0.1232,  0.0325,  0.3940,  0.0329, -0.0107,  0.8108,  0.1053,  1.1404,
+         0.0537,  0.8863, -0.0912], requires_grad=True);
+2022-11-07 00:32:19 NUM_SUB: 26;----------------------------
+2022-11-07 00:32:19 Epoch [10000/30000] Loss:0.000011 Loss_1:0.000009 Loss_2:0.000001 Loss_3:0.000000 Lr:0.000500 Time:18.559727s (2.98min in total, 5.96min remains)
+2022-11-07 00:32:35 NUM_SUB: 26;----------------------------
+2022-11-07 00:32:35 Epoch [11000/30000] Loss:0.000001 Loss_1:0.000001 Loss_2:0.000000 Loss_3:0.000000 Lr:0.000476 Time:16.519710s (3.26min in total, 5.63min remains)
+2022-11-07 00:32:52 NUM_SUB: 26;----------------------------
+2022-11-07 00:32:52 Epoch [12000/30000] Loss:0.000000 Loss_1:0.000000 Loss_2:0.000000 Loss_3:0.000000 Lr:0.000455 Time:16.336154s (3.53min in total, 5.29min remains)
+2022-11-07 00:32:52 Testing & drawing...
+2022-11-07 00:32:52 Test: save figure in ./figure/personalized_20221106_id=100_2022-11-07-00-29-20/
+2022-11-07 00:32:53 Test: save pred in ./saves/personalized_20221106_id=100_2022-11-07-00-29-20_sub=26/
+2022-11-07 00:32:53 [Loss]
+2022-11-07 00:32:53 NUM_SUB: 26; True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-07 00:32:53 NUM_SUB: 26; Personalized parameter estimation: Parameter containing:
+tensor([ 0.0229, -0.0044,  0.3925,  0.0313, -0.0098,  0.8141,  0.1548,  1.0835,
+         0.0377,  0.8898, -0.1098], requires_grad=True);
+2022-11-07 00:33:09 NUM_SUB: 26;----------------------------
+2022-11-07 00:33:09 Epoch [13000/30000] Loss:0.000000 Loss_1:0.000000 Loss_2:0.000000 Loss_3:0.000000 Lr:0.000435 Time:17.563385s (3.82min in total, 5.00min remains)
+2022-11-07 00:33:25 NUM_SUB: 26;----------------------------
+2022-11-07 00:33:25 Epoch [14000/30000] Loss:0.000000 Loss_1:0.000000 Loss_2:0.000000 Loss_3:0.000000 Lr:0.000417 Time:16.277460s (4.09min in total, 4.68min remains)
+2022-11-07 00:33:42 NUM_SUB: 26;----------------------------
+2022-11-07 00:33:42 Epoch [15000/30000] Loss:0.000000 Loss_1:0.000000 Loss_2:0.000000 Loss_3:0.000000 Lr:0.000400 Time:16.288502s (4.37min in total, 4.37min remains)
+2022-11-07 00:33:42 Testing & drawing...
+2022-11-07 00:33:42 Test: save figure in ./figure/personalized_20221106_id=100_2022-11-07-00-29-20/
+2022-11-07 00:33:43 Test: save pred in ./saves/personalized_20221106_id=100_2022-11-07-00-29-20_sub=26/
+2022-11-07 00:33:43 [Loss]
+2022-11-07 00:33:43 NUM_SUB: 26; True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-07 00:33:43 NUM_SUB: 26; Personalized parameter estimation: Parameter containing:
+tensor([ 0.0237, -0.0046,  0.3925,  0.0312, -0.0099,  0.8242,  0.1697,  1.0610,
+         0.0335,  0.8885, -0.1179], requires_grad=True);
+2022-11-07 00:33:59 NUM_SUB: 26;----------------------------
+2022-11-07 00:33:59 Epoch [16000/30000] Loss:0.000000 Loss_1:0.000000 Loss_2:0.000000 Loss_3:0.000000 Lr:0.000385 Time:17.562585s (4.66min in total, 4.08min remains)
+2022-11-07 00:34:16 NUM_SUB: 26;----------------------------
+2022-11-07 00:34:16 Epoch [17000/30000] Loss:0.000000 Loss_1:0.000000 Loss_2:0.000000 Loss_3:0.000000 Lr:0.000370 Time:16.322247s (4.93min in total, 3.77min remains)
+2022-11-07 00:34:32 NUM_SUB: 26;----------------------------
+2022-11-07 00:34:32 Epoch [18000/30000] Loss:0.000000 Loss_1:0.000000 Loss_2:0.000000 Loss_3:0.000000 Lr:0.000357 Time:16.712041s (5.21min in total, 3.47min remains)
+2022-11-07 00:34:32 Testing & drawing...
+2022-11-07 00:34:32 Test: save figure in ./figure/personalized_20221106_id=100_2022-11-07-00-29-20/
+2022-11-07 00:34:34 Test: save pred in ./saves/personalized_20221106_id=100_2022-11-07-00-29-20_sub=26/
+2022-11-07 00:34:34 [Loss]
+2022-11-07 00:34:34 NUM_SUB: 26; True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-07 00:34:34 NUM_SUB: 26; Personalized parameter estimation: Parameter containing:
+tensor([ 0.0237, -0.0046,  0.3926,  0.0311, -0.0102,  0.8471,  0.1745,  1.0582,
+         0.0325,  0.8840, -0.1204], requires_grad=True);
+2022-11-07 00:34:51 NUM_SUB: 26;----------------------------
+2022-11-07 00:34:51 Epoch [19000/30000] Loss:0.000000 Loss_1:0.000000 Loss_2:0.000000 Loss_3:0.000000 Lr:0.000345 Time:18.720568s (5.52min in total, 3.20min remains)
+2022-11-07 00:35:08 NUM_SUB: 26;----------------------------
+2022-11-07 00:35:08 Epoch [20000/30000] Loss:0.000000 Loss_1:0.000000 Loss_2:0.000000 Loss_3:0.000000 Lr:0.000333 Time:16.899954s (5.80min in total, 2.90min remains)
+2022-11-07 00:35:25 NUM_SUB: 26;----------------------------
+2022-11-07 00:35:25 Epoch [21000/30000] Loss:0.000000 Loss_1:0.000000 Loss_2:0.000000 Loss_3:0.000000 Lr:0.000323 Time:16.801676s (6.08min in total, 2.61min remains)
+2022-11-07 00:35:25 Testing & drawing...
+2022-11-07 00:35:25 Test: save figure in ./figure/personalized_20221106_id=100_2022-11-07-00-29-20/
+2022-11-07 00:35:26 Test: save pred in ./saves/personalized_20221106_id=100_2022-11-07-00-29-20_sub=26/
+2022-11-07 00:35:26 [Loss]
+2022-11-07 00:35:26 NUM_SUB: 26; True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-07 00:35:26 NUM_SUB: 26; Personalized parameter estimation: Parameter containing:
+tensor([ 0.0237, -0.0046,  0.3927,  0.0311, -0.0105,  0.8722,  0.1771,  1.0600,
+         0.0322,  0.8779, -0.1216], requires_grad=True);
+2022-11-07 00:35:43 NUM_SUB: 26;----------------------------
+2022-11-07 00:35:43 Epoch [22000/30000] Loss:0.000000 Loss_1:0.000000 Loss_2:0.000000 Loss_3:0.000000 Lr:0.000313 Time:18.556282s (6.39min in total, 2.32min remains)
+2022-11-07 00:36:01 NUM_SUB: 26;----------------------------
+2022-11-07 00:36:01 Epoch [23000/30000] Loss:0.000000 Loss_1:0.000000 Loss_2:0.000000 Loss_3:0.000000 Lr:0.000303 Time:17.676630s (6.69min in total, 2.04min remains)
+2022-11-07 00:36:18 NUM_SUB: 26;----------------------------
+2022-11-07 00:36:18 Epoch [24000/30000] Loss:0.000000 Loss_1:0.000000 Loss_2:0.000000 Loss_3:0.000000 Lr:0.000294 Time:16.742871s (6.97min in total, 1.74min remains)
+2022-11-07 00:36:18 Testing & drawing...
+2022-11-07 00:36:18 Test: save figure in ./figure/personalized_20221106_id=100_2022-11-07-00-29-20/
+2022-11-07 00:36:19 Test: save pred in ./saves/personalized_20221106_id=100_2022-11-07-00-29-20_sub=26/
+2022-11-07 00:36:19 [Loss]
+2022-11-07 00:36:19 NUM_SUB: 26; True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-07 00:36:19 NUM_SUB: 26; Personalized parameter estimation: Parameter containing:
+tensor([ 0.0237, -0.0046,  0.3933,  0.0312, -0.0109,  0.8923,  0.1789,  1.0638,
+         0.0321,  0.8710, -0.1223], requires_grad=True);
+2022-11-07 00:36:36 NUM_SUB: 26;----------------------------
+2022-11-07 00:36:36 Epoch [25000/30000] Loss:0.000000 Loss_1:0.000000 Loss_2:0.000000 Loss_3:0.000000 Lr:0.000286 Time:18.217299s (7.27min in total, 1.45min remains)
+2022-11-07 00:36:53 NUM_SUB: 26;----------------------------
+2022-11-07 00:36:53 Epoch [26000/30000] Loss:0.000000 Loss_1:0.000000 Loss_2:0.000000 Loss_3:0.000000 Lr:0.000278 Time:17.154211s (7.56min in total, 1.16min remains)
+2022-11-07 00:37:10 NUM_SUB: 26;----------------------------
+2022-11-07 00:37:10 Epoch [27000/30000] Loss:0.000000 Loss_1:0.000000 Loss_2:0.000000 Loss_3:0.000000 Lr:0.000270 Time:17.332619s (7.84min in total, 0.87min remains)
+2022-11-07 00:37:10 Testing & drawing...
+2022-11-07 00:37:10 Test: save figure in ./figure/personalized_20221106_id=100_2022-11-07-00-29-20/
+2022-11-07 00:37:12 Test: save pred in ./saves/personalized_20221106_id=100_2022-11-07-00-29-20_sub=26/
+2022-11-07 00:37:12 [Loss]
+2022-11-07 00:37:12 NUM_SUB: 26; True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-07 00:37:12 NUM_SUB: 26; Personalized parameter estimation: Parameter containing:
+tensor([ 0.0236, -0.0045,  0.3960,  0.0313, -0.0112,  0.9078,  0.1800,  1.0691,
+         0.0322,  0.8634, -0.1226], requires_grad=True);
+2022-11-07 00:37:29 NUM_SUB: 26;----------------------------
+2022-11-07 00:37:29 Epoch [28000/30000] Loss:0.000000 Loss_1:0.000000 Loss_2:0.000000 Loss_3:0.000000 Lr:0.000263 Time:18.564875s (8.15min in total, 0.58min remains)
+2022-11-07 00:37:46 NUM_SUB: 26;----------------------------
+2022-11-07 00:37:46 Epoch [29000/30000] Loss:0.000000 Loss_1:0.000000 Loss_2:0.000000 Loss_3:0.000000 Lr:0.000256 Time:16.657348s (8.43min in total, 0.29min remains)
+2022-11-07 00:38:03 NUM_SUB: 26;----------------------------
+2022-11-07 00:38:03 Epoch [30000/30000] Loss:0.000000 Loss_1:0.000000 Loss_2:0.000000 Loss_3:0.000000 Lr:0.000250 Time:17.510161s (8.72min in total, 0.00min remains)
+2022-11-07 00:38:03 Testing & drawing...
+2022-11-07 00:38:03 Test: save figure in ./figure/personalized_20221106_id=100_2022-11-07-00-29-20/
+2022-11-07 00:38:04 Test: save pred in ./saves/personalized_20221106_id=100_2022-11-07-00-29-20_sub=26/
+2022-11-07 00:38:04 [Loss]
+2022-11-07 00:38:04 NUM_SUB: 26; True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-07 00:38:04 NUM_SUB: 26; Personalized parameter estimation: Parameter containing:
+tensor([ 0.0233, -0.0045,  0.4059,  0.0314, -0.0114,  0.9200,  0.1805,  1.0740,
+         0.0325,  0.8572, -0.1227], requires_grad=True);
+2022-11-07 00:38:05 using cpu
+2022-11-07 00:38:05 epoch = 30000
+2022-11-07 00:38:05 epoch_step = 1000
+2022-11-07 00:38:05 model_name = SimpleNetworkAD
+2022-11-07 00:38:05 now_string = 2022-11-07-00-29-20
+2022-11-07 00:38:05 model_save_path_last = ./train/personalized_20221106_30000_1000_0.001_2022-11-07-00-29-20_last.pt
+2022-11-07 00:38:05 model_save_path_best = ./train/personalized_20221106_30000_1000_0.001_2022-11-07-00-29-20_best.pt
+2022-11-07 00:38:05 loss_save_path = ./loss/personalized_20221106_30000_1000_0.001_2022-11-07-00-29-20_loss_30000.npy
+2022-11-07 00:38:05 args = {'epoch': 30000, 'log_path': 'logs/personalized_20221106_2345.txt', 'mode': 'origin', 'epoch_step': 1000, 'name': 'personalized_20221106', 'python': 'ModelBYCC.py', 'id': '2345', 'lr': 0.001, 'main_path': '.', 'save_step': 3000, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-11-07-00-29-20'}
+2022-11-07 00:38:05 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 3, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-11-07 00:38:05 --------------------------------------------------training start--------------------------------------------------
+2022-11-07 00:38:22 NUM_SUB: 33;----------------------------
+2022-11-07 00:38:22 Epoch [01000/30000] Loss:0.106636 Loss_1:0.100773 Loss_2:0.004903 Loss_3:0.000960 Lr:0.000909 Time:17.568360s (0.29min in total, 8.49min remains)
+2022-11-07 00:38:40 NUM_SUB: 33;----------------------------
+2022-11-07 00:38:40 Epoch [02000/30000] Loss:0.083411 Loss_1:0.082592 Loss_2:0.000002 Loss_3:0.000816 Lr:0.000833 Time:17.331515s (0.58min in total, 8.14min remains)

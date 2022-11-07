@@ -271,10 +271,10 @@ def train_ad(model, args, config, now_string):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     # model = model_framework(config).to(device)
     model.train()
-    model_save_path_last = f"{args.main_path}/train/{model.model_name}_{args.epoch}_{args.epoch_step}_{args.lr}_{now_string}_last.pt"
-    model_save_path_best = f"{args.main_path}/train/{model.model_name}_{args.epoch}_{args.epoch_step}_{args.lr}_{now_string}_best.pt"
-    loss_save_path = f"{args.main_path}/loss/{model.model_name}_{args.epoch}_{args.epoch_step}_{args.lr}_{now_string}_loss_{args.epoch}.npy"
-    board_save_path = f"{args.main_path}/board/{model.model_name}_{args.epoch}_{args.epoch_step}_{args.lr}_{now_string}_board"
+    model_save_path_last = f"{args.main_path}/train/{args.name}_{args.epoch}_{args.epoch_step}_{args.lr}_{now_string}_last.pt"
+    model_save_path_best = f"{args.main_path}/train/{args.name}_{args.epoch}_{args.epoch_step}_{args.lr}_{now_string}_best.pt"
+    loss_save_path = f"{args.main_path}/loss/{args.name}_{args.epoch}_{args.epoch_step}_{args.lr}_{now_string}_loss_{args.epoch}.npy"
+    board_save_path = f"{args.main_path}/board/{args.name}_{args.epoch}_{args.epoch_step}_{args.lr}_{now_string}_board"
     myprint("using {}".format(str(device)), args.log_path)
     myprint("epoch = {}".format(args.epoch), args.log_path)
     myprint("epoch_step = {}".format(args.epoch_step), args.log_path)
@@ -423,7 +423,7 @@ def test_ad(model, args, config, now_string, show_flag=True, gt=None, loss_2_det
 
     x = [item[0] for item in model.decode_t(t).cpu().detach().numpy()]
 
-    figure_save_path_folder = f"{args.main_path}/figure/{model.model_name}_id={args.seed}_{args.overall_start}/"
+    figure_save_path_folder = f"{args.main_path}/figure/{args.name}_id={args.seed}_{args.overall_start}/"
     myprint("Test: save figure in {}".format(figure_save_path_folder), args.log_path)
     if not os.path.exists(figure_save_path_folder):
         os.makedirs(figure_save_path_folder)
@@ -431,9 +431,9 @@ def test_ad(model, args, config, now_string, show_flag=True, gt=None, loss_2_det
     colorlist = ['r', 'g', 'b']
     labels = ["A", "T", "N"]
 
-    m = MultiSubplotDraw(row=3, col=3, fig_size=(39, 30), tight_layout_flag=True, show_flag=False, save_flag=True,
+    m = MultiSubplotDraw(row=2, col=3, fig_size=(39, 20), tight_layout_flag=True, show_flag=False, save_flag=True,
                          save_path="{}/{}".format(figure_save_path_folder,
-                                                  f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_sub={model.num_sub}.png"),
+                                                  f"{get_now_string()}_{args.name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_sub={model.num_sub}.png"),
                          save_dpi=100)
     for i in range(3):
         ax =m.add_subplot(
@@ -441,8 +441,8 @@ def test_ad(model, args, config, now_string, show_flag=True, gt=None, loss_2_det
                 x_list=x,
                 color_list=colorlist[i] * 184,
                 line_style_list=["solid"] * 184,
-                line_width = 6,
-                fig_title= "num_sub = {}: {}".format(model.num_sub, labels[i]),
+                line_width=6, fig_title_size=40,x_label_size=30,y_label_size=30, number_label_size=25,
+                fig_title= "Subject {}: {}".format(model.num_sub, labels[i]),
             )
 
         ax.scatter(x = model.gt_ytrue_month.cpu().detach().numpy(), y = model.gt_ytrue[:,i].cpu().detach().numpy(), color = colorlist[i], marker = 'x', s = 400, linewidths= 6)
@@ -481,36 +481,30 @@ def test_ad(model, args, config, now_string, show_flag=True, gt=None, loss_2_det
 
     m.add_subplot(x_list=x, y_lists=[A_TonA, A_prod,A_TonA_matlab,A_prod_matlab ],
                 color_list=['b', 'r', 'b', 'r'], fig_title= "Euqation A", line_style_list=["solid", "solid","dashed", "dashed"],
-                legend_list=["A_TonA", "A_prod","A_TonA_matlab", "A_prod_matlab"], line_width = 6)
+                legend_list=["A_TonA", "A_prod","A_TonA_matlab", "A_prod_matlab"],
+                fig_title_size=40,x_label_size=30,y_label_size=30, number_label_size=25,)
 
     m.add_subplot(x_list=x, y_lists=[T_AonT, T_prod, T_AonT_matlab, T_prod_matlab],
                   color_list=['b', 'r', 'b', 'r'], fig_title="Euqation T",
                   line_style_list=["solid", "solid", "dashed", "dashed"],
-                  legend_list=["T_AonT", "T_prod", "T_AonT_matlab", "T_prod_matlab"], line_width = 6)
+                  legend_list=["T_AonT", "T_prod", "T_AonT_matlab", "T_prod_matlab"],
+                  fig_title_size=40,x_label_size=30,y_label_size=30, number_label_size=25,)
 
-    m.add_subplot(x_list=x, y_lists=[N_AonN,  N_AonN_matlab],
-                  color_list=['b', 'b'], fig_title="Euqation N part 1",
-                  line_style_list=["solid", "dashed"],
-                  legend_list=["N_AonN", "N_AonN_matlab"], line_width = 6)
-
-    m.add_subplot(x_list=x, y_lists=[N_TonN, N_TonN_matlab],
-                  color_list=['b', 'b'], fig_title="Euqation N part 2",
-                  line_style_list=["solid", "dashed"],
-                  legend_list=["N_TonN", "N_TonN_matlab"], line_width = 6)
-
-    m.add_subplot(x_list=x, y_lists=[N_ATonN, N_ATonN_matlab],
-                  color_list=['b', 'b'], fig_title="Euqation N part 3",
-                  line_style_list=["solid", "dashed"],
-                  legend_list=["N_ATonN", "N_ATonN_matlab"], line_width = 6)
+    m.add_subplot(x_list=x, y_lists=[N_AonN, N_TonN, N_ATonN, N_AonN_matlab, N_TonN_matlab, N_ATonN_matlab],
+                  color_list=['b', 'r', 'g', 'b', 'r', 'g'], fig_title="Euqation N (linear)",
+                  line_style_list=["solid", "solid", "solid", "dashed", "dashed", "dashed"],
+                  legend_list=["N_AonN", "N_TonN", "N_ATonN", "N_AonN_matlab", "N_TonN_matlab", "N_ATonN_matlab"],
+                  fig_title_size=40,x_label_size=30,y_label_size=30, number_label_size=25, fig_x_label="time",
+                  fig_y_label="influence")
 
     m.draw()
 
-    pred_save_path_folder = f"{args.main_path}/saves/{model.model_name}_id={args.seed}_{args.overall_start}_sub={model.num_sub}/"
+    pred_save_path_folder = f"{args.main_path}/saves/{args.name}_id={args.seed}_{args.overall_start}_sub={model.num_sub}/"
     myprint("Test: save pred in {}".format(pred_save_path_folder), args.log_path)
     if not os.path.exists(pred_save_path_folder):
         os.makedirs(pred_save_path_folder)
-    np.save("{}/{}".format(pred_save_path_folder,f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_pred"),y)
-    np.save("{}/{}".format(pred_save_path_folder,f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_para"),param_ls)
+    np.save("{}/{}".format(pred_save_path_folder,f"{get_now_string()}_{args.name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_pred"),y)
+    np.save("{}/{}".format(pred_save_path_folder,f"{get_now_string()}_{args.name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_para"),param_ls)
 
 
 class Args:
@@ -556,9 +550,9 @@ def run_ad_truth(opt):
         models.append(model)
 
     print("{}/Personalized_para_pred/{}".format(args.main_path,
-                           f"{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_pred"));
+                           f"{args.name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_pred"));
     np.save("{}/Personalized_para_pred/{}".format(args.main_path,
-                           f"{get_now_string()}_{model.model_name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_pred"),personalized_para)
+                           f"{get_now_string()}_{args.name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_pred"),personalized_para)
 
     return model
 

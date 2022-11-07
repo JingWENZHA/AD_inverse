@@ -39,7 +39,7 @@ def draw_two_dimension(
     save_flag=False,
     save_path=None,
     save_dpi=300,
-    fig_title_size=60,
+    fig_title_size=40,
     fig_grid=False,
     marker_size=0,
     line_width=2,
