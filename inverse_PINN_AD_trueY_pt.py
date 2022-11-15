@@ -482,19 +482,21 @@ def test_ad(model, args, config, now_string, show_flag=True, gt=None, loss_2_det
     m.add_subplot(x_list=x, y_lists=[A_TonA, A_prod,A_TonA_matlab,A_prod_matlab ],
                 color_list=['b', 'r', 'b', 'r'], fig_title= "Euqation A", line_style_list=["solid", "solid","dashed", "dashed"],
                 legend_list=["A_TonA", "A_prod","A_TonA_matlab", "A_prod_matlab"],
-                fig_title_size=40,x_label_size=30,y_label_size=30, number_label_size=25,)
+                fig_title_size=40,x_label_size=30,y_label_size=30, number_label_size=25,fig_x_label="time", line_width=6,
+                  fig_y_label="influence")
 
     m.add_subplot(x_list=x, y_lists=[T_AonT, T_prod, T_AonT_matlab, T_prod_matlab],
                   color_list=['b', 'r', 'b', 'r'], fig_title="Euqation T",
                   line_style_list=["solid", "solid", "dashed", "dashed"],
                   legend_list=["T_AonT", "T_prod", "T_AonT_matlab", "T_prod_matlab"],
-                  fig_title_size=40,x_label_size=30,y_label_size=30, number_label_size=25,)
+                  fig_title_size=40,x_label_size=30,y_label_size=30, number_label_size=25,fig_x_label="time", line_width=6,
+                  fig_y_label="influence")
 
     m.add_subplot(x_list=x, y_lists=[N_AonN, N_TonN, N_ATonN, N_AonN_matlab, N_TonN_matlab, N_ATonN_matlab],
-                  color_list=['b', 'r', 'g', 'b', 'r', 'g'], fig_title="Euqation N (linear)",
+                  color_list=['b', 'r', 'g', 'b', 'r', 'g'], fig_title="Euqation N",
                   line_style_list=["solid", "solid", "solid", "dashed", "dashed", "dashed"],
                   legend_list=["N_AonN", "N_TonN", "N_ATonN", "N_AonN_matlab", "N_TonN_matlab", "N_ATonN_matlab"],
-                  fig_title_size=40,x_label_size=30,y_label_size=30, number_label_size=25, fig_x_label="time",
+                  fig_title_size=40,x_label_size=30,y_label_size=30, number_label_size=25, fig_x_label="time", line_width=6,
                   fig_y_label="influence")
 
     m.draw()

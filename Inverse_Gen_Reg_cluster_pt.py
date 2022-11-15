@@ -31,30 +31,14 @@ class GroundTruthAD:
         # self.y_true = torch.tensor([[1.724699342, 1.280493663, 2.862967753],[1.743231802, 1.293007944, 2.785592653],[
         #                             1.756844593, 1.328899287, 2.817748564],[1.795983261, 1.387416558, 2.884389651],[
         #                             1.918288236, 1.64447189, 2.913796804]]).float()
-        mat = scipy.io.loadmat('./Data/label_nodal_avg_20221106.mat')
+        mat = scipy.io.loadmat('./Data/sub39_regional_20221107.mat')
         # print("wtf")
+        num_sub = 39
+        self.y_true = torch.tensor(mat['sub39_regional'].reshape(13,480)).float()
+        mat = scipy.io.loadmat('./Data/data_20220915.mat')
+        self.y_true_month = torch.tensor(mat['ptMonth_stacked_20220915'][num_sub, :].reshape(13)).float()
+        print("GroundTruthAD", self.y_true_month)
 
-        self.y_true = torch.tensor(mat['label_nodal_avg'].reshape(5,480)).float()
-
-        # self.y_true = torch.tensor([[1.724699342, 1.280493663, 1.828603319], [1.743231802, 1.293007944, 1.851228219], [
-        #     1.756844593, 1.328899287, 1.88338413], [1.795983261, 1.387416558, 1.950025217], [
-        #                                 1.918288236, 1.64447189, 1.97943237]]).float()
-
-        # Amax = 2.3473
-        # Amin = 1.1658
-        # Nmax = 2.0049
-        # Nmin = 1.6222
-        # Tmax = 1.6819
-        # Tmin = 0.8740
-
-        # scale_arr = np.array([[Amax, Amin], [Tmax, Tmin], [Nmax, Nmin]])
-
-        # for i in range(3):
-        #     self.y_true[:, i*160:(i+1)*160] = (self.y_true[:, i*160:(i+1)*160] - scale_arr[i, 1]) / (scale_arr[i, 0] - scale_arr[i, 1])
-
-        # print("self.y_true: {} \n".format(self.y_true))
-
-        self.y_true_month = torch.tensor([0, 406, 812, 1218, 1629])
         # print("------------------------------GROUND_TRUTH_AD--------------------------------------------", args.log_path)
 
 
@@ -277,7 +261,6 @@ class SimpleNetworkAD(nn.Module):
         #                                 self.k_t, self.k_at, self.k_ma,
         #                                 self.k_tn, self.k_mtn,self.k_an,
         #                                 self.k_man, self.k_atn])
-        # print("sht ",self.general_para[0,:].shape,  A.shape )
         f_a = A_t - (self.general_para[0,:] * A * (1 - A) + (self.general_para[1,:] * torch.pow(T, self.theta)) / (
                     torch.pow((self.general_para[2,:]), self.theta) + torch.pow(T,self.theta)) - self.general_para[11,:]*torch.matmul(A,self.Laplacian))
         f_t = T_t - (self.general_para[3,:] * T * (1 - T) + (self.general_para[4,:] * torch.pow(A, self.delta)) / (
@@ -301,11 +284,17 @@ class SimpleNetworkAD(nn.Module):
         # zeros_1D = torch.tensor([[0.0]] * self.config.N).to(self.device)
 
         zeros_2D = torch.tensor([[0.0 for i in range(self.config.Node)] for j in range(self.config.N)]).to(self.device)
-        # print(y.shape,self.gt_ytrue_month)
-        # atn_nodal_region = torch.tensor([num_node, num_node+160, num_node+320])
-        y_totrain = torch.index_select(y, 0, self.gt_ytrue_month)
-        # print("----------------- ytotrain ", y.shape, y_totrain.shape)
-        loss_1 = self.loss_norm(y_totrain, self.gt_ytrue)
+        check_point = self.gt_ytrue_month / 0.1 - 1
+        check_point = check_point.to(torch.long)
+        check_point[check_point < 0] = 0
+        y_totrain = torch.index_select(y, 0, check_point)
+        # print("y_totrain", y_totrain.shape)
+        zeros_test = torch.zeros([13, 3]).to(self.device)
+
+        # with torch.no_grad():
+        #     gt_ytrue_sub = self.gt_ytrue[num_sub, :, :]
+
+        loss_1 = self.loss_norm(y_totrain[self.gt_ytrue != 0], self.gt_ytrue[self.gt_ytrue != 0])
 
         # self.y_true = torch.tensor(mat['ptData_stacked_20220915'][:, 1:, :].reshape(184, 13, 3)).float()
 
@@ -505,7 +494,7 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
     mat = scipy.io.loadmat('./Data/20220923YOUT.mat')
     Laplacian = mat['avgNet'][0:160, 0:160]
 
-    m = MultiSubplotDraw(row=3, col=3, fig_size=(39, 30), tight_layout_flag=True, show_flag=False, save_flag=True,
+    m = MultiSubplotDraw(row=1, col=3, fig_size=(39, 10), tight_layout_flag=True, show_flag=False, save_flag=True,
                          save_path="{}/{}".format(figure_save_path_folder,
                                                   f"{get_now_string()}_{args.name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_general.png"),
                          save_dpi=100)
@@ -520,20 +509,20 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
             fig_title=labels[i],
         )
 
-    for i in range(3):
-        ax = m.add_subplot(
-            y_lists=[[0.5] *1630],  # y_lists=[y[:,1:3]]
-            x_list=x,
-            color_list=colorlist[i],
-            line_style_list=["dashed"],
-            line_width= 0.001,
-            fig_title=labels_true[i])
+    # for i in range(3):
+    #     ax = m.add_subplot(
+    #         y_lists=[[0.5] *1630],  # y_lists=[y[:,1:3]]
+    #         x_list=x,
+    #         color_list=colorlist[i],
+    #         line_style_list=["dashed"],
+    #         line_width= 0.001,
+    #         fig_title=labels_true[i])
         for j in range(160):
             # print(j+i*160)
             # if j+i*160 == 479:
             #     print((model.gt_ytrue_month.cpu().detach().numpy())/10)
             #     print(model.gt_ytrue[:,j+i*160].cpu().detach().numpy())
-            ax.plot((model.gt_ytrue_month.cpu().detach().numpy())/10, model.gt_ytrue[:,j+i*160].cpu().detach().numpy(), color = colorlist[i], linestyle='dashed', marker='s')
+            ax.scatter((model.gt_ytrue_month.cpu().detach().numpy()), model.gt_ytrue[:,j+i*160].cpu().detach().numpy(), color = colorlist[i], linestyle='dashed', marker='x')
 
     # param_ls = model.general_para.cpu().detach().numpy()
     # param_true = model.true_para.cpu().detach().numpy()
