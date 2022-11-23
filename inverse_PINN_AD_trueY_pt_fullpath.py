@@ -42,8 +42,8 @@ class GroundTruthAD:
 class ConfigAD:
     def __init__(self):
         # myprint("--------------------------------------------------call init--------------------------------------------------", args.log_path)
-        self.T_all = 163.0
-        self.T = 163.0 
+        self.T_all = 500.0
+        self.T = 500.0
         self.T_unit = 0.1
         self.T_N = int(self.T / self.T_unit)
         self.N = int(self.T / self.T_unit) #184 #int(self.T / self.T_unit)
@@ -133,7 +133,7 @@ class SimpleNetworkAD(nn.Module):
         self.Laplacian = torch.tensor(mat['avgNet']).float().to(self.device)[0:10, 0:10]
         self.r = torch.tensor(mat['avgNet']).float().to(self.device) #.reshape([1])
 
-        self.personalized_para = nn.Parameter(torch.abs(torch.rand(11)))
+        self.personalized_para = nn.Parameter(torch.abs(torch.rand(16)))
 
         self.sig = nn.Tanh()
         self.network_unit = 20
@@ -185,7 +185,6 @@ class SimpleNetworkAD(nn.Module):
         # print("output x" , self.x.size())
         # print("output y" ,y.size())
         A = y[:,0:1]
-        # print(A)
         T = y[:,1:2]
         N = y[:,2:3]
 
@@ -195,18 +194,21 @@ class SimpleNetworkAD(nn.Module):
 
         # print("--------------------------------------------------call f_a --------------------------------------------------")
 
-        f_a = A_t - (self.personalized_para[0]*A*(1 - A) + (self.personalized_para[1]*torch.pow(T,self.theta)) / (torch.pow((self.personalized_para[2]),self.theta) + torch.pow(T,self.theta))) #- self.config.d_a*torch.matmul(A,self.Laplacian))
-        f_t = T_t - (self.personalized_para[3]*T*(1 - T) + (self.personalized_para[4]*torch.pow(A,self.delta)) / (torch.pow((self.personalized_para[5]),self.delta) + torch.pow(A,self.delta))) #- self.config.d_t*torch.matmul(T,self.Laplacian))
-        f_n = N_t - ((self.personalized_para[6]*torch.pow(T,self.gamma)) / (torch.pow((self.personalized_para[7]),self.gamma) + torch.pow(T,self.gamma))+
-                    (self.personalized_para[8]*torch.pow(A,self.beta)) / (torch.pow((self.personalized_para[9]),self.beta) + torch.pow(A,self.beta))+
-                    self.personalized_para[10]*A*T)
+        f_a = A_t - (self.personalized_para[0]*A*(1 - A) #   A metabolism
+                     + (self.personalized_para[1]*torch.pow(T,self.theta)) / (torch.pow((self.personalized_para[2]),self.theta) + torch.pow(T,self.theta)) # T on A
+                     + (self.personalized_para[3]*torch.pow(N,self.theta)) / (torch.pow((self.personalized_para[4]),self.theta) + torch.pow(N,self.theta)))  # N on A
+                     #- self.config.d_a*torch.matmul(A,self.Laplacian))
+
+        f_t = T_t - (self.personalized_para[5]*T*(1 - T)
+                     + (self.personalized_para[6]*torch.pow(A,self.theta)) / (torch.pow((self.personalized_para[7]),self.delta) + torch.pow(A,self.theta))
+                     + (self.personalized_para[8]*torch.pow(N, self.theta)) / (torch.pow((self.personalized_para[9]), self.theta) + torch.pow(N, self.theta))) #- self.config.d_t*torch.matmul(T,self.Laplacian))
 
 
-        # f_a = A_t - (self.k_a*A*(1 - A) + (self.k_ta*torch.pow(T,self.theta)) / (torch.pow((self.k_mt),self.theta) + torch.pow(T,self.theta))) #- self.config.d_a*torch.matmul(A,self.Laplacian))
-        # f_t = T_t - (self.k_t*T*(1 - T) + (self.k_at*torch.pow(A,self.delta)) / (torch.pow((self.k_ma),self.delta) + torch.pow(A,self.delta))) #- self.config.d_t*torch.matmul(T,self.Laplacian))
-        # f_n = N_t - ((self.k_tn*torch.pow(T,self.gamma)) / (torch.pow((self.k_mtn),self.gamma) + torch.pow(T,self.gamma))+
-        #             (self.k_an*torch.pow(A,self.beta)) / (torch.pow((self.k_man),self.beta) + torch.pow(A,self.beta))+
-        #             self.k_atn*A*T)
+        f_n = N_t - ((self.personalized_para[10]*torch.pow(T,self.gamma)) / (torch.pow((self.personalized_para[11]),self.gamma) + torch.pow(T,self.gamma))
+                    + (self.personalized_para[12]*torch.pow(A,self.beta)) / (torch.pow((self.personalized_para[13]),self.beta) + torch.pow(A,self.beta)) #+self.personalized_para[10]*A*T
+                    + (self.personalized_para[14]*torch.pow(A*T,self.beta)) / (torch.pow((self.personalized_para[15]),self.beta) + torch.pow(A*T,self.beta)))
+
+
 
         f_y = torch.cat((f_a, f_t, f_n), 1)
 
@@ -242,17 +244,15 @@ class SimpleNetworkAD(nn.Module):
         # print(y.shape)
         # print(torch.diff(y, dim=0).shape)
         # print(torch.diff(y, dim=0)[:,1:10])
-        loss_5 = self.loss_norm(torch.diff(y, dim=0), abs(torch.diff(y, dim=0)))*1e8
-
-        loss_4 = self.loss_norm(torch.abs(self.general_para), self.general_para) * 1e5
+        loss_4 = self.loss_norm(torch.diff(y, dim=0), abs(torch.diff(y, dim=0)))*1e8
         # print(loss_4)
+        loss_5 = self.loss_norm(torch.diff(y, dim=0), abs(torch.diff(y, dim=0)))*1e8
 
         loss = loss_1 + loss_2 + loss_3 +loss_4 + loss_5 # + loss_3)#+ loss_4 + loss_5) / 1e5
         all_loss += loss
         all_loss1 += loss_1
         all_loss2 += loss_2
         all_loss3 += loss_4
-        all_loss3 += loss_5
             
             
         self.train()
@@ -422,7 +422,7 @@ def test_ad(model, args, config, now_string, show_flag=True, gt=None, loss_2_det
         # print(model(t,i).shape)
     y.append(model(t).cpu().detach().numpy())
     y = np.asarray(y)
-    y = y.reshape([1630,3])
+    y = y.reshape([5000,3])
 
     x = [item[0] for item in model.decode_t(t).cpu().detach().numpy()]
 
@@ -434,13 +434,13 @@ def test_ad(model, args, config, now_string, show_flag=True, gt=None, loss_2_det
     colorlist = ['r', 'g', 'b']
     labels = ["A", "T", "N"]
 
-    m = MultiSubplotDraw(row=2, col=3, fig_size=(39, 20), tight_layout_flag=True, show_flag=False, save_flag=True,
+    m = MultiSubplotDraw(row=3, col=3, fig_size=(39, 30), tight_layout_flag=True, show_flag=False, save_flag=True,
                          save_path="{}/{}".format(figure_save_path_folder,
                                                   f"{get_now_string()}_{args.name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_sub={model.num_sub}.png"),
                          save_dpi=100)
     for i in range(3):
         ax =m.add_subplot(
-                y_lists=[y[:, i].reshape(1630) for j in range(184)],  # y_lists=[y[:,1:3]]
+                y_lists=[y[:, i].reshape(5000) for j in range(184)],  # y_lists=[y[:,1:3]]
                 x_list=x,
                 color_list=colorlist[i] * 184,
                 line_style_list=["solid"] * 184,
@@ -451,7 +451,7 @@ def test_ad(model, args, config, now_string, show_flag=True, gt=None, loss_2_det
         ax.scatter(x = model.gt_ytrue_month.cpu().detach().numpy(), y = model.gt_ytrue[:,i].cpu().detach().numpy(), color = colorlist[i], marker = 'x', s = 400, linewidths= 6)
     param_ls = model.personalized_para.cpu().detach().numpy()
     param_true = model.true_para.cpu().detach().numpy()
-    param_ls.reshape(11)
+    param_ls.reshape(16)
     param_true.reshape(11)
     # param_true = np.asarray(param_true)
     # labels = ["k_a", "k_t", "k_tn", "k_an", "k_atn"]
@@ -460,47 +460,73 @@ def test_ad(model, args, config, now_string, show_flag=True, gt=None, loss_2_det
     T = y[:, 1:2]
     N = y[:, 2:3]
 
+    equA_metabolism = param_ls[0] * A * (1 - A)
+    equA_T = (param_ls[1] * np.power(T, 2)) / (np.power((param_ls[2]), 2) + np.power(T, 2))
+    equA_N = (param_ls[3] * np.power(T, 2)) / (np.power((param_ls[4]), 2) + np.power(T, 2))
 
-    A_TonA = (param_ls[1] * np.power(T, 2)) / (np.power((param_ls[2]), 2) + np.power(T,2))
-    T_AonT = (param_ls[4] * np.power(A, 2)) / (np.power((param_ls[5]), 2) + np.power(A,2))
-    N_AonN = (param_ls[8] * np.power(A, 2)) / (np.power((param_ls[9]), 2) + np.power(A, 2))
-    N_TonN = (param_ls[6] * np.power(T, 2)) / (np.power((param_ls[7]), 2) + np.power(T, 2))
-    N_ATonN = param_ls[10] * A * T
+    equT_metabolism = param_ls[5] * T * (1 - T)
+    equT_A = (param_ls[6] * np.power(A, 2)) / (np.power((param_ls[7]), 2) + np.power(A, 2))
+    equT_N = (param_ls[8] * np.power(A, 2)) / (np.power((param_ls[9]), 2) + np.power(A, 2))
 
-    A_prod = param_ls[0] * A * (1 - A)
-    T_prod = param_ls[3] * T * (1 - T)
+    equN_A = (param_ls[10] * np.power(A, 2)) / (np.power((param_ls[11]), 2) + np.power(A, 2))
+    equN_T = (param_ls[12] * np.power(T, 2)) / (np.power((param_ls[13]), 2) + np.power(T, 2))
+    equN_AT = (param_ls[14] * np.power(T, 2)) / (np.power((param_ls[15]), 2) + np.power(T, 2))
 
-    # matlab
-    A_TonA_matlab = (param_true[1] * np.power(T, 2)) / (np.power((param_true[2]), 2) + np.power(T, 2))
-    T_AonT_matlab = (param_true[4] * np.power(A, 2)) / (np.power((param_true[5]), 2) + np.power(A, 2))
-    N_AonN_matlab = (param_true[8] * np.power(A, 2)) / (np.power((param_true[9]), 2) + np.power(A, 2))
-    N_TonN_matlab = (param_true[6] * np.power(T, 2)) / (np.power((param_true[7]), 2) + np.power(T, 2))
-    N_ATonN_matlab = param_true[10] * A * T
+    equA = np.array([abs(equA_metabolism.reshape(5000)), abs(equA_T.reshape(5000)), abs(equA_N.reshape(5000))])
+    equT = np.array([abs(equT_metabolism.reshape(5000)), abs(equT_A.reshape(5000)), abs(equT_N.reshape(5000))])
+    equN = np.array([abs(equN_A.reshape(5000)), abs(equN_T.reshape(5000)), abs(equN_AT.reshape(5000))])
 
-    A_prod_matlab = param_true[0] * A * (1 - A)
-    T_prod_matlab = param_true[3] * T * (1 - T)
+    equA = equA / np.sum(equA, axis=0)
+    equT = equT / np.sum(equT, axis=0)
+    equN = equN / np.sum(equN, axis=0)
 
+    ax1 = m.add_subplot(x_list=x, y_lists=[equT_metabolism], color_list=['w'], fig_title="Equation A",
+                        line_style_list=["solid"], line_width=0.1, fig_title_size=40, x_label_size=20, y_label_size=20,
+                        fig_x_label="time", fig_y_label="% influence")
 
+    ax1.stackplot(x, equA, labels=["equA_metabolism", "equA_T", "equA_N"],
+                  colors=["palegoldenrod", "lightblue", "cadetblue"])  # cornflowerblue palegoldenrod mediumaquamarine
+    ax1.legend(loc='upper left', fontsize=20)
 
-    m.add_subplot(x_list=x, y_lists=[A_TonA, A_prod,A_TonA_matlab,A_prod_matlab ],
-                color_list=['b', 'r', 'b', 'r'], fig_title= "Euqation A", line_style_list=["solid", "solid","dashed", "dashed"],
-                legend_list=["A_TonA", "A_prod","A_TonA_matlab", "A_prod_matlab"],
-                fig_title_size=40,x_label_size=30,y_label_size=30, number_label_size=25,fig_x_label="time", line_width=6,
+    ax2 = m.add_subplot(x_list=x, y_lists=[equT_metabolism], color_list=['w'], fig_title="Equation T",
+                        line_style_list=["solid"], line_width=0.1, fig_title_size=40, x_label_size=20, y_label_size=20,
+                        fig_x_label="time", fig_y_label="% influence")
+
+    ax2.stackplot(x, equT, labels=["equT_metabolism", "equA_T", "equT_N"],
+                  colors=["palegoldenrod", "lightblue", "cadetblue"])  # cornflowerblue palegoldenrod mediumaquamarine
+    ax2.legend(loc='upper left', fontsize=20)
+
+    ax3 = m.add_subplot(x_list=x, y_lists=[equT_metabolism], color_list=['w'], fig_title="Equation N",
+                        line_style_list=["solid"], line_width=0.1, fig_title_size=40, x_label_size=20, y_label_size=20,
+                        fig_x_label="time", fig_y_label="% influence")
+
+    ax3.stackplot(x, equN, labels=["equN_A", "equN_T", "equN_AT"],
+                  colors=["palegoldenrod", "lightblue", "cadetblue"])  # cornflowerblue palegoldenrod mediumaquamarine
+    ax3.legend(loc='upper left', fontsize=20)
+
+    m.add_subplot(x_list=x, y_lists=[equA_metabolism, equA_T, equA_N],
+                  color_list=['b', 'r', 'g'], fig_title="Equation A",
+                  line_style_list=["solid", "solid", "solid"],
+                  legend_list=["equA_metabolism", "equA_T", "equA_N"], line_width=6, fig_title_size=40, x_label_size=20,
+                  y_label_size=20, fig_x_label="time",
                   fig_y_label="influence")
 
-    m.add_subplot(x_list=x, y_lists=[T_AonT, T_prod, T_AonT_matlab, T_prod_matlab],
-                  color_list=['b', 'r', 'b', 'r'], fig_title="Euqation T",
-                  line_style_list=["solid", "solid", "dashed", "dashed"],
-                  legend_list=["T_AonT", "T_prod", "T_AonT_matlab", "T_prod_matlab"],
-                  fig_title_size=40,x_label_size=30,y_label_size=30, number_label_size=25,fig_x_label="time", line_width=6,
+    m.add_subplot(x_list=x, y_lists=[equT_metabolism, equT_A, equT_N],
+                  color_list=['b', 'r', 'g'], fig_title="Equation T",
+                  line_style_list=["solid", "solid", "solid"],
+                  legend_list=["equT_metabolism", "equA_T", "equT_N"], line_width=6, fig_title_size=40, x_label_size=20,
+                  y_label_size=20, fig_x_label="time",
                   fig_y_label="influence")
 
-    m.add_subplot(x_list=x, y_lists=[N_AonN, N_TonN, N_ATonN, N_AonN_matlab, N_TonN_matlab, N_ATonN_matlab],
-                  color_list=['b', 'r', 'g', 'b', 'r', 'g'], fig_title="Euqation N",
-                  line_style_list=["solid", "solid", "solid", "dashed", "dashed", "dashed"],
-                  legend_list=["N_AonN", "N_TonN", "N_ATonN", "N_AonN_matlab", "N_TonN_matlab", "N_ATonN_matlab"],
-                  fig_title_size=40,x_label_size=30,y_label_size=30, number_label_size=25, fig_x_label="time", line_width=6,
+    m.add_subplot(x_list=x, y_lists=[equN_A, equN_T, equN_AT],
+                  color_list=['b', 'r', 'g'], fig_title="Equation N",
+                  line_style_list=["solid", "solid", "solid"],
+                  legend_list=["equN_A", "equN_T", "equN_AT"], line_width=6, fig_title_size=40, x_label_size=20,
+                  y_label_size=20, fig_x_label="time",
                   fig_y_label="influence")
+
+
+
 
     m.draw()
 

@@ -1,0 +1,257 @@
+2022-11-15 12:53:39 log_path: logs/20221115_genstage6region_2.txt
+2022-11-15 12:53:39 cuda is available: False
+2022-11-15 12:53:39 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-11-15 12:53:40 using cpu
+2022-11-15 12:53:40 epoch = 40000
+2022-11-15 12:53:40 epoch_step = 1000
+2022-11-15 12:53:40 model_name = SimpleNetworkAD
+2022-11-15 12:53:40 now_string = 2022-11-15-12-53-39
+2022-11-15 12:53:40 model_save_path_last = ./train/20221115_genstage6region_40000_1000_0.001_2022-11-15-12-53-39_last.pt
+2022-11-15 12:53:40 model_save_path_best = ./train/20221115_genstage6region_40000_1000_0.001_2022-11-15-12-53-39_best.pt
+2022-11-15 12:53:40 loss_save_path = ./loss/20221115_genstage6region_40000_1000_0.001_2022-11-15-12-53-39_loss_40000.npy
+2022-11-15 12:53:40 args = {'epoch': 40000, 'log_path': 'logs/20221115_genstage6region_2.txt', 'mode': 'origin', 'epoch_step': 1000, 'name': '20221115_genstage6region', 'python': 'ModelBYCC.py', 'id': '2', 'lr': 0.001, 'main_path': '.', 'save_step': 2000, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-11-15-12-53-39'}
+2022-11-15 12:53:40 config = {'T_all': 500.0, 'T': 500.0, 'T_unit': 0.1, 'T_N': 5000, 'N': 5000, 'Node': 3, 'ub': 500.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 5000, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-11-15 12:53:40 --------------------------------------------------training start--------------------------------------------------
+2022-11-15 12:54:10 Epoch [01000/40000] Loss:0.079901 Loss_1:0.073631 Loss_2:0.005772 Loss_3:0.000497 Lr:0.000909 Time:30.704763s (0.51min in total, 19.96min remains)
+2022-11-15 12:54:41 Epoch [02000/40000] Loss:0.065987 Loss_1:0.065259 Loss_2:0.000413 Loss_3:0.000314 Lr:0.000833 Time:30.467688s (1.02min in total, 19.37min remains)
+2022-11-15 12:54:41 Testing & drawing...
+2022-11-15 12:54:41 Test: save figure in ./figure/20221115_genstage6region_id=100_2022-11-15-12-53-39/
+2022-11-15 12:54:42 Test: save pred in ./saves/20221115_genstage6region_id=100_2022-11-15-12-53-39_general/
+2022-11-15 12:54:42 [Loss]
+2022-11-15 12:54:42 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-15 12:54:42 General parameter estimation: Parameter containing:
+tensor([0.0223, 0.0243, 0.4198, 0.0112, 0.5002, 0.0235, 0.0121, 1.1552, 0.0211,
+        0.9110, 0.0221, 0.6711, 0.0074, 0.4975, 0.0228, 0.7443],
+       requires_grad=True);
+2022-11-15 12:55:12 Epoch [03000/40000] Loss:0.062842 Loss_1:0.062037 Loss_2:0.000392 Loss_3:0.000413 Lr:0.000769 Time:31.188990s (1.54min in total, 18.99min remains)
+2022-11-15 12:55:43 Epoch [04000/40000] Loss:0.060501 Loss_1:0.059549 Loss_2:0.000366 Loss_3:0.000586 Lr:0.000714 Time:31.430933s (2.06min in total, 18.57min remains)
+2022-11-15 12:55:43 Testing & drawing...
+2022-11-15 12:55:43 Test: save figure in ./figure/20221115_genstage6region_id=100_2022-11-15-12-53-39/
+2022-11-15 12:55:44 Test: save pred in ./saves/20221115_genstage6region_id=100_2022-11-15-12-53-39_general/
+2022-11-15 12:55:44 [Loss]
+2022-11-15 12:55:44 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-15 12:55:44 General parameter estimation: Parameter containing:
+tensor([0.0223, 0.0243, 0.4280, 0.0112, 0.6240, 0.0235, 0.0246, 1.1702, 0.0211,
+        0.9382, 0.0221, 0.9236, 0.0074, 0.7223, 0.0228, 1.1020],
+       requires_grad=True);
+2022-11-15 12:56:16 Epoch [05000/40000] Loss:0.057869 Loss_1:0.056654 Loss_2:0.000339 Loss_3:0.000877 Lr:0.000667 Time:32.790446s (2.61min in total, 18.27min remains)
+2022-11-15 12:56:48 Epoch [06000/40000] Loss:0.054870 Loss_1:0.053265 Loss_2:0.000311 Loss_3:0.001294 Lr:0.000625 Time:32.210954s (3.15min in total, 17.83min remains)
+2022-11-15 12:56:48 Testing & drawing...
+2022-11-15 12:56:48 Test: save figure in ./figure/20221115_genstage6region_id=100_2022-11-15-12-53-39/
+2022-11-15 12:56:49 Test: save pred in ./saves/20221115_genstage6region_id=100_2022-11-15-12-53-39_general/
+2022-11-15 12:56:49 [Loss]
+2022-11-15 12:56:49 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-15 12:56:49 General parameter estimation: Parameter containing:
+tensor([0.0223, 0.0243, 0.4446, 0.0112, 0.8758, 0.0235, 0.0246, 1.1911, 0.0211,
+        0.9743, 0.0221, 1.2696, 0.0074, 0.9331, 0.0228, 1.4902],
+       requires_grad=True);
+2022-11-15 12:57:21 Epoch [07000/40000] Loss:0.050984 Loss_1:0.048993 Loss_2:0.000287 Loss_3:0.001704 Lr:0.000588 Time:32.301578s (3.68min in total, 17.37min remains)
+2022-11-15 12:57:52 Epoch [08000/40000] Loss:0.045405 Loss_1:0.043267 Loss_2:0.000266 Loss_3:0.001871 Lr:0.000556 Time:31.447912s (4.21min in total, 16.84min remains)
+2022-11-15 12:57:52 Testing & drawing...
+2022-11-15 12:57:52 Test: save figure in ./figure/20221115_genstage6region_id=100_2022-11-15-12-53-39/
+2022-11-15 12:57:53 Test: save pred in ./saves/20221115_genstage6region_id=100_2022-11-15-12-53-39_general/
+2022-11-15 12:57:53 [Loss]
+2022-11-15 12:57:53 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-15 12:57:53 General parameter estimation: Parameter containing:
+tensor([0.0223, 0.0242, 0.4800, 0.0112, 1.2505, 0.0234, 0.0246, 1.2210, 0.0211,
+        1.0192, 0.0221, 1.6876, 0.0074, 1.1766, 0.0228, 1.9275],
+       requires_grad=True);
+2022-11-15 12:58:25 Epoch [09000/40000] Loss:0.037090 Loss_1:0.035143 Loss_2:0.000249 Loss_3:0.001699 Lr:0.000526 Time:32.843386s (4.76min in total, 16.38min remains)
+2022-11-15 12:58:56 Epoch [10000/40000] Loss:0.023802 Loss_1:0.022517 Loss_2:0.000234 Loss_3:0.001051 Lr:0.000500 Time:30.899302s (5.27min in total, 15.81min remains)
+2022-11-15 12:58:56 Testing & drawing...
+2022-11-15 12:58:56 Test: save figure in ./figure/20221115_genstage6region_id=100_2022-11-15-12-53-39/
+2022-11-15 12:58:57 Test: save pred in ./saves/20221115_genstage6region_id=100_2022-11-15-12-53-39_general/
+2022-11-15 12:58:57 [Loss]
+2022-11-15 12:58:57 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-15 12:58:57 General parameter estimation: Parameter containing:
+tensor([0.0223, 0.0241, 0.5593, 0.0112, 1.6914, 0.0234, 0.0246, 1.3166, 0.0211,
+        1.0950, 0.0221, 2.1351, 0.0074, 1.5269, 0.0228, 2.4921],
+       requires_grad=True);
+2022-11-15 12:59:27 Epoch [11000/40000] Loss:0.006732 Loss_1:0.006093 Loss_2:0.000217 Loss_3:0.000422 Lr:0.000476 Time:31.145521s (5.79min in total, 15.27min remains)
+2022-11-15 12:59:57 Epoch [12000/40000] Loss:0.000881 Loss_1:0.000641 Loss_2:0.000182 Loss_3:0.000058 Lr:0.000455 Time:30.258458s (6.29min in total, 14.69min remains)
+2022-11-15 12:59:57 Testing & drawing...
+2022-11-15 12:59:57 Test: save figure in ./figure/20221115_genstage6region_id=100_2022-11-15-12-53-39/
+2022-11-15 12:59:58 Test: save pred in ./saves/20221115_genstage6region_id=100_2022-11-15-12-53-39_general/
+2022-11-15 12:59:58 [Loss]
+2022-11-15 12:59:58 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-15 12:59:58 General parameter estimation: Parameter containing:
+tensor([0.0223, 0.0239, 0.7344, 0.0112, 2.1559, 0.0234, 0.0246, 1.8506, 0.0211,
+        1.3119, 0.0220, 2.5906, 0.0074, 2.1407, 0.0228, 3.3007],
+       requires_grad=True);
+2022-11-15 13:00:28 Epoch [13000/40000] Loss:0.000504 Loss_1:0.000360 Loss_2:0.000143 Loss_3:0.000001 Lr:0.000435 Time:31.176036s (6.81min in total, 14.15min remains)
+2022-11-15 13:00:59 Epoch [14000/40000] Loss:0.000454 Loss_1:0.000344 Loss_2:0.000110 Loss_3:0.000000 Lr:0.000417 Time:30.284850s (7.32min in total, 13.59min remains)
+2022-11-15 13:00:59 Testing & drawing...
+2022-11-15 13:00:59 Test: save figure in ./figure/20221115_genstage6region_id=100_2022-11-15-12-53-39/
+2022-11-15 13:01:00 Test: save pred in ./saves/20221115_genstage6region_id=100_2022-11-15-12-53-39_general/
+2022-11-15 13:01:00 [Loss]
+2022-11-15 13:01:00 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-15 13:01:00 General parameter estimation: Parameter containing:
+tensor([0.0223, 0.0236, 1.0264, 0.0111, 2.5972, 0.0234, 0.0246, 2.4533, 0.0211,
+        1.6639, 0.0220, 2.9935, 0.0074, 2.6630, 0.0228, 3.8950],
+       requires_grad=True);
+2022-11-15 13:01:30 Epoch [15000/40000] Loss:0.000418 Loss_1:0.000334 Loss_2:0.000084 Loss_3:0.000000 Lr:0.000400 Time:31.171630s (7.84min in total, 13.06min remains)
+2022-11-15 13:02:00 Epoch [16000/40000] Loss:0.000393 Loss_1:0.000328 Loss_2:0.000065 Loss_3:0.000000 Lr:0.000385 Time:30.236462s (8.34min in total, 12.51min remains)
+2022-11-15 13:02:00 Testing & drawing...
+2022-11-15 13:02:00 Test: save figure in ./figure/20221115_genstage6region_id=100_2022-11-15-12-53-39/
+2022-11-15 13:02:01 Test: save pred in ./saves/20221115_genstage6region_id=100_2022-11-15-12-53-39_general/
+2022-11-15 13:02:01 [Loss]
+2022-11-15 13:02:01 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-15 13:02:01 General parameter estimation: Parameter containing:
+tensor([0.0222, 0.0231, 1.3720, 0.0111, 3.0178, 0.0233, 0.0245, 2.9668, 0.0210,
+        2.0709, 0.0220, 3.3600, 0.0074, 3.0769, 0.0228, 4.3438],
+       requires_grad=True);
+2022-11-15 13:02:31 Epoch [17000/40000] Loss:0.000375 Loss_1:0.000323 Loss_2:0.000053 Loss_3:0.000000 Lr:0.000370 Time:31.184946s (8.86min in total, 11.99min remains)
+2022-11-15 13:03:02 Epoch [18000/40000] Loss:0.000362 Loss_1:0.000319 Loss_2:0.000043 Loss_3:0.000000 Lr:0.000357 Time:30.301677s (9.37min in total, 11.45min remains)
+2022-11-15 13:03:02 Testing & drawing...
+2022-11-15 13:03:02 Test: save figure in ./figure/20221115_genstage6region_id=100_2022-11-15-12-53-39/
+2022-11-15 13:03:02 Test: save pred in ./saves/20221115_genstage6region_id=100_2022-11-15-12-53-39_general/
+2022-11-15 13:03:02 [Loss]
+2022-11-15 13:03:02 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-15 13:03:02 General parameter estimation: Parameter containing:
+tensor([0.0222, 0.0225, 1.7258, 0.0110, 3.4390, 0.0231, 0.0245, 3.4387, 0.0209,
+        2.4810, 0.0220, 3.7362, 0.0074, 3.4650, 0.0228, 4.7703],
+       requires_grad=True);
+2022-11-15 13:03:33 Epoch [19000/40000] Loss:0.000350 Loss_1:0.000314 Loss_2:0.000036 Loss_3:0.000000 Lr:0.000345 Time:31.191709s (9.89min in total, 10.93min remains)
+2022-11-15 13:04:03 Epoch [20000/40000] Loss:0.000339 Loss_1:0.000308 Loss_2:0.000031 Loss_3:0.000000 Lr:0.000333 Time:30.568079s (10.40min in total, 10.40min remains)
+2022-11-15 13:04:03 Testing & drawing...
+2022-11-15 13:04:03 Test: save figure in ./figure/20221115_genstage6region_id=100_2022-11-15-12-53-39/
+2022-11-15 13:04:04 Test: save pred in ./saves/20221115_genstage6region_id=100_2022-11-15-12-53-39_general/
+2022-11-15 13:04:04 [Loss]
+2022-11-15 13:04:04 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-15 13:04:04 General parameter estimation: Parameter containing:
+tensor([0.0220, 0.0216, 2.0832, 0.0110, 3.8693, 0.0225, 0.0245, 3.8948, 0.0207,
+        2.8924, 0.0220, 4.1246, 0.0074, 3.8358, 0.0228, 5.1892],
+       requires_grad=True);
+2022-11-15 13:04:35 Epoch [21000/40000] Loss:0.000325 Loss_1:0.000299 Loss_2:0.000026 Loss_3:0.000000 Lr:0.000323 Time:31.576211s (10.92min in total, 9.88min remains)
+2022-11-15 13:05:05 Epoch [22000/40000] Loss:0.000309 Loss_1:0.000287 Loss_2:0.000022 Loss_3:0.000000 Lr:0.000313 Time:30.446825s (11.43min in total, 9.35min remains)
+2022-11-15 13:05:05 Testing & drawing...
+2022-11-15 13:05:05 Test: save figure in ./figure/20221115_genstage6region_id=100_2022-11-15-12-53-39/
+2022-11-15 13:05:06 Test: save pred in ./saves/20221115_genstage6region_id=100_2022-11-15-12-53-39_general/
+2022-11-15 13:05:06 [Loss]
+2022-11-15 13:05:06 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-15 13:05:06 General parameter estimation: Parameter containing:
+tensor([0.0217, 0.0201, 2.4444, 0.0108, 4.3038, 0.0213, 0.0244, 4.3294, 0.0205,
+        3.2891, 0.0219, 4.5253, 0.0074, 4.1935, 0.0228, 5.6086],
+       requires_grad=True);
+2022-11-15 13:05:37 Epoch [23000/40000] Loss:0.000288 Loss_1:0.000269 Loss_2:0.000019 Loss_3:0.000000 Lr:0.000303 Time:31.441144s (11.95min in total, 8.84min remains)
+2022-11-15 13:06:07 Epoch [24000/40000] Loss:0.000258 Loss_1:0.000242 Loss_2:0.000016 Loss_3:0.000000 Lr:0.000294 Time:30.344459s (12.46min in total, 8.31min remains)
+2022-11-15 13:06:07 Testing & drawing...
+2022-11-15 13:06:07 Test: save figure in ./figure/20221115_genstage6region_id=100_2022-11-15-12-53-39/
+2022-11-15 13:06:08 Test: save pred in ./saves/20221115_genstage6region_id=100_2022-11-15-12-53-39_general/
+2022-11-15 13:06:08 [Loss]
+2022-11-15 13:06:08 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-15 13:06:08 General parameter estimation: Parameter containing:
+tensor([0.0210, 0.0177, 2.7975, 0.0105, 4.7285, 0.0186, 0.0243, 4.7341, 0.0201,
+        3.6567, 0.0218, 4.9300, 0.0074, 4.5387, 0.0228, 6.0271],
+       requires_grad=True);
+2022-11-15 13:06:39 Epoch [25000/40000] Loss:0.000180 Loss_1:0.000168 Loss_2:0.000012 Loss_3:0.000000 Lr:0.000286 Time:31.396479s (12.98min in total, 7.79min remains)
+2022-11-15 13:07:09 Epoch [26000/40000] Loss:0.000070 Loss_1:0.000063 Loss_2:0.000007 Loss_3:0.000001 Lr:0.000278 Time:30.278413s (13.49min in total, 7.26min remains)
+2022-11-15 13:07:09 Testing & drawing...
+2022-11-15 13:07:09 Test: save figure in ./figure/20221115_genstage6region_id=100_2022-11-15-12-53-39/
+2022-11-15 13:07:10 Test: save pred in ./saves/20221115_genstage6region_id=100_2022-11-15-12-53-39_general/
+2022-11-15 13:07:10 [Loss]
+2022-11-15 13:07:10 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-15 13:07:10 General parameter estimation: Parameter containing:
+tensor([0.0198, 0.0144, 3.0783, 0.0101, 5.0799, 0.0141, 0.0242, 5.1246, 0.0196,
+        3.9736, 0.0217, 5.3564, 0.0074, 4.9700, 0.0228, 6.5242],
+       requires_grad=True);
+2022-11-15 13:07:40 Epoch [27000/40000] Loss:0.000061 Loss_1:0.000055 Loss_2:0.000005 Loss_3:0.000000 Lr:0.000270 Time:31.453332s (14.01min in total, 6.75min remains)
+2022-11-15 13:08:11 Epoch [28000/40000] Loss:0.000047 Loss_1:0.000041 Loss_2:0.000005 Loss_3:0.000000 Lr:0.000263 Time:30.331384s (14.52min in total, 6.22min remains)
+2022-11-15 13:08:11 Testing & drawing...
+2022-11-15 13:08:11 Test: save figure in ./figure/20221115_genstage6region_id=100_2022-11-15-12-53-39/
+2022-11-15 13:08:11 Test: save pred in ./saves/20221115_genstage6region_id=100_2022-11-15-12-53-39_general/
+2022-11-15 13:08:11 [Loss]
+2022-11-15 13:08:11 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-15 13:08:11 General parameter estimation: Parameter containing:
+tensor([0.0181, 0.0122, 3.2088, 0.0097, 5.2750, 0.0097, 0.0239, 5.4439, 0.0191,
+        4.1790, 0.0213, 5.7516, 0.0073, 5.3847, 0.0228, 7.0099],
+       requires_grad=True);
+2022-11-15 13:08:42 Epoch [29000/40000] Loss:0.000024 Loss_1:0.000019 Loss_2:0.000005 Loss_3:0.000000 Lr:0.000256 Time:31.488526s (15.04min in total, 5.71min remains)
+2022-11-15 13:24:40 Epoch [30000/40000] Loss:0.000013 Loss_1:0.000009 Loss_2:0.000004 Loss_3:0.000000 Lr:0.000250 Time:957.481641s (31.00min in total, 10.33min remains)
+2022-11-15 13:24:40 Testing & drawing...
+2022-11-15 13:24:40 Test: save figure in ./figure/20221115_genstage6region_id=100_2022-11-15-12-53-39/
+2022-11-15 13:24:40 Test: save pred in ./saves/20221115_genstage6region_id=100_2022-11-15-12-53-39_general/
+2022-11-15 13:24:40 [Loss]
+2022-11-15 13:24:40 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-15 13:24:40 General parameter estimation: Parameter containing:
+tensor([1.2460e-02, 1.7329e-02, 2.9584e+00, 1.0267e-02, 5.0480e+00, 7.9234e-03,
+        2.3639e-02, 5.6743e+00, 1.9123e-02, 4.1706e+00, 2.0707e-02, 6.1090e+00,
+        6.9908e-03, 5.7561e+00, 2.2702e-02, 7.4663e+00], requires_grad=True);
+2022-11-15 13:25:11 Epoch [31000/40000] Loss:0.000004 Loss_1:0.000002 Loss_2:0.000003 Loss_3:0.000000 Lr:0.000244 Time:31.398515s (31.52min in total, 9.15min remains)
+2022-11-15 13:25:41 Epoch [32000/40000] Loss:0.000003 Loss_1:0.000000 Loss_2:0.000002 Loss_3:0.000000 Lr:0.000238 Time:30.247735s (32.03min in total, 8.01min remains)
+2022-11-15 13:25:41 Testing & drawing...
+2022-11-15 13:25:41 Test: save figure in ./figure/20221115_genstage6region_id=100_2022-11-15-12-53-39/
+2022-11-15 13:25:42 Test: save pred in ./saves/20221115_genstage6region_id=100_2022-11-15-12-53-39_general/
+2022-11-15 13:25:42 [Loss]
+2022-11-15 13:25:42 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-15 13:25:42 General parameter estimation: Parameter containing:
+tensor([5.7524e-03, 2.1846e-02, 2.7687e+00, 1.0586e-02, 4.9444e+00, 7.9538e-03,
+        2.3053e-02, 5.9294e+00, 1.9975e-02, 3.9382e+00, 1.9653e-02, 6.4004e+00,
+        6.3798e-03, 6.0571e+00, 2.2542e-02, 7.8626e+00], requires_grad=True);
+2022-11-15 13:26:13 Epoch [33000/40000] Loss:0.000003 Loss_1:0.000000 Loss_2:0.000002 Loss_3:0.000000 Lr:0.000233 Time:31.389138s (32.55min in total, 6.90min remains)
+2022-11-15 13:26:43 Epoch [34000/40000] Loss:0.000003 Loss_1:0.000000 Loss_2:0.000002 Loss_3:0.000000 Lr:0.000227 Time:30.326160s (33.06min in total, 5.83min remains)
+2022-11-15 13:26:43 Testing & drawing...
+2022-11-15 13:26:43 Test: save figure in ./figure/20221115_genstage6region_id=100_2022-11-15-12-53-39/
+2022-11-15 13:26:44 Test: save pred in ./saves/20221115_genstage6region_id=100_2022-11-15-12-53-39_general/
+2022-11-15 13:26:44 [Loss]
+2022-11-15 13:26:44 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-15 13:26:44 General parameter estimation: Parameter containing:
+tensor([4.4325e-03, 2.0733e-02, 2.8309e+00, 9.9127e-03, 5.0931e+00, 7.8861e-03,
+        2.1070e-02, 6.2606e+00, 2.0286e-02, 3.8676e+00, 1.8711e-02, 6.5470e+00,
+        5.5121e-03, 6.2413e+00, 2.2280e-02, 8.1575e+00], requires_grad=True);
+2022-11-15 13:27:14 Epoch [35000/40000] Loss:0.000003 Loss_1:0.000000 Loss_2:0.000002 Loss_3:0.000000 Lr:0.000222 Time:31.388421s (33.58min in total, 4.80min remains)
+2022-11-15 13:27:45 Epoch [36000/40000] Loss:0.000003 Loss_1:0.000000 Loss_2:0.000002 Loss_3:0.000000 Lr:0.000217 Time:30.283217s (34.09min in total, 3.79min remains)
+2022-11-15 13:27:45 Testing & drawing...
+2022-11-15 13:27:45 Test: save figure in ./figure/20221115_genstage6region_id=100_2022-11-15-12-53-39/
+2022-11-15 13:27:45 Test: save pred in ./saves/20221115_genstage6region_id=100_2022-11-15-12-53-39_general/
+2022-11-15 13:27:45 [Loss]
+2022-11-15 13:27:45 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-15 13:27:45 General parameter estimation: Parameter containing:
+tensor([4.4042e-03, 2.1258e-02, 2.8256e+00, 8.6345e-03, 5.2425e+00, 7.6082e-03,
+        1.6574e-02, 6.5205e+00, 2.1434e-02, 3.7170e+00, 1.8660e-02, 6.5461e+00,
+        4.3655e-03, 6.3450e+00, 2.1838e-02, 8.4071e+00], requires_grad=True);
+2022-11-15 13:28:16 Epoch [37000/40000] Loss:0.000003 Loss_1:0.000000 Loss_2:0.000002 Loss_3:0.000000 Lr:0.000213 Time:31.457182s (34.61min in total, 2.81min remains)
+2022-11-15 13:28:46 Epoch [38000/40000] Loss:0.000003 Loss_1:0.000001 Loss_2:0.000002 Loss_3:0.000000 Lr:0.000208 Time:30.277787s (35.11min in total, 1.85min remains)
+2022-11-15 13:28:46 Testing & drawing...
+2022-11-15 13:28:46 Test: save figure in ./figure/20221115_genstage6region_id=100_2022-11-15-12-53-39/
+2022-11-15 13:28:47 Test: save pred in ./saves/20221115_genstage6region_id=100_2022-11-15-12-53-39_general/
+2022-11-15 13:28:47 [Loss]
+2022-11-15 13:28:47 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-15 13:28:47 General parameter estimation: Parameter containing:
+tensor([4.4254e-03, 2.2293e-02, 2.8214e+00, 5.4890e-03, 5.3804e+00, 7.1340e-03,
+        5.9785e-03, 6.6953e+00, 2.4022e-02, 3.5531e+00, 2.0652e-02, 6.4286e+00,
+        2.5146e-03, 6.4001e+00, 2.0948e-02, 8.6400e+00], requires_grad=True);
+2022-11-15 13:29:18 Epoch [39000/40000] Loss:0.000002 Loss_1:0.000000 Loss_2:0.000002 Loss_3:0.000000 Lr:0.000204 Time:31.386806s (35.64min in total, 0.91min remains)
+2022-11-15 13:29:48 Epoch [40000/40000] Loss:0.000002 Loss_1:0.000000 Loss_2:0.000002 Loss_3:0.000000 Lr:0.000200 Time:30.308814s (36.14min in total, 0.00min remains)
+2022-11-15 13:29:48 Testing & drawing...
+2022-11-15 13:29:48 Test: save figure in ./figure/20221115_genstage6region_id=100_2022-11-15-12-53-39/
+2022-11-15 13:29:49 Test: save pred in ./saves/20221115_genstage6region_id=100_2022-11-15-12-53-39_general/
+2022-11-15 13:29:49 [Loss]
+2022-11-15 13:29:49 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03]);
+2022-11-15 13:29:49 General parameter estimation: Parameter containing:
+tensor([4.4526e-03, 2.2421e-02, 2.8514e+00, 6.4037e-03, 5.4610e+00, 7.0813e-03,
+        6.5180e-03, 6.7992e+00, 2.4339e-02, 3.5155e+00, 2.0609e-02, 6.3726e+00,
+        6.4245e-03, 6.4689e+00, 1.8492e-02, 8.8815e+00], requires_grad=True);
