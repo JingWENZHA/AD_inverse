@@ -1,0 +1,97 @@
+2022-11-23 14:39:33 log_path: logs/20771121_testfaketruth_2.txt
+2022-11-23 14:39:33 cuda is available: False
+2022-11-23 14:39:33 
+--------------------------------------------------
+ NEW RUN 
+--------------------------------------------------
+2022-11-23 14:39:33 using cpu
+2022-11-23 14:39:33 epoch = 40000
+2022-11-23 14:39:33 epoch_step = 1000
+2022-11-23 14:39:33 model_name = 20771121_testfaketruth
+2022-11-23 14:39:33 now_string = 2022-11-23-14-39-33
+2022-11-23 14:39:33 model_save_path_last = ./train/20771121_testfaketruth_40000_1000_0.001_2022-11-23-14-39-33_last.pt
+2022-11-23 14:39:33 model_save_path_best = ./train/20771121_testfaketruth_40000_1000_0.001_2022-11-23-14-39-33_best.pt
+2022-11-23 14:39:33 loss_save_path = ./loss/20771121_testfaketruth_40000_1000_0.001_2022-11-23-14-39-33_loss_40000.npy
+2022-11-23 14:39:33 args = {'epoch': 40000, 'log_path': 'logs/20771121_testfaketruth_2.txt', 'mode': 'origin', 'epoch_step': 1000, 'name': '20771121_testfaketruth', 'python': 'ModelBYCC.py', 'id': '2', 'lr': 0.001, 'main_path': '.', 'save_step': 1000, 'seed': 100, 'sw': 0, 'sw_step': 50000, 'overall_start': '2022-11-23-14-39-33'}
+2022-11-23 14:39:33 config = {'T_all': 163.0, 'T': 163.0, 'T_unit': 0.1, 'T_N': 1630, 'N': 1630, 'Node': 480, 'ub': 163.0, 'lb': 0.0, 'only_truth_flag': False, 'truth_rate': 1, 'truth_length': 1630, 'continue_period': 0.2, 'round_bit': 3, 'continue_id': None, 'mapping_overall_flag': False, 'loss2_partial_flag': False}
+2022-11-23 14:39:33 --------------------------------------------------training start--------------------------------------------------
+2022-11-23 16:57:38 Epoch [01000/40000] Loss:0.387285 Loss_1:0.214966 Loss_2:0.172319 Loss_3:0.000000 Lr:0.000909 Time:8284.758574s (138.08min in total, 5385.09min remains)
+2022-11-23 16:57:38 Testing & drawing...
+2022-11-23 16:57:38 Test: save figure in ./figure/20771121_testfaketruth_id=100_2022-11-23-14-39-33/
+2022-11-23 16:57:40 Test: save pred in ./saves/20771121_testfaketruth_id=100_2022-11-23-14-39-33_general/
+2022-11-23 16:57:40 [Loss]
+2022-11-23 16:57:40 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03, 6.0000e-02,
+        6.0000e-02]);
+2022-11-23 16:57:40 avg General parameter estimation: tensor([0.4979, 0.5251, 0.4728, 0.5114, 0.5184, 0.5034, 0.5151, 0.4391, 0.5293,
+        0.4596, 0.5254, 0.5620, 0.5338], grad_fn=<MeanBackward1>);
+2022-11-23 17:38:24 Epoch [02000/40000] Loss:0.225200 Loss_1:0.199359 Loss_2:0.025822 Loss_3:0.000019 Lr:0.000833 Time:2446.427448s (178.85min in total, 3398.21min remains)
+2022-11-23 17:38:24 Testing & drawing...
+2022-11-23 17:38:25 Test: save figure in ./figure/20771121_testfaketruth_id=100_2022-11-23-14-39-33/
+2022-11-23 17:38:27 Test: save pred in ./saves/20771121_testfaketruth_id=100_2022-11-23-14-39-33_general/
+2022-11-23 17:38:27 [Loss]
+2022-11-23 17:38:27 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03, 6.0000e-02,
+        6.0000e-02]);
+2022-11-23 17:38:27 avg General parameter estimation: tensor([0.5365, 0.6263, 0.3974, 0.5436, 0.5894, 0.4493, 0.5782, 0.3906, 0.5931,
+        0.4152, 0.6073, 0.6082, 0.5782], grad_fn=<MeanBackward1>);
+2022-11-23 19:05:09 Epoch [03000/40000] Loss:0.192577 Loss_1:0.181769 Loss_2:0.010806 Loss_3:0.000001 Lr:0.000769 Time:5204.561847s (265.60min in total, 3275.68min remains)
+2022-11-23 19:05:09 Testing & drawing...
+2022-11-23 19:05:09 Test: save figure in ./figure/20771121_testfaketruth_id=100_2022-11-23-14-39-33/
+2022-11-23 19:05:11 Test: save pred in ./saves/20771121_testfaketruth_id=100_2022-11-23-14-39-33_general/
+2022-11-23 19:05:11 [Loss]
+2022-11-23 19:05:11 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03, 6.0000e-02,
+        6.0000e-02]);
+2022-11-23 19:05:11 avg General parameter estimation: tensor([0.5890, 0.7575, 0.3172, 0.5940, 0.7195, 0.3636, 0.6695, 0.3291, 0.7086,
+        0.3476, 0.7123, 0.6597, 0.6349], grad_fn=<MeanBackward1>);
+2022-11-23 19:45:23 Epoch [04000/40000] Loss:0.170552 Loss_1:0.163882 Loss_2:0.006670 Loss_3:0.000000 Lr:0.000714 Time:2414.328580s (305.83min in total, 2752.51min remains)
+2022-11-23 19:45:23 Testing & drawing...
+2022-11-23 19:45:24 Test: save figure in ./figure/20771121_testfaketruth_id=100_2022-11-23-14-39-33/
+2022-11-23 19:45:26 Test: save pred in ./saves/20771121_testfaketruth_id=100_2022-11-23-14-39-33_general/
+2022-11-23 19:45:26 [Loss]
+2022-11-23 19:45:26 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03, 6.0000e-02,
+        6.0000e-02]);
+2022-11-23 19:45:26 avg General parameter estimation: tensor([0.6508, 0.9022, 0.2607, 0.6600, 0.8887, 0.2968, 0.7885, 0.2566, 0.8342,
+        0.2939, 0.8283, 0.7191, 0.7097], grad_fn=<MeanBackward1>);
+2022-11-23 20:26:40 Epoch [05000/40000] Loss:0.151288 Loss_1:0.146459 Loss_2:0.004829 Loss_3:0.000000 Lr:0.000667 Time:2476.835629s (347.12min in total, 2429.81min remains)
+2022-11-23 20:26:40 Testing & drawing...
+2022-11-23 20:26:41 Test: save figure in ./figure/20771121_testfaketruth_id=100_2022-11-23-14-39-33/
+2022-11-23 20:26:42 Test: save pred in ./saves/20771121_testfaketruth_id=100_2022-11-23-14-39-33_general/
+2022-11-23 20:26:42 [Loss]
+2022-11-23 20:26:42 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03, 6.0000e-02,
+        6.0000e-02]);
+2022-11-23 20:26:42 avg General parameter estimation: tensor([0.7253, 1.0563, 0.2113, 0.7427, 1.0812, 0.2375, 0.9323, 0.1898, 0.9611,
+        0.2472, 0.9537, 0.7934, 0.7980], grad_fn=<MeanBackward1>);
+2022-11-23 21:07:22 Epoch [06000/40000] Loss:0.133846 Loss_1:0.130087 Loss_2:0.003759 Loss_3:0.000000 Lr:0.000625 Time:2441.823901s (387.81min in total, 2197.60min remains)
+2022-11-23 21:07:22 Testing & drawing...
+2022-11-23 21:07:22 Test: save figure in ./figure/20771121_testfaketruth_id=100_2022-11-23-14-39-33/
+2022-11-23 21:07:24 Test: save pred in ./saves/20771121_testfaketruth_id=100_2022-11-23-14-39-33_general/
+2022-11-23 21:07:24 [Loss]
+2022-11-23 21:07:24 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03, 6.0000e-02,
+        6.0000e-02]);
+2022-11-23 21:07:24 avg General parameter estimation: tensor([0.8157, 1.2259, 0.1541, 0.8435, 1.2780, 0.1738, 1.0766, 0.1567, 1.0933,
+        0.2015, 1.0885, 0.8857, 0.9029], grad_fn=<MeanBackward1>);
+2022-11-23 21:48:03 Epoch [07000/40000] Loss:0.117001 Loss_1:0.114226 Loss_2:0.002775 Loss_3:0.000000 Lr:0.000588 Time:2441.196120s (428.50min in total, 2020.07min remains)
+2022-11-23 21:48:03 Testing & drawing...
+2022-11-23 21:48:04 Test: save figure in ./figure/20771121_testfaketruth_id=100_2022-11-23-14-39-33/
+2022-11-23 21:48:05 Test: save pred in ./saves/20771121_testfaketruth_id=100_2022-11-23-14-39-33_general/
+2022-11-23 21:48:05 [Loss]
+2022-11-23 21:48:05 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03, 6.0000e-02,
+        6.0000e-02]);
+2022-11-23 21:48:05 avg General parameter estimation: tensor([0.9248, 1.4069, 0.1133, 0.9565, 1.4723, 0.1205, 1.2124, 0.1289, 1.2304,
+        0.1585, 1.2303, 0.9956, 1.0185], grad_fn=<MeanBackward1>);
+2022-11-23 22:29:18 Epoch [08000/40000] Loss:0.101088 Loss_1:0.099016 Loss_2:0.002072 Loss_3:0.000000 Lr:0.000556 Time:2474.964420s (469.75min in total, 1878.99min remains)
+2022-11-23 22:29:18 Testing & drawing...
+2022-11-23 22:29:19 Test: save figure in ./figure/20771121_testfaketruth_id=100_2022-11-23-14-39-33/
+2022-11-23 22:29:20 Test: save pred in ./saves/20771121_testfaketruth_id=100_2022-11-23-14-39-33_general/
+2022-11-23 22:29:20 [Loss]
+2022-11-23 22:29:20 True parameter : tensor([1.0000e-04, 1.0000e-03, 2.4540e-01, 3.9000e-03, 1.1000e-03, 1.0000e-03,
+        2.3000e-03, 1.0000e+00, 1.2000e-03, 8.2400e-01, 1.2000e-03, 6.0000e-02,
+        6.0000e-02]);
+2022-11-23 22:29:20 avg General parameter estimation: tensor([1.0524, 1.5964, 0.0755, 1.0765, 1.6723, 0.0753, 1.3563, 0.0926, 1.3854,
+        0.1142, 1.3838, 1.1192, 1.1471], grad_fn=<MeanBackward1>);
