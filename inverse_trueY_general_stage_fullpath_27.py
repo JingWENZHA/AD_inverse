@@ -51,15 +51,15 @@ class GroundTruthAD:
 
         print("self.y_true: {} \n".format(self.y_true))
 
-        self.y_true_month = torch.tensor([0, 406, 812, 1218, 1629])
+        self.y_true_month = torch.tensor([0, 546, 1092, 1456, 1638])
         # print("------------------------------GROUND_TRUTH_AD--------------------------------------------", args.log_path)
 
 
 class ConfigAD:
     def __init__(self):
         # myprint("--------------------------------------------------call init--------------------------------------------------", args.log_path)
-        self.T_all = 500.0
-        self.T = 500.0
+        self.T_all = 165.0
+        self.T = 165.0
         self.T_unit = 0.1
         self.T_N = int(self.T / self.T_unit)
         self.N = int(self.T / self.T_unit) #184 #int(self.T / self.T_unit)
@@ -176,6 +176,7 @@ class SimpleNetworkAD(nn.Module):
         x = [[i*self.config.T_unit] for i in range(self.config.T_N)]  # toy
         x = np.asarray(x)
         x = self.encode_t(x)
+        print("XXXX", x)
         # print("continue_id = {}: [0, {}] is mapped to [{}, {}]".format(self.config.continue_id, self.config.T, len(x[0]), len(x[-1])))
         self.x = torch.tensor(x).float().to(self.device)
       
@@ -220,28 +221,57 @@ class SimpleNetworkAD(nn.Module):
         #                                 self.k_t, self.k_at, self.k_ma,
         #                                 self.k_tn, self.k_mtn,self.k_an,
         #                                 self.k_man, self.k_atn])
-        print("1",(self.general_para[2]*torch.pow(T,self.general_para[4])))
-        print("2",(torch.pow((self.general_para[3]),self.general_para[4])) )
-        print("3", torch.pow(T,self.general_para[4]))
+        # print(self.general_para[4])
+        # print("1",T, (torch.pow(-0.2483,self.general_para[4]+1)))
+        # print("2", (self.general_para[4]+1), (torch.pow(-0.2483,torch.floor(self.general_para[4]+1))))
 
-        print("4",(self.general_para[2]*torch.pow(T,self.general_para[4])) / (torch.pow((self.general_para[3]),self.general_para[4]) + torch.pow(T,self.general_para[4])) )
-        print("5",(self.general_para[5]*torch.pow(N,self.general_para[7])) / (torch.pow((self.general_para[6]),self.general_para[7]) + torch.pow(N,self.general_para[7])))
+        # f_a = A_t - (self.general_para[0] - self.general_para[1]*A  #   A metabolism
+        #              + (self.general_para[2]*torch.pow(T,self.general_para[4]+1)) / (torch.pow((self.general_para[3]),self.general_para[4]+1) + torch.pow(T,self.general_para[4]+1)) # T on A
+        #              + (self.general_para[5]*torch.pow(N,self.general_para[7]+1)) / (torch.pow((self.general_para[6]),self.general_para[7]+1) + torch.pow(N,self.general_para[7]+1)))  # N on A
+        #              #- self.general_para[8]*torch.matmul(A,self.Laplacian))
+        #
+        # f_t = T_t - (self.general_para[9] - self.general_para[10]*T
+        #         + (self.general_para[11]*torch.pow(T,self.general_para[13]+1)) / (torch.pow((self.general_para[12]),self.general_para[13]+1) + torch.pow(T,self.general_para[13]+1)) # T on A
+        #         + (self.general_para[14]*torch.pow(N,self.general_para[16]+1)) / (torch.pow((self.general_para[15]),self.general_para[16]+1) + torch.pow(N,self.general_para[16]+1)))  # N on A
+        #         #- self.general_para[17]*torch.matmul(A,self.Laplacian))
+        #
+        # f_n = N_t - (((self.general_para[18]*torch.pow(A,self.general_para[20]+1)) / (torch.pow((self.general_para[19]),self.general_para[20]+1) + torch.pow(T,self.general_para[20]+1)) # T on A
+        #         + (self.general_para[21]*torch.pow(T,self.general_para[23]+1)) / (torch.pow((self.general_para[22]),self.general_para[23]+1) + torch.pow(T,self.general_para[23]+1)) # T on A
+        #         + (self.general_para[24]*(torch.pow(A,self.general_para[26]+1)+ torch.pow(T,self.general_para[27]+1))) / (torch.pow((self.general_para[25]),self.general_para[26]+1) + torch.pow(A,self.general_para[26]+1 + torch.pow(T,self.general_para[27]+1))))  # N on A
+        #         )
+
+
+        # f_a = A_t - (self.general_para[0] - self.general_para[1]*A  #   A metabolism
+        #              + (self.general_para[2]*torch.pow(T,torch.floor(self.general_para[4]+1))) / (torch.pow((self.general_para[3]),torch.floor(self.general_para[4]+1)) + torch.pow(T,torch.floor(self.general_para[4]+1))) # T on A
+        #              + (self.general_para[5]*torch.pow(N,torch.floor(self.general_para[7]+1))) / (torch.pow((self.general_para[6]),torch.floor(self.general_para[7]+1)) + torch.pow(N,torch.floor(self.general_para[7]+1))))  # N on A
+        #              #- self.general_para[8]*torch.matmul(A,self.Laplacian))
+        #
+        # f_t = T_t - (self.general_para[9] - self.general_para[10]*T
+        #         + (self.general_para[11]*torch.pow(T,torch.floor(self.general_para[13]+1))) / (torch.pow((self.general_para[12]),torch.floor(self.general_para[13]+1)) + torch.pow(T,torch.floor(self.general_para[13]+1))) # T on A
+        #         + (self.general_para[14]*torch.pow(N,torch.floor(self.general_para[16]+1))) / (torch.pow((self.general_para[15]),torch.floor(self.general_para[16]+1)) + torch.pow(N,torch.floor(self.general_para[16]+1))))  # N on A
+        #         #- self.general_para[17]*torch.matmul(A,self.Laplacian))
+        #
+        # f_n = N_t - (((self.general_para[18]*torch.pow(A,torch.floor(self.general_para[20]+1))) / (torch.pow((self.general_para[19]),torch.floor(self.general_para[20]+1)) + torch.pow(A,torch.floor(self.general_para[20]+1))) # T on A
+        #         + (self.general_para[21]*torch.pow(T,torch.floor(self.general_para[23]+1))) / (torch.pow((self.general_para[22]),torch.floor(self.general_para[23]+1)) + torch.pow(T,torch.floor(self.general_para[23]+1))) # T on A
+        #         + (self.general_para[24]*(torch.pow(A,torch.floor(self.general_para[26]+1))+ torch.pow(T,torch.floor(self.general_para[27]+1)))) / (torch.pow((self.general_para[25]),torch.floor(self.general_para[26]+1)) + torch.pow(A,torch.floor(self.general_para[26]+1)) + torch.pow(T,torch.floor(self.general_para[27]+1))))  # N on A
+        #         )
 
 
         f_a = A_t - (self.general_para[0] - self.general_para[1]*A  #   A metabolism
-                     + (self.general_para[2]*torch.pow(T,self.general_para[4])) / (torch.pow((self.general_para[3]),self.general_para[4]) + torch.pow(T,self.general_para[4])) # T on A
-                     + (self.general_para[5]*torch.pow(N,self.general_para[7])) / (torch.pow((self.general_para[6]),self.general_para[7]) + torch.pow(N,self.general_para[7])))  # N on A
+                     + (self.general_para[2]*torch.pow(T,2)) / (torch.pow((self.general_para[3]),2) + torch.pow(T,2)) # T on A
+                     + (self.general_para[5]*torch.pow(N,2)) / (torch.pow((self.general_para[6]),2) + torch.pow(N,2)))  # N on A
                      #- self.general_para[8]*torch.matmul(A,self.Laplacian))
 
         f_t = T_t - (self.general_para[9] - self.general_para[10]*T
-                + (self.general_para[11]*torch.pow(T,self.general_para[13])) / (torch.pow((self.general_para[12]),self.general_para[13]) + torch.pow(T,self.general_para[13])) # T on A
-                + (self.general_para[14]*torch.pow(N,self.general_para[16])) / (torch.pow((self.general_para[15]),self.general_para[16]) + torch.pow(N,self.general_para[16])))  # N on A
+                + (self.general_para[11]*torch.pow(T,2)) / (torch.pow((self.general_para[12]),2) + torch.pow(T,2)) # T on A
+                + (self.general_para[14]*torch.pow(N,2)) / (torch.pow((self.general_para[15]),2) + torch.pow(N,2)))  # N on A
                 #- self.general_para[17]*torch.matmul(A,self.Laplacian))
 
-        f_n = N_t - (((self.general_para[18]*torch.pow(A,self.general_para[20])) / (torch.pow((self.general_para[19]),self.general_para[20]) + torch.pow(T,self.general_para[20])) # T on A
-                + (self.general_para[21]*torch.pow(T,self.general_para[23])) / (torch.pow((self.general_para[22]),self.general_para[23]) + torch.pow(T,self.general_para[23])) # T on A
-                + (self.general_para[24]*(torch.pow(A,self.general_para[26])+ torch.pow(T,self.general_para[27]))) / (torch.pow((self.general_para[25]),self.general_para[26]) + torch.pow(A,self.general_para[26] + torch.pow(T,self.general_para[27]))))  # N on A
-                )
+        f_n = N_t - (((self.general_para[18]*torch.pow(A,2)) / (torch.pow((self.general_para[19]),2) + torch.pow(A,2)) # T on A
+                + (self.general_para[21]*torch.pow(T,2)) / (torch.pow((self.general_para[22]),2) + torch.pow(T,2)) # T on A
+                + (self.general_para[24]*(torch.pow(A,2)+ torch.pow(T,2))) / (torch.pow((self.general_para[25]),2) + torch.pow(A,2) + torch.pow(T,2))))  # N on A
+
+
 
 
 
@@ -251,9 +281,9 @@ class SimpleNetworkAD(nn.Module):
         #             (self.k_an*torch.pow(A,self.beta)) / (torch.pow((self.k_man),self.beta) + torch.pow(A,self.beta))+
         #             self.k_atn*A*T)
 
-        print(self.general_para)
+        # print(self.general_para)
         f_y = torch.cat((f_a, f_t, f_n), 1)
-        print(f_y)
+        # print(f_y)
 
 
 
@@ -422,14 +452,29 @@ def train_ad(model, args, config, now_string):
                         'loss': loss.item()
                     }, model_save_path_best)
         if epoch % args.save_step == 0:
-            test_ad(model, args, config, now_string, model.general_para, model.true_para, True, model.gt, None)
+            test_ad(np.asarray(loss_record),model, args, config, now_string, model.general_para, model.true_para, True, model.gt, None)
             myprint("[Loss]", args.log_path)
             myprint("True parameter : {};".format( model.true_para), args.log_path)
             myprint("General parameter estimation: {};".format(model.general_para),args.log_path)
 
-            draw_loss(np.asarray(loss_record), 1.0)
+            # draw_loss(np.asarray(loss_record),args, config, now_string, 1.0)
             np.save(loss_save_path, np.asarray(loss_record))
             # np.save(loss_save_path, np.asarray(loss_record))
+
+
+    myprint("------------------------- FINISHED TRAINING ---------------------------------------------", args.log_path)
+    [equA, equT, equN] = test_ad(np.asarray(loss_record),model, args, config, now_string, model.general_para, model.true_para, True, model.gt, None)
+    myprint("[Loss]", args.log_path)
+    myprint("True parameter : {};".format(model.true_para), args.log_path)
+    myprint("General parameter estimation: {};".format(model.general_para), args.log_path)
+    # draw_loss(np.asarray(loss_record),args, config, now_string,  1.0)
+    np.save(loss_save_path, np.asarray(loss_record))
+    myprint("A: prod, degr, TonA, NonA", args.log_path)
+    myprint(np.mean(equA, 1), args.log_path)
+    myprint("T: prod, degr, AonT, NonT", args.log_path)
+    myprint( np.mean(equT, 1), args.log_path)
+    myprint("N: AonN, TonN, ATonN", args.log_path)
+    myprint( np.mean(equN, 1), args.log_path)
 
     best_loss = best_loss
     time_cost = (now_time - start_time_0) / 60.0
@@ -447,7 +492,7 @@ def train_ad(model, args, config, now_string):
     return model, res_dic
 
 
-def draw_loss(loss_list, last_rate=1.0):
+def draw_loss(loss_list,args, config, now_string, last_rate=1.0):
     draw_two_dimension(
         y_lists=[loss_list[-int(len(loss_list) * last_rate):]],
         x_list=range(len(loss_list) - int(len(loss_list) * last_rate) + 1, len(loss_list) + 1),
@@ -461,11 +506,11 @@ def draw_loss(loss_list, last_rate=1.0):
         fig_y_label="loss",
         fig_size=(8, 6),
         show_flag=False,
-        save_flag=False,
-        save_path=None
+        save_flag=True,
+        save_path=f"{args.main_path}/figure/{args.name}_id={args.seed}_{args.overall_start}/loss{get_now_string()}"
     )
 
-def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=True, gt=None, loss_2_details=None):
+def test_ad(loss_list,model, args, config, now_string, param_ls, param_true, show_flag=True, gt=None, loss_2_details=None):
     # print("--------------------------------------------------call test ad--------------------------------------------------")
     model.eval()
     myprint("Testing & drawing...", args.log_path)
@@ -476,7 +521,7 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
     y.append(model(t).cpu().detach().numpy())
     y = np.asarray(y)
 
-    num_timestep = 5000
+    num_timestep = 1650
 
     y = y.reshape([num_timestep, 3])
 
@@ -496,7 +541,6 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
                                                   f"{get_now_string()}_{args.name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_general.png"),
                          save_dpi=100)
     for i in range(3):
-        print(x.shape, np.transpose(np.asarray([x,x,x])).shape)
         ax = m.add_subplot(
             # y_lists=[y[:, i].reshape(num_timestep)],  # y_lists=[y[:,1:3]]
             # y_lists=[y[:, :].reshape(num_timestep,3)],  # y_lists=[y[:,1:3]]
@@ -512,7 +556,7 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
 
             y_lists=[y[:, i].reshape(num_timestep)],  # y_lists=[y[:,1:3]]
             x_list= x,color_list=colorlist[i],
-            line_width=6, fig_title_size=40, x_label_size=20, y_label_size=20,
+            line_width=6, fig_title_size=60, x_label_size=40, y_label_size=40,
             line_style_list=["solid"],
             fig_title=labels[i],
             fig_x_label="time",
@@ -524,75 +568,92 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
 
     param_ls = model.general_para.cpu().detach().numpy()
     param_true = model.true_para.cpu().detach().numpy()
-    param_ls.reshape(16)
+    param_ls.reshape(28)
     param_true.reshape(11)
 
     A = y[:, 0:1]
     T = y[:, 1:2]
     N = y[:, 2:3]
 
-    equA_metabolism = param_ls[0] * A * (1 - A)
-    equA_T = (param_ls[1] * np.power(T, 2)) / (np.power((param_ls[2]), 2) + np.power(T, 2))
-    equA_N = (param_ls[3] * np.power(T, 2)) / (np.power((param_ls[4]), 2) + np.power(T, 2))
+    equA_prod = np.array([param_ls[0]]*num_timestep)
+    equA_degr = -param_ls[1]* A
+    equA_T = (param_ls[2] * np.power(T, 2)) / (np.power((param_ls[3]), 2) + np.power(T, 2))
+    equA_N = (param_ls[5] * np.power(N, 2)) / (np.power((param_ls[6]), 2) + np.power(N, 2))
 
-    equT_metabolism = param_ls[5] * T * (1 - T)
-    equT_A = (param_ls[6] * np.power(A, 2)) / (np.power((param_ls[7]), 2) + np.power(A, 2))
-    equT_N = (param_ls[8] * np.power(A, 2)) / (np.power((param_ls[9]), 2) + np.power(A, 2))
+    equT_prod = np.array([param_ls[9]]*num_timestep)
+    equT_degr = -param_ls[10] * A
+    equT_A = (param_ls[11] * np.power(T, 2)) / (np.power((param_ls[12]), 2) + np.power(T, 2))
+    equT_N = (param_ls[14] * np.power(N, 2)) / (np.power((param_ls[15]), 2) + np.power(N, 2))
 
-    equN_A = (param_ls[10] * np.power(A, 2)) / (np.power((param_ls[11]), 2) + np.power(A, 2))
-    equN_T = (param_ls[12] * np.power(T, 2)) / (np.power((param_ls[13]), 2) + np.power(T, 2))
-    equN_AT = (param_ls[14] * np.power(T, 2)) / (np.power((param_ls[15]), 2) + np.power(T, 2))
+    equN_A = (param_ls[18] * np.power(A, 2)) / (np.power((param_ls[19]), 2) + np.power(A, 2))
+    equN_T = (param_ls[21] * np.power(T, 2)) / (np.power((param_ls[13]), 2) + np.power(T, 2))
+    equN_AT = (param_ls[24] * (np.power(A, 2) + np.power(T, 2))) / (np.power((param_ls[25]), 2) + np.power(T, 2)  + np.power(A, 2))
+
 
     # equA = np.array([equA_metabolism.reshape(num_timestep), equA_T.reshape(num_timestep), equA_N.reshape(num_timestep)])
     # equT = np.array([equT_metabolism.reshape(num_timestep), equT_A.reshape(num_timestep), equT_N.reshape(num_timestep)])
     # equN = np.array([equN_A.reshape(num_timestep), equN_T.reshape(num_timestep), equN_AT.reshape(num_timestep)])
 
-    equA = np.array([abs(equA_metabolism.reshape(num_timestep)), abs(equA_T.reshape(num_timestep)), abs(equA_N.reshape(num_timestep))])
-    equT = np.array([abs(equT_metabolism.reshape(num_timestep)), abs(equT_A.reshape(num_timestep)), abs(equT_N.reshape(num_timestep))])
+    equA = np.array([abs(equA_prod.reshape(num_timestep)), abs(equA_degr.reshape(num_timestep)), abs(equA_T.reshape(num_timestep)), abs(equA_N.reshape(num_timestep))])
+    equT = np.array([abs(equT_prod.reshape(num_timestep)), abs(equT_degr.reshape(num_timestep)),abs(equT_A.reshape(num_timestep)), abs(equT_N.reshape(num_timestep))])
     equN = np.array([abs(equN_A.reshape(num_timestep)), abs(equN_T.reshape(num_timestep)), abs(equN_AT.reshape(num_timestep))])
 
     equA = equA / np.sum(equA, axis=0)
     equT = equT / np.sum(equT, axis=0)
     equN = equN / np.sum(equN, axis=0)
 
-    ax1 = m.add_subplot(x_list=x, y_lists=[equT_metabolism],  color_list=['w'], fig_title="Equation A",line_style_list=["solid"],line_width=0.1, fig_title_size=40, x_label_size=20,y_label_size=20, fig_x_label = "time", fig_y_label = "% influence")
+    ax1 = m.add_subplot(x_list=x, y_lists=[equT_prod],  color_list=['w'], fig_title="Equation A",line_style_list=["solid"],line_width=0.1, fig_title_size=40, x_label_size=40,y_label_size=40, fig_x_label = "time", fig_y_label = "% influence")
 
-    ax1.stackplot(x, equA, labels=["equA_metabolism", "equA_T", "equA_N"],
-                  colors=["palegoldenrod", "lightblue", "cadetblue"])  # cornflowerblue palegoldenrod mediumaquamarine
-    ax1.legend(loc='upper left', fontsize=20)
+    ax1.stackplot(x, equA, labels=["equA_prod", "equA_degr",  "equA_T", "equA_N"],
+                  colors=["palegoldenrod", "lightblue", "cadetblue","steelblue"])  # cornflowerblue palegoldenrod mediumaquamarine
+    ax1.legend(loc='lower left', fontsize=20)
 
-    ax2 = m.add_subplot(x_list=x, y_lists=[equT_metabolism], color_list=['w'], fig_title="Equation T",line_style_list=["solid"], line_width=0.1, fig_title_size=40, x_label_size=20, y_label_size=20, fig_x_label="time", fig_y_label="% influence")
+    ax2 = m.add_subplot(x_list=x, y_lists=[equT_prod], color_list=['w'], fig_title="Equation T",line_style_list=["solid"], line_width=0.1, fig_title_size=40, x_label_size=40, y_label_size=40, fig_x_label="time", fig_y_label="% influence")
 
-    ax2.stackplot(x, equT, labels=["equT_metabolism", "equA_T", "equT_N"],
-                  colors=["palegoldenrod", "lightblue", "cadetblue"])  # cornflowerblue palegoldenrod mediumaquamarine
-    ax2.legend(loc='upper left', fontsize=20)
+    ax2.stackplot(x, equT, labels=["equT_prod", "equT_degr", "equA_T", "equT_N"],
+                  colors=["palegoldenrod", "lightblue", "cadetblue","steelblue"])  # cornflowerblue palegoldenrod mediumaquamarine
+    ax2.legend(loc='lower left', fontsize=20)
 
-    ax3 = m.add_subplot(x_list=x, y_lists=[equT_metabolism],color_list=['w'], fig_title="Equation N",line_style_list=["solid"],line_width=0.1, fig_title_size=40, x_label_size=20,y_label_size=20, fig_x_label = "time", fig_y_label = "% influence")
+    ax3 = m.add_subplot(x_list=x, y_lists=[equT_prod],color_list=['w'], fig_title="Equation N",line_style_list=["solid"],line_width=0.1, fig_title_size=40, x_label_size=40,y_label_size=40, fig_x_label = "time", fig_y_label = "% influence")
 
     ax3.stackplot(x, equN, labels=["equN_A", "equN_T", "equN_AT"],
                   colors=["palegoldenrod", "lightblue", "cadetblue"])  # cornflowerblue palegoldenrod mediumaquamarine
-    ax3.legend(loc='upper left', fontsize=20)
+    ax3.legend(loc='lower left', fontsize=20)
 
-    m.add_subplot(x_list=x, y_lists=[equA_metabolism, equA_T, equA_N],
-                  color_list=['b', 'r', 'g'], fig_title="Equation A",
-                  line_style_list=["solid", "solid", "solid"],
-                  legend_list=["equA_metabolism", "equA_T", "equA_N"], line_width=6, fig_title_size=40, x_label_size=20,
-                  y_label_size=20, fig_x_label="time",
-                  fig_y_label="influence")
+    # m.add_subplot(x_list=x, y_lists=[equA_metabolism, equA_T, equA_N],
+    #               color_list=['b', 'r', 'g'], fig_title="Equation A",
+    #               line_style_list=["solid", "solid", "solid"],
+    #               legend_list=["equA_metabolism", "equA_T", "equA_N"], line_width=6, fig_title_size=40, x_label_size=20,
+    #               y_label_size=20, fig_x_label="time",
+    #               fig_y_label="influence")
+    #
+    # m.add_subplot(x_list=x, y_lists=[equT_metabolism, equT_A, equT_N],
+    #               color_list=['b', 'r', 'g'], fig_title="Equation T",
+    #               line_style_list=["solid", "solid", "solid"],
+    #               legend_list=["equT_metabolism", "equA_T", "equT_N"], line_width=6, fig_title_size=40, x_label_size=20,
+    #               y_label_size=20, fig_x_label="time",
+    #               fig_y_label="influence")
+    #
+    # m.add_subplot(x_list=x, y_lists=[equN_A, equN_T, equN_AT],
+    #               color_list=['b', 'r', 'g'], fig_title="Equation N",
+    #               line_style_list=["solid", "solid", "solid"],
+    #               legend_list=["equN_A", "equN_T", "equN_AT"], line_width=6, fig_title_size=40, x_label_size=20,
+    #               y_label_size=20, fig_x_label="time",
+    #               fig_y_label="influence")
 
-    m.add_subplot(x_list=x, y_lists=[equT_metabolism, equT_A, equT_N],
-                  color_list=['b', 'r', 'g'], fig_title="Equation T",
-                  line_style_list=["solid", "solid", "solid"],
-                  legend_list=["equT_metabolism", "equA_T", "equT_N"], line_width=6, fig_title_size=40, x_label_size=20,
-                  y_label_size=20, fig_x_label="time",
-                  fig_y_label="influence")
 
-    m.add_subplot(x_list=x, y_lists=[equN_A, equN_T, equN_AT],
-                  color_list=['b', 'r', 'g'], fig_title="Equation N",
-                  line_style_list=["solid", "solid", "solid"],
-                  legend_list=["equN_A", "equN_T", "equN_AT"], line_width=6, fig_title_size=40, x_label_size=20,
-                  y_label_size=20, fig_x_label="time",
-                  fig_y_label="influence")
+    for last_rate in [0.25,0.5,1]:
+        m.add_subplot(x_list=range(len(loss_list) - int(len(loss_list) * last_rate) + 1, len(loss_list) + 1),
+                      y_lists=[loss_list[-int(len(loss_list) * last_rate):]],
+                      color_list=["black"],
+                      legend_list=["loss"],
+                      line_style_list=["solid"],
+                      fig_title="Loss - lastest {}% - epoch {} to {}".format(int(100 * last_rate), len(loss_list) - int(len(loss_list) * last_rate) + 1,len(loss_list)),
+                      fig_x_label="epoch",
+                      fig_y_label="loss",
+                      line_width=6, fig_title_size=40, x_label_size=40, y_label_size=40
+                      )
+
 
 
     m.draw()
@@ -607,6 +668,7 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
     np.save("{}/{}".format(pred_save_path_folder,
                            f"{get_now_string()}_{args.name}_id={args.seed}_{args.epoch}_{args.lr}_{now_string}_general_para"),
             model.general_para.cpu().detach().numpy())
+    return [equA, equT, equN]
 
 
 class Args:

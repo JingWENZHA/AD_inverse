@@ -78,19 +78,16 @@ class SimpleNetworkAD(nn.Module):
         self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         self.x, self.y0, self.t0 = None, None, None
         self.generate_x()
-        # self.optimizer = optim.LBFGS(self.parameters(), lr=0.001, max_iter=5000, max_eval=None, tolerance_grad=1e-05, tolerance_change=1e-09, history_size=100, line_search_fn=None)
-        # self.initial_start()
         self.model_name = "SimpleNetworkAD"
         self.gt = GroundTruthAD(self.config.T, self.config.T_N)
         self.gt_ytrue = self.gt.y_true.to(self.device)
         self.gt_ytrue_month = self.gt.y_true_month.to(self.device)
-        # self.gt_v = torch.tensor(self.gt.v).to(self.device)
 
         # parameters
         mat = scipy.io.loadmat('./Data/20220923YOUT.mat')
         self.Laplacian = torch.tensor(mat['avgNet']).float().to(self.device)[0:160, 0:160]
 
-        self.general_para = nn.Parameter(torch.abs(torch.rand(13,160))) #nn.Parameter(torch.abs(torch.rand(13)))#
+        self.general_para = nn.Parameter(torch.abs(torch.rand(28,160))) #nn.Parameter(torch.abs(torch.rand(13)))#
         # [self.k_a_nn, self.k_ta_nn, self.k_mt_nn, self.d_a,
         #   self.k_t_nn, self.k_at_nn, self.k_ma_nn, self.d_t,
         #   self.k_tn_nn, self.k_mtn_nn, self.k_an_nn,
@@ -103,11 +100,6 @@ class SimpleNetworkAD(nn.Module):
 
         self.sig = nn.Tanh()
         self.network_unit = 20
-
-        # # Design A
-        # self.sequences_A = nn.Sequential(block_design_a(self.network_unit, self.sig))
-        # self.sequences_T = nn.Sequential(block_design_a(self.network_unit, self.sig))
-        # self.sequences_N = nn.Sequential(block_design_a(self.network_unit, self.sig))
 
         A_blocks = [block_design_a(self.network_unit, self.sig) for i in range(self.config.Node // 3)]
         T_blocks = [block_design_a(self.network_unit, self.sig) for i in range(self.config.Node // 3)]
@@ -129,7 +121,6 @@ class SimpleNetworkAD(nn.Module):
         N_output = []
         # print(A_input.shape)
         for i in range(self.config.Node // 3):
-            # print(i,A_input[:,i:i+1].shape)
             A_output.append(self.sequences_A[i](A_input[:, i:i + 1]))
             T_output.append(self.sequences_T[i](T_input[:, i:i + 1]))
             N_output.append(self.sequences_N[i](N_input[:, i:i + 1]))
@@ -138,29 +129,13 @@ class SimpleNetworkAD(nn.Module):
         T_output = torch.cat(tuple(item for item in T_output), 1)
         N_output = torch.cat(tuple(item for item in N_output), 1)
 
-        # A_output = self.sequences_A(A_input)
-        # T_output = self.sequences_T(T_input)
-        # N_output = self.sequences_N(N_input)
-
         outputs = torch.cat((A_output, T_output, N_output), 1)
         return outputs
 
     def generate_x(self):
-        # x = [[i * self.config.T_unit for j in range(self.config.Node)] for i in range(self.config.N)]  # toy
-        # x = np.asarray(x)
-        # x = self.encode_t(x)
-        # print(
-        #     "continue_id = {}: [0, {}] is mapped to [{}, {}]".format(self.config.continue_id, self.config.T, len(x[0]),
-        #                                                              len(x[-1])))
-        # self.x = torch.Tensor(x).float().to(self.device)
-
-
-        print("--------------------------------------------------call generate x--------------------------------------------------")
         x = [[i * self.config.T_unit for j in range(self.config.Node)] for i in range(self.config.T_N)]  # toy
         x = np.asarray(x)
         x = self.encode_t(x)
-        # print(x.shape)
-        # print("continue_id = {}: [0, {}] is mapped to [{}, {}]".format(self.config.continue_id, self.config.T, len(x[0]), len(x[-1])))
         self.x = torch.tensor(x).float().to(self.device)
 
     def encode_t(self, num):
@@ -178,76 +153,81 @@ class SimpleNetworkAD(nn.Module):
             self.device), torch.tensor([0.0]).to(self.device)
 
         y = self.forward(self.x)
-        # print(y.shape)
-        # print("output x" , self.x.size())
-        # print("output y" ,y.size())
         A = y[:, 0:160]
         T = y[:, 160:320]
         N = y[:, 320:480]
 
-        # A_t = torch.gradient(A.reshape([self.config.T_N]), spacing=(self.decode_t(self.x).reshape([self.config.T_N]),))[0].reshape([self.config.T_N, 1])
-        # T_t = torch.gradient(T.reshape([self.config.T_N]), spacing=(self.decode_t(self.x).reshape([self.config.T_N]),))[0].reshape([self.config.T_N, 1])
-        # N_t = torch.gradient(N.reshape([self.config.T_N]), spacing=(self.decode_t(self.x).reshape([self.config.T_N]),))[0].reshape([self.config.T_N, 1])
         A_t_collection, T_t_collection, N_t_collection, C_t_collection = [], [], [], []
         for ii in range(self.config.Node // 3):
-            A_t_collection.append(torch.gradient(A[:, ii:ii + 1].reshape([self.config.T_N]),
-                                                 spacing=(self.encode_t(self.x)[:, 0:1].reshape([self.config.T_N]),))[
-                                      0].reshape([self.config.T_N, 1]))  # u_t = y_t[:, 0:1]
-            T_t_collection.append(torch.gradient(T[:, ii:ii + 1].reshape([self.config.T_N]),
-                                                 spacing=(self.encode_t(self.x)[:, 0:1].reshape([self.config.T_N]),))[
-                                      0].reshape([self.config.T_N, 1]))  # u_t = y_t[:, 0:1]
-            N_t_collection.append(torch.gradient(N[:, ii:ii + 1].reshape([self.config.T_N]),
-                                                 spacing=(self.encode_t(self.x)[:, 0:1].reshape([self.config.T_N]),))[
-                                      0].reshape([self.config.T_N, 1]))  # u_t = y_t[:, 0:1]
+            A_t_collection.append(torch.gradient(A[:, ii:ii + 1].reshape([self.config.T_N]), spacing=(self.encode_t(self.x)[:, 0:1].reshape([self.config.T_N]),))[0].reshape([self.config.T_N, 1]))  # u_t = y_t[:, 0:1]
+            T_t_collection.append(torch.gradient(T[:, ii:ii + 1].reshape([self.config.T_N]), spacing=(self.encode_t(self.x)[:, 0:1].reshape([self.config.T_N]),))[0].reshape([self.config.T_N, 1]))  # u_t = y_t[:, 0:1]
+            N_t_collection.append(torch.gradient(N[:, ii:ii + 1].reshape([self.config.T_N]), spacing=(self.encode_t(self.x)[:, 0:1].reshape([self.config.T_N]),))[0].reshape([self.config.T_N, 1]))  # u_t = y_t[:, 0:1]
 
 
         A_t = torch.cat(A_t_collection, 1)
         T_t = torch.cat(T_t_collection, 1)
         N_t = torch.cat(N_t_collection, 1)
 
-        # print("--------------------------------------------------call f_a --------------------------------------------------")
+        # fixed hill efficient
+        f_a = A_t - (self.general_para[0,:] - self.general_para[1,:]*A  #   A metabolism
+                     + (self.general_para[2,:]*torch.pow(T,2)) / (torch.pow((self.general_para[3,:]),2) + torch.pow(T,2)) # T on A
+                     + (self.general_para[5,:]*torch.pow(N,2)) / (torch.pow((self.general_para[6,:]),2) + torch.pow(N,2)))  # N on A
+                    # - self.general_para[8,:]*torch.matmul(A,self.Laplacian))
 
-        # f_a = A_t - (self.k_a_nn*A*(1 - A) + (self.k_ta_nn*torch.pow(T,self.theta)) / (torch.pow((self.k_mt_nn),self.theta) + torch.pow(T,self.theta))) #- self.config.d_a*torch.matmul(A,self.Laplacian))
-        # f_t = T_t - (self.k_t_nn*T*(1 - T) + (self.k_at_nn*torch.pow(A,self.delta)) / (torch.pow((self.k_ma_nn),self.delta) + torch.pow(A,self.delta))) #- self.config.d_t*torch.matmul(T,self.Laplacian))
-        # f_n = N_t - ((self.k_tn_nn*torch.pow(T,self.gamma)) / (torch.pow((self.k_mtn_nn),self.gamma) + torch.pow(T,self.gamma))+
-        #             (self.k_an_nn*torch.pow(A,self.beta)) / (torch.pow((self.k_man_nn),self.beta) + torch.pow(A,self.beta))+
-        #             self.k_atn_nn*A*T)
+        f_t = T_t - (self.general_para[9,:] - self.general_para[10,:]*T
+                + (self.general_para[11,:]*torch.pow(T,2)) / (torch.pow((self.general_para[12,:]),2) + torch.pow(T,2)) # T on A
+                + (self.general_para[14,:]*torch.pow(N,2)) / (torch.pow((self.general_para[15,:]), 2) + torch.pow(N,2))) # N on A
+                #- self.general_para[17,:]*torch.matmul(A,self.Laplacian))
 
-        # self.true_para = torch.tensor([self.k_a, self.k_ta, self.k_mt,
-        #                                 self.k_t, self.k_at, self.k_ma,
-        #                                 self.k_tn, self.k_mtn,self.k_an,
-        #                                 self.k_man, self.k_atn])
-        # print("sht ",self.general_para[0,:].shape,  A.shape )
-        f_a = A_t - (self.general_para[0,:] - self.general_para[11,:] * A + (self.general_para[1,:] * torch.pow(T, self.theta)) / (
-                    torch.pow((self.general_para[2,:]), self.theta) + torch.pow(T,self.theta)) )#- self.general_para[11,:]*torch.matmul(A,self.Laplacian))
-        f_t = T_t - (self.general_para[3,:] - self.general_para[12,:] * T + (self.general_para[4,:] * torch.pow(A, self.delta)) / (
-                    torch.pow((self.general_para[5,:]), self.delta) + torch.pow(A, self.delta)) )# - self.general_para[12,:]*torch.matmul(T,self.Laplacian))
-        f_n = N_t - ((self.general_para[6,:] * torch.pow(T, self.gamma)) / (torch.pow((self.general_para[7,:]), self.gamma) + torch.pow(T, self.gamma)) +
-                     (self.general_para[8,:] * torch.pow(A, self.beta)) / (torch.pow((self.general_para[9,:]), self.beta) + torch.pow(A, self.beta)) +
-                     self.general_para[10,:] * A * T)
+        f_n = N_t - (((self.general_para[18,:]*torch.pow(A,2)) / (torch.pow((self.general_para[19,:]),2) + torch.pow(A,2)) # T on A
+                + (self.general_para[21,:]*torch.pow(T,2)) / (torch.pow((self.general_para[22,:]),2) + torch.pow(T,2)) # T on A
+                + (self.general_para[24,:]*(torch.pow(A,2)+ torch.pow(T,2))) / (torch.pow((self.general_para[25,:]),2) + torch.pow(A,2) + torch.pow(T,2))))  # N on A
 
-        # f_a = A_t - (self.k_a*A*(1 - A) + (self.k_ta*torch.pow(T,self.theta)) / (torch.pow((self.k_mt),self.theta) + torch.pow(T,self.theta))) #- self.config.d_a*torch.matmul(A,self.Laplacian))
-        # f_t = T_t - (self.k_t*T*(1 - T) + (self.k_at*torch.pow(A,self.delta)) / (torch.pow((self.k_ma),self.delta) + torch.pow(A,self.delta))) #- self.config.d_t*torch.matmul(T,self.Laplacian))
-        # f_n = N_t - ((self.k_tn*torch.pow(T,self.gamma)) / (torch.pow((self.k_mtn),self.gamma) + torch.pow(T,self.gamma))+
-        #             (self.k_an*torch.pow(A,self.beta)) / (torch.pow((self.k_man),self.beta) + torch.pow(A,self.beta))+
-        #             self.k_atn*A*T)
+        # no diffusion
+        # f_a = A_t - (self.general_para[0,:] - self.general_para[1,:]*A  #   A metabolism
+        #              + (self.general_para[2,:]*torch.pow(T,self.general_para[4,:])) / (torch.pow((self.general_para[3,:]),self.general_para[4,:]) + torch.pow(T,self.general_para[4,:])) # T on A
+        #              + (self.general_para[5,:]*torch.pow(N,self.general_para[7,:])) / (torch.pow((self.general_para[6,:]),self.general_para[7,:]) + torch.pow(N,self.general_para[7,:]))  # N on A
+        #              ) #- self.general_para[8,:]*torch.matmul(A,self.Laplacian))
+        #
+        # f_t = T_t - (self.general_para[9,:] - self.general_para[10,:]*T
+        #         + (self.general_para[11,:]*torch.pow(T,self.general_para[13,:])) / (torch.pow((self.general_para[12,:]),self.general_para[13,:]) + torch.pow(T,self.general_para[13,:])) # T on A
+        #         + (self.general_para[14,:]*torch.pow(N,self.general_para[16,:])) / (torch.pow((self.general_para[15,:]), self.general_para[16,:]) + torch.pow(N,self.general_para[16,:])) # N on A
+        #         ) #- self.general_para[17,:]*torch.matmul(A,self.Laplacian))
+        #
+        # f_n = N_t - (((self.general_para[18,:]*torch.pow(A,self.general_para[20,:])) / (torch.pow((self.general_para[19,:]),self.general_para[20,:]) + torch.pow(A,self.general_para[20,:])) # T on A
+        #         + (self.general_para[21,:]*torch.pow(T,self.general_para[23,:])) / (torch.pow((self.general_para[22,:]),self.general_para[23,:]) + torch.pow(T,self.general_para[23,:])) # T on A
+        #         + (self.general_para[24,:]*(torch.pow(A,self.general_para[26,:])+ torch.pow(T,self.general_para[27,:]))) / (torch.pow((self.general_para[25,:]),2) + torch.pow(A,self.general_para[26,:]) + torch.pow(T,self.general_para[27,:]))))  # N on A
+
+        #full
+        # f_a = A_t - (self.general_para[0,:] - self.general_para[1,:]*A  #   A metabolism
+        #              + (self.general_para[2,:]*torch.pow(T,self.general_para[4,:])) / (torch.pow((self.general_para[3,:]),self.general_para[4,:]) + torch.pow(T,self.general_para[4,:])) # T on A
+        #              + (self.general_para[5,:]*torch.pow(N,self.general_para[7,:])) / (torch.pow((self.general_para[6,:]),self.general_para[7,:]) + torch.pow(N,self.general_para[7,:]))  # N on A
+        #              - self.general_para[8,:]*torch.matmul(A,self.Laplacian))
+        #
+        # f_t = T_t - (self.general_para[9,:] - self.general_para[10,:]*T
+        #         + (self.general_para[11,:]*torch.pow(T,self.general_para[13,:])) / (torch.pow((self.general_para[12,:]),self.general_para[13,:]) + torch.pow(T,self.general_para[13,:])) # T on A
+        #         + (self.general_para[14,:]*torch.pow(N,self.general_para[16,:])) / (torch.pow((self.general_para[15,:]), self.general_para[16,:]) + torch.pow(N,self.general_para[16,:])) # N on A
+        #         - self.general_para[17,:]*torch.matmul(A,self.Laplacian))
+        #
+        # f_n = N_t - (((self.general_para[18,:]*torch.pow(A,self.general_para[20,:])) / (torch.pow((self.general_para[19,:]),self.general_para[20,:]) + torch.pow(A,self.general_para[20,:])) # T on A
+        #         + (self.general_para[21,:]*torch.pow(T,self.general_para[23,:])) / (torch.pow((self.general_para[22,:]),self.general_para[23,:]) + torch.pow(T,self.general_para[23,:])) # T on A
+        #         + (self.general_para[24,:]*(torch.pow(A,self.general_para[26,:])+ torch.pow(T,self.general_para[27,:]))) / (torch.pow((self.general_para[25,:]),2) + torch.pow(A,self.general_para[26,:]) + torch.pow(T,self.general_para[27,:]))))  # N on A
+
+
+
 
         f_y = torch.cat((f_a, f_t, f_n), 1)
 
-        # print("--------------------------------------------------calculate gradient--------------------------------------------------")
 
         # L2 norm
         self.loss_norm = torch.nn.MSELoss().to(self.device)
         # zeros_1D = torch.tensor([[0.0]] * self.config.N).to(self.device)
 
         zeros_2D = torch.tensor([[0.0 for i in range(self.config.Node)] for j in range(self.config.N)]).to(self.device)
-        # print(y.shape,self.gt_ytrue_month)
-        # atn_nodal_region = torch.tensor([num_node, num_node+160, num_node+320])
         y_totrain = torch.index_select(y, 0, self.gt_ytrue_month)
-        # print("----------------- ytotrain ", y.shape, y_totrain.shape)
         loss_1 = self.loss_norm(y_totrain, self.gt_ytrue)
 
-        # self.y_true = torch.tensor(mat['ptData_stacked_20220915'][:, 1:, :].reshape(184, 13, 3)).float()
+
 
         if self.config.loss2_partial_flag:
             new_period = int(self.config.continue_period * self.config.T_all / self.config.T_unit)
@@ -317,7 +297,6 @@ def train_ad(model, args, config, now_string):
     now_time = 0
     loss_record = []
     param_ls = []
-    param_true = []
 
     myprint(
         "--------------------------------------------------training start--------------------------------------------------",
@@ -373,9 +352,8 @@ def train_ad(model, args, config, now_string):
                         'loss': loss.item()
                     }, model_save_path_best)
         if epoch % args.save_step == 0:
-            test_ad(model, args, config, now_string, model.general_para, model.true_para, True, model.gt, None)
+            test_ad(np.asarray(loss_record),model, args, config, now_string, model.general_para, True, model.gt, None)
             myprint("[Loss]", args.log_path)
-            myprint("True parameter : {};".format(model.true_para), args.log_path)
             myprint("avg General parameter estimation: {};".format(torch.mean(model.general_para,1)), args.log_path)
 
             draw_loss(np.asarray(loss_record), 1.0)
@@ -417,7 +395,7 @@ def draw_loss(loss_list, last_rate=1.0):
     )
 
 
-def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=True, gt=None, loss_2_details=None):
+def test_ad(loss_list, model, args, config, now_string, param_ls, show_flag=True, gt=None, loss_2_details=None):
     # print("--------------------------------------------------call test ad--------------------------------------------------")
     t_all = 1630
     model.eval()
@@ -475,61 +453,17 @@ def test_ad(model, args, config, now_string, param_ls, param_true, show_flag=Tru
             #     print(model.gt_ytrue[:,j+i*160].cpu().detach().numpy())
             ax.plot((model.gt_ytrue_month.cpu().detach().numpy())/10, model.gt_ytrue[:,j+i*160].cpu().detach().numpy(), color = colorlist[i], linestyle='dashed', marker='s')
 
-    # param_ls = model.general_para.cpu().detach().numpy()
-    # param_true = model.true_para.cpu().detach().numpy()
-    # param_ls.reshape(13)
-    # param_true.reshape(13)
-
-    # A = y[:, 0:160]
-    # T = y[:, 160:320]
-    # N = y[:, 320:480]
-
-    # A_TonA = (param_ls[1] * np.power(T, 2)) / (np.power((param_ls[2]), 2) + np.power(T, 2))
-    # T_AonT = (param_ls[4] * np.power(A, 2)) / (np.power((param_ls[5]), 2) + np.power(A, 2))
-    # N_AonN = (param_ls[8] * np.power(A, 2)) / (np.power((param_ls[9]), 2) + np.power(A, 2))
-    # N_TonN = (param_ls[6] * np.power(T, 2)) / (np.power((param_ls[7]), 2) + np.power(T, 2))
-    # N_ATonN = param_ls[10] * A * T
-
-    # print(A.shape, Laplacian.shape)
-    # A_diff = param_ls[11]*np.matmul(A,Laplacian)
-    # T_diff = param_ls[12] * np.matmul(T, Laplacian)
-
-    # A_prod = param_ls[0] * A * (1 - A)
-    # T_prod = param_ls[3] * T * (1 - T)
-
-    # # matlab
-    # A_TonA_matlab = (param_true[1] * np.power(T, 2)) / (np.power((param_true[2]), 2) + np.power(T, 2))
-    # T_AonT_matlab = (param_true[4] * np.power(A, 2)) / (np.power((param_true[5]), 2) + np.power(A, 2))
-    # N_AonN_matlab = (param_true[8] * np.power(A, 2)) / (np.power((param_true[9]), 2) + np.power(A, 2))
-    # N_TonN_matlab = (param_true[6] * np.power(T, 2)) / (np.power((param_true[7]), 2) + np.power(T, 2))
-    # N_ATonN_matlab = param_true[10] * A * T
-
-    # A_prod_matlab = param_true[0] * A * (1 - A)
-    # T_prod_matlab = param_true[3] * T * (1 - T)
-
-    # A_diff_matlab = param_true[11] * np.matmul(A, Laplacian)
-    # T_diff_matlab = param_true[12] * np.matmul(T, Laplacian)
-
-
-    # m.add_subplot(x_list=x, y_lists=[A_TonA, A_prod, A_diff, A_TonA_matlab, A_prod_matlab, A_diff_matlab],
-    #               color_list=['b', 'r', 'g','lightskyblue', 'lightcoral', 'darkseagreen'], fig_title="Euqation A",
-    #               line_style_list=["solid", "solid","solid", "dashed", "dashed", "dashed"], line_width=1)
-
-    # m.add_subplot(x_list=x, y_lists=[T_AonT, T_prod, T_diff, T_AonT_matlab, T_prod_matlab, T_diff_matlab],
-    #               color_list=['b', 'r', 'g', 'lightskyblue', 'lightcoral', 'darkseagreen'], fig_title="Euqation T",
-    #               line_style_list=["solid", "solid", "solid", "dashed","dashed", "dashed"], line_width=1)
-
-    # m.add_subplot(x_list=x, y_lists=[N_AonN, N_AonN_matlab],
-    #               color_list=['b', 'b'], fig_title="Euqation N part 1",
-    #               line_style_list=["solid", "dashed"], line_width=1)
-
-    # m.add_subplot(x_list=x, y_lists=[N_TonN, N_TonN_matlab],
-    #               color_list=['b', 'b'], fig_title="Euqation N part 2",
-    #               line_style_list=["solid", "dashed"],line_width=1)
-
-    # m.add_subplot(x_list=x, y_lists=[N_ATonN, N_ATonN_matlab],
-    #               color_list=['b', 'b'], fig_title="Euqation N part 3",
-    #               line_style_list=["solid", "dashed"], line_width=1)
+    for last_rate in [0.25,0.5,1]:
+        m.add_subplot(x_list=range(len(loss_list) - int(len(loss_list) * last_rate) + 1, len(loss_list) + 1),
+                      y_lists=[loss_list[-int(len(loss_list) * last_rate):]],
+                      color_list=["black"],
+                      legend_list=["loss"],
+                      line_style_list=["solid"],
+                      fig_title="Loss - lastest {}% - epoch {} to {}".format(int(100 * last_rate), len(loss_list) - int(len(loss_list) * last_rate) + 1,len(loss_list)),
+                      fig_x_label="epoch",
+                      fig_y_label="loss",
+                      line_width=6, fig_title_size=40, x_label_size=40, y_label_size=40
+                      )
 
     m.draw()
     pred_save_path_folder = f"{args.main_path}/saves/{args.name}_id={args.seed}_{args.overall_start}_general/"
@@ -606,3 +540,8 @@ if __name__ == "__main__":
     myprint("cuda is available: {}".format(torch.cuda.is_available()), opt.log_path)
 
     run_ad_truth(opt)
+
+
+
+
+
